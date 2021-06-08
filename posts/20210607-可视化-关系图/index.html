@@ -31,7 +31,7 @@
                             "url": "https:\/\/unclehuzi.github.io\/posts\/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE\/featured-image.jpg",
                             "width":  908 ,
                             "height":  508 
-                        }],"genre": "posts","keywords": "可视化, pyecharts","wordCount":  86 ,
+                        }],"genre": "posts","keywords": "可视化, pyecharts","wordCount":  196 ,
         "url": "https:\/\/unclehuzi.github.io\/posts\/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE\/","datePublished": "2021-06-07T16:48:11+08:00","dateModified": "2021-06-07T16:48:11+08:00","description": ""
     }
     </script><script type="application/ld+json">
@@ -177,7 +177,7 @@
                             </span><span class="post-meta-date meta-item">
                                 <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-06-07">2021-06-07</time>
                             </span><span class="post-meta-words meta-item">
-                                <span class="svg-icon icon-pencil"></span>86 words
+                                <span class="svg-icon icon-pencil"></span>196 words
                             </span>
                             <span class="post-meta-reading meta-item">
                                 <span class="svg-icon icon-stopwatch"></span>One minute
@@ -203,6 +203,14 @@
                         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#数据样例">数据样例</a></li>
+    <li><a href="#格式说明">格式说明</a>
+      <ul>
+        <li><a href="#nodes">nodes</a></li>
+        <li><a href="#links">links</a></li>
+        <li><a href="#categories">categories</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
                     </div><p>以官方例子：<a href="https://gallery.pyecharts.org/#/Graph/graph_weibo" target="_blank" rel="noopener noreffer">微博转发关系图</a>为例，说明所需要的数据格式</p>
@@ -233,6 +241,9 @@
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">json</span>
@@ -244,13 +255,16 @@
     <span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">nodes</span><span class="p">,</span> <span class="n">links</span><span class="p">,</span> <span class="n">categories</span><span class="p">,</span> <span class="n">cont</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">userl</span> <span class="o">=</span> <span class="n">j</span>
 <span class="n">c</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">Graph</span><span class="p">()</span>
+    <span class="n">Graph</span><span class="p">(</span><span class="n">init_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">InitOpts</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s2">&#34;1920px&#34;</span>
+                                 <span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="s2">&#34;1080px&#34;</span><span class="p">))</span>
     <span class="o">.</span><span class="n">add</span><span class="p">(</span>
         <span class="s2">&#34;&#34;</span><span class="p">,</span>
         <span class="n">nodes</span><span class="p">,</span>
         <span class="n">links</span><span class="p">,</span>
         <span class="n">categories</span><span class="p">,</span>
-        <span class="n">repulsion</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">repulsion</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>  <span class="c1"># 节点之间的斥力因子。值越大则斥力越大</span>
+    	<span class="c1"># 支持设置成数组表达斥力的范围，此时不同大小的值会线性映射到不同的斥力。</span>
+        <span class="n">gravity</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>  <span class="c1"># 节点受到的向中心的引力因子。该值越大节点越往中心点靠拢。</span>
         <span class="n">linestyle_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LineStyleOpts</span><span class="p">(</span><span class="n">curve</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span>
         <span class="n">label_opts</span><span class="o">=</span><span class="n">opts</span><span class="o">.</span><span class="n">LabelOpts</span><span class="p">(</span><span class="n">is_show</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
     <span class="p">)</span>
@@ -263,7 +277,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p><code>weibo.json</code> 文件，可从 <a href="https://github.com/pyecharts/pyecharts-gallery/blob/master/Graph/weibo.json" target="_blank" rel="noopener noreffer">这儿</a> 获取</p>
-<p>主要由5部分组成<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>主要由5部分组成</p>
 <p>
 
 
@@ -283,7 +297,106 @@
 <li>mid</li>
 <li>userl</li>
 </ul>
-<head> 
+<h2 id="格式说明" class="headerLink"><a href="#%e6%a0%bc%e5%bc%8f%e8%af%b4%e6%98%8e" class="header-mark"></a>格式说明</h2><div class="details admonition note open">
+        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-note"></i>说明<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
+        <div class="details-content">
+            <div class="admonition-content">本文聚焦在前三个的数据格式说明。每一部分是个<code>list</code>，每个<code>list</code> 又由多个<code>dict</code>组成</div>
+        </div>
+    </div>
+<p>以“转发微博”作为场景简单阐述关系图所展示的信息：某位具有影响力的微博用户A 发了条微博，被用户B、C、D看到并转发了；之后，用户E、F、G也转发了B所转发的这篇文章，以此类推</p>
+<p>那么，这个过程中涉及到的每个用户便是一个<code>node</code>。为此，也以 <code>nodes</code>作为切入点展开说明</p>
+<h3 id="nodes" class="headerLink"><a href="#nodes" class="header-mark"></a>nodes</h3><p>样例如下所示，</p>
+<p>
+
+
+
+    
+<img loading="lazy" decoding="async"
+         class="render-image"
+         src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608150552783.png"
+         alt="node-example"
+         title="image-20210608150552783.png"
+    /></p>
+<p>记录着节点的信息<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Camel3942&#34;</span><span class="p">,</span>            <span class="err">#</span> <span class="err">节点名称，即博主昵称</span>
+    <span class="nt">&#34;symbolSize&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>        		<span class="err">#</span> <span class="err">图中标志大小</span>     
+    <span class="nt">&#34;draggable&#34;</span><span class="p">:</span> <span class="s2">&#34;False&#34;</span><span class="p">,</span>        	<span class="err">#</span> <span class="err">是否可拖动</span>
+    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>        				<span class="err">#</span> <span class="err">被再次转发次数</span>
+    <span class="nt">&#34;category&#34;</span><span class="p">:</span> <span class="s2">&#34;Camel3942&#34;</span><span class="p">,</span>          <span class="err">#</span> <span class="err">From</span> <span class="err">Where</span>
+    <span class="nt">&#34;label&#34;</span><span class="p">:</span> <span class="p">{</span>	                    <span class="err">#</span> <span class="err">此博主被再次转发后，含有此标签，否则不含</span>
+    	<span class="nt">&#34;normal&#34;</span><span class="p">:</span> <span class="p">{</span>
+    		<span class="nt">&#34;show&#34;</span><span class="p">:</span> <span class="s2">&#34;True&#34;</span>
+            	<span class="p">}</span>
+            <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition warning open">
+        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-warning"></i>警告<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
+        <div class="details-content">
+            <div class="admonition-content">节点名称（<code>name</code>）不能重复</div>
+        </div>
+    </div>
+<h3 id="links" class="headerLink"><a href="#links" class="header-mark"></a>links</h3><p>个人理解作用是将每个<code>node</code> 连接起来</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;新浪体育&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;Beijingold4&#34;</span>
+<span class="p">}</span><span class="err">,</span>
+<span class="p">{</span>
+    <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;Camel3942&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;target&#34;</span><span class="p">:</span> <span class="s2">&#34;xiaoA&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="categories" class="headerLink"><a href="#categories" class="header-mark"></a>categories</h3><p>而这部分则记录着<strong>有被他人转发</strong>的用户名称（<code>name</code>），即 <code>links</code> 中 <code>source</code> 所对应的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;新浪体育&#34;</span>
+<span class="p">}</span><span class="err">,</span>
+<span class="p">{</span>
+    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Camel3942&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference" class="headerLink"><a href="#reference" class="header-mark"></a>Reference</h2><head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
 </head> 
@@ -291,7 +404,10 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="http://www.baidu.com">www.baidu.com</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://blog.csdn.net/qq_35006861/article/details/116721589">https://blog.csdn.net/qq_35006861/article/details/116721589</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://blog.csdn.net/Kevin_HZH/article/details/91043392">https://blog.csdn.net/Kevin_HZH/article/details/91043392</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section></div><footer>
