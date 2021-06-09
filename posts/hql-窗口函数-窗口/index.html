@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noodp"/><title>窗口函数的“窗口” | </title><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+<meta name="twitter:title" content="窗口函数的“窗口”"/>
+<meta name="twitter:description" content=""/><meta name="Description" content="个人学习记录"><meta property="og:title" content="窗口函数的“窗口”" />
+<meta property="og:description" content="详述“窗口”的概念，结合初中数学中区间的概念来理解&lt;window_frame&gt;，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-09T11:53:32&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-09T11:53:32&#43;08:00" />
+
+<meta name="application-name" content="胡子叔叔的小站">
+<meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/lib/prismjs/prism.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "窗口函数的“窗口”",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/unclehuzi.github.io\/posts\/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/unclehuzi.github.io\/posts\/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3\/featured-image.jpg",
+                            "width":  5452 ,
+                            "height":  3635 
+                        }],"genre": "posts","keywords": "SQL","wordCount":  208 ,
+        "url": "https:\/\/unclehuzi.github.io\/posts\/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3\/","datePublished": "2021-06-09T11:53:32+08:00","dateModified": "2021-06-09T11:53:32+08:00","description": ""
+    }
+    </script><script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https:\/\/unclehuzi.github.io\/"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "数据分析",
+            "item": "https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"
+        },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "窗口函数的“窗口”"
+            }]
+    }
+</script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header>
+    <div class="desktop header" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="胡子叔叔的小站" class="header-logo logo-svg"><img loading="lazy" decoding="async"
+         class="logo"
+         src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+         alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+         title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+    />胡子叔叔的小站</a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul class="menu-inner"><li>
+                            <a class="menu-item" href="/posts/"> 文章 </a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/"> 标签 </a>
+                        </li><li>
+                            <a class="menu-item" href="/categories/"> 分类 </a>
+                        </li><li>
+                            <a class="menu-item" href="/about/"> About </a>
+                        </li></ul>
+                </nav><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <span class="svg-icon icon-search"></span>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <span class="svg-icon icon-cancel"></span>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <span class="svg-icon icon-loading"></span>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <span class="svg-icon icon-moon"></span>
+                </a>
+            </div>
+        </div>
+    </div><div class="mobile header" id="header-mobile">
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-title">
+                    <a href="/" title="胡子叔叔的小站" class="header-logo"><img loading="lazy" decoding="async"
+         class="logo"
+         src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+         alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+         title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+    />胡子叔叔的小站</a>
+                </div>
+                <div class="menu-toggle" id="menu-toggle-mobile">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                        <div class="search mobile" id="search-mobile">
+                            <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                                <span class="svg-icon icon-search"></span>
+                            </a>
+                            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                                <span class="svg-icon icon-cancel"></span>
+                            </a>
+                            <span class="search-button search-loading" id="search-loading-mobile">
+                                <span class="svg-icon icon-loading"></span>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                            Cancel
+                        </a>
+                    </div><nav>
+                    <h2 class="display-hidden">Основная навигация</h2>
+                    <ul><li>
+                            <a class="menu-item" href="/posts/" title="">文章</a>
+                        </li><li>
+                            <a class="menu-item" href="/tags/" title="">标签</a>
+                        </li><li>
+                            <a class="menu-item" href="/categories/" title="">分类</a>
+                        </li><li>
+                            <a class="menu-item" href="/about/" title="">About</a>
+                        </li></ul>
+                </nav>
+                <a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <span class="svg-icon icon-moon"></span>
+                </a></div>
+        </div>
+    </div><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div></header><main class="main">
+<div class="container content-article page-toc theme-classic"><div class="toc" id="toc-auto">
+            <div class="toc-title">Contents</div>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div>
+
+    
+    
+    <article>
+    
+
+        <header class="header-post">
+
+            
+
+            
+            <div class="post-title">
+
+                    <div class="post-all-meta">
+                        <nav class="breadcrumbs">
+    <ol>
+        <li><a href="/">Home </a></li><li><a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析 </a></li><li>窗口函数的“窗口”</li>
+    </ol>
+</nav>
+                        <h1 class="single-title flipInX">窗口函数的“窗口”</h1><div class="post-meta summary-post-meta"><span class="post-category meta-item">
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><span class="svg-icon icon-folder"></span>数据分析</a>
+                            </span><span class="post-meta-date meta-item">
+                                <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-06-09">2021-06-09</time>
+                            </span><span class="post-meta-words meta-item">
+                                <span class="svg-icon icon-pencil"></span>208 words
+                            </span>
+                            <span class="post-meta-reading meta-item">
+                                <span class="svg-icon icon-stopwatch"></span>One minute
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                </header>
+
+        <div class="article-post toc-start">
+
+            <div class="content-block content-block-first content-block-position">
+
+                <div class="post single"><div class="image-theme-classic">
+                        <img src="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/featured-image.jpg" style="width: 100%">
+                    </div><div class="details toc" id="toc-static"  data-kept="">
+                        <div class="details-summary toc-title">
+                            <span>Contents</span>
+                        </div>
+                        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#实现的功能">实现的功能</a></li>
+    <li><a href="#语法规则">语法、规则</a></li>
+    <li><a href="#应用一个例子">应用：一个例子</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+                    </div><p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>
+<hr>
+<p>基于之前整理的</p>
+<ol>
+<li>排序</li>
+<li>聚合</li>
+<li>Positional functions: lead(), lag()</li>
+</ol>
+<p>在窗口函数应用场景方面算是告一段落了。但是在 “<strong>窗口</strong>” 这个概念上陈述较少，在窗口函数部分的里程碑之际重新 “定义” “窗口”</p>
+<p>另外，之前在浏览网页的时候发现了<a href="https://learnsql.com/blog/sql-window-functions-cheat-sheet/" target="_blank" rel="noopener noreffer">窗口函数的汇总图</a></p>
+<p>
+
+
+
+    
+<img loading="lazy" decoding="async"
+         class="render-image"
+         src="https://gitee.com/unclehu/pic/raw/master/img/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0.png"
+         alt="窗口函数"
+         title="%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0.png"
+    /></p>
+<p>而本文与图中对应的便是 <em><strong>WINDOW FAME</strong></em> 部分</p>
+<h2 id="实现的功能" class="headerLink"><a href="#%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%8a%9f%e8%83%bd" class="header-mark"></a>实现的功能</h2><p>简单来说是定义窗口函数作用的范围（&ldquo;FRAME&rdquo;），通过下面这张图<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>可以更好的了解 FRAME 的概念</p>
+<p>
+
+
+
+    
+<img loading="lazy" decoding="async"
+         class="render-image"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/SQLWindowFunction.svg/1280px-SQLWindowFunction.svg.png"
+         alt="frame of table"
+         title="1280px-SQLWindowFunction.svg.png"
+    /></p>
+<p>一般而言，</p>
+<ol>
+<li>一张表（<code>Table</code>）基于<code>WHERE</code>条件的作用得到图中 <code>Result Set</code> 部分；</li>
+<li>窗口函数 <code>over()</code> 语句中 <code>partition</code>（若有）得到图中 <code>Partition 1</code>&hellip;<code>Partition m</code></li>
+<li><strong>fram</strong> 语句（若有）在partition基础上得到图中 <code>Frame 1</code>&hellip;<code>Frame n</code></li>
+</ol>
+<h2 id="语法规则" class="headerLink"><a href="#%e8%af%ad%e6%b3%95%e8%a7%84%e5%88%99" class="header-mark"></a>语法、规则</h2><p>
+
+
+
+    
+<img loading="lazy" decoding="async"
+         class="render-image"
+         src="https://learnsql.com/blog/sql-window-functions-cheat-sheet/window-frame.png"
+         alt="Frame"
+         title="window-frame.png"
+    /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">&lt;</span><span class="n">window_frame</span><span class="o">&gt;</span><span class="w">  </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="k">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">between</span><span class="w"> 
+</span><span class="w">                   </span><span class="p">[</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">and</span><span class="w">
+</span><span class="w">                   </span><span class="p">[</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition bug open">
+        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-bug"></i>批注<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
+        <div class="details-content">
+            <div class="admonition-content">目前，只有 <code>PostgreSQL 11</code> 及以上版本支持 <code>groups</code></div>
+        </div>
+    </div>
+<p><code>&lt;window_frame&gt;</code>语句表明，相对于当前行（<code>current row</code>）对应的值而言，还有“区间”的概念，“区间”又受到 <code>rows</code>或<code>range</code> 控制：是行数范围还是值的范围。</p>
+<ul>
+<li>
+<p><code>rows</code> 对应是行的条件</p>
+<p>如<code>rows between 1 preceding and unbounded following</code></p>
+<p>表示最终的范围是<u>排序后（若有），基于当前行的上 1 行和该<code>partition</code>本身的最后一行</u></p>
+</li>
+<li>
+<p><code>range</code> 对应是值的范围</p>
+<p>如<code>range between 1 preceding and 2 following</code></p>
+<p>这里我们遵循小学数学中<strong>区间</strong>的性质：<u>左区间的值小于等于右区间的值</u></p>
+<p>因为涉及到值的范围，这里就要分两种情况讨论了，假设当前行对应的值为 <code>x</code></p>
+<ul>
+<li>
+<p>顺序排序，即从小到大，<code>order by column asc</code></p>
+<p><code>[x-1,x+2]</code>，<u>左区间为当前行的值减1（<code>x-1</code>）；右区间为当前行的值加2（<code>x+2</code>）</u></p>
+</li>
+<li>
+<p>逆序排序，即从大到小，<code>order by column desc</code></p>
+<p><code>[x-2,x+1]</code>，<u>左区间为当前行的值减2（<code>x-2</code>）；右区间为当前行的值加1（<code>x+1</code>）</u></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>最后再说明下<strong>没有</strong> <code>&lt;window_frame&gt;</code> 语句时对应的Frame，此时将取决于是否有<code>order by</code>语句，即</p>
+<ul>
+<li>
+<p>无 <code>&lt;window_frame&gt;</code> 语句、<strong>有</strong> <code>order by</code> 语句</p>
+<p>Frame 为 <code>range between unbounded preceding and current row</code></p>
+<p>即Frame的第一行为该<code>partition</code>的上边界，当前行（<code>current row</code>）为下边界</p>
+</li>
+<li>
+<p>无 <code>&lt;window_frame&gt;</code> 语句、<strong>无</strong> <code>order by</code> 语句</p>
+<p>Frame 为 <code>rows between unbounded preceding and unbounded following</code></p>
+<p>即Frame的边界就是<code>partition</code>的边界</p>
+</li>
+</ul>
+<p>关于，无<code>&lt;window_frame&gt;</code>语句的情况，总结如下</p>
+<table>
+<thead>
+<tr>
+<th>\</th>
+<th>无 <code>&lt;window_frame&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有 <code>order by</code></td>
+<td><code>range between unbounded preceding and current row</code></td>
+</tr>
+<tr>
+<td>无 <code>order by</code></td>
+<td><code>rows between unbounded preceding and unbounded following</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="应用一个例子" class="headerLink"><a href="#%e5%ba%94%e7%94%a8%e4%b8%80%e4%b8%aa%e4%be%8b%e5%ad%90" class="header-mark"></a>应用：一个例子</h2><p>一堆枯涩的陈述，不如直接来个小例子：计算累计占比</p>
+<p>实际业务中，在定义模型目标变量<code>y</code>的时候，往往也会结合数据的分布。如，风控场景中定义逾期  <u>x</u> 天以上为<code>bad</code></p>
+<p>假设<code>samples</code> 表中记录着一笔订单的逾期状态，<code>over_due_days</code> 表示逾期天数</p>
+<p>希望得到的数据样式如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>over_due_days</th>
+<th>c_sum</th>
+<th>c_sum_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>90</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>3</td>
+<td>85</td>
+<td>0.085</td>
+</tr>
+<tr>
+<td>4</td>
+<td>80</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p><code>over_due_days</code> 为1的那一行表示 $逾期天数 \geq 1$的订单数以及占总订单的比例，即</p>
+<p>$$c\_sum\_rate=\frac{over\_due\_days \geq 1 的订单数}{总订单数}$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">over_due_days</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">over_due_days</span><span class="w"> </span><span class="n">nulls</span><span class="w"> </span><span class="k">last</span><span class="w">
+</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> 
+</span><span class="w">                                               </span><span class="k">and</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="p">)</span><span class="w">      </span><span class="k">as</span><span class="w"> </span><span class="n">c_sum</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">over_due_days</span><span class="w"> </span><span class="n">nulls</span><span class="w"> </span><span class="k">last</span><span class="w">
+</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> 
+</span><span class="w">                                               </span><span class="k">and</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="p">)</span><span class="w">
+</span><span class="w">            </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">samples</span><span class="p">)</span><span class="w">                                 </span><span class="k">as</span><span class="w"> </span><span class="n">c_sum_rate</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="c1">-- 分逾期天数统计订单数量
+</span><span class="c1"></span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">over_due_days</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">nums</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">samples</span><span class="w">
+</span><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结" class="headerLink"><a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h2><p>本文便是窗口函数部分的“收官之作”了。</p>
+<p>主要是对“窗口”的概念展开了详细的陈述，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以<strong>计算累计占比</strong>为例深化理解。此外，也分享了他人整理的<a href="https://learnsql.com/blog/sql-window-functions-cheat-sheet/" title="窗口函数" target="_blank" rel="noopener noreffer">窗口函数</a></p>
+<h2 id="reference" class="headerLink"><a href="#reference" class="header-mark"></a>Reference</h2><head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://en.wikibooks.org/wiki/Structured_Query_Language/Window_functions">https://en.wikibooks.org/wiki/Structured_Query_Language/Window_functions</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section></div><footer>
+                        <div class="post">
+
+
+<div class="post-share"><div class="share-link">
+        <a class="share-icon share-linkedin" href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/"><span class="svg-social-icon icon-linkedin"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-reddit" href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/"><span class="svg-social-icon icon-reddit"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-weibo" href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" data-title="窗口函数的“窗口”"><span class="svg-social-icon icon-weibo"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-evernote" href="javascript:void(0);" title="Share on Evernote" data-sharer="evernote" data-url="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" data-title="窗口函数的“窗口”"><span class="svg-social-icon icon-evernote"></span></a>
+    </div><div class="share-link">
+        <a class="share-icon share-trello" href="javascript:void(0);" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" data-title="窗口函数的“窗口”" data-description=""><span class="svg-social-icon icon-trello"></span></a>
+    </div></div>
+
+
+
+
+
+
+<div class="post-tags"><a href="/tags/sql/" class="tag">SQL</a></div></div>
+                </footer></div>
+
+        <div id="toc-final"></div>
+        </div>
+
+    
+    </article>
+    <section class="page single comments content-block-position">
+        <h1 class="display-hidden">Комментарии</h1><div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></section></div>
+
+</main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+                </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <aside id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="svg-icon icon-arrow-up"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="svg-icon icon-comments-fixed"></i>
+            </a>
+        </aside><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/prismjs/prism.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/auto-render.min.js"></script><script src="/lib/katex/copy-tex.min.js"></script><script src="/lib/katex/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":15},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script><script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	        ga('create', 'G-JZ3C49ZSKM', 'auto');
+	        ga('set', 'anonymizeIp', true);
+	        ga('send', 'pageview');
+	    </script></body>
+</html>

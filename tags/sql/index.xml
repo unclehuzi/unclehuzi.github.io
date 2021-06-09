@@ -3,7 +3,35 @@
         <title>SQL - Tag - 胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/tags/sql/</link>
         <description>SQL - Tag - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 06 Jun 2021 11:34:55 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 09 Jun 2021 11:53:32 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>窗口函数的“窗口”</title>
+    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
+    <pubDate>Wed, 09 Jun 2021 11:53:32 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
+    <description><![CDATA[<p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>]]></description>
+</item><item>
+    <title>窗口函数-Positional Functions</title>
+    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</link>
+    <pubDate>Wed, 09 Jun 2021 10:58:09 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
+    <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
+</item><item>
+    <title>窗口函数-聚合</title>
+    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</link>
+    <pubDate>Wed, 09 Jun 2021 10:57:36 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</guid>
+    <description><![CDATA[<p>“抛” <strong>计算组内占比</strong> “引” 聚合窗口函数</p>]]></description>
+</item><item>
+    <title>窗口函数-排序</title>
+    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</link>
+    <pubDate>Wed, 09 Jun 2021 10:57:28 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</guid>
+    <description><![CDATA[<p>整理排序场景常用函数，<code>row_number() over()</code>, <code>rank() over()</code>, <code>dense_rank() over()</code>, <code>ntile(n) over()</code>，并以连续登录问题为例深化理解</p>]]></description>
+</item><item>
     <title>Spark, Hive QL-日期函数汇总</title>
     <link>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</link>
     <pubDate>Sun, 06 Jun 2021 11:34:55 &#43;0800</pubDate>
