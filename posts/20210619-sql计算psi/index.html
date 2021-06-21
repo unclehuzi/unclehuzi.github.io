@@ -31,7 +31,7 @@
                             "url": "https:\/\/unclehuzi.github.io\/posts\/20210619-sql%E8%AE%A1%E7%AE%97psi\/featured-image.jpg",
                             "width":  2066 ,
                             "height":  1732 
-                        }],"genre": "posts","keywords": "PSI, SQL","wordCount":  428 ,
+                        }],"genre": "posts","keywords": "Model, SQL, Python","wordCount":  511 ,
         "url": "https:\/\/unclehuzi.github.io\/posts\/20210619-sql%E8%AE%A1%E7%AE%97psi\/","datePublished": "2021-06-18T11:15:35+08:00","dateModified": "2021-06-21T11:15:35+08:00","description": ""
     }
     </script><script type="application/ld+json">
@@ -177,7 +177,7 @@
                             </span><span class="post-meta-date meta-item">
                                 <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-06-18">2021-06-18</time>
                             </span><span class="post-meta-words meta-item">
-                                <span class="svg-icon icon-pencil"></span>428 words
+                                <span class="svg-icon icon-pencil"></span>511 words
                             </span>
                             <span class="post-meta-reading meta-item">
                                 <span class="svg-icon icon-stopwatch"></span>3 minutes
@@ -207,7 +207,7 @@
     <li><a href="#计算样例">计算样例</a></li>
     <li><a href="#sql实现">SQL实现</a>
       <ul>
-        <li><a href="#1-列转行hahahugoshortcode-s9-hbhb"><a href="HAHAHUGOSHORTCODE-s9-HBHB">1. 列转行</a></a></li>
+        <li><a href="#1-列转行hahahugoshortcode-s10-hbhb"><a href="HAHAHUGOSHORTCODE-s10-HBHB">1. 列转行</a></a></li>
         <li><a href="#2-基于基准数据统计各箱nums">2. 基于基准数据统计各箱nums</a>
           <ul>
             <li><a href="#等频分箱">等频分箱</a></li>
@@ -219,6 +219,7 @@
       </ul>
     </li>
     <li><a href="#总结">总结</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
                     </div><div style="margin: 20px 0 20px 0;">
@@ -489,8 +490,9 @@
             <div class="admonition-content">整体思路还是跟着 PSI 的计算公式走，按照某种方式（等频 / 等距）将基准的数据分成 n 箱子，基于基准数据的断点（Breakpoint Value）统计实际占比（$Actual$）</div>
         </div>
     </div>
+<div class="mermaid" id="id-1"></div>
 <p>为了方便计算，先进行 <a href="https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">列转行</a></p>
-<h3 id="1-列转行hahahugoshortcode-s9-hbhb" class="headerLink"><a href="#1-%e5%88%97%e8%bd%ac%e8%a1%8chahahugoshortcode-s9-hbhb" class="header-mark"></a><a href="https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">1. 列转行</a></h3><p>将<code>score</code>表进行列转行，变为<code>key-value</code> 键值对的形式</p>
+<h3 id="1-列转行hahahugoshortcode-s10-hbhb" class="headerLink"><a href="#1-%e5%88%97%e8%bd%ac%e8%a1%8chahahugoshortcode-s10-hbhb" class="header-mark"></a><a href="https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">1. 列转行</a></h3><p>将<code>score</code>表进行列转行，变为<code>key-value</code> 键值对的形式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -856,13 +858,67 @@
 </div>
 </div><h3 id="4-可视化" class="headerLink"><a href="#4-%e5%8f%af%e8%a7%86%e5%8c%96" class="header-mark"></a>4. 可视化</h3><p>最后，可以用Excel或BI软件完成对应的可视化</p>
 <div class="details admonition success open">
-        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-success"></i>Percentage Stacked Area Chart<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
+        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-success"></i>可视化<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
         <div class="details-content">
             <div class="admonition-content">本文选择的是面积图</div>
         </div>
     </div>
+<p>Python代码示例<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 👇</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+ 
+<span class="c1"># Make data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>  <span class="s1">&#39;group_A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;group_B&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;group_C&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+ 
+<span class="c1"># We need to transform the data from raw data to percentage (fraction)</span>
+<span class="n">data_perc</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ 
+<span class="c1"># Make the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stackplot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_A&#34;</span><span class="p">],</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_B&#34;</span><span class="p">],</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_C&#34;</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;100 </span><span class="si">% s</span><span class="s1">tacked area chart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>
+
+
+
+    
+<img loading="lazy" decoding="async"
+         class="render-image"
+         src="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png"
+         alt="Percentage Stacked Area Chart"
+         title="%E4%B8%8B%E8%BD%BD.png"
+    /></p>
 <h2 id="总结" class="headerLink"><a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h2><p>本文主要是提供了通过SQL计算多个模型分PSI的方案，并采用了等频、等距分箱两种分箱方法，增加了适用性</p>
-<head> 
+<h2 id="reference" class="headerLink"><a href="#reference" class="header-mark"></a>Reference</h2><head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
 </head> 
@@ -871,6 +927,9 @@
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p><a href="https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html">https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.python-graph-gallery.com/255-percentage-stacked-area-chart">https://www.python-graph-gallery.com/255-percentage-stacked-area-chart</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section></div><footer>
@@ -894,7 +953,7 @@
 
 
 
-<div class="post-tags"><a href="/tags/psi/" class="tag">PSI</a><a href="/tags/sql/" class="tag">SQL</a></div></div>
+<div class="post-tags"><a href="/tags/model/" class="tag">Model</a><a href="/tags/sql/" class="tag">SQL</a><a href="/tags/python/" class="tag">Python</a></div></div>
                 </footer></div>
 
         <div id="toc-final"></div>
@@ -918,7 +977,7 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="svg-icon icon-comments-fixed"></i>
             </a>
-        </aside><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><script src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/prismjs/prism.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/auto-render.min.js"></script><script src="/lib/katex/copy-tex.min.js"></script><script src="/lib/katex/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":6},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script><script>
+        </aside><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/mermaid/mermaid.min.css"><script src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script src="/lib/autocomplete/autocomplete.min.js"></script><script src="/lib/lunr/lunr.min.js"></script><script src="/lib/twemoji/twemoji.min.js"></script><script src="/lib/clipboard/clipboard.min.js"></script><script src="/lib/sharer/sharer.min.js"></script><script src="/lib/prismjs/prism.js"></script><script src="/lib/katex/katex.min.js"></script><script src="/lib/katex/auto-render.min.js"></script><script src="/lib/katex/copy-tex.min.js"></script><script src="/lib/katex/mhchem.min.js"></script><script src="/lib/mermaid/mermaid.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":6},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"data":{"id-1":"graph LR;\n    A(score表) --\u003e|列转行| B(key-value)\n    B --\u003e C{偏态分布}\n    C --\u003e|N| D(等频)\n    C --\u003e|Y| E(等距)\n    D --\u003e F(PSI)\n    E --\u003e F(PSI)"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script><script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
