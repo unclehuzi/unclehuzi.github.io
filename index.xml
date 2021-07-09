@@ -3,9 +3,16 @@
         <title>胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 18 Jun 2021 11:15:35 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>SQL计算多个变量的IV</title>
+    <link>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
+    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
+    <description><![CDATA[<p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>]]></description>
+</item><item>
     <title>SQL计算多个模型分的PSI</title>
     <link>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
     <pubDate>Fri, 18 Jun 2021 11:15:35 &#43;0800</pubDate>
@@ -68,12 +75,5 @@
     <author>胡子叔叔</author>
     <guid>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[<p>详述Hugo+Github搭建个人博客</p>]]></description>
-</item><item>
-    <title>毕业论文模板</title>
-    <link>https://unclehuzi.github.io/posts/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</link>
-    <pubDate>Tue, 21 Apr 2020 15:26:20 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</guid>
-    <description><![CDATA[<p>毕业论文模板，<strong>样式先行</strong></p>]]></description>
 </item></channel>
 </rss>
