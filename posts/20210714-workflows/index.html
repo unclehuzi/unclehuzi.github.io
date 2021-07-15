@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/posts/20210714-workflows/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-14T17:50:20&#43;08:00" />
-<meta property="article:modified_time" content="2021-07-14T17:50:20&#43;08:00" />
+<meta property="article:modified_time" content="2021-07-15T20:50:20&#43;08:00" />
 
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -31,8 +31,8 @@
                             "url": "https:\/\/unclehuzi.github.io\/posts\/20210714-workflows\/featured-image.jpg",
                             "width":  1000 ,
                             "height":  420 
-                        }],"genre": "posts","keywords": "blog","wordCount":  197 ,
-        "url": "https:\/\/unclehuzi.github.io\/posts\/20210714-workflows\/","datePublished": "2021-07-14T17:50:20+08:00","dateModified": "2021-07-14T17:50:20+08:00","description": ""
+                        }],"genre": "posts","keywords": "blog","wordCount":  200 ,
+        "url": "https:\/\/unclehuzi.github.io\/posts\/20210714-workflows\/","datePublished": "2021-07-14T17:50:20+08:00","dateModified": "2021-07-15T20:50:20+08:00","description": ""
     }
     </script><script type="application/ld+json">
     {
@@ -177,7 +177,7 @@
                             </span><span class="post-meta-date meta-item">
                                 <span class="svg-icon icon-clock"></span><time class="timeago" datetime="2021-07-14">2021-07-14</time>
                             </span><span class="post-meta-words meta-item">
-                                <span class="svg-icon icon-pencil"></span>197 words
+                                <span class="svg-icon icon-pencil"></span>200 words
                             </span>
                             <span class="post-meta-reading meta-item">
                                 <span class="svg-icon icon-stopwatch"></span>One minute
@@ -211,8 +211,13 @@
       </ul>
     </li>
     <li><a href="#3-finished">3. Finished</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
+                    </div><div style="margin: 20px 0 20px 0;">
+                        <span class="post-update">
+                            <span class="s">Updated on 2021-07-15</span>
+                        </span>
                     </div><p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>
 <p>在之前<a href="https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="">快速搭建个人博客</a>的文章中有提到</p>
 <blockquote>
@@ -224,8 +229,8 @@
 <p>在此记录下实现过程 👇</p>
 <h2 id="1-生成ssh-key-windows-环境" class="headerLink"><a href="#1-%e7%94%9f%e6%88%90ssh-key-windows-%e7%8e%af%e5%a2%83" class="header-mark"></a>1. 生成SSH key （Windows 环境）</h2><p>参考<a href="https://www.jianshu.com/p/95262f5eba7a" target="_blank" rel="noopener noreffer">这个</a></p>
 <ol>
-<li>
-<p>通过git bash cd 至 <code>.ssh</code> 文件夹</p>
+<li>通过git bash cd 至 <code>.ssh</code> 文件夹</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -234,12 +239,10 @@
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ~/.ssh/
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<p>如果提示 <code>No such file or directory</code>，可以手动的创建一个 <code>.ssh</code>文件夹，<em><strong>BY</strong></em>  <code>mkdir ~/.ssh</code></p>
+</div><p>如果提示 <code>No such file or directory</code>，可以手动的创建一个 <code>.ssh</code>文件夹，<em><strong>BY</strong></em>  <code>mkdir ~/.ssh</code></p>
 <ol start="2">
-<li>
-<p>配置全局 name 和 email</p>
+<li>配置全局 name 和 email</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -250,9 +253,9 @@
 git config --global user.email <span class="s2">&#34;你的公司或个人邮箱&#34;</span>
 </code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>生成 key</p>
+</div><ol start="4">
+<li>生成 key</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -261,9 +264,7 @@ git config --global user.email <span class="s2">&#34;你的公司或个人邮箱
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &#34;你的公司或个人邮箱&#34;
 </code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<p>连续按 <strong>3</strong> 次回车</p>
+</div><p>连续按 <strong>3</strong> 次回车</p>
 <p>最后得到俩文件： <code>id_rsa</code> 和 <code>id_rsa.pub</code></p>
 <h2 id="2-创建并配置仓库" class="headerLink"><a href="#2-%e5%88%9b%e5%bb%ba%e5%b9%b6%e9%85%8d%e7%bd%ae%e4%bb%93%e5%ba%93" class="header-mark"></a>2. 创建并配置仓库</h2><p>参考<a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog" target="_blank" rel="noopener noreffer">这个</a></p>
 <h3 id="21-配置hugo源文件的仓库" class="headerLink"><a href="#21-%e9%85%8d%e7%bd%aehugo%e6%ba%90%e6%96%87%e4%bb%b6%e7%9a%84%e4%bb%93%e5%ba%93" class="header-mark"></a>2.1 配置hugo源文件的仓库</h3><p><strong>仓库名称不限</strong>，在此以 <code>unclehuzi.github.io.source</code> 为例</p>
@@ -393,8 +394,10 @@ git config --global user.email <span class="s2">&#34;你的公司或个人邮箱
 </span><span class="w">          </span><span class="nt">commit_message</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.head_commit.message }}</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><p><strong>注意</strong>的几个点：</p>
-<ul>
+</div><div class="details admonition note open">
+        <div class="details-summary admonition-title "><i class="icon admonition-icon icon-note"></i>备注<i class="details-icon  admonition-icon admonition-icon-arrow-right"></i></div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
 <li>
 <p>Attention 1</p>
 <p><code>source</code> 仓库的分支名称为 <code>master</code></p>
@@ -408,6 +411,9 @@ git config --global user.email <span class="s2">&#34;你的公司或个人邮箱
 <p><code>unclehuzi.github.io</code> 仓库的分支名称</p>
 </li>
 </ul>
+</div>
+        </div>
+    </div>
 <h2 id="3-finished" class="headerLink"><a href="#3-finished" class="header-mark"></a>3. Finished</h2><p>
 
 
@@ -423,6 +429,10 @@ git config --global user.email <span class="s2">&#34;你的公司或个人邮箱
 <ol>
 <li>触发机制以自动更新blog</li>
 <li>换个电脑 💻 继续写blog</li>
+</ol>
+<h2 id="reference" class="headerLink"><a href="#reference" class="header-mark"></a>Reference</h2><ol>
+<li><a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog">https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog</a></li>
+<li><a href="https://www.jianshu.com/p/95262f5eba7a">https://www.jianshu.com/p/95262f5eba7a</a></li>
 </ol>
 <head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
