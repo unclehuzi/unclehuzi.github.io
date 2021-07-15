@@ -3,9 +3,16 @@
         <title>胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>远程管理hugo源文件以自动更新blog</title>
+    <link>https://unclehuzi.github.io/posts/20210714-workflows/</link>
+    <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/20210714-workflows/</guid>
+    <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
+</item><item>
     <title>SQL计算多个变量的IV</title>
     <link>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
     <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate>
@@ -68,12 +75,5 @@
     <author>胡子叔叔</author>
     <guid>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</guid>
     <description><![CDATA[<p>分场景汇总日期函数</p>]]></description>
-</item><item>
-    <title>快速搭建个人博客</title>
-    <link>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Sat, 05 Jun 2021 11:34:55 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-    <description><![CDATA[<p>详述Hugo+Github搭建个人博客</p>]]></description>
 </item></channel>
 </rss>
