@@ -12,10 +12,10 @@
     <description><![CDATA[]]></description>
 </item><item>
     <title>Spark SQL-Pivot</title>
-    <link>https://unclehuzi.github.io/posts/hql-pivot/</link>
+    <link>https://unclehuzi.github.io/posts/sql-pivot/</link>
     <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate>
     <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-pivot/</guid>
+    <guid>https://unclehuzi.github.io/posts/sql-pivot/</guid>
     <description><![CDATA[<p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>]]></description>
 </item><item>
     <title>SQL计算多个变量的IV</title>
