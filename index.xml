@@ -3,16 +3,9 @@
         <title>胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 09 Aug 2021 11:20:17 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Index</title>
-    <link>https://unclehuzi.github.io/posts/hql-conditional-functions/</link>
-    <pubDate>Mon, 09 Aug 2021 11:20:17 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-conditional-functions/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
     <title>Spark SQL-Pivot</title>
     <link>https://unclehuzi.github.io/posts/sql-pivot/</link>
     <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate>
@@ -75,5 +68,12 @@
     <author>胡子叔叔</author>
     <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
     <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
+</item><item>
+    <title>窗口函数的“窗口”</title>
+    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
+    <pubDate>Fri, 30 Apr 2021 11:53:32 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
+    <description><![CDATA[<p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>]]></description>
 </item></channel>
 </rss>
