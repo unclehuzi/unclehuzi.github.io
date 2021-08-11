@@ -11,6 +11,13 @@
     <guid>https://unclehuzi.github.io/posts/sql-pivot/</guid>
     <description><![CDATA[<p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>]]></description>
 </item><item>
+    <title>Hive SQL-条件函数汇总</title>
+    <link>https://unclehuzi.github.io/posts/hql-conditional-functions/</link>
+    <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate>
+    <author>胡子叔叔</author>
+    <guid>https://unclehuzi.github.io/posts/hql-conditional-functions/</guid>
+    <description><![CDATA[<p>2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
+</item><item>
     <title>远程管理hugo源文件以自动更新blog</title>
     <link>https://unclehuzi.github.io/posts/20210714-workflows/</link>
     <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate>
@@ -66,12 +73,5 @@
     <author>胡子叔叔</author>
     <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
     <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
-</item><item>
-    <title>窗口函数的“窗口”</title>
-    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
-    <pubDate>Fri, 30 Apr 2021 11:53:32 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
-    <description><![CDATA[<p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>]]></description>
 </item></channel>
 </rss>
