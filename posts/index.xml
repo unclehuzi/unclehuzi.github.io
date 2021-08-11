@@ -16,7 +16,7 @@
     <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate>
     <author>胡子叔叔</author>
     <guid>https://unclehuzi.github.io/posts/hql-conditional-functions/</guid>
-    <description><![CDATA[<p>2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
+    <description><![CDATA[<p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
 </item><item>
     <title>远程管理hugo源文件以自动更新blog</title>
     <link>https://unclehuzi.github.io/posts/20210714-workflows/</link>
