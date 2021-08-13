@@ -9,8 +9,8 @@
 <meta property="og:description" content="RT，SQL批量计算各个模型分的PSI，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-06-18T11:15:35&#43;08:00" />
-<meta property="article:modified_time" content="2021-06-21T11:15:35&#43;08:00" />
+<meta property="article:published_time" content="2021-06-18T11:15:35+08:00" />
+<meta property="article:modified_time" content="2021-06-21T11:15:35+08:00" />
 
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -495,7 +495,7 @@
 <h3 id="1-列转行hahahugoshortcode-s10-hbhb" class="headerLink"><a href="#1-%e5%88%97%e8%bd%ac%e8%a1%8chahahugoshortcode-s10-hbhb" class="header-mark"></a><a href="https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">1. 列转行</a></h3><p>将<code>score</code>表进行列转行，变为<code>key-value</code> 键值对的形式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -514,7 +514,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_value_weekly</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_value_weekly</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_value_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="k">no</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">week</span><span class="w">
@@ -553,7 +553,7 @@
     /></p>
 <h4 id="等频分箱" class="headerLink"><a href="#%e7%ad%89%e9%a2%91%e5%88%86%e7%ae%b1" class="header-mark"></a>等频分箱</h4><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -586,7 +586,7 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">week</span><span class="w">
@@ -622,7 +622,7 @@
 </div><h4 id="等距分箱" class="headerLink"><a href="#%e7%ad%89%e8%b7%9d%e5%88%86%e7%ae%b1" class="header-mark"></a>等距分箱</h4><p>等距分箱相比等频分箱而言稍微复杂点，我的思路是先算出基准数据各个模型分区间的上下限，再统计各箱nums</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -679,7 +679,7 @@
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 10个箱子
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 10个箱子
 </span><span class="c1">-- -- 统计各箱nums
 </span><span class="c1"></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
@@ -740,7 +740,7 @@
 <p>$$PSI=\sum_{i=1}^{n}((Actual_i\% - Expected_i\%)\times \ln(\frac{Actual_i\%}{Expected_i\%}))$$</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -798,7 +798,7 @@
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_stability_result_weekly</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_stability_result_weekly</span><span class="p">;</span><span class="w">
 </span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_stability_result_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">psi</span><span class="w">
@@ -866,7 +866,7 @@
 <p>Python代码示例<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 👇</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -886,11 +886,11 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
  
 <span class="c1"># Make data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>  <span class="s1">&#39;group_A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;group_B&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;group_C&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -926,10 +926,10 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html">https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html" target="_blank" rel="noopener noreffer">https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p><a href="https://www.python-graph-gallery.com/255-percentage-stacked-area-chart">https://www.python-graph-gallery.com/255-percentage-stacked-area-chart</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p><a href="https://www.python-graph-gallery.com/255-percentage-stacked-area-chart" target="_blank" rel="noopener noreffer">https://www.python-graph-gallery.com/255-percentage-stacked-area-chart</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section></div><footer>
@@ -967,7 +967,7 @@
             </noscript></div></section></div>
 
 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2020 - 2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

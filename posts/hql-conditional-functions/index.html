@@ -9,8 +9,8 @@
 <meta property="og:description" content="已经2021年了，SQL条件函数已不局限于case when 了，针对常见场景已新增许多 conditional functions" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/posts/hql-conditional-functions/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-31T20:20:17&#43;08:00" />
-<meta property="article:modified_time" content="2021-07-31T20:20:17&#43;08:00" />
+<meta property="article:published_time" content="2021-07-31T20:20:17+08:00" />
+<meta property="article:modified_time" content="2021-07-31T20:20:17+08:00" />
 
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -231,17 +231,17 @@
 <p>类似Excel中的 <code>if</code> 函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">if</span><span class="p">(</span><span class="k">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="s1">&#39;在线&#39;</span><span class="p">,</span><span class="s1">&#39;离线&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">if</span><span class="p">(</span><span class="k">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="s1">&#39;在线&#39;</span><span class="p">,</span><span class="s1">&#39;离线&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">;</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><h2 id="case-when-then-end" class="headerLink"><a href="#case-when-then-end" class="header-mark"></a>case when then end</h2><p><code>case when</code> 较为常见，可注意执行<strong>顺序</strong>问题：从上至下依次执行，直到满足条件则跳出</p>
 <p>常见写法有两种，主要取决于是否单变量作判断</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -252,7 +252,7 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
 </span><span class="w">                       </span><span class="k">when</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期二&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">week</span><span class="w">
 </span><span class="w"></span><span class="p">;</span><span class="w">
 </span><span class="w">                                             
@@ -266,7 +266,7 @@
 </div><h2 id="isnulla" class="headerLink"><a href="#isnulla" class="header-mark"></a>isnull(a)</h2><p>判断是否为<code>null</code>（数据库特有的一种数据类型），留意字符型 <code>'null'</code>,  <code>'NULL'</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -274,7 +274,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">isnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">isnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="cm">/*return
 </span><span class="cm">false
@@ -285,14 +285,14 @@
 </div><h2 id="isnotnulla" class="headerLink"><a href="#isnotnulla" class="header-mark"></a>isnotnull(a)</h2><p>非null</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">isnotnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">isnotnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="cm">/*return
 </span><span class="cm">true
@@ -303,7 +303,7 @@
 <p>等同于 <code>case when a = b then null else a end</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -316,7 +316,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="cm">/*return
 </span><span class="cm">NULL
@@ -332,7 +332,7 @@
 </div><h2 id="nvlarg1arg2" class="headerLink"><a href="#nvlarg1arg2" class="header-mark"></a>nvl(arg1,arg2)</h2><p>可以理解为用<code>arg2</code>的值替换 <code>arg1</code> 中值为 <code>null</code> 的部分</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -345,7 +345,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="cm">/*return
 </span><span class="cm">999
@@ -362,14 +362,14 @@
 <p>往往只想得到众多列中非 <code>null</code> 的值</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">coalesce</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">coalesce</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span><span class="cm">/*return
 </span><span class="cm">7
@@ -421,7 +421,7 @@
             </noscript></div></section></div>
 
 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2020 - 2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

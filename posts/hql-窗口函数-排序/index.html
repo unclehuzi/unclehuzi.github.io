@@ -9,8 +9,8 @@
 <meta property="og:description" content="整理排序场景常用函数，row_number() over(), rank() over(), dense_rank() over(), ntile(n) over()，并以连续登录问题为例深化理解" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-04-09T10:57:28&#43;08:00" />
-<meta property="article:modified_time" content="2021-04-09T10:57:28&#43;08:00" />
+<meta property="article:published_time" content="2021-04-09T10:57:28+08:00" />
+<meta property="article:modified_time" content="2021-04-09T10:57:28+08:00" />
 
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -231,7 +231,7 @@
 <h2 id="row_number-over" class="headerLink"><a href="#row_number-over" class="header-mark"></a>row_number() over()</h2><h3 id="实现的功能" class="headerLink"><a href="#%e5%ae%9e%e7%8e%b0%e7%9a%84%e5%8a%9f%e8%83%bd" class="header-mark"></a>实现的功能</h3><p>从1开始依次排序，生成<strong>不会重复</strong>的编号</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -239,7 +239,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 按照nums 列，降序排序
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 按照nums 列，降序排序
 </span><span class="c1"></span><span class="w">
 </span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">id</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">nums</span><span class="w">
@@ -280,24 +280,24 @@
 </table>
 <h3 id="语法" class="headerLink"><a href="#%e8%af%ad%e6%b3%95" class="header-mark"></a>语法</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
 </span><span class="w">                  </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="n">expr2</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p><code>partition by</code>表示基于某（些）维度（/列）分组之后，再基于<code>order by</code>的规则实现组内排序。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">select  id
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">select  id
         ,nums
         ,row_number() over(partition by id order by nums desc) as rank
 from    table
@@ -318,7 +318,7 @@ from    table
 <p>基于这个现象，可用<code>row_number</code>实现</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -337,7 +337,7 @@ from    table
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">user_id</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">user_id</span><span class="w">
 </span><span class="w">        </span><span class="p">,(</span><span class="n">session_date</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nums</span><span class="w">
 </span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
@@ -359,18 +359,18 @@ from    table
 </div><h2 id="rank-over" class="headerLink"><a href="#rank-over" class="header-mark"></a>rank() over()</h2><p>基本语法类似于<code>row_number()</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">rank</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">rank</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
 </span><span class="w">             </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="n">expr2</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
 </div><p><strong>但不同的是</strong>，当值相等时 <code>rank()</code> 排序会出现重复序号的情况，且下个序号和当前序号之差为当前相同值的个数</p>
 <h3 id="示例" class="headerLink"><a href="#%e7%a4%ba%e4%be%8b" class="header-mark"></a>示例</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -378,7 +378,7 @@ from    table
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">dealer_id</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">dealer_id</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">emp_name</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">sales</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">rank</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rk</span><span class="w">
@@ -462,7 +462,7 @@ from    table
 <p>和<code>rank() over()</code>一样，遇到相同值时序号会重复，但是<code>dense_rank() over()</code> 的下一个序号和当前序号之差依然是1，不会出现空位的情况。</p>
 <h3 id="示例-1" class="headerLink"><a href="#%e7%a4%ba%e4%be%8b-1" class="header-mark"></a>示例</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -470,7 +470,7 @@ from    table
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">dealer_id</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">dealer_id</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">emp_name</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">sales</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">dense_rank</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">denserank</span><span class="w">
@@ -607,14 +607,14 @@ from    table
     </div>
 <h3 id="示例-2" class="headerLink"><a href="#%e7%a4%ba%e4%be%8b-2" class="header-mark"></a>示例</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">emp_mgr</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">emp_mgr</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">sales</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="n">ntile</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sales</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ntilerank</span><span class="w">
 </span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">q1_sales</span><span class="w">
@@ -752,7 +752,7 @@ from    table
             </noscript></div></section></div>
 
 </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.83.1">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://ublogger.netlify.app/?utm_source=https://unclehuzi.github.io/&utm_medium=footer&utm_campaign=config&utm_term=2.0.1" target="_blank" title="uBlogger 2.0.1">uBlogger</a>
                 </div><div class="footer-line"><i class="svg-icon icon-copyright"></i><span>2020 - 2021</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
