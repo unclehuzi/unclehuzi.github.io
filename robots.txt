@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://unclehuzi.github.io/en/sitemap.xml
+Sitemap: https://unclehuzi.github.io/sitemap.xml
