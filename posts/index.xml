@@ -1,77 +1,68 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - 胡子叔叔的小站</title>
+        <title>所有文章 - 胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/posts/</link>
-        <description>All Posts | 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <description>所有文章 | 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Spark SQL-Pivot</title>
-    <link>https://unclehuzi.github.io/posts/sql-pivot/</link>
-    <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/sql-pivot/</guid>
+    <link>https://unclehuzi.github.io/sql-pivot/</link>
+    <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/sql-pivot/</guid>
     <description><![CDATA[<p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>Hive SQL-条件函数汇总</title>
-    <link>https://unclehuzi.github.io/posts/hql-conditional-functions/</link>
-    <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-conditional-functions/</guid>
+    <link>https://unclehuzi.github.io/hql-conditional-functions/</link>
+    <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/hql-conditional-functions/</guid>
     <description><![CDATA[<p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
-</item><item>
+</item>
+<item>
     <title>远程管理hugo源文件以自动更新blog</title>
-    <link>https://unclehuzi.github.io/posts/20210714-workflows/</link>
-    <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210714-workflows/</guid>
+    <link>https://unclehuzi.github.io/20210714-workflows/</link>
+    <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/20210714-workflows/</guid>
     <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>SQL计算多个变量的IV</title>
-    <link>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
-    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
+    <link>https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
+    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
     <description><![CDATA[<p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>SQL计算多个模型分的PSI</title>
-    <link>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
-    <pubDate>Fri, 18 Jun 2021 11:15:35 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</guid>
+    <link>https://unclehuzi.github.io/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
+    <pubDate>Fri, 18 Jun 2021 11:15:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/20210619-sql%E8%AE%A1%E7%AE%97psi/</guid>
     <description><![CDATA[<p>RT，SQL批量计算各个模型分的<em><strong>PSI</strong></em>，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>行转列、列转行</title>
-    <link>https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</link>
-    <pubDate>Tue, 15 Jun 2021 17:10:31 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</guid>
+    <link>https://unclehuzi.github.io/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</link>
+    <pubDate>Tue, 15 Jun 2021 17:10:31 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</guid>
     <description><![CDATA[<p>SQL, Python 中解决行转列、列转行的问题</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>pyecharts-关系图</title>
-    <link>https://unclehuzi.github.io/posts/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</link>
-    <pubDate>Mon, 07 Jun 2021 16:48:11 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</guid>
+    <link>https://unclehuzi.github.io/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</link>
+    <pubDate>Mon, 07 Jun 2021 16:48:11 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</guid>
     <description><![CDATA[<p>以官方例子：<a href="https://gallery.pyecharts.org/#/Graph/graph_weibo" target="_blank" rel="noopener noreffer">微博转发关系图</a>为例，说明所需要的数据格式</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>快速搭建个人博客</title>
-    <link>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-    <pubDate>Fri, 28 May 2021 11:34:55 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <link>https://unclehuzi.github.io/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Fri, 28 May 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[<p>详述Hugo+Github搭建个人博客</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>Spark, Hive QL-日期函数汇总</title>
-    <link>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</link>
-    <pubDate>Thu, 20 May 2021 11:34:55 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</guid>
+    <link>https://unclehuzi.github.io/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</link>
+    <pubDate>Thu, 20 May 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</guid>
     <description><![CDATA[<p>分场景汇总日期函数</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>窗口函数-Positional Functions</title>
-    <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</link>
-    <pubDate>Mon, 10 May 2021 10:58:09 &#43;0800</pubDate>
-    <author>胡子叔叔</author>
-    <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
+    <link>https://unclehuzi.github.io/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</link>
+    <pubDate>Mon, 10 May 2021 10:58:09 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
     <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

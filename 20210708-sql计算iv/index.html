@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>SQL计算多个变量的IV - 胡子叔叔的小站</title><meta name="description" content="关于 FeelIt 主题"><meta property="og:title" content="SQL计算多个变量的IV" />
+<meta property="og:description" content="RT，SQL计算多个变量的IV（Information Value）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-08T14:11:40+08:00" />
+<meta property="article:modified_time" content="2021-07-08T14:11:40+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://unclehuzi.github.io/"/>
+
+<meta name="twitter:title" content="SQL计算多个变量的IV"/>
+<meta name="twitter:description" content="RT，SQL计算多个变量的IV（Information Value）"/>
+<meta name="application-name" content="FeelIt">
+<meta name="apple-mobile-web-app-title" content="FeelIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/" /><link rel="prev" href="https://unclehuzi.github.io/20210619-sql%E8%AE%A1%E7%AE%97psi/" /><link rel="next" href="https://unclehuzi.github.io/20210714-workflows/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SQL计算多个变量的IV",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/unclehuzi.github.io\/20210708-sql%E8%AE%A1%E7%AE%97iv\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/unclehuzi.github.io\/20210708-sql%E8%AE%A1%E7%AE%97iv\/featured-image.jpg",
+                            "width":  882 ,
+                            "height":  453 
+                        }],"genre": "posts","keywords": "Model, SQL","wordcount":  813 ,
+        "url": "https:\/\/unclehuzi.github.io\/20210708-sql%E8%AE%A1%E7%AE%97iv\/","datePublished": "2021-07-08T14:11:40+08:00","dateModified": "2021-07-08T14:11:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "胡子叔叔"},"author": {
+                "@type": "Person",
+                "name": "胡子叔叔"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png" /><span class="header-title-pre"><i class='fas fa-hand-holding-heart fa-fw'></i></span>胡子叔叔的小站</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/20210708-sql%E8%AE%A1%E7%AE%97iv/" selected>简体中文</option></select>
+                    </span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a class="menu-item" href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png" /><span class="header-title-pre"><i class='fas fa-hand-holding-heart fa-fw'></i></span>胡子叔叔的小站</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><div class="menu-item"><a href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a>
+                <span>&nbsp;|&nbsp;</span><a href="javascript:void(0);" class="theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div><span class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/20210708-sql%E8%AE%A1%E7%AE%97iv/" selected>简体中文</option></select>
+                </span></div>
+    </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="enable"><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg"
+        data-srcset="/20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg, /20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg 1.5x, /20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg"
+        title="/20210708-sql%E8%AE%A1%E7%AE%97iv/featured-image.jpg" /></div><div class="single-card" data-image="true"><h2 class="single-title animated flipInX">SQL计算多个变量的IV</h2><h2 class="single-subtitle">Information Value</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a>&nbsp;<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-08">2021-07-08</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 813 字</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>目录</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#计算公式">计算公式</a></li>
+    <li><a href="#计算样例">计算样例</a></li>
+    <li><a href="#sql实现">SQL实现</a>
+      <ul>
+        <li><a href="#1-列转行hahahugoshortcode-s8-hbhb"><a href="HAHAHUGOSHORTCODE-s8-HBHB">1. 列转行</a></a></li>
+        <li><a href="#2-分箱统计好坏人数">2. 分箱统计好坏人数</a></li>
+        <li><a href="#3-计算iv">3. 计算IV</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>
+<hr>
+<h2 id="背景">背景</h2>
+<p>变量的预测能力往往可以通过IV值来判断，类似之前的 <a href="https://unclehuzi.github.io/20210619-sql%E8%AE%A1%E7%AE%97psi/" rel="">SQL计算PSI</a></p>
+<p>IV值也有经验区间供参考，以及可通过SQL完成指标的计算</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Information Value</th>
+<th style="text-align:center">Predictive Power</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt; 0.02</td>
+<td style="text-align:center">useless for prediction</td>
+</tr>
+<tr>
+<td style="text-align:center">0.02 - 0.1</td>
+<td style="text-align:center">weak predictor</td>
+</tr>
+<tr>
+<td style="text-align:center">0.1 - 0.3</td>
+<td style="text-align:center">medium predictor</td>
+</tr>
+<tr>
+<td style="text-align:center">0.3 - 0.5</td>
+<td style="text-align:center">strong predictor</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; 0.5</td>
+<td style="text-align:center">suspicious or too good</td>
+</tr>
+</tbody>
+</table>
+<h2 id="计算公式">计算公式</h2>
+<p>关于 <em><strong>IV</strong></em> 的详细介绍，可参考<a href="https://zhuanlan.zhihu.com/p/80134853" target="_blank" rel="noopener noreffer">这篇文章</a></p>
+<p>具体计算公式如下</p>
+<p>$$IV=\sum_{i=1}^{n}(\frac{Bad_i}{Bad_T} - \frac{Good_i}{Good_T}) \times WOE_i$$</p>
+<p>其中，</p>
+<p>$$WOE_i=\ln(\frac{Bad_i}{Bad_T}) - \ln(\frac{Good_i}{Good_T})$$</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>公式说明<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>Bad、Good即表示正负样本，风控场景有好、坏的称呼</li>
+<li>$n$ 为分箱的个数</li>
+<li>$Bad_i$, $Good_i$ 表示第i个箱子“坏”、“好”人数</li>
+<li>$Bad_T$, $Good_T$ 表示“坏”、“好”总人数</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h2 id="计算样例">计算样例</h2>
+<p>分箱方式：等频（缺失值单独划为一箱）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">score_group</th>
+<th style="text-align:center">group_bad_i</th>
+<th style="text-align:center">group_good_i</th>
+<th style="text-align:center">woe_i</th>
+<th style="text-align:center">iv_i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">r1</td>
+<td style="text-align:center">271</td>
+<td style="text-align:center">31882</td>
+<td style="text-align:center">0.218363</td>
+<td style="text-align:center">0.0054</td>
+</tr>
+<tr>
+<td style="text-align:center">r2</td>
+<td style="text-align:center">225</td>
+<td style="text-align:center">30572</td>
+<td style="text-align:center">0.074301</td>
+<td style="text-align:center">0.0006</td>
+</tr>
+<tr>
+<td style="text-align:center">r3</td>
+<td style="text-align:center">195</td>
+<td style="text-align:center">29107</td>
+<td style="text-align:center">-0.01969</td>
+<td style="text-align:center">0.0000</td>
+</tr>
+<tr>
+<td style="text-align:center">r4</td>
+<td style="text-align:center">188</td>
+<td style="text-align:center">28761</td>
+<td style="text-align:center">-0.04429</td>
+<td style="text-align:center">0.0002</td>
+</tr>
+<tr>
+<td style="text-align:center">r5</td>
+<td style="text-align:center">163</td>
+<td style="text-align:center">28400</td>
+<td style="text-align:center">-0.17435</td>
+<td style="text-align:center">0.0025</td>
+</tr>
+<tr>
+<td style="text-align:center">r6</td>
+<td style="text-align:center">182</td>
+<td style="text-align:center">27387</td>
+<td style="text-align:center">-0.02778</td>
+<td style="text-align:center">0.0001</td>
+</tr>
+<tr>
+<td style="text-align:center">r7</td>
+<td style="text-align:center">194</td>
+<td style="text-align:center">28058</td>
+<td style="text-align:center">0.01187</td>
+<td style="text-align:center">0.0000</td>
+</tr>
+<tr>
+<td style="text-align:center">r8</td>
+<td style="text-align:center">160</td>
+<td style="text-align:center">24564</td>
+<td style="text-align:center">-0.04782</td>
+<td style="text-align:center">0.0002</td>
+</tr>
+<tr>
+<td style="text-align:center">r9</td>
+<td style="text-align:center">158</td>
+<td style="text-align:center">29625</td>
+<td style="text-align:center">-0.24774</td>
+<td style="text-align:center">0.0052</td>
+</tr>
+<tr>
+<td style="text-align:center">r10</td>
+<td style="text-align:center">70</td>
+<td style="text-align:center">17302</td>
+<td style="text-align:center">-0.52404</td>
+<td style="text-align:center">0.0118</td>
+</tr>
+<tr>
+<td style="text-align:center">missing</td>
+<td style="text-align:center">327</td>
+<td style="text-align:center">36519</td>
+<td style="text-align:center">0.270413</td>
+<td style="text-align:center">0.0098</td>
+</tr>
+</tbody>
+</table>
+<p>以上例子最终得到 $IV=\sum_{i=1}^{11}(IV_i)=0.0358$</p>
+<h2 id="sql实现">SQL实现</h2>
+<p>准备好预测变量（$X$）和目标变量（$y$），<code>score</code>表形如</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ym</th>
+<th style="text-align:center">no</th>
+<th style="text-align:center">x1</th>
+<th style="text-align:center">x2</th>
+<th style="text-align:center">x3</th>
+<th style="text-align:center">x4</th>
+<th style="text-align:center">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">202101</td>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">617</td>
+<td style="text-align:center">481</td>
+<td style="text-align:center">773</td>
+<td style="text-align:center">671.68</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">585</td>
+<td style="text-align:center">585</td>
+<td style="text-align:center">522</td>
+<td style="text-align:center">600.56</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a3</td>
+<td style="text-align:center">617</td>
+<td style="text-align:center">548</td>
+<td style="text-align:center">677</td>
+<td style="text-align:center">635.68</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a4</td>
+<td style="text-align:center">647</td>
+<td style="text-align:center">null</td>
+<td style="text-align:center">765</td>
+<td style="text-align:center">655.63</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a5</td>
+<td style="text-align:center">596</td>
+<td style="text-align:center">478</td>
+<td style="text-align:center">656</td>
+<td style="text-align:center">635.3</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a6</td>
+<td style="text-align:center">636</td>
+<td style="text-align:center">618</td>
+<td style="text-align:center">595</td>
+<td style="text-align:center">630</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202102</td>
+<td style="text-align:center">a7</td>
+<td style="text-align:center">714</td>
+<td style="text-align:center">572</td>
+<td style="text-align:center">842</td>
+<td style="text-align:center">644.28</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202012</td>
+<td style="text-align:center">a8</td>
+<td style="text-align:center">null</td>
+<td style="text-align:center">495</td>
+<td style="text-align:center">720</td>
+<td style="text-align:center">628.79</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202012</td>
+<td style="text-align:center">a9</td>
+<td style="text-align:center">636</td>
+<td style="text-align:center">618</td>
+<td style="text-align:center">595</td>
+<td style="text-align:center">426</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">202012</td>
+<td style="text-align:center">a10</td>
+<td style="text-align:center">557</td>
+<td style="text-align:center">562</td>
+<td style="text-align:center">null</td>
+<td style="text-align:center">589</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>基于此得到各个变量在不同月份的预测能力</p>
+<p>这里依然涉及窗口函数的应用以及行列互转</p>
+<ul>
+<li><a href="https://unclehuzi.github.io/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/" rel="">窗口函数-聚合</a></li>
+<li><a href="https://unclehuzi.github.io/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/" rel="">窗口函数-排序</a></li>
+<li><a href="https://unclehuzi.github.io/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" rel="">窗口函数的“窗口”</a></li>
+<li><a href="https://unclehuzi.github.io/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">行转列、列转行</a></li>
+</ul>
+<div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw"></i>思路<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">类似PSI的计算思路，计算IV的整体思路依然参照公式，（等频）分箱后，基于数据的断点（Breakpoint Value）统计出每个箱子的好坏人数</div>
+        </div>
+    </div>
+<div class="mermaid" id="id-1"></div>
+<h3 id="1-列转行hahahugoshortcode-s8-hbhb"><a href="https://unclehuzi.github.io/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">1. 列转行</a></h3>
+<p>将<code>score</code>表进行列转行，变为<code>key-value</code> 键值对的形式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_value</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_value</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="k">no</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">ym</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">y</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score_value</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="k">no</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">ym</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">x1</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">x2</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">x3</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">x4</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">y</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">score</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="n">explode</span><span class="p">(</span><span class="k">map</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="s1">&#39;x4&#39;</span><span class="p">,</span><span class="n">x4</span><span class="p">))</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="n">score_value</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-分箱统计好坏人数">2. 分箱统计好坏人数</h3>
+<p>这里采用的是 <strong>等频分箱</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_group_nums</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">ym</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">group_bad_i</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">group_good_i</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">group_bad_i</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ym</span><span class="p">,</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_bad_total</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">group_good_i</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ym</span><span class="p">,</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_good_total</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">ym</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_bad_i</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">group_good_i</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;NULL&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;missing&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r1&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r2&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r3&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r4&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r5&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r6&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r7&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r8&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r9&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r10&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score_group</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">score_value</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="w">        </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">            </span><span class="p">(</span><span class="c1">-- 等频分箱 10 bins
+</span><span class="c1"></span><span class="w">            </span><span class="k">select</span><span class="w">  </span><span class="n">ym</span><span class="w">
+</span><span class="w">                    </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">                    </span><span class="p">,</span><span class="n">percentile_approx</span><span class="p">(</span><span class="n">score_value</span><span class="p">,</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">999999</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score_array</span><span class="w">
+</span><span class="w">            </span><span class="k">from</span><span class="w">    </span><span class="n">score_value</span><span class="w">
+</span><span class="w">            </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span><span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span><span class="w">        </span><span class="k">on</span><span class="w">  </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">ym</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">ym</span><span class="w">
+</span><span class="w">            </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score</span><span class="p">)</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-计算iv">3. 计算IV</h3>
+<p>回顾下公式</p>
+<p>$$IV=\sum_{i=1}^{n}(\frac{Bad_i}{Bad_T} - \frac{Good_i}{Good_T}) \times WOE_i$$</p>
+<p>其中，</p>
+<p>$$WOE_i=\ln(\frac{Bad_i}{Bad_T}) - \ln(\frac{Good_i}{Good_T})$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">ym</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">iv_i</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">iv</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">ym</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">            </span><span class="p">,(</span><span class="n">ln</span><span class="p">(</span><span class="n">group_bad_i</span><span class="o">/</span><span class="n">group_bad_total</span><span class="p">)</span><span class="o">-</span><span class="n">ln</span><span class="p">(</span><span class="n">group_good_i</span><span class="o">/</span><span class="n">group_good_total</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">group_bad_i</span><span class="o">/</span><span class="n">group_bad_total</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">group_good_i</span><span class="o">/</span><span class="n">group_good_total</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">iv_i</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">score_group_nums</span><span class="w">
+</span><span class="w"></span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>在非建模场景，只想大概看下（或监控）各变量的预测能力时，为省去导出数据用<code>Python</code>计算<code>IV</code>的麻烦，本文便以<code>IV</code>的计算公式出发详细记录<code>SQL</code>计算过程</p>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/model/">Model</a>
+                </span><span><a href="/tags/sql/">SQL</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>更新于 2021-07-08</span>
+            </div><div class="post-info-mod"><span>
+                            <a class="link-to-markdown" href="/20210708-sql%E8%AE%A1%E7%AE%97iv/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+        </div><div class="post-info-share">
+            <span><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/" data-title="SQL计算多个变量的IV"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/" data-title="SQL计算多个变量的IV"><i class="fab fa-evernote fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/20210708-sql%E8%AE%A1%E7%AE%97iv/" data-title="SQL计算多个变量的IV" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/20210619-sql%E8%AE%A1%E7%AE%97psi/" class="prev" rel="prev" title="SQL计算多个模型分的PSI"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/20210714-workflows/" class="next" rel="next" title="远程管理hugo源文件以自动更新blog">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+</div><div id="comments" class="single-card"></div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.1"><i class="fas fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.linkedin.com/in/unclehuzi/">胡子叔叔</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('/sw.min.js?version=1.0.1', { scope: '/' })
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Registered');
+        }, err => console.error('胡子叔叔的小站\u00A0Service Worker registration failed: ', err));
+
+    navigator.serviceWorker
+        .ready
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Ready');
+        });
+}
+</script>
+</footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment-alt fa-fw"></i>
+            </a></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/copy-tex.min.css"><link rel="stylesheet" href="/lib/mermaid/mermaid.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.8.5/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/mhchem.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mermaid@8.5.1/dist/mermaid.min.js"></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"data":{"id-1":"graph LR;\n    A(score表) --\u003e|列转行| B(key-value)\n    B --\u003e|分箱| C(统计各箱好坏人数)\n    C --\u003e D(计算IV)"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script src="/js/theme.min.js"></script></body>
+</html>
