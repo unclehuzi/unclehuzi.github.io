@@ -336,7 +336,7 @@ plt.title('100 % stacked area chart')
 plt.show()
 ```
 
-![Percentage Stacked Area Chart](https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png)
+![Percentage Stacked Area Chart](https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png "area chart")
 
 
 
