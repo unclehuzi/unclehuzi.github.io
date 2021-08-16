@@ -17,8 +17,8 @@ Spark 和 Hive 都是支持这种操作的
 
 |spark/hive|set|
 |:--------:|---|
-|hive[^1,2]|set hive.support.quoted.identifiers=none|
-|spark[^1,2]|set spark.sql.parser.quotedRegexColumnNames=true|
+|hive[^1]|set hive.support.quoted.identifiers=none|
+|spark[^2]|set spark.sql.parser.quotedRegexColumnNames=true|
 
 其中，正则表达式的写法可参考 JAVA regex 语法
 
