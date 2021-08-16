@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/tags/sql/</link>
         <description>SQL - 标签 - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:22:39 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>Spark、Hive QL-通过正则表达式选取需要的列</title>
+    <link>https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</link>
+    <pubDate>Mon, 16 Aug 2021 14:22:39 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</guid>
+    <description><![CDATA[<p>【Mark】通过正则表达式选择相应的列</p>]]></description>
+</item>
+<item>
     <title>Spark SQL-Pivot</title>
     <link>https://unclehuzi.github.io/2021/08/sql-pivot/</link>
     <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/08/sql-pivot/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</link>
     <pubDate>Mon, 19 Apr 2021 10:57:36 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</guid>
     <description><![CDATA[<p>“抛” <strong>计算组内占比</strong> “引” 聚合窗口函数</p>]]></description>
-</item>
-<item>
-    <title>窗口函数-排序</title>
-    <link>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</link>
-    <pubDate>Fri, 09 Apr 2021 10:57:28 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</guid>
-    <description><![CDATA[<p>整理排序场景常用函数，<code>row_number() over()</code>, <code>rank() over()</code>, <code>dense_rank() over()</code>, <code>ntile(n) over()</code>，并以连续登录问题为例深化理解</p>]]></description>
 </item>
 </channel>
 </rss>
