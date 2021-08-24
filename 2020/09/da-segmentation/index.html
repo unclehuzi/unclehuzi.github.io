@@ -5,37 +5,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Spark SQL-Pivot - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="Spark SQL-Pivot" />
-<meta property="og:description" content="类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format" />
+        <title>客群划分思路大集合 - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="客群划分思路大集合" />
+<meta property="og:description" content="过去的一段时间里一直在琢磨客群划分的问题" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://unclehuzi.github.io/2021/08/sql-pivot/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-09T11:19:04+08:00" />
+<meta property="og:url" content="https://unclehuzi.github.io/2020/09/da-segmentation/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-02T14:36:49+08:00" />
 <meta property="article:modified_time" content="2021-08-24T14:48:31+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
 
-<meta name="twitter:title" content="Spark SQL-Pivot"/>
-<meta name="twitter:description" content="类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format"/>
+<meta name="twitter:title" content="客群划分思路大集合"/>
+<meta name="twitter:description" content="过去的一段时间里一直在琢磨客群划分的问题"/>
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2021/08/sql-pivot/" /><link rel="prev" href="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><link rel="next" href="https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2020/09/da-segmentation/" /><link rel="prev" href="https://unclehuzi.github.io/2020/04/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/" /><link rel="next" href="https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Spark SQL-Pivot",
+        "headline": "客群划分思路大集合",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/"
-        },"image": [{
-                            "@type": "ImageObject",
-                            "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/featured-image.jpg",
-                            "width":  402 ,
-                            "height":  306 
-                        }],"genre": "posts","keywords": "SQL","wordcount":  50 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/","datePublished": "2021-08-09T11:19:04+08:00","dateModified": "2021-08-24T14:48:31+08:00","publisher": {
+            "@id": "https:\/\/unclehuzi.github.io\/2020\/09\/da-segmentation\/"
+        },"image": ["https:\/\/unclehuzi.github.io\/images\/Apple-Devices-Preview.webp"],"genre": "posts","keywords": "用户画像","wordcount":  73 ,
+        "url": "https:\/\/unclehuzi.github.io\/2020\/09\/da-segmentation\/","datePublished": "2020-09-02T14:36:49+08:00","dateModified": "2021-08-24T14:48:31+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -126,16 +121,9 @@
 
         
 
-        <div class="single-card" data-image="true"><h2 class="single-title animated flipInX">Spark SQL-Pivot</h2><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/2021/08/sql-pivot/featured-image.jpg"
-        data-srcset="/2021/08/sql-pivot/featured-image.jpg, /2021/08/sql-pivot/featured-image.jpg 1.5x, /2021/08/sql-pivot/featured-image.jpg 2x"
-        data-sizes="auto"
-        alt="/2021/08/sql-pivot/featured-image.jpg"
-        title="/2021/08/sql-pivot/featured-image.jpg" /></div><div class="post-meta">
+        <div class="single-card" ><h2 class="single-title animated flipInX">客群划分思路大集合</h2><div class="post-meta">
                 <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">出版于  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a></span></div>
-                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-09">2021-08-09</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 50 字</span>&nbsp;
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-02">2020-09-02</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 73 字</span>&nbsp;
                     <span><i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟</span>&nbsp;</div>
             </div>
             
@@ -146,95 +134,143 @@
                     </div>
                     <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#基本语法">基本语法</a></li>
-    <li><a href="#实际应用">实际应用</a></li>
-    <li><a href="#reference">Reference</a></li>
+    <li><a href="#有监督学习树模型">有监督学习—树模型</a></li>
+    <li><a href="#聚类">聚类</a></li>
+    <li><a href="#基于常规的细分变量">基于常规的细分变量</a></li>
+    <li><a href="#不成熟的想法">不成熟的想法</a></li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>
-<p>在统计分析时总会遇到分类汇总的场景，类似Excel的数据透视表。SQL中按照 <code>case when</code> 或 <code>IF</code> 的写法往往会显得臃肿，较为方便的便是通过 <code>pivot</code> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>实现，但 Hive <strong>不</strong>支持😢</p>
-<div class="details admonition warning open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>运行环境<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">以下基于 <em><strong>spark-2.4.5U3</strong></em> 及以上版本</div>
-        </div>
-    </div>
-<h2 id="基本语法">基本语法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">PIVOT</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">aggregate_expression_alias</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span><span class="w">       </span><span class="k">FOR</span><span class="w"> </span><span class="n">column_list</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">expression_list</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>The <code>PIVOT</code> clause can be specified after the table name or subquery.</p>
-</blockquote>
-<h2 id="实际应用">实际应用</h2>
-<p>假设有张存有各个地区、各个产品的月销量的表（sales_table），我们需要统计各个月份所有地区产品销量的加总，形如👇</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png"
-        title="按月份分类汇总销量" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">month</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;毛巾&#39;</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">		</span><span class="n">sales_table</span><span class="w">
-</span><span class="w"></span><span class="n">pivot</span><span class="w">
-</span><span class="w"> 		</span><span class="p">(</span><span class="w">
-</span><span class="w">     </span><span class="k">sum</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w">
-</span><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;毛巾&#39;</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="p">)</span><span class="w">
-</span><span class="w">    </span><span class="p">)</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
+                </div><div class="content" id="content"><p>过去的一段时间里一直在琢磨<strong>客群划分</strong>的问题</p>
+<figure><img src="https://conversionxl.com/wp-content/uploads/2016/09/segmentation-illustration.png"/><figcaption>
+            <h4>segmentation</h4>
+        </figcaption>
+</figure>
+
+<p>隐隐约约觉得所谓的 <strong>客群划分</strong> 和 <strong>市场细分</strong> 不谋而合，并且我发现风控领域很重视 “<strong>圈客群</strong>”</p>
+<p>但因为部门不同，最后关注的目的也存在一定的差异。对于风控而言，在兼顾风险的同时，给出差异性的策略。在贷前，差异性策略方面可能更多是关注授信额度的问题。贷中，更多关注调额方面。</p>
+<p>本文将整理市场细分/客群划分的一些方法</p>
+<h2 id="有监督学习树模型">有监督学习—树模型</h2>
+<p>相关文章：</p>
+<ul>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/ZZeMCwe2jabe6dl5qF5Dzw" target="_blank" rel="noopener noreffer">决策树简介</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/g4GJjLcpz5_alaooneBvTA" target="_blank" rel="noopener noreffer">可视化决策树结果</a></p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/v0CQE8EzT47waFwaqTWy-Q" target="_blank" rel="noopener noreffer">样本不均衡的问题</a></p>
+</li>
+</ul>
+<figure><img src="https://tse3-mm.cn.bing.net/th/id/OIP.h_0_j8oKf5WUap4_daPAagHaEK?w=299&amp;h=180&amp;c=7&amp;o=5&amp;pid=1.7"/><figcaption>
+            <h4>decision tree</h4>
+        </figcaption>
+</figure>
+
+<p>将客群划分（/市场细分）看成是一个分类问题，因为做客群划分肯定是有目的/目标的，比如是否违约、客户忠诚等等</p>
+<p>针对我们的目标，定义好我们的问题，进一步得到模型需要的label（y值）。基于提取的变量，最后可采用<strong>决策树</strong>实现客群划分，甚至可以采用随机森林、XGBoost，可视化前几棵树，看看模型给出的变量规则。</p>
+<p>除了对算法本身的了解外，我觉得 <strong>找变量</strong>（影响label的影响因素）也是难点，毕竟需要<strong>面向业务建模</strong>（最近新造的词）。除了关注模型区分度等，更多需要注意的是 <strong>解释性</strong>，是否make sense，能不能从业务的角度去解释树模型给出的规则。</p>
+<p>所以，在特征选择以及构造新特征方面真的需要花很大的功夫。</p>
+<p>得到树模型输出的规则后，我们还需要注意</p>
+<ul>
+<li>
+<p>客群之间的差异性</p>
+<p>基于决策树得到的规则，看客群之间在目标方面（如，违约率）的差异性</p>
+</li>
+<li>
+<p>客群的稳定性</p>
+<p>基于规则，看未来的人数分布及目标（如，违约率）</p>
+</li>
+</ul>
+<p>这里还涉及到一个外部数据的问题。客群划分时，尽量避免使用外部数据、尤其是被加工过的一些指标。一是不知道计算逻辑；二是不稳定。所以一般直接选取用户本身属性变量。当然，这也取决于分群的场景。</p>
+<h2 id="聚类">聚类</h2>
+<figure><img src="https://tse1-mm.cn.bing.net/th/id/OIP.Aczgwp5UkCIIO7nf9ItLiAHaD9?w=332&amp;h=180&amp;c=7&amp;o=5&amp;pid=1.7"/><figcaption>
+            <h4>clustering</h4>
+        </figcaption>
+</figure>
+
+<p>聚类用于市场细分也是比较常见的。</p>
+<p>但最近我觉得，聚类目的性不明确。换句话说，市场细分的目的性不明显。</p>
+<p>聚类更多是在某些变量下将相似的归为一簇</p>
+<p>但在车企，还是会采用聚类细分市场的，如基于价格、投影面积、离地高度等变量划分车型。这也符合最初的目的：根据某些车辆参数相似的归为一类。</p>
+<p>到底是视为聚类还是分类问题，还是要具体问题具体分析</p>
+<h2 id="基于常规的细分变量">基于常规的细分变量</h2>
+<ul>
+<li>
+<p>人口统计变量</p>
+<p>性别、年龄、职业、收入等，但“收入”的数据一般比较难获取，大多数情况下可能也是通过各种方式去预测</p>
+</li>
+<li>
+<p>地理位置</p>
+<p>“地域决定论” + 一方水土养一方人</p>
+<p>这个还是要考虑具体业务</p>
+<p>如果从逾期等违约情况来看的话：经济基础决定上层建筑，而一个城市的文明程度和经济发展也是有很大关系的。而经济发展又会受到地域的限制，正是所谓的“地域决定论”，所以经济发展差距较大的城市往往违约率也存在一定差异</p>
+</li>
+</ul>
+<h2 id="不成熟的想法">不成熟的想法</h2>
+<p>在现金贷背景下，基于入不敷出的逻辑来关注风险的问题，我通过构建“收支”模型（收入和支出之间的关系）实现客群的划分。</p>
+<table>
+<thead>
+<tr>
+<th>seg</th>
+<th>收入</th>
+<th>支出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>2</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>3</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>4</td>
+<td>低</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+<p>当然，这里的高、低是针对产品的目标用户而言</p>
+<p>显然，对于低收入、高支出的客群，更有可能发生逾期的情况，但同时这部分人群也是更有可能产生收益的人群，所以针对这部分人群就需要深挖，兼顾风险的同时给予一定的高额度。</p>
+<p>但难点就是在于对“收入”、“支出”的测量，在无法准确获取收入、支出数据的情况下，<strong>无论是用于测量收入还是支出的变量都需要满足产品所服务对象的特征，以能较为准确的测量“收入”与“支出”的状态。</strong></p>
+<h2 id="总结">总结</h2>
+<p>本文分别阐述了 有监督、无监督以及 常规细分变量三大划分客群的方法，具体还是要结合实际业务场景采用相应的方法</p>
+<p>基于相应的规则完成划分后，还要基于目标问题进行横纵向对比：</p>
+<ul>
+<li>
+<p>横向比较客群的稳定性</p>
+</li>
+<li>
+<p>纵向比较客群的差异性</p>
+</li>
+</ul>
 <head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
 </head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html">https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div></div><div class="post-footer" id="post-footer">
-    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F/">用户画像</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
                 <span>更新于 2021-08-24&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/b6b8313105e26932c587bb8b9b094477506a05dc" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;b6b8313:&nbsp;segmentation">
                             <i class="fas fa-hashtag fa-fw"></i>b6b8313</a></span>
             </div><div class="post-info-mod"><span>
-                            <a class="link-to-markdown" href="/2021/08/sql-pivot/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/2020/09/da-segmentation/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
         </div><div class="post-info-share">
-            <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot" data-hashtags="SQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-hashtag="SQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
-        </div></div><div class="post-nav"><a href="/2021/07/hql-conditional-functions/" class="prev" rel="prev" title="Hive SQL-条件函数汇总"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
-            <a href="/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/" class="next" rel="next" title="Spark、Hive QL-通过正则表达式选取需要的列">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+            <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/" data-title="客群划分思路大集合" data-hashtags="用户画像"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/" data-hashtag="用户画像"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/" data-title="客群划分思路大集合"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2020/09/da-segmentation/" data-title="客群划分思路大集合" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2020/04/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/" class="prev" rel="prev" title="毕业论文模板"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/" class="next" rel="next" title="窗口函数-排序">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
 </div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript></div></article></div>
