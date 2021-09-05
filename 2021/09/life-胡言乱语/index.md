@@ -74,7 +74,7 @@
 
 > “助推”解释为那种轻轻用手肘碰下你，就能实现目标
 
-{{< image src="http://cdn.clm02.com/ezvivi.com/266803/1499821560_752.jpg" >}}
+![](http://cdn.clm02.com/ezvivi.com/266803/1499821560_752.jpg)
 
 ---
 
