@@ -72,14 +72,16 @@ hhhhh，没有什么十全十美的事儿，**自己开心最重要**，解释�
 
 这一点虽是老生常谈，但我个人并未很好的落实呀～ 🤦‍♂️
 
+外界是很难甚至没法改变的，我们能改变的或容易改变的是自己，所以 “修身，齐家，治国，平天下”，修身乃第一☝️位
+
 
 ## 最后
 
-最后，恭喜我导在营销领域顶刊 ***Journal of Marketing Research*** 发表相关[学术论文](https://journals.sagepub.com/doi/abs/10.1177/0022243721993426)～
+最后，恭喜我导今年在营销领域顶刊 ***Journal of Marketing Research*** 发表相关[学术论文](https://journals.sagepub.com/doi/abs/10.1177/0022243721993426)～
 
 ![paper](https://raw.githubusercontent.com/unclehuzi/pic/master/images/20210907115859.png)
 
-也希望大家一切顺利～
+希望大家一切顺利～🌞
 
 
 
