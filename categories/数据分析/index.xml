@@ -4,13 +4,7 @@
         <link>https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
         <description>数据分析 - 分类 - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Fri, 10 Sep 2021 15:58:34 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
-    <title>等额本息-等额本金</title>
-    <link>https://unclehuzi.github.io/2021/09/da-%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF-%E6%9C%AC%E9%87%91/</link>
-    <pubDate>Fri, 10 Sep 2021 15:58:34 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/da-%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF-%E6%9C%AC%E9%87%91/</guid>
-    <description><![CDATA[<p>test</p>]]></description>
-</item>
-<item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:22:39 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
     <title>Spark、Hive QL-通过正则表达式选取需要的列</title>
     <link>https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</link>
     <pubDate>Mon, 16 Aug 2021 14:22:39 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</guid>
@@ -63,6 +57,12 @@
     <link>https://unclehuzi.github.io/2021/05/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</link>
     <pubDate>Mon, 10 May 2021 10:58:09 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/05/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
     <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
+</item>
+<item>
+    <title>窗口函数的“窗口”</title>
+    <link>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
+    <pubDate>Fri, 30 Apr 2021 11:53:32 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
+    <description><![CDATA[<p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>]]></description>
 </item>
 </channel>
 </rss>
