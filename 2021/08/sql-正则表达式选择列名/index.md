@@ -9,8 +9,6 @@
 
 最近有小伙伴谈起正则选择需要的列，一顿操作后做个记录。建模取特征时，常见这种操作
 
-<iframe src="./links.html" width="500" height="500" title="used-graph" style="border:none"></iframe>
-
 {{< admonition type=tip title="Tip" open=true >}}
 Spark 和 Hive 都是支持这种操作的
 只是相应的**设置不同**
