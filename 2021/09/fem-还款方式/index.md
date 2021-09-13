@@ -45,6 +45,94 @@ $$
 第i期还款中利息部分=\frac{p \times r}{(1+r)^n-1} \times ((1+r)^n-(1+r)^{(i-1)})
 $$
 
+```python
+import pandas as pd
+
+class MRPI:
+    '''
+    等额本息
+    - 多种翻译
+        Matching the Repayment of Principal and interest 
+        / Fixed installment method 
+        / average capital plus interest method
+
+    计算
+        - 每月还款
+        - 本金、利息部分
+        - generate DataFrame
+    '''
+
+    def __init__(self, p,R,N):
+        '''
+        p: 贷款总额
+        R: 年化利率
+        N: 贷款年限
+        '''
+
+        self.p = p
+        self.R = R
+        self.N = N
+
+        self.n = N * 12
+        self.r = R / 12
+
+
+    def pay_amt(self):
+        '''
+        每期总额（月供）
+        '''
+
+        term_total = ( self.p * self.r * (1 + self.r)**self.n ) \
+                    / ( (1 + self.r)**self.n - 1 ) 
+
+        return round(term_total,2)
+
+
+    def pay_part(self):
+        '''
+        月供中 利息，本金 部分
+        '''
+        interest,principal = [],[]
+
+        for i in range(self.n):
+
+            # 利息
+            term_interest = self.p * self.r * ( (1+self.r)**self.n - (1+self.r)**i ) \
+                            / ((1+self.r)**self.n-1)
+            term_interest = round(term_interest,2)
+
+            interest.append(term_interest)
+
+            # 本金
+            term_principal = ( self.p * self.r * ( 1 + self.r )**i ) \
+                            / ( (1 + self.r)**self.n - 1 )
+            term_principal = round(term_principal,2)
+
+            principal.append(term_principal)
+
+        return interest,principal
+
+    def get_detail(self):
+        '''
+        convert to DataFrame
+        '''
+
+        df_detail = pd.DataFrame({"term":[i for i in range(1,self.n + 1)]
+                                ,"月还款":[self.pay_amt()]*self.n
+                                ,"本金部分":self.pay_part()[1]
+                                ,"利息部分":self.pay_part()[0]
+                                })
+
+        df_total = pd.DataFrame({"term":["总计"]
+                                ,"月还款":[self.pay_amt()*self.n]
+                                ,"本金部分":[self.p]
+                                ,"利息部分":[self.pay_amt()*self.n - self.p]
+                                })
+        df = df_detail.append(df_total)
+
+        return df_detail,df.reset_index(drop=True)
+```
+
 ## 等额本金
 
 > 等额本金还款法，也称利随本清、等本不等息还款法。借款人将本金分摊到每期，同时付清上一个交易日至本次还款日之间的利息。（[MBA智库百科](https://wiki.mbalib.com/wiki/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91)）
@@ -79,8 +167,89 @@ $$
 第i期还款中利息部分=(1- \frac{i-1}{n}) \times p \times r
 $$
 
+```python
+import pandas as pd
 
-两者每期还款金额如下图所示
+class MPR:
+    '''
+    等额本金
+    - 多种翻译
+        Matching the Principal Repayment
+        / Reducing installment method (Fixed Principal)
+        / average capital method
+
+    计算
+        - 每月还款
+        - 本金、利息部分
+        - generate DataFrame
+    '''
+
+    def __init__(self, p,R,N):
+        '''
+        p: 贷款总额
+        R: 年化利率
+        N: 贷款年限
+        '''
+
+        self.p = p
+        self.R = R
+        self.N = N
+
+        self.n = N * 12
+        self.r = R / 12
+
+
+
+    def pay_part(self):
+        '''
+        本金，每期总额（月供） 以及 利息部分
+        '''
+
+        # 本金
+        term_principal = self.p / self.n
+
+        amt,interest = [],[]
+
+        for i in range(self.n):
+
+            # 每期利息
+            term_interest = ( 1 - i/self.n ) * self.p * self.r
+
+            # 每期还款
+            term_amt = term_principal + term_interest
+            term_amt = round(term_amt,2)
+
+            amt.append(term_amt)
+
+            term_interest = round(term_interest,2)
+            interest.append(term_interest)
+
+
+        return round(term_principal,2),amt,interest
+
+    def get_detail(self):
+        '''
+        convert to DataFrame
+        '''
+
+        df_detail = pd.DataFrame({"term":[i for i in range(1,self.n + 1)]
+                                ,"月还款":self.pay_part()[1]
+                                ,"本金部分":[self.pay_part()[0]]* self.n
+                                ,"利息部分":self.pay_part()[2]
+                                })
+
+        df_total = pd.DataFrame({"term":["总计"]
+                                ,"月还款":[self.p + (self.n+1)*self.p*(self.r/2)]
+                                ,"本金部分":[self.p]
+                                ,"利息部分":[self.p*(self.n+1)*(self.r/2)]
+                                })
+        df = df_detail.append(df_total)
+
+        return df_detail,df.reset_index(drop=True)
+```
+
+
+俩还款方式每期还款金额如下图所示
 
 ![diff](https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png)
 
@@ -116,7 +285,7 @@ $$
 
 ## 总结
 
-本文罗列了等额本息、等额本金和等本等息三种还款方式的基本信息。
+本文罗列了等额本息、等额本金和等本等息三种还款方式的基本信息。但产品设计的角度思考较少
 
 虽然表面上看起来等本等息还款方式很暴力，但我觉得每种还款方式背后都有金融产品设计者的考虑吧
 
@@ -127,12 +296,6 @@ $$
 原本的毛细血管更加的“细”。
 
 从奥派的角度来看“高利贷”等问题，可参考陈志武教授的[这篇文章](https://mp.weixin.qq.com/s/geEcvo9NA7IYBPGKGKVZIQ)
-
-
-
-
-
-
 
 
 
