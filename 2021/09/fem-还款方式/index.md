@@ -82,7 +82,7 @@ $$
 
 两者每期还款金额如下图所示
 
-{{< image src="/diff.png" title="等额本金 v.s. 等额本息">}}
+![diff](https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png)
 
 
 ## 等本等息
