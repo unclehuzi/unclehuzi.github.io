@@ -17,9 +17,27 @@
     <description><![CDATA[<p>详述Hugo+Github搭建个人博客</p>]]></description>
 </item>
 <item>
+    <title>【论文专题】零膨胀计数模型</title>
+    <link>https://unclehuzi.github.io/2021/05/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</link>
+    <pubDate>Thu, 06 May 2021 14:50:46 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/05/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</guid>
+    <description><![CDATA[<p>基于<code>R</code>，总结零膨胀计数模型的应用流程</p>]]></description>
+</item>
+<item>
+    <title>【论文专题】文本情感分析</title>
+    <link>https://unclehuzi.github.io/2021/04/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/</link>
+    <pubDate>Thu, 29 Apr 2021 14:27:10 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/04/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/</guid>
+    <description><![CDATA[<p>这篇是文本情感分析的应用篇</p>]]></description>
+</item>
+<item>
+    <title>【论文专题】Bootstrapping</title>
+    <link>https://unclehuzi.github.io/2021/03/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-bootstrapping/</link>
+    <pubDate>Tue, 30 Mar 2021 15:42:34 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/03/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-bootstrapping/</guid>
+    <description><![CDATA[<p>Bootstrapping基本思想</p>]]></description>
+</item>
+<item>
     <title>【论文专题】毕业论文模板</title>
-    <link>https://unclehuzi.github.io/2020/04/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</link>
-    <pubDate>Tue, 21 Apr 2020 15:26:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2020/04/2020-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</guid>
+    <link>https://unclehuzi.github.io/2020/04/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</link>
+    <pubDate>Tue, 21 Apr 2020 15:26:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2020/04/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</guid>
     <description><![CDATA[<p>毕业论文模板，<strong>样式先行</strong></p>]]></description>
 </item>
 <item>

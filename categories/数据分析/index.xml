@@ -59,10 +59,10 @@
     <description><![CDATA[<p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>]]></description>
 </item>
 <item>
-    <title>窗口函数的“窗口”</title>
-    <link>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
-    <pubDate>Fri, 30 Apr 2021 11:53:32 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
-    <description><![CDATA[<p>详述“窗口”的概念，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表</p>]]></description>
+    <title>【论文专题】零膨胀计数模型</title>
+    <link>https://unclehuzi.github.io/2021/05/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</link>
+    <pubDate>Thu, 06 May 2021 14:50:46 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/05/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</guid>
+    <description><![CDATA[<p>基于<code>R</code>，总结零膨胀计数模型的应用流程</p>]]></description>
 </item>
 </channel>
 </rss>
