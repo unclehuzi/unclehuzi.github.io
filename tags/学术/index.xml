@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>学术 - 标签 - 胡子叔叔的小站</title>
+        <title>学术 - Tag - 胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/tags/%E5%AD%A6%E6%9C%AF/</link>
-        <description>学术 - 标签 - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+        <description>学术 - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
             <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Tue, 07 Sep 2021 09:48:49 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E5%AD%A6%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
     <title>记毕业后第一次与导师的晚餐</title>
     <link>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>

@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>写作 - 分类 - 胡子叔叔的小站</title>
+        <title>写作 - Category - 胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/categories/%E5%86%99%E4%BD%9C/</link>
-        <description>写作 - 分类 - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+        <description>写作 - Category - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
             <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E5%86%99%E4%BD%9C/" rel="self" type="application/rss+xml" /><item>
     <title>远程管理hugo源文件以自动更新blog</title>
     <link>https://unclehuzi.github.io/2021/07/20210714-workflows/</link>

@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>可视化 - 标签 - 胡子叔叔的小站</title>
+        <title>可视化 - Tag - 胡子叔叔的小站</title>
         <link>https://unclehuzi.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
-        <description>可视化 - 标签 - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+        <description>可视化 - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
             <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 19 Aug 2021 15:13:52 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="self" type="application/rss+xml" /><item>
     <title>可视化决策树结果</title>
     <link>https://unclehuzi.github.io/2021/08/ml-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%86%B3%E7%AD%96%E6%A0%91/</link>
