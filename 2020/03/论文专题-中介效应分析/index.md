@@ -14,7 +14,7 @@
 
 这篇就是记录如何用 PROCESS[^1] 完成中介效应的分析，以简单的中介效应模型为例。
 
-![中介效应](https://mmbiz.qpic.cn/mmbiz_png/AVUggcicibDoKpubOylWcTMqUIdjnt9h70h4ITJRU1uEqPAhAKugngZpusd77BN2VF4znvZvqce9V84gxJUHn9zg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![中介效应](https://pic3.zhimg.com/v2-1f5b32978b438b076bb9dfe3f8239e0a_b.jpg)
 
 
 ## 1 理论部分
@@ -22,16 +22,16 @@
 上图的理论模型用数学数学语言可写为
 
 $$
-M = i_M+aX+e_M \label{M}
+M = i_M+aX+e_M
 $$
 
 $$
-Y = i_Y + c^,X + bM + e_Y \label{Y}
+Y = i_Y + c^,X + bM + e_Y
 $$
 
 正如下图所示
 
-![中介效应](https://mmbiz.qpic.cn/mmbiz_png/AVUggcicibDoKpubOylWcTMqUIdjnt9h704Q1Zia3F6cLmUQxYbPu4GJHwm5XHzia8iby3v0bAQsl9AIEppXd5WZqeA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![中介效应](https://pic1.zhimg.com/v2-b248dc21c49911f8e0548a7556663e3c_b.jpg)
 
 
 * 直接效应
@@ -100,7 +100,7 @@ $$
 
 一顿操作之后，便可得到如下结果
 
-![结果](https://mmbiz.qpic.cn/mmbiz_png/AVUggcicibDoKpubOylWcTMqUIdjnt9h709ksiczJJGNBraS8r1gLTRLuNsRf5WjbZpnArdxiclbzGS1jtcngOD4nQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![结果](https://pic4.zhimg.com/v2-d38e22b4dc7589318cca8bb87d2c2207_b.jpg)
 
 正如理论部分所说，是否存在中介效应，
 
