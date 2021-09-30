@@ -11,12 +11,6 @@
     <description><![CDATA[<p>一些观念被人们相信，是因为它们本身就是可被明证的事实；而另一些观念被人们相信，只是因为人们被这些观念反复的“洗脑”了而已。</p>]]></description>
 </item>
 <item>
-    <title>【论文专题】-调节效应分析</title>
-    <link>https://unclehuzi.github.io/2021/09/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</link>
-    <pubDate>Sat, 18 Sep 2021 18:36:30 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</guid>
-    <description><![CDATA[<p>调节效应分析（ <strong>Moderation Analysis</strong> ），回答 <strong>WHEN</strong> 的问题</p>]]></description>
-</item>
-<item>
     <title>还款方式：等额本息-等额本金-等本等息</title>
     <link>https://unclehuzi.github.io/2021/09/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</link>
     <pubDate>Mon, 13 Sep 2021 10:58:34 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</guid>
@@ -63,6 +57,12 @@
     <link>https://unclehuzi.github.io/2021/07/20210714-workflows/</link>
     <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210714-workflows/</guid>
     <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
+</item>
+<item>
+    <title>SQL计算多个变量的IV</title>
+    <link>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
+    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
+    <description><![CDATA[<p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>]]></description>
 </item>
 </channel>
 </rss>
