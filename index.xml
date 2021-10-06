@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 30 Sep 2021 15:01:56 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Tue, 05 Oct 2021 12:41:22 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>相关性能预测未来，但只有因果能决定未来</title>
+    <link>https://unclehuzi.github.io/2021/10/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
+    <pubDate>Tue, 05 Oct 2021 12:41:22 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/10/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</guid>
+    <description><![CDATA[<p>为什么要讲究因果？因为只有因果才能决定未来</p>]]></description>
+</item>
+<item>
     <title>索维尔：最常见的五大经济谬误</title>
     <link>https://unclehuzi.github.io/2021/09/fem-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%94%E5%A4%A7%E7%BB%8F%E6%B5%8E%E8%B0%AC%E8%AF%AF/</link>
     <pubDate>Thu, 30 Sep 2021 15:01:56 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/fem-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%94%E5%A4%A7%E7%BB%8F%E6%B5%8E%E8%B0%AC%E8%AF%AF/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2021/07/20210714-workflows/</link>
     <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210714-workflows/</guid>
     <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
-</item>
-<item>
-    <title>SQL计算多个变量的IV</title>
-    <link>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
-    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
-    <description><![CDATA[<p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>]]></description>
 </item>
 </channel>
 </rss>
