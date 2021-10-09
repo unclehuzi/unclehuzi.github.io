@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Tue, 05 Oct 2021 12:41:22 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 09 Oct 2021 14:27:05 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>因果推断补给站</title>
+    <link>https://unclehuzi.github.io/2021/10/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD%E8%A1%A5%E7%BB%99%E7%AB%99/</link>
+    <pubDate>Sat, 09 Oct 2021 14:27:05 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/10/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD%E8%A1%A5%E7%BB%99%E7%AB%99/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>相关性能预测未来，但只有因果能决定未来</title>
     <link>https://unclehuzi.github.io/2021/10/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
     <pubDate>Tue, 05 Oct 2021 12:41:22 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/10/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2021/07/hql-conditional-functions/</link>
     <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/hql-conditional-functions/</guid>
     <description><![CDATA[<p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
-</item>
-<item>
-    <title>远程管理hugo源文件以自动更新blog</title>
-    <link>https://unclehuzi.github.io/2021/07/20210714-workflows/</link>
-    <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210714-workflows/</guid>
-    <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
 </item>
 </channel>
 </rss>
