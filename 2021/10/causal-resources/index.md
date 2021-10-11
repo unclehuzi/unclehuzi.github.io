@@ -25,6 +25,13 @@
 
 * [Yishi Li](https://dango.rocks/blog/)
 * [统计之都](https://cosx.org/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD)
+* [Brady Neal](https://www.bradyneal.com/aboutme)，有篇从需求出发选择读物的[文章](https://www.bradyneal.com/which-causal-inference-book)
+
+  ![choose-causal-inference-book](https://www.bradyneal.com/img/books_flowchart.svg)
+
+### 知乎
+
+* [因果推断会是下一个AI热潮吗？](https://www.zhihu.com/question/479067450)
 
 ## 书籍
 
@@ -36,10 +43,21 @@
 * JUDEA PEARL. [Causal Inference in Statistics: A Primer](http://bayes.cs.ucla.edu/PRIMER/index.html)
 * [Donald B. Rubin](https://statistics.fas.harvard.edu/people/donald-b-rubin). Causal Inference for Statistics, Social, and Biomedical Sciences: An Introduction
 
+* [Brady Neal](https://www.bradyneal.com/aboutme). [Introduction to Causal Inference](https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf)
+
+* Hernán MA, Robins JM. [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)，以及书中对应的[Python-code](https://github.com/jrfiedler/causal_inference_python_code)
 
 
 
+## 工具包
 
+* [Uber](https://uber.github.io)-[Causal ML](https://causalml.readthedocs.io/en/latest/index.html): A Python package that provides a suite of uplift modeling and causal inference methods using machine learning.
+
+* [Microsoft](https://opensource.microsoft.com/)-[EconML](https://github.com/microsoft/EconML): A Python package for estimating heterogeneous treatment effects from observational data via machine learning.
+
+* [Microsoft](https://opensource.microsoft.com/)-[DoWhy](https://github.com/Microsoft/dowhy): A Python library that aims to spark causal thinking and analysis.
+
+* [CausalDiscoveryToolbox](https://github.com/FenTechSolutions/CausalDiscoveryToolbox): A package for causal inference in graphs and in the pairwise settings
 
 
 
