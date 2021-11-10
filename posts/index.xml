@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 09 Oct 2021 14:27:05 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Wed, 10 Nov 2021 20:28:01 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>PySpark之应用层小白视角</title>
+    <link>https://unclehuzi.github.io/2021/11/da-pyspark-beginning/</link>
+    <pubDate>Wed, 10 Nov 2021 20:28:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/11/da-pyspark-beginning/</guid>
+    <description><![CDATA[<p>Hi <code>PySpark</code>，初次见面，别来无恙</p>]]></description>
+</item>
+<item>
     <title>因果推断补给站</title>
     <link>https://unclehuzi.github.io/2021/10/causal-resources/</link>
     <pubDate>Sat, 09 Oct 2021 14:27:05 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/10/causal-resources/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2021/08/sql-pivot/</link>
     <pubDate>Mon, 09 Aug 2021 11:19:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/08/sql-pivot/</guid>
     <description><![CDATA[<p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>]]></description>
-</item>
-<item>
-    <title>Hive SQL-条件函数汇总</title>
-    <link>https://unclehuzi.github.io/2021/07/hql-conditional-functions/</link>
-    <pubDate>Sat, 31 Jul 2021 20:20:17 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/hql-conditional-functions/</guid>
-    <description><![CDATA[<p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>]]></description>
 </item>
 </channel>
 </rss>
