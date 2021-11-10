@@ -19,8 +19,8 @@ graph LR;
     B --> C{toPandas}
     C -->|N| D(PySpark计算)
     C -->|Y| E(pandas计算)
-    D --> F(输出，saveAS)
-    E --> F(输出，saveAS)
+    D --> F(输出-saveAS)
+    E --> F(输出-saveAS)
 {{< /mermaid >}}
 
 其实，整体还是“箱子模型” 📦 ，“喂”数据 => 处理、计算模块 => 结果
@@ -144,12 +144,12 @@ spark.sql("create table dbName.tableName as select * from myTempTableName")
 
 ## Reference
 
-[1]: 360数科深圳数据组
-[2]: Rudy Lai and Bartłomiej Potaczek.《Hands On Big Data Analytics With PySpark》
-[3]: https://docs.microsoft.com/en-us/azure/databricks/spark/latest/spark-sql/spark-pandas
-[4]: http://spark.apache.org/docs/latest/api/python/index.html
-[5]: https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html
-[6]: https://stackoverflow.com/questions/30664008/how-to-save-dataframe-directly-to-hive
+1. 360数科深圳数据组
+2. Rudy Lai and Bartłomiej Potaczek.《Hands On Big Data Analytics With PySpark》
+3. https://docs.microsoft.com/en-us/azure/databricks/spark/latest/spark-sql/spark-pandas
+4. http://spark.apache.org/docs/latest/api/python/index.html
+5. https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html
+6. https://stackoverflow.com/questions/30664008/how-to-save-dataframe-directly-to-hive
 
 
 
