@@ -13,7 +13,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/11/da-pyspark-beginning/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-11-10T20:28:01+08:00" />
-<meta property="article:modified_time" content="2021-11-10T20:41:35+08:00" />
+<meta property="article:modified_time" content="2021-11-11T14:11:59+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -37,8 +37,8 @@
                             "url": "https:\/\/unclehuzi.github.io\/2021\/11\/da-pyspark-beginning\/featured-image.jpg",
                             "width":  1024 ,
                             "height":  164 
-                        }],"genre": "posts","keywords": "PySpark","wordcount":  453 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/11\/da-pyspark-beginning\/","datePublished": "2021-11-10T20:28:01+08:00","dateModified": "2021-11-10T20:41:35+08:00","publisher": {
+                        }],"genre": "posts","keywords": "PySpark","wordcount":  900 ,
+        "url": "https:\/\/unclehuzi.github.io\/2021\/11\/da-pyspark-beginning\/","datePublished": "2021-11-10T20:28:01+08:00","dateModified": "2021-11-11T14:11:59+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -138,8 +138,8 @@
         alt="/2021/11/da-pyspark-beginning/featured-image.jpg"
         title="/2021/11/da-pyspark-beginning/featured-image.jpg" /></div><div class="post-meta">
                 <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a></span></div>
-                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-10">2021-11-10</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;453 words</span>&nbsp;
-                    <span><i class="far fa-clock fa-fw"></i>&nbsp;3 minutes</span>&nbsp;</div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-10">2021-11-10</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;900 words</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;5 minutes</span>&nbsp;</div>
             </div>
             
             <hr><div class="details toc" id="toc-static"  data-kept="">
@@ -224,6 +224,188 @@
 
 <span class="c1"># The results of SQL queries are themselves DataFrames and support all normal functions.</span>
 <span class="n">sqlDF</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&#34;SELECT key, value FROM src WHERE key &lt; 10 ORDER BY key&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1">#</span>
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
+<span class="c1"># contributor license agreements.  See the NOTICE file distributed with</span>
+<span class="c1"># this work for additional information regarding copyright ownership.</span>
+<span class="c1"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
+<span class="c1"># (the &#34;License&#34;); you may not use this file except in compliance with</span>
+<span class="c1"># the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#    http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">An interactive shell.
+</span><span class="s2">
+</span><span class="s2">This file is designed to be launched as a PYTHONSTARTUP script.
+</span><span class="s2">&#34;&#34;&#34;</span>
+
+<span class="kn">import</span> <span class="nn">atexit</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">py4j</span>
+
+<span class="kn">from</span> <span class="nn">pyspark</span> <span class="kn">import</span> <span class="n">SparkConf</span>
+<span class="kn">from</span> <span class="nn">pyspark.context</span> <span class="kn">import</span> <span class="n">SparkContext</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span><span class="p">,</span> <span class="n">SQLContext</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;SPARK_EXECUTOR_URI&#34;</span><span class="p">):</span>
+    <span class="n">SparkContext</span><span class="o">.</span><span class="n">setSystemProperty</span><span class="p">(</span><span class="s2">&#34;spark.executor.uri&#34;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;SPARK_EXECUTOR_URI&#34;</span><span class="p">])</span>
+
+<span class="n">SparkContext</span><span class="o">.</span><span class="n">_ensure_initialized</span><span class="p">()</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Try to access HiveConf, it will raise exception if Hive is not added</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;spark.sql.catalogImplementation&#39;</span><span class="p">,</span> <span class="s1">&#39;hive&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;hive&#39;</span><span class="p">:</span>
+        <span class="n">SparkContext</span><span class="o">.</span><span class="n">_jvm</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">hadoop</span><span class="o">.</span><span class="n">hive</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">HiveConf</span><span class="p">()</span>
+        <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span>\
+            <span class="o">.</span><span class="n">enableHiveSupport</span><span class="p">()</span>\
+            <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">py4j</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">Py4JError</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;spark.sql.catalogImplementation&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;hive&#39;</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&#34;Fall back to non-hive support because failing to access HiveConf, &#34;</span>
+                      <span class="s2">&#34;please make sure you build spark with hive&#34;</span><span class="p">)</span>
+    <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;spark.sql.catalogImplementation&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;hive&#39;</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&#34;Fall back to non-hive support because failing to access HiveConf, &#34;</span>
+                      <span class="s2">&#34;please make sure you build spark with hive&#34;</span><span class="p">)</span>
+    <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span>
+<span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">sc</span><span class="o">.</span><span class="n">stop</span><span class="p">())</span>
+
+<span class="c1"># for compatibility</span>
+<span class="n">sqlContext</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">_wrapped</span>
+<span class="n">sqlCtx</span> <span class="o">=</span> <span class="n">sqlContext</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;Welcome to
+</span><span class="s2">      ____              __
+</span><span class="s2">     / __/__  ___ _____/ /__
+</span><span class="s2">    _\ \/ _ \/ _ `/ __/  &#39;_/
+</span><span class="s2">   /__ / .__/\_,_/_/ /_/\_\   version </span><span class="si">%s</span><span class="s2">
+</span><span class="s2">      /_/
+</span><span class="s2">&#34;&#34;&#34;</span> <span class="o">%</span> <span class="n">sc</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Using Python version </span><span class="si">%s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&#34;</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">(),</span>
+    <span class="n">platform</span><span class="o">.</span><span class="n">python_build</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">platform</span><span class="o">.</span><span class="n">python_build</span><span class="p">()[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;SparkSession available as &#39;spark&#39;.&#34;</span><span class="p">)</span>
+
+<span class="c1"># The ./bin/pyspark script stores the old PYTHONSTARTUP value in OLD_PYTHONSTARTUP,</span>
+<span class="c1"># which allows us to execute the user&#39;s PYTHONSTARTUP file:</span>
+<span class="n">_pythonstartup</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OLD_PYTHONSTARTUP&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">_pythonstartup</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">_pythonstartup</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">_pythonstartup</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">_pythonstartup</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="数据处理计算">数据处理、计算</h2>
@@ -337,6 +519,7 @@
 <li><a href="http://spark.apache.org/docs/latest/api/python/index.html">http://spark.apache.org/docs/latest/api/python/index.html</a></li>
 <li><a href="https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html">https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html</a></li>
 <li><a href="https://stackoverflow.com/questions/30664008/how-to-save-dataframe-directly-to-hive">https://stackoverflow.com/questions/30664008/how-to-save-dataframe-directly-to-hive</a></li>
+<li><a href="https://bitbucket.org/cli14020/spark-cache/src/master/python/pyspark/shell.py">https://bitbucket.org/cli14020/spark-cache/src/master/python/pyspark/shell.py</a></li>
 </ol>
 <head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
@@ -345,8 +528,8 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/pyspark/">PySpark</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-11-10&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/5f989e1bf779be46ff3744597612fef7a846af7f" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;5f989e1:&nbsp;Update index.md">
-                            <i class="fas fa-hashtag fa-fw"></i>5f989e1</a></span>
+                <span>Updated on 2021-11-11&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/13018cfccc9fcfbefaeb551762ee710ac4ded8d7" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;13018cf:&nbsp;Update index.md">
+                            <i class="fas fa-hashtag fa-fw"></i>13018cf</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/11/da-pyspark-beginning/index.md" target="_blank">Read Markdown</a>
                         </span></div>

@@ -70,6 +70,97 @@ spark.sql("LOAD DATA LOCAL INPATH 'examples/src/main/resources/kv1.txt' INTO TAB
 sqlDF = spark.sql("SELECT key, value FROM src WHERE key < 10 ORDER BY key")
 ```
 
+```python
+#
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+"""
+An interactive shell.
+
+This file is designed to be launched as a PYTHONSTARTUP script.
+"""
+
+import atexit
+import os
+import platform
+import warnings
+
+import py4j
+
+from pyspark import SparkConf
+from pyspark.context import SparkContext
+from pyspark.sql import SparkSession, SQLContext
+
+if os.environ.get("SPARK_EXECUTOR_URI"):
+    SparkContext.setSystemProperty("spark.executor.uri", os.environ["SPARK_EXECUTOR_URI"])
+
+SparkContext._ensure_initialized()
+
+try:
+    # Try to access HiveConf, it will raise exception if Hive is not added
+    conf = SparkConf()
+    if conf.get('spark.sql.catalogImplementation', 'hive').lower() == 'hive':
+        SparkContext._jvm.org.apache.hadoop.hive.conf.HiveConf()
+        spark = SparkSession.builder\
+            .enableHiveSupport()\
+            .getOrCreate()
+    else:
+        spark = SparkSession.builder.getOrCreate()
+except py4j.protocol.Py4JError:
+    if conf.get('spark.sql.catalogImplementation', '').lower() == 'hive':
+        warnings.warn("Fall back to non-hive support because failing to access HiveConf, "
+                      "please make sure you build spark with hive")
+    spark = SparkSession.builder.getOrCreate()
+except TypeError:
+    if conf.get('spark.sql.catalogImplementation', '').lower() == 'hive':
+        warnings.warn("Fall back to non-hive support because failing to access HiveConf, "
+                      "please make sure you build spark with hive")
+    spark = SparkSession.builder.getOrCreate()
+
+sc = spark.sparkContext
+sql = spark.sql
+atexit.register(lambda: sc.stop())
+
+# for compatibility
+sqlContext = spark._wrapped
+sqlCtx = sqlContext
+
+print("""Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version %s
+      /_/
+""" % sc.version)
+print("Using Python version %s (%s, %s)" % (
+    platform.python_version(),
+    platform.python_build()[0],
+    platform.python_build()[1]))
+print("SparkSession available as 'spark'.")
+
+# The ./bin/pyspark script stores the old PYTHONSTARTUP value in OLD_PYTHONSTARTUP,
+# which allows us to execute the user's PYTHONSTARTUP file:
+_pythonstartup = os.environ.get('OLD_PYTHONSTARTUP')
+if _pythonstartup and os.path.isfile(_pythonstartup):
+    with open(_pythonstartup) as f:
+        code = compile(f.read(), _pythonstartup, 'exec')
+        exec(code)
+```
+
 ## 数据处理、计算
 
 读取数据得到 `Spark DataFrame` 后，可以直接对此进行操作，除了常见的业务分析还有机器学习模块（`MLlib`）
@@ -150,6 +241,7 @@ spark.sql("create table dbName.tableName as select * from myTempTableName")
 4. http://spark.apache.org/docs/latest/api/python/index.html
 5. https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html
 6. https://stackoverflow.com/questions/30664008/how-to-save-dataframe-directly-to-hive
+7. https://bitbucket.org/cli14020/spark-cache/src/master/python/pyspark/shell.py
 
 
 
