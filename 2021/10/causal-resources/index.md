@@ -33,6 +33,10 @@
 
 * [因果推断会是下一个AI热潮吗？](https://www.zhihu.com/question/479067450)
 
+### Github
+
+[Paper_CausalInference_abtest](https://github.com/DSXiangLi/Paper_CausalInference_abtest)
+
 ## 书籍
 
 * 《[原因与结果的经济学]({{< ref "posts/notes-原因与结果的经济学/index.md" >}})》
