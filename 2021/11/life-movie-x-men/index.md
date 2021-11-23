@@ -11,7 +11,7 @@
 gantt
     dateFormat YYYY
     axisFormat %Y
-    title X战警系列电影时间线
+    title X战警系列电影，时间线
 
     section X-Men First Class
     Erik成长  : 1944,1962
@@ -19,14 +19,14 @@ gantt
 
     section X-Men Origins Wolverine
     经历各种战争 : 1854,1975
-    主要故事: milestone,1981,1981
+    金刚狼复仇: milestone,1981,1981
 
 
     section X-Men Apocalypse
-    X-Men Apocalypse : milestone,1983,1983
+    干掉伪神 : milestone,1983,1983
 
     section X-Men
-    X-Men : 2000,2003
+    与Erik对抗 : 2000,2003
 {{< /mermaid >}}
 
 
