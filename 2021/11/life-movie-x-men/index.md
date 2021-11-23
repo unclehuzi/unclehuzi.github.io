@@ -7,6 +7,25 @@
 
 ---
 
+{{< mermaid >}}
+gantt
+    dateFormat YYYY
+    axisFormat %Y
+    title X战警系列电影时间线
+
+    section X-Men First Class
+    X-Men First Class  : 1944,1962
+
+    section X-Men Origins Wolverine
+    X-Men Origins Wolverine : 1854,1981
+
+    section X-Men Apocalypse
+    X-Men Apocalypse : milestone,1983,1983
+
+    section X-Men
+    X-Men : 2000,2003
+{{< /mermaid >}}
+
 
 
 ## X-Men: First Class(2011)
@@ -29,7 +48,7 @@ Erik也各种展开复仇。
 
 期间也闪现了Professor X（Charles） 和 Erik（“万磁王”）两人拉 James Howlett（即之后的“金刚狼”）入伙的镜头
 
-***Mark** <u>这时候（1962年）越南战争还没结束。</u>
+**Mark** <u>这时候（1962年）越南战争还没结束。</u>
 
 **第一战** 即是变种人和普通人类之间的第一战，也是Professor X（Charles） 和 Erik（“万磁王”）之间的第一战
 
