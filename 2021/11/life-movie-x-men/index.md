@@ -14,10 +14,13 @@ gantt
     title X战警系列电影时间线
 
     section X-Men First Class
-    X-Men First Class  : 1944,1962
+    Erik成长  : 1944,1962
+    Erik复仇  : milestone,1962,1962
 
     section X-Men Origins Wolverine
-    X-Men Origins Wolverine : 1854,1981
+    经历各种战争 : 1854,1975
+    主要故事: milestone,1981,1981
+
 
     section X-Men Apocalypse
     X-Men Apocalypse : milestone,1983,1983
