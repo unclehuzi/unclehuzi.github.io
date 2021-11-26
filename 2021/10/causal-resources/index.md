@@ -23,7 +23,12 @@
 
 ### 博客
 
-* [Yishi Li](https://dango.rocks/blog/)
+* [Emre Kiciman @Microsoft](http://kiciman.org/)
+* [Amit Sharma @Microsoft](http://www.amitsharma.in/)
+
+二位似乎一起搞了个网站：[Getting Started with Causal Inference](https://causalinference.gitlab.io/)，里面有正在写的书：[Causal Reasoning: Fundamentals and Machine Learning Applications](https://causalinference.gitlab.io/book/) 以及一些[课程](https://causalinference.gitlab.io/courses/)之类的
+
+* [Yishi Li @Tencent](https://dango.rocks/blog/)
 * [统计之都](https://cosx.org/tags/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD)
 * [Brady Neal](https://www.bradyneal.com/aboutme)，有篇从需求出发选择读物的[文章](https://www.bradyneal.com/which-causal-inference-book)
 
@@ -35,7 +40,8 @@
 
 ### Github
 
-[Paper_CausalInference_abtest](https://github.com/DSXiangLi/Paper_CausalInference_abtest)
+* [amit-sharma / causal-inference-tutorial](https://github.com/amit-sharma/causal-inference-tutorial/)
+* [Paper_CausalInference_abtest](https://github.com/DSXiangLi/Paper_CausalInference_abtest)
 
 ## 书籍
 
