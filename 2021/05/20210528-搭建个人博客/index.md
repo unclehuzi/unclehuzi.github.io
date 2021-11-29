@@ -1,4 +1,4 @@
-# 快速搭建个人博客
+# GitHub+Hugo快速搭建个人博客
 
 
 详述Hugo+Github搭建个人博客

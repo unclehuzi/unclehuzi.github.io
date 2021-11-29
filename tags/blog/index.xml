@@ -11,7 +11,7 @@
     <description><![CDATA[<p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>]]></description>
 </item>
 <item>
-    <title>快速搭建个人博客</title>
+    <title>GitHub&#43;Hugo快速搭建个人博客</title>
     <link>https://unclehuzi.github.io/2021/05/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
     <pubDate>Fri, 28 May 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/05/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
     <description><![CDATA[<p>详述Hugo+Github搭建个人博客</p>]]></description>
