@@ -27,6 +27,9 @@ gantt
 
     section X-Men
     与Erik对抗 : 2000,2003
+
+    section X-Men2
+    与Stryker对抗 : milestone,2004,2004
 {{< /mermaid >}}
 
 
@@ -127,7 +130,7 @@ Scott 的课堂上，老师讲授着，变种人大规模出现在公众视野�
 
 不过本文并不是聚焦于此～
 
-## X-Men（2000）
+## X-Men (2000)
 
 ![X-Men（2000）](x-men2000.jpeg)
 
@@ -138,8 +141,19 @@ X-Professor 和 万磁王（Erik）都老了，且之前X教授收的几个小�
 关于时间线方面，此时金刚狼还没找到当年实验基地的（An abandoned military installation in Canada）的记忆，即 X-Men Origins: Wolverine (2009) 讲述的故事。
 
 
+## X-Men 2 (2003)
 
+![X-Men2](X-men2.png)
 
+承接 X-Men(2000) 之后的故事，似乎也没有啥时间点
+
+这里出现了 Stryker，那个给予金刚狼xxx合金爪子的Stryker
+
+Stryker想干掉变种人，而 万磁王（Erik） 想干掉人类 😂
+
+不过最后也是互相妥协了吧，也说明白了是有人想挑起战争，搞得两败俱伤。应当求同存异、互利共赢、共创美好未来～
+
+关于 Stryker 儿子——Jason 的事儿一直也没整明白，和 Professor X 之间的交集也不得而知，不知道是不是哪里漏了 🤷‍♂️
 
 
 
