@@ -18,7 +18,7 @@ gantt
     Erik复仇  : milestone,1962,1962
 
     section X-Men Origins Wolverine
-    经历各种战争 : 1854,1975
+    经历各种战争 : 1900,1975
     金刚狼复仇: milestone,1981,1981
 
 
@@ -26,10 +26,15 @@ gantt
     干掉伪神 : milestone,1983,1983
 
     section X-Men
-    与Erik对抗 : 2000,2003
+    与Erik对抗 : 2000,2001
 
     section X-Men2
-    与Stryker对抗 : milestone,2004,2004
+    与Stryker对抗 : milestone,2002,2002
+
+    section The Wolverine
+    二战    : 1939,1945
+    初见自愈 : milestone,1945,1945
+    觊觎永生 : milestone,2004,2004
 {{< /mermaid >}}
 
 
@@ -136,7 +141,7 @@ Scott 的课堂上，老师讲授着，变种人大规模出现在公众视野�
 
 电影中似乎未提及具体时间，故事发生在1944年之后，not-too-distant future，但看着人物状态估计离X-Professor头秃的时候也有20年了，即2000年左右
 
-X-Professor 和 万磁王（Erik）都老了，且之前X教授收的几个小弟（琴、暴风女、Scott）都具备一定的单兵作战能力
+Professor-X 和 万磁王（Erik）都老了，且之前X教授收的几个小弟（琴、暴风女、Scott）都具备一定的单兵作战能力
 
 关于时间线方面，此时金刚狼还没找到当年实验基地的（An abandoned military installation in Canada）的记忆，即 X-Men Origins: Wolverine (2009) 讲述的故事。
 
@@ -154,6 +159,26 @@ Stryker想干掉变种人，而 万磁王（Erik） 想干掉人类 😂
 不过最后也是互相妥协了吧，也说明白了是有人想挑起战争，搞得两败俱伤。应当求同存异、互利共赢、共创美好未来～
 
 关于 Stryker 儿子——Jason 的事儿一直也没整明白，和 Professor X 之间的交集也不得而知，不知道是不是哪里漏了 🤷‍♂️
+
+## X-Men: The Last Stand(2006)
+
+
+## The Wolverine(2013)
+
+![Wolverine](Wolverine2.png)
+
+1945年8月9日，美国投掷原子弹轰炸日本长崎。金刚狼不仅扛过来了，还救了军官 Ichirō Yashida（未执行尊贵的切腹）
+
+后面的故事就是这个幸存的军官 Ichirō Yashida 想永生而引发的各种故事。
+
+剧中提到 *Do not let the lights fool you. These are dark days in Japan.*
+
+不知道说的是不是20世纪90年代经济泡沫之后的日本
+
+![Japan](https://raw.githubusercontent.com/unclehuzi/pic/master/images/20211204211559.png)
+
+P.S. 片尾有彩蛋：看样子似乎 Professor-X 和 万磁王（Erik）统一战线了，“一致对外”
+
 
 
 
