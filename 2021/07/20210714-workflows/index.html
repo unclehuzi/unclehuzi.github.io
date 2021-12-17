@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/07/20210714-workflows/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-14T17:50:20+08:00" />
-<meta property="article:modified_time" content="2021-12-17T11:21:21+08:00" />
+<meta property="article:modified_time" content="2021-12-17T11:43:33+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -39,7 +39,7 @@
                             "width":  1000 ,
                             "height":  420 
                         }],"genre": "posts","keywords": "blog","wordcount":  205 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/20210714-workflows\/","datePublished": "2021-07-14T17:50:20+08:00","dateModified": "2021-12-17T11:21:21+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/20210714-workflows\/","datePublished": "2021-07-14T17:50:20+08:00","dateModified": "2021-12-17T11:43:33+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -162,225 +162,13 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>
-<p>在之前<a href="https://unclehuzi.github.io/2021/05/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="">快速搭建个人博客</a>的文章中有提到</p>
-<blockquote>
-<p>将 <code>public</code> 文件夹下的文件推送至GitHub仓库</p>
-</blockquote>
-<p>每次这么操作还是有点繁琐的，所以就想如果更新完hugo源文件，博客自动更新就好了。此外，换台电脑💻，依然正常操作就更更更好了～</p>
-<p>终于，是找到了GitHub的 <em><strong>Actions</strong></em> 中 <em><strong>Workflows</strong></em> 功能</p>
-<p>将Hugo源文件维护在GitHub上，只要源文件的仓库更新，自动更新存有 <code>public</code> 文件的仓库，那么博客也就随之更新了。</p>
-<p>在此记录下实现过程 👇</p>
-<h2 id="1-生成ssh-key-windows-环境">1. 生成SSH key （Windows 环境）</h2>
-<p>参考<a href="https://www.jianshu.com/p/95262f5eba7a" target="_blank" rel="noopener noreffer">这个</a></p>
-<ol>
-<li>通过git bash cd 至 <code>.ssh</code> 文件夹</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> ~/.ssh/
-</code></pre></td></tr></table>
-</div>
-</div><p>如果提示 <code>No such file or directory</code>，可以手动的创建一个 <code>.ssh</code>文件夹，<em><strong>BY</strong></em>  <code>mkdir ~/.ssh</code></p>
-<ol start="2">
-<li>配置全局 name 和 email</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">git config --global user.name <span class="s2">&#34;你的用户名&#34;</span>
-git config --global user.email <span class="s2">&#34;你的公司或个人邮箱&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start="4">
-<li>生成 key</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &#34;你的公司或个人邮箱&#34;
-</code></pre></td></tr></table>
-</div>
-</div><p>连续按 <strong>3</strong> 次回车</p>
-<p>最后得到俩文件： <code>id_rsa</code> 和 <code>id_rsa.pub</code></p>
-<h2 id="2-创建并配置仓库">2. 创建并配置仓库</h2>
-<p>参考<a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog" target="_blank" rel="noopener noreffer">这个</a></p>
-<h3 id="21-配置hugo源文件的仓库">2.1 配置hugo源文件的仓库</h3>
-<p><strong>仓库名称不限</strong>，在此以 <code>unclehuzi.github.io.source</code> 为例</p>
-<p>进入<code>unclehuzi.github.io.source</code>仓库，添加<code>Secrets</code>，名称为<code>ACTIONS_DEPLOY_KEY</code>，将 <code>id_rsa</code> 文件的内容粘过去，得到内容如下所示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png"
-        title="Secrets" /></p>
-<p><strong>上传 hugo源文件</strong></p>
-<blockquote>
-<p>把 <code>themes</code> 主题文件夹中的 <code>.git</code> 文件删除</p>
-</blockquote>
-<p>不然<code>Github</code> 会检测到是别的仓库，上传后文件夹是灰色的</p>
-<h3 id="22-配置-unclehuzigithubio-仓库">2.2 配置 unclehuzi.github.io 仓库</h3>
-<p>仓库名称有讲究，得是这个 <code>github_user_name.github.io</code></p>
-<p>进入<code>unclehuzi.github.io</code> 仓库，添加<code>Deploy keys</code> ，名称不限制，将<code>id_rsa.pub</code>文件的内容粘过去。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png"
-        title="Deploy keys" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png"
-        title="result" /></p>
-<h3 id="23-配置工作流workflows">2.3 配置工作流（Workflows）</h3>
-<p>进入<code>unclehuzi.github.io.source</code>仓库，创建 <strong>Actions</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png"
-        title="Actions" /></p>
-<p>代码如下 👇</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Hugo Site to Github Pages on Master Branch</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="l">master </span><span class="w"> </span><span class="c"># Attention 1</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">build-deploy</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
-</span><span class="w">      
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.83.1&#39;</span><span class="w">
-</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 使用扩展版</span><span class="w">
-</span><span class="w">          </span><span class="c"># Attention 2</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w"> </span><span class="c">#--minify</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">deploy_key</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w"> </span><span class="c"># 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名</span><span class="w">
-</span><span class="w">          </span><span class="nt">external_repository</span><span class="p">:</span><span class="w"> </span><span class="l">unclehuzi/unclehuzi.github.io</span><span class="w"> </span><span class="c"># Pages 远程仓库 </span><span class="w">
-</span><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
-</span><span class="w">          </span><span class="nt">keep_files</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># remove existing files</span><span class="w">
-</span><span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l">master </span><span class="w"> </span><span class="c"># deploying branch</span><span class="w">
-</span><span class="w">          </span><span class="c"># Attention 3</span><span class="w">
-</span><span class="w">          </span><span class="nt">commit_message</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.head_commit.message }}</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>备注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content"><ul>
-<li>
-<p>Attention 1</p>
-<p><code>source</code> 仓库的分支名称为 <code>master</code></p>
-</li>
-<li>
-<p>Attention 2</p>
-<p><code>hugo</code> 的版本</p>
-</li>
-<li>
-<p>Attention 3</p>
-<p><code>unclehuzi.github.io</code> 仓库的分支名称</p>
-</li>
-</ul>
-</div>
-        </div>
-    </div>
-<h2 id="3-finished">3. Finished</h2>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png"
-        title="result" /></p>
-<p>以后维护好<code>source</code>这个仓库就能实现</p>
-<ol>
-<li>触发机制以自动更新blog</li>
-<li>换个电脑 💻 继续写blog</li>
-</ol>
-<h2 id="reference">Reference</h2>
-<ol>
-<li><a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog">https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog</a></li>
-<li><a href="https://www.jianshu.com/p/95262f5eba7a">https://www.jianshu.com/p/95262f5eba7a</a></li>
-</ol>
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+                </div><div class="content" id="content">
+                
+            </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/blog/">blog</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/adb8ab4939f1a47624b15f105cacada6ddd9a7a4" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;adb8ab4:&nbsp;return ago">
-                            <i class="fas fa-hashtag fa-fw"></i>adb8ab4</a></span>
+                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/251d1ec18826cc4714c81149eeb56d7496645288" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;251d1ec:&nbsp;Update single.html">
+                            <i class="fas fa-hashtag fa-fw"></i>251d1ec</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/07/20210714-workflows/index.md" target="_blank">Read Markdown</a>
                         </span></div>

@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/12/da-pandas-qcut/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-16T10:28:01+08:00" />
-<meta property="article:modified_time" content="2021-12-17T11:21:21+08:00" />
+<meta property="article:modified_time" content="2021-12-17T11:43:33+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -39,7 +39,7 @@
                             "width":  720 ,
                             "height":  414 
                         }],"genre": "posts","keywords": "Python, pandas","wordcount":  265 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/12\/da-pandas-qcut\/","datePublished": "2021-12-16T10:28:01+08:00","dateModified": "2021-12-17T11:21:21+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2021\/12\/da-pandas-qcut\/","datePublished": "2021-12-16T10:28:01+08:00","dateModified": "2021-12-17T11:43:33+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -162,254 +162,14 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>最近用 <code>pandas.qcut</code> 分箱遇到了个很奇怪的bug，先Mark一波</p>
-<p>在此之前也顺便记录下 <code>pandas.qcut</code>, <code>pandas.Series.value_counts</code> 和 <code>pandas.Series.value_counts</code>  的用法</p>
-<h2 id="相关函数">相关函数</h2>
-<h3 id="pandasqcut"><code>pandas.qcut</code></h3>
-<p>基于样本数据排序或分位数分箱</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Python" data-lang="Python"><span class="n">pandas</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><table>
-<thead>
-<tr>
-<th style="text-align:center">Parameter</th>
-<th style="text-align:center">type</th>
-<th style="text-align:left">comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>x</code></td>
-<td style="text-align:center">一维 ndarray 或 Series</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>q</code></td>
-<td style="text-align:center">int or list-like of float</td>
-<td style="text-align:left">如4，或 [0,0.2,0.8,1]</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>labels</code></td>
-<td style="text-align:center">array or False, default None</td>
-<td style="text-align:left">对分箱后的区间重命名，要求和bins等数量</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>retbins</code></td>
-<td style="text-align:center">bool, optional</td>
-<td style="text-align:left">是否返回边界值</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>precision</code></td>
-<td style="text-align:center">int, optional</td>
-<td style="text-align:left">用于调整精度，一般默认</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>duplicates</code></td>
-<td style="text-align:center">&lsquo;raise&rsquo; or &lsquo;drop&rsquo;</td>
-<td style="text-align:left">&lsquo;raise&rsquo;: 若边界值重复则报错<br />&lsquo;drop&rsquo;: 删除重复的</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="c1">#[(-0.001, 1.0], (-0.001, 1.0], (1.0, 2.0], (2.0, 3.0], (3.0, 4.0]]</span>
-<span class="c1">#Categories (4, interval[float64, right]): [(-0.001, 1.0] &lt; (1.0, 2.0] ...</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;good&#34;</span><span class="p">,</span> <span class="s2">&#34;medium&#34;</span><span class="p">,</span> <span class="s2">&#34;bad&#34;</span><span class="p">])</span>
-
-<span class="c1">#[good, good, medium, bad, bad]</span>
-<span class="c1">#Categories (3, object): [good &lt; medium &lt; bad]</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="pandasseriesvalue_counts"><code>pandas.Series.value_counts</code></h3>
-<blockquote>
-<p>Return a Series containing counts of unique values.</p>
-</blockquote>
-<p>返回的结果默认是根据频数降序排序，且排除 <code>NaN</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>type</th>
-<th>comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>normalize</code></td>
-<td>bool, default False</td>
-<td>If Ture 则返回频率</td>
-</tr>
-<tr>
-<td><code>sort</code></td>
-<td>bool, default True</td>
-<td>按照频数排序</td>
-</tr>
-<tr>
-<td><code>ascending</code></td>
-<td>bool, default False</td>
-<td>If True，从小到大排序</td>
-</tr>
-<tr>
-<td><code>bins</code></td>
-<td>int, optional</td>
-<td>仅适用于数值型数据，分箱计数</td>
-</tr>
-<tr>
-<td><code>dropna</code></td>
-<td>bool, default True</td>
-<td>If False， 包含 <code>NaN</code></td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="p">(</span><span class="mf">75.25</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]</span>    <span class="mi">25</span>
-<span class="p">(</span><span class="mf">50.5</span><span class="p">,</span> <span class="mf">75.25</span><span class="p">]</span>     <span class="mi">25</span>
-<span class="p">(</span><span class="mf">25.75</span><span class="p">,</span> <span class="mf">50.5</span><span class="p">]</span>     <span class="mi">25</span>
-<span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">25.75</span><span class="p">]</span>      <span class="mi">25</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
- 
- <span class="c1">###############################################</span>
- <span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="p">(</span><span class="mf">74.25</span><span class="p">,</span> <span class="mf">99.0</span><span class="p">]</span>    <span class="mf">0.25</span>
-<span class="p">(</span><span class="mf">49.5</span><span class="p">,</span> <span class="mf">74.25</span><span class="p">]</span>    <span class="mf">0.25</span>
-<span class="p">(</span><span class="mf">24.75</span><span class="p">,</span> <span class="mf">49.5</span><span class="p">]</span>    <span class="mf">0.25</span>
-<span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">24.75</span><span class="p">]</span>    <span class="mf">0.25</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="pandasseriesunique"><code>pandas.Series.unique</code></h3>
-<blockquote>
-<p>Return unique values of Series object.</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Series</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">])</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">array</span><span class="p">([</span> <span class="mf">3.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span> <span class="n">nan</span><span class="p">])</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="那个奇怪的bug">那个奇怪的bug</h2>
-<p><code>Python</code>: 3.6.4|Anaconda, Inc.</p>
-<p><code>pandas</code>: 1.1.5</p>
-<p>背景是对数据进行等频分箱</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pdf</span><span class="p">[</span><span class="s1">&#39;qcut&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">pdf</span><span class="p">[</span><span class="s1">&#39;prob&#39;</span><span class="p">],</span><span class="mi">20</span><span class="p">,</span><span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>之后通过<code>value_counts</code>计数发现有个区间频数为0，且为17个区间</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png"
-        data-srcset="https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png, https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png 1.5x, https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png 2x"
-        data-sizes="auto"
-        alt="https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png"
-        title="image-20211216144937371" /></p>
-<p>此时，再通过 <code>unique</code> 去重，就只有16个区间，上图中的 <code>(22.0,22.2]</code> 那个区间就没了</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png"
-        data-srcset="https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png, https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png 1.5x, https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png 2x"
-        data-sizes="auto"
-        alt="https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png"
-        title="unique" /></p>
-<p>根本原因还是数据分布的问题，因为本来是要分20个bin，存在较多边界值重复的情况</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png"
-        data-srcset="https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png, https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png 1.5x, https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png 2x"
-        data-sizes="auto"
-        alt="https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png"
-        title="valueError" /></p>
-<h2 id="解决方案">解决方案</h2>
-<p>源码方面的原因暂时不得而知</p>
-<p>分箱后得到的数据类型是 <code>Categorical</code>将其转换为 <code>String</code>后再进行后续的分组统计计算</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pdf</span><span class="p">[</span><span class="s1">&#39;qcut&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdf</span><span class="p">[</span><span class="s1">&#39;qcut&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
-<ol>
-<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.qcut.html">https://pandas.pydata.org/docs/reference/api/pandas.qcut.html</a></li>
-<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html">https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html</a></li>
-<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html">https://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html</a></li>
-</ol></div><div class="post-footer" id="post-footer">
+                </div><div class="content" id="content">
+                
+            </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/python/">Python</a>
                 </span><span><a href="/tags/pandas/">pandas</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/adb8ab4939f1a47624b15f105cacada6ddd9a7a4" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;adb8ab4:&nbsp;return ago">
-                            <i class="fas fa-hashtag fa-fw"></i>adb8ab4</a></span>
+                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/251d1ec18826cc4714c81149eeb56d7496645288" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;251d1ec:&nbsp;Update single.html">
+                            <i class="fas fa-hashtag fa-fw"></i>251d1ec</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/12/da-pandas-qcut/index.md" target="_blank">Read Markdown</a>
                         </span></div>

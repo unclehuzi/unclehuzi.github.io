@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/08/sql-pivot/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-09T11:19:04+08:00" />
-<meta property="article:modified_time" content="2021-12-17T11:21:21+08:00" />
+<meta property="article:modified_time" content="2021-12-17T11:43:33+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -39,7 +39,7 @@
                             "width":  402 ,
                             "height":  306 
                         }],"genre": "posts","keywords": "SQL","wordcount":  50 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/","datePublished": "2021-08-09T11:19:04+08:00","dateModified": "2021-12-17T11:21:21+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/","datePublished": "2021-08-09T11:19:04+08:00","dateModified": "2021-12-17T11:43:33+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -155,83 +155,13 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>
-<p>在统计分析时总会遇到分类汇总的场景，类似Excel的数据透视表。SQL中按照 <code>case when</code> 或 <code>IF</code> 的写法往往会显得臃肿，较为方便的便是通过 <code>pivot</code> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>实现，但 Hive <strong>不</strong>支持😢</p>
-<div class="details admonition warning open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>运行环境<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">以下基于 <em><strong>spark-2.4.5U3</strong></em> 及以上版本</div>
-        </div>
-    </div>
-<h2 id="基本语法">基本语法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">PIVOT</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">aggregate_expression_alias</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span><span class="w">       </span><span class="k">FOR</span><span class="w"> </span><span class="n">column_list</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">expression_list</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>The <code>PIVOT</code> clause can be specified after the table name or subquery.</p>
-</blockquote>
-<h2 id="实际应用">实际应用</h2>
-<p>假设有张存有各个地区、各个产品的月销量的表（sales_table），我们需要统计各个月份所有地区产品销量的加总，形如👇</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png"
-        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png 2x"
-        data-sizes="auto"
-        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png"
-        title="按月份分类汇总销量" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">month</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;毛巾&#39;</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">		</span><span class="n">sales_table</span><span class="w">
-</span><span class="w"></span><span class="n">pivot</span><span class="w">
-</span><span class="w"> 		</span><span class="p">(</span><span class="w">
-</span><span class="w">     </span><span class="k">sum</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w">
-</span><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;毛巾&#39;</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="p">)</span><span class="w">
-</span><span class="w">    </span><span class="p">)</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html">https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div></div><div class="post-footer" id="post-footer">
+                </div><div class="content" id="content">
+                
+            </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/adb8ab4939f1a47624b15f105cacada6ddd9a7a4" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;adb8ab4:&nbsp;return ago">
-                            <i class="fas fa-hashtag fa-fw"></i>adb8ab4</a></span>
+                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/251d1ec18826cc4714c81149eeb56d7496645288" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;251d1ec:&nbsp;Update single.html">
+                            <i class="fas fa-hashtag fa-fw"></i>251d1ec</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/08/sql-pivot/index.md" target="_blank">Read Markdown</a>
                         </span></div>

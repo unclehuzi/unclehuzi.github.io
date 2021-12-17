@@ -155,88 +155,9 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>【Mark】通过正则表达式选择相应的列</p>
-<p>在涉及子查询时，平时习惯直接把需要的列全写出来，也没想太多。</p>
-<p>最近有小伙伴谈起正则选择需要的列，一顿操作后做个记录。建模取特征时，常见这种操作</p>
-<div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>Tip<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">Spark 和 Hive 都是支持这种操作的
-只是相应的<strong>设置不同</strong></div>
-        </div>
-    </div>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">spark/hive</th>
-<th>set</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">hive<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></td>
-<td>set hive.support.quoted.identifiers=none</td>
-</tr>
-<tr>
-<td style="text-align:center">spark<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></td>
-<td>set spark.sql.parser.quotedRegexColumnNames=true</td>
-</tr>
-</tbody>
-</table>
-<p>其中，正则表达式的写法可参考 JAVA regex 语法</p>
-<h2 id="例1查询去除某几列的所有列">例1，查询去除某几列的所有列</h2>
-<p><code>select</code> 去除 user_no, cust_no 的所有列</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="o">`</span><span class="p">(</span><span class="n">user_no</span><span class="o">|</span><span class="n">cust_no</span><span class="p">)</span><span class="o">?+</span><span class="p">.</span><span class="o">+`</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">table1</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><p><code>select</code> 去除以 no 结尾的所有列</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="o">`</span><span class="p">(.</span><span class="o">*</span><span class="k">no</span><span class="p">)</span><span class="o">?+</span><span class="p">.</span><span class="o">+`</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">table1</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="例2查询符合某特征的所有列">例2，查询符合某特征的所有列</h2>
-<p><code>select</code> 以 no 结尾的所有列</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="o">`</span><span class="p">.</span><span class="o">+</span><span class="k">no</span><span class="o">`</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">table1</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="reference">Reference</h2>
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://community.cloudera.com/t5/Community-Articles/Spark-to-support-REGEX-column-specification-for-Hive-Queries/ta-p/316579">https://community.cloudera.com/t5/Community-Articles/Spark-to-support-REGEX-column-specification-for-Hive-Queries/ta-p/316579</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><a href="https://stackoverflow.com/questions/52526768/does-spark-sql-supports-hive-select-all-query-with-except-columns-using-regex-sp">https://stackoverflow.com/questions/52526768/does-spark-sql-supports-hive-select-all-query-with-except-columns-using-regex-sp</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div></div><div class="post-footer" id="post-footer">
+                </div><div class="content" id="content">
+                
+            </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
                 <span>Updated on 2021-08-16</span>
