@@ -160,7 +160,157 @@
     <li><a href="#应用">应用</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>以 “计算当前和上一次事件的时间间隔” 引入 positional function</p>
+<p>截止到目前，窗口函数整理了聚合、排序场景，解决了“组内占比”、“定位连续3天登录用户”等问题</p>
+<p>在平时的分析工作中，还有个比较常见的问题：计算当前和上一次事件的时间间隔。比如，相邻两次外呼的时间间隔</p>
+<p>这个时候，<code>lead()</code> 或 <code>lag()</code> 函数可较为方便的解决该类问题</p>
+<h2 id="实现的功能">实现的功能</h2>
+<p><code>lead()</code>, <code>lag()</code> 实现的功能比较类似。</p>
+<h3 id="lead--上移"><code>lead()</code>  上移</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">seller_name</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">sale_value</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">lead</span><span class="p">(</span><span class="n">sale_value</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sale_value</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">next_sale_value</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">sale</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://learnsql.com/blog/lead-and-lag-functions-in-sql/2.png"
+        data-srcset="https://learnsql.com/blog/lead-and-lag-functions-in-sql/2.png, https://learnsql.com/blog/lead-and-lag-functions-in-sql/2.png 1.5x, https://learnsql.com/blog/lead-and-lag-functions-in-sql/2.png 2x"
+        data-sizes="auto"
+        alt="https://learnsql.com/blog/lead-and-lag-functions-in-sql/2.png"
+        title="lead" /></p>
+<h3 id="lag-下移"><code>lag()</code> 下移</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">seller_name</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">sale_value</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">lag</span><span class="p">(</span><span class="n">sale_value</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sale_value</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">previous_sale_value</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">sale</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://learnsql.com/blog/lead-and-lag-functions-in-sql/1.png"
+        data-srcset="https://learnsql.com/blog/lead-and-lag-functions-in-sql/1.png, https://learnsql.com/blog/lead-and-lag-functions-in-sql/1.png 1.5x, https://learnsql.com/blog/lead-and-lag-functions-in-sql/1.png 2x"
+        data-sizes="auto"
+        alt="https://learnsql.com/blog/lead-and-lag-functions-in-sql/1.png"
+        title="lag" /></p>
+<h2 id="基本语法">基本语法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">lag</span><span class="p">(</span><span class="n">expression</span><span class="w"> </span><span class="p">[,</span><span class="k">offset</span><span class="p">[,</span><span class="n">default_value</span><span class="p">]])</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
+</span><span class="w">                                               </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="n">expr2</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span><span class="w">                                               
+</span><span class="w"></span><span class="n">lead</span><span class="p">(</span><span class="n">expression</span><span class="w"> </span><span class="p">[,</span><span class="k">offset</span><span class="p">[,</span><span class="n">default_value</span><span class="p">]])</span><span class="w"> </span><span class="n">over</span><span class="p">([</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="p">,</span><span class="w"> </span><span class="n">expr2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span><span class="w"> 
+</span><span class="w">                                                </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">expr1</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="n">expr2</span><span class="w"> </span><span class="p">[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">],</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><code>lead()</code>, <code>lag()</code> 中的3个参数：</p>
+<ul>
+<li>
+<p><code>expression</code> - string</p>
+<p>被操作的列名</p>
+</li>
+<li>
+<p><code>offset</code> - int</p>
+<p>移动的行数（/偏移量）</p>
+</li>
+<li>
+<p><code>default_value</code></p>
+<p>定义为空的情况赋给的默认值</p>
+</li>
+</ul>
+<p>其中，参数 <code>expression</code> 是必须的。而 <code>default_value</code>（默认是 <code>NULL</code>） 是只有当 <code>offset</code>（默认是 <code>1</code>） 有值时才能使用</p>
+<p><code>over()</code> 语句中，<code>order by</code> 是必须要有的</p>
+<h2 id="应用">应用</h2>
+<p><em><strong>计算用户相邻两次登录的天数间隔</strong></em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 如果只有1天有登录信息，则 diff_days 为 null
+</span><span class="c1"></span><span class="k">select</span><span class="w">  </span><span class="o">*</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">datediff</span><span class="p">(</span><span class="n">session_date</span><span class="p">,</span><span class="n">lag_session_date</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff_days</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="c1">-- 下移
+</span><span class="c1"></span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="o">*</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">lag</span><span class="p">(</span><span class="n">session_date</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">session_date</span><span class="w"> </span><span class="k">asc</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">lag_session_date</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">        </span><span class="c1">-- 按天去重
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">user_id</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">date_format</span><span class="p">(</span><span class="n">session_time</span><span class="p">,</span><span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">session_date</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">table1</span><span class="w">
+</span><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>窗口函数还有俩常见的：<code>first_value()</code>, <code>last_value()</code>，在此就略过了。</p>
+<p>有时候可以用 <code>row_number() over()</code> 结合 <code>having</code> 一起使用，如 <em>确定用户最后一次登录时间</em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">user_id</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">session_date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">rk</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="w">    </span><span class="n">table1</span><span class="w">
+</span><span class="w"></span><span class="k">having</span><span class="w">  </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>

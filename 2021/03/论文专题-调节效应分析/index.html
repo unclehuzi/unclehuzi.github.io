@@ -166,7 +166,134 @@
     <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>调节效应分析（ <strong>Moderation Analysis</strong> ），回答 <strong>WHEN</strong> 的问题</p>
+<p>之前整理了<a href="https://mp.weixin.qq.com/s?__biz=MzU1Mzc0MTEzMA==&amp;mid=2247483844&amp;idx=1&amp;sn=e5576f41f1785aa570ab49cffa0ca6a4&amp;scene=21#wechat_redirect" target="_blank" rel="noopener noreffer">中介效应分析</a>，解决了怎么看中介效应是否显著的问题。</p>
+<p>这篇继续整理调节效应分析（<strong>Moderation Analysis</strong>）</p>
+<p>中介变量回答的是关于 HOW 的问题，而调节变量回答的是关于 <strong>WHEN</strong> 的问题</p>
+<p>$X$ 什么时候影响 $Y$，或 $X$ 影响 $Y$ 的过程中是否取决于变量 $W$ ，而变量 $W$ 就是调节变量</p>
+<p>典型且简单的调节效应模型图如下所示</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic3.zhimg.com/v2-8a1f079746beb4dde848d5d20489d28a_b.jpg"
+        data-srcset="https://pic3.zhimg.com/v2-8a1f079746beb4dde848d5d20489d28a_b.jpg, https://pic3.zhimg.com/v2-8a1f079746beb4dde848d5d20489d28a_b.jpg 1.5x, https://pic3.zhimg.com/v2-8a1f079746beb4dde848d5d20489d28a_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic3.zhimg.com/v2-8a1f079746beb4dde848d5d20489d28a_b.jpg"
+        title="调节效应" /></p>
+<h2 id="理论先行">理论先行</h2>
+<p>调节效应理论模型用 statistical diagram 表示为，</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic2.zhimg.com/v2-dee2da7487e3822478c8684156b20b29_b.jpg"
+        data-srcset="https://pic2.zhimg.com/v2-dee2da7487e3822478c8684156b20b29_b.jpg, https://pic2.zhimg.com/v2-dee2da7487e3822478c8684156b20b29_b.jpg 1.5x, https://pic2.zhimg.com/v2-dee2da7487e3822478c8684156b20b29_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic2.zhimg.com/v2-dee2da7487e3822478c8684156b20b29_b.jpg"
+        title="调节效应-statistical diagram" /></p>
+<p>即，</p>
+<p>$$
+Y=i_Y+b_1X+b_2W+b_3XW+e_Y
+$$</p>
+<h3 id="系数解释">系数解释</h3>
+<p>各系数的解释如下</p>
+<h4 id="b_1">$b_1$</h4>
+<p>$b_1$ 是当 $W=0$ 时，$X$ 改变一个单位，$Y$ 改变 $b_1$</p>
+<p>$$
+b_1=[\widehat{Y}|(X=x+1,W=0)] - [\widehat{Y}|(X=x,W=0)]
+$$</p>
+<h4 id="b_2">$b_2$</h4>
+<p>$b_2$ 是当 $X=0$ 时时，$W$ 和 $Y$ 之间的关系</p>
+<p>$$
+b_2=[\widehat{Y}|(W=w+1,X=0)] - [\widehat{Y}|(W=w,X=0)]
+$$</p>
+<h4 id="b_3">$b_3$</h4>
+<p>这是个大头，他是比较两组之间的差异，</p>
+<p>一组是 $W$ 不变，$X$ 改变一个单位</p>
+<p>另一组是，$W$ 和 $X$ 都改变一个单位</p>
+<p>即，</p>
+<p>$$
+b_3=([\widehat{Y}|(X=x+1,W=w)] - [\widehat{Y}|(X=x,W=w)]) - ([\widehat{Y}|(X=x+1,W=w+1)] - [\widehat{Y}|(X=x,W=w)])
+$$</p>
+<p>做调节效应分析的时候， 理论上是希望 $X$ 影响 $Y$ 的过程中取决于变量 $W$</p>
+<p>对应着，公式（1）也可以改写为，</p>
+<p>$$
+Y=i_Y+ \theta_{X \rightarrow Y}X + b_2W + e_Y
+$$</p>
+<p>其中，$\theta_{X \rightarrow Y} = b_1+b_3W$</p>
+<p>这也就生动形象的表示了，</p>
+<p>如果 $b_3$ 显著性不等于 0 ，那么 $W$ 的值不同，$X$ 对 $Y$ 的影响也不同</p>
+<p>所以当回归结果中，系数 $b_3$ 显著时（$p&lt;0.05$），即变量 $W$ 的确起到调节作用时</p>
+<p>我们将会进一步分析对应不同 $W$，$X$ 是如何影响 $Y$ 的</p>
+<p>常用的方法便是 <em><strong>pick-a-point approach</strong></em> ，又称 <em><strong>spotlight analysis</strong></em></p>
+<blockquote>
+<p>我第一次看到 spotlight analysis 这个名词，是在一篇JM的文章上，当时查了半天也不知道啥意思。。。</p>
+</blockquote>
+<h3 id="pick-a-point-approach">pick-a-point approach</h3>
+<p>基本思路是根据 $W$ 的数据选三个值，进而表示低-中-高三种状态</p>
+<p>一般就选数据16th, 50th, and 84th分位数分别表示低-中-高，进而分析 $X$ 对 $Y$ 的影响是否显著</p>
+<p>如果 $W$ 是分类变量就直接看各自类别的情况了，不用取点了。</p>
+<p>所以，综上所述，基于公式(1) 构建回归模型，根据交互项系数 $XW$（$b_3$）是否显著，进而确定调节效应是否存在。</p>
+<p>以上这些都能通过PROCESS<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>很好的实现。</p>
+<h2 id="实际操作">实际操作</h2>
+<p>步骤如下：</p>
+<ol>
+<li>SPSS加载 process的语法文件</li>
+</ol>
+<p>使用过程中可以自主编写语法、也可以菜单式的操作，如</p>
+<p><code>process y=justify/x=frame/w=skeptic/model=1/plot=1.</code></p>
+<ol start="2">
+<li>
+<p>变量和数据字段一一对应</p>
+</li>
+<li>
+<p>基于理论研究模型，选择PROCESS的模型（本例对应的是model 1）</p>
+</li>
+<li>
+<p>选项中勾选 <code>Generate code for visualizing interactions</code></p>
+</li>
+</ol>
+<p>如果是用spss语法的话，加上 <code>plot=1</code> 即可</p>
+<p>这能方便用SPSS作斜率图，用于可视化调节效应</p>
+<p>复制PROCESS分析结果中的可视化脚本即可，如</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic4.zhimg.com/v2-915841d4e09162da440d8ef812e6de6b_b.jpg"
+        data-srcset="https://pic4.zhimg.com/v2-915841d4e09162da440d8ef812e6de6b_b.jpg, https://pic4.zhimg.com/v2-915841d4e09162da440d8ef812e6de6b_b.jpg 1.5x, https://pic4.zhimg.com/v2-915841d4e09162da440d8ef812e6de6b_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic4.zhimg.com/v2-915841d4e09162da440d8ef812e6de6b_b.jpg"
+        title="调节效应可视化code" /></p>
+<ol start="5">
+<li>（可选）中心化</li>
+</ol>
+<p>有些文章中会说做调节效应分析前，对变量 $X$ 和 $Y$ 进行中心化处理，可能会见到 <code>scaling</code> 这样的术语</p>
+<p>但其实无所谓啦，而且就算对和进行中心化处理，也不会影响 $W$、$XW$ 的系数，只是会影响 $X$ 的系数（$b_1$）罢了</p>
+<p>因为之前有提到，$b_1$ 是表示 $W$ 为0时，$X$ 对 $Y$ 的影响，如果对 $W$ 做中心化处理，</p>
+<p>即 $W^,=W - \overline{W}$</p>
+<p>那么这时候 $X$ 的系数对应的是 $W$ 取样本均值（$\overline{W}$）时，$X$ 对 $Y$ 的影响</p>
+<p>得到结果之后，直奔交互项系数（本例对应的是 $b_3$）即可</p>
+<p>若显著（$p&lt;0.05$），PROCESS便会生成低-中-高状态下，$X$ 和 $Y$ 之间的关系如下所示，</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://pic3.zhimg.com/v2-11d74a2d72efa79c2eeba595d93b45ae_b.jpg"
+        data-srcset="https://pic3.zhimg.com/v2-11d74a2d72efa79c2eeba595d93b45ae_b.jpg, https://pic3.zhimg.com/v2-11d74a2d72efa79c2eeba595d93b45ae_b.jpg 1.5x, https://pic3.zhimg.com/v2-11d74a2d72efa79c2eeba595d93b45ae_b.jpg 2x"
+        data-sizes="auto"
+        alt="https://pic3.zhimg.com/v2-11d74a2d72efa79c2eeba595d93b45ae_b.jpg"
+        title="Moderation Analysis" /></p>
+<h2 id="参考资料">参考资料</h2>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Hayes A F: Introduction_to_Mediation_Moderation_and_Conditional_Process_Analysis_A_Regression_Based[M].2ed.2018&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98/">论文专题</a>

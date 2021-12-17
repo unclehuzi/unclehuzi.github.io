@@ -165,7 +165,545 @@
     <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>常见的还款方式：等额本息、等额本金、等本等息</p>
+<p>一个一个来盘</p>
+<h2 id="等额本息">等额本息</h2>
+<h3 id="基本信息">基本信息</h3>
+<blockquote>
+<p>等额本息还款法，也称定期付息。借款人每月按相等的金额偿还贷款本息，其中每月贷款利息按月初剩余贷款本金计算并逐月结清。（<a href="https://wiki.mbalib.com/wiki/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF%E8%BF%98%E6%AC%BE%E6%B3%95" target="_blank" rel="noopener noreffer">MBA智库百科</a>）</p>
+</blockquote>
+<p>每期还的钱是固定的，即每期 本金+利息 总额是固定的。但每期还的钱中 本金、利息 的占比是动态的 👇</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF.png, https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E6%81%AF.png"
+        title="等额本息" /></p>
+<blockquote>
+<p>上图中基本信息，假设</p>
+<ol>
+<li>借款总额：300w</li>
+<li>借款年限：30</li>
+<li>年利率：5%</li>
+</ol>
+</blockquote>
+<h3 id="具体公式">具体公式</h3>
+<p>假设借款总额 $p$ 元，分了 $n$ 期，每期的利率是 $r$，那么</p>
+<ul>
+<li>每期应还款</li>
+</ul>
+<p>$$
+每期应还款=\frac{p \times r \times (1+r)^n}{(1+r)^n-1}
+$$</p>
+<ul>
+<li>第 i 期还款中本金部分</li>
+</ul>
+<p>$$
+第i期还款中本金部分=p \times r \times \frac{(1+r)^{(i-1)}}{(1+r)^n-1}
+$$</p>
+<ul>
+<li>第 i 期还款中利息部分</li>
+</ul>
+<p>$$
+第i期还款中利息部分=\frac{p \times r}{(1+r)^n-1} \times ((1+r)^n-(1+r)^{(i-1)})
+$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">class</span> <span class="nc">MRPI</span><span class="p">:</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    等额本息
+</span><span class="s1">    - 多种翻译
+</span><span class="s1">        Matching the Repayment of Principal and interest 
+</span><span class="s1">        / Fixed installment method 
+</span><span class="s1">        / average capital plus interest method
+</span><span class="s1">
+</span><span class="s1">    计算
+</span><span class="s1">        - 每月还款
+</span><span class="s1">        - 本金、利息部分
+</span><span class="s1">        - generate DataFrame
+</span><span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        p: 贷款总额
+</span><span class="s1">        R: 年化利率
+</span><span class="s1">        N: 贷款年限
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="mi">12</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">R</span> <span class="o">/</span> <span class="mi">12</span>
+
+
+    <span class="k">def</span> <span class="nf">pay_amt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        每期总额（月供）
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="n">term_total</span> <span class="o">=</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="p">)</span> \
+                    <span class="o">/</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> 
+
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_total</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">pay_part</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        月供中 利息，本金 部分
+</span><span class="s1">        &#39;&#39;&#39;</span>
+        <span class="n">interest</span><span class="p">,</span><span class="n">principal</span> <span class="o">=</span> <span class="p">[],[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
+
+            <span class="c1"># 利息</span>
+            <span class="n">term_interest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="n">i</span> <span class="p">)</span> \
+                            <span class="o">/</span> <span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">term_interest</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_interest</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">interest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">term_interest</span><span class="p">)</span>
+
+            <span class="c1"># 本金</span>
+            <span class="n">term_principal</span> <span class="o">=</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="p">)</span><span class="o">**</span><span class="n">i</span> <span class="p">)</span> \
+                            <span class="o">/</span> <span class="p">(</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span>
+            <span class="n">term_principal</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_principal</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">principal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">term_principal</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">interest</span><span class="p">,</span><span class="n">principal</span>
+
+    <span class="k">def</span> <span class="nf">get_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        convert to DataFrame
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="n">df_detail</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&#34;term&#34;</span><span class="p">:[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+                                <span class="p">,</span><span class="s2">&#34;月还款&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_amt</span><span class="p">()]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+                                <span class="p">,</span><span class="s2">&#34;本金部分&#34;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_part</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;利息部分&#34;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_part</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                                <span class="p">})</span>
+
+        <span class="n">df_total</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&#34;term&#34;</span><span class="p">:[</span><span class="s2">&#34;总计&#34;</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;月还款&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_amt</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;本金部分&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;利息部分&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_amt</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">]</span>
+                                <span class="p">})</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df_detail</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_total</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">df_detail</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="等额本金">等额本金</h2>
+<blockquote>
+<p>等额本金还款法，也称利随本清、等本不等息还款法。借款人将本金分摊到每期，同时付清上一个交易日至本次还款日之间的利息。（<a href="https://wiki.mbalib.com/wiki/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91" target="_blank" rel="noopener noreffer">MBA智库百科</a>）</p>
+</blockquote>
+<p>每期还的本金是固定的，随着剩余本金的减少，利息便也动态减少 👇 但前期还款总额较多</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91.png, https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/images/%E7%AD%89%E9%A2%9D%E6%9C%AC%E9%87%91.png"
+        title="等额本金" /></p>
+<blockquote>
+<p>上图中基本信息，假设</p>
+<ol>
+<li>借款总额：300w</li>
+<li>借款年限：30</li>
+<li>年利率：5%</li>
+</ol>
+</blockquote>
+<h3 id="具体公式-1">具体公式</h3>
+<ul>
+<li>第 i 期应还款</li>
+</ul>
+<p>$$
+第i期应还款=\frac{p}{n} + (1- \frac{i-1}{n}) \times p \times r
+$$</p>
+<ul>
+<li>第 i 期还款中本金部分</li>
+</ul>
+<p>$$
+第i期还款中本金部分=\frac{p}{n}
+$$</p>
+<ul>
+<li>第 i 期还款中利息部分</li>
+</ul>
+<p>$$
+第i期还款中利息部分=(1- \frac{i-1}{n}) \times p \times r
+$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">class</span> <span class="nc">MPR</span><span class="p">:</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    等额本金
+</span><span class="s1">    - 多种翻译
+</span><span class="s1">        Matching the Principal Repayment
+</span><span class="s1">        / Reducing installment method (Fixed Principal)
+</span><span class="s1">        / average capital method
+</span><span class="s1">
+</span><span class="s1">    计算
+</span><span class="s1">        - 每月还款
+</span><span class="s1">        - 本金、利息部分
+</span><span class="s1">        - generate DataFrame
+</span><span class="s1">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        p: 贷款总额
+</span><span class="s1">        R: 年化利率
+</span><span class="s1">        N: 贷款年限
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="mi">12</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">R</span> <span class="o">/</span> <span class="mi">12</span>
+
+
+
+    <span class="k">def</span> <span class="nf">pay_part</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        本金，每期总额（月供） 以及 利息部分
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="c1"># 本金</span>
+        <span class="n">term_principal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+
+        <span class="n">amt</span><span class="p">,</span><span class="n">interest</span> <span class="o">=</span> <span class="p">[],[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">):</span>
+
+            <span class="c1"># 每期利息</span>
+            <span class="n">term_interest</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span>
+
+            <span class="c1"># 每期还款</span>
+            <span class="n">term_amt</span> <span class="o">=</span> <span class="n">term_principal</span> <span class="o">+</span> <span class="n">term_interest</span>
+            <span class="n">term_amt</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_amt</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">amt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">term_amt</span><span class="p">)</span>
+
+            <span class="n">term_interest</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_interest</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">interest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">term_interest</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">term_principal</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">amt</span><span class="p">,</span><span class="n">interest</span>
+
+    <span class="k">def</span> <span class="nf">get_detail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">        convert to DataFrame
+</span><span class="s1">        &#39;&#39;&#39;</span>
+
+        <span class="n">df_detail</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&#34;term&#34;</span><span class="p">:[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+                                <span class="p">,</span><span class="s2">&#34;月还款&#34;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_part</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;本金部分&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_part</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+                                <span class="p">,</span><span class="s2">&#34;利息部分&#34;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_part</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+                                <span class="p">})</span>
+
+        <span class="n">df_total</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&#34;term&#34;</span><span class="p">:[</span><span class="s2">&#34;总计&#34;</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;月还款&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+                                <span class="p">,</span><span class="s2">&#34;本金部分&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">]</span>
+                                <span class="p">,</span><span class="s2">&#34;利息部分&#34;</span><span class="p">:[</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+                                <span class="p">})</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df_detail</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_total</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">df_detail</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>俩还款方式每期还款金额如下图所示</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png, https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/images/diff.png"
+        title="diff" /></p>
+<h2 id="等本等息">等本等息</h2>
+<p>关于这个“等本等息”，常见于互金的现金贷业务、信用卡分期等</p>
+<p>上面的等额本息、等额本金还款方式在计算每一期的利息时，也有按照占用借款时间的概念来计算，即还了的部分就不计算利息了</p>
+<p>但 “等本等息”还款方式一开始就计算的死死的，每期还款中本金、利息都是固定的</p>
+<p>比如，小明借了12w元，年利率是12%，分12期还。那么每期应还$11200=(\frac{120000*(1+0.12)}{12})$</p>
+<p>还是基于 12w，年利率12%，分12期的情况，不同还款方式的情况如下所示</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等额本金</th>
+<th>等额本息</th>
+<th><strong>等本等息</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>11200</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>2</td>
+<td>11100</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11000</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>4</td>
+<td>10900</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10800</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>6</td>
+<td>10700</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>7</td>
+<td>10600</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>10500</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>9</td>
+<td>10400</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10300</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>11</td>
+<td>10200</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>12</td>
+<td>10100</td>
+<td>10661.85</td>
+<td>11200</td>
+</tr>
+<tr>
+<td>总计</td>
+<td>127800</td>
+<td>127942.2</td>
+<td><strong>134400</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">总结</h2>
+<p>本文罗列了等额本息、等额本金和等本等息三种还款方式的基本信息。但产品设计的角度思考较少</p>
+<p>虽然表面上看起来等本等息还款方式很暴力，但我觉得每种还款方式背后都有金融产品设计者的考虑吧</p>
+<p>银行不会雪中送炭，只会锦上添花。小额贷款等机构 、平台都是一样的，在风险可承受的情况下给予放款，毕竟这是门生意</p>
+<p>但政府的监管，限制利率上限等政策，带来的结果便是，更多的人借不到钱 🤷‍♂️</p>
+<p>原本的毛细血管更加的“细”。</p>
+<p>从奥派的角度来看“高利贷”等问题，可参考陈志武教授的<a href="https://mp.weixin.qq.com/s/geEcvo9NA7IYBPGKGKVZIQ" target="_blank" rel="noopener noreffer">这篇文章</a></p>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E9%87%91%E8%9E%8D/">金融</a>

@@ -168,7 +168,195 @@
     <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>基于<code>R</code>，总结零膨胀计数模型的应用流程</p>
+<hr>
+<p>我之所以用计数模型，主要是受到清华水利专业某博士某篇论文<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>的启发。我也将他构造变量的思路也写进了我论文的展望部分。</p>
+<p>在经济学及社会科学领域也会遇到对计数数据（Count Data）建模的任务</p>
+<blockquote>
+<p>计数数据是一种数据类型，取值只能是非负整数{0,1,2,3,&hellip;}，并且数值并不是排名而是计数</p>
+</blockquote>
+<p>泊松回归（Poisson Regression）是处理计数数据的常用方法</p>
+<blockquote>
+<p>stats package - glm() 函数</p>
+</blockquote>
+<p>但是泊松回归并不能很好的解决计数变量数据中“<strong>过度分散</strong>”（over-dispersion）的问题</p>
+<p>针对 <em><strong>over-dispersion</strong></em> 的问题，往往会采用负二项回归（<code>Negative Binomial Regression</code>）的方法</p>
+<blockquote>
+<p>MASS package - glm.nb() 函数</p>
+</blockquote>
+<p>但，无论是泊松回归还是负二项回归都不能很好的解决计数数据零过多的问题</p>
+<p>此时，零膨胀计数模型（<code>zero-inflated models</code>）就诞生了</p>
+<blockquote>
+<p>zero-inflated models are mixture models that combine a count component and a point mass at zero.</p>
+</blockquote>
+<p>关于零膨胀计数模型，各自的软件或语言都有自己的实现方法。从我查阅的资料来看，目前 <code>stata</code> 和 <code>R</code> 在这方面资料比较多，<code>Python</code> 相对较少。</p>
+<p>我选择的是<code>R</code>，因为<code>Anaconda</code>装<code>rstudio</code>比较便捷，且学习成本比<code>stata</code>低。</p>
+<p>所以本文基于<code>R</code>，在确定计数数据存在零膨胀的前提下（一般看计数数据的频率直方图，或者直接用<code>vuong()</code>完成模型选择），总结零膨胀计数模型的应用流程</p>
+<h2 id="启动rstudio">启动rstudio</h2>
+<p>用 Anaconda 安装 Rstudio 的过程中，需要手动创建一个R运行的新环境（如，r_env）</p>
+<p>打开 anaconda 比较费时儿，所以会在 conda命令端 启动Rstudio</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 查看环境目录</span>
+conda info -e
+
+<span class="c1"># 切换至文件目录下启动</span>
+<span class="nb">cd</span> <span class="s2">&#34;工作目录&#34;</span>
+
+<span class="c1"># 激活环境</span>
+conda activate r_env
+
+<span class="c1"># 启动 Rstudio</span>
+rstudio
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="读取数据文件">读取数据文件</h2>
+<p>R打开csv格式的文件比较省事儿</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1"># 数据文件保存在rstudio启动的目录下</span>
+
+<span class="n">my.data1</span><span class="o">&lt;-</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;data.csv&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="over-dispersion">Over-Dispersion？</h2>
+<p>有两种方法检验计数数据是否存在over-dispersion的现象，但对象不同，用的模型不同</p>
+<ul>
+<li>
+<p>odTest()</p>
+</li>
+<li>
+<p>dispersiontest()</p>
+</li>
+</ul>
+<h3 id="odtest">odTest()</h3>
+<p>需要 <code>pscl</code> package</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">odTest</span><span class="p">(</span><span class="n">glmnb_obj</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="m">.05</span><span class="p">,</span> <span class="n">digits</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="nf">getOption</span><span class="p">(</span><span class="s">&#34;digits&#34;</span><span class="p">)</span> <span class="o">-</span> <span class="m">3</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>先用负二项模型跑一次回归</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span>
+<span class="n">nb</span> <span class="o">&lt;-</span> <span class="nf">glm.nb</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">my.data1</span><span class="p">)</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">pscl</span><span class="p">)</span>
+<span class="nf">odTest</span><span class="p">(</span><span class="n">nb</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>$p-value&lt;0.05$，说明计数数据存在 <em><strong>over-dispersion</strong></em> 现象</p>
+<h3 id="dispersiontest">dispersiontest()</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">glm_p</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">my.data1</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="n">poisson</span><span class="p">)</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">AER</span><span class="p">)</span>
+<span class="nf">dispersiontest</span><span class="p">(</span><span class="n">glm_p</span><span class="p">,</span><span class="n">trafo</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>计数数据存在零膨胀且over-dispersion的现象，那么就需要采用零膨胀负二项模型</p>
+<p>若不存在over-dispersion的现象，则采用零膨胀泊松模型</p>
+<p>当然，可以两个模型都跑一次，最后通过<code>vuong()</code>完成模型的选择</p>
+<p>所以，也可以比较零膨胀泊松模型和泊松模型</p>
+<h2 id="run-regressions">run regressions</h2>
+<p>零膨胀计数模型都依赖 <code>pscl</code> package</p>
+<h3 id="零膨胀负二项回归模型">零膨胀负二项回归模型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">zeroinfl</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">|</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="o">+</span><span class="n">x6</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">my.data1</span><span class="p">,</span><span class="n">dist</span><span class="o">=</span><span class="s">&#34;negbin&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>零膨胀计数模型是分成了两部分建模：一部分是计数部分，另一部分处理为二分类 $(0,1)$ 的情况</p>
+<p>$x_1,x_2,x_3$ 是选定的计数部分的影响因素；$x_4,x_5,x_6$ 是二分类情况的影响因素</p>
+<p>如果两者的影响因素一样的，则公式形式可以简单写为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">zeroinfl</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">my.data1</span><span class="p">,</span><span class="n">dist</span><span class="o">=</span><span class="s">&#34;negbin&#34;</span><span class="p">)</span>
+
+<span class="c1"># 若数据中除y之外均为影响因素</span>
+
+<span class="n">m3</span> <span class="o">&lt;-</span> <span class="nf">zeroinfl</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">.,</span> <span class="n">data</span><span class="o">=</span><span class="n">my.data1</span><span class="p">,</span><span class="n">dist</span><span class="o">=</span><span class="s">&#34;negbin&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="零膨胀泊松回归模型">零膨胀泊松回归模型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">m4</span> <span class="o">&lt;-</span> <span class="nf">zeroinfl</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="o">+</span><span class="n">x3</span><span class="o">|</span><span class="n">x4</span><span class="o">+</span><span class="n">x5</span><span class="o">+</span><span class="n">x6</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">my.data1</span><span class="p">,</span><span class="n">dist</span> <span class="o">=</span> <span class="s">&#39;poisson&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>$x_1,x_2,x_3$ 的表现方式同上</p>
+<h2 id="模型选择">模型选择</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">vuong</span><span class="p">(</span><span class="n">m3</span><span class="p">,</span><span class="n">m4</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据结果选择模型即可</p>
+<h2 id="参考资料">参考资料</h2>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Hanchen Jiang et al.: 10.3390/su10051509&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98/">论文专题</a>

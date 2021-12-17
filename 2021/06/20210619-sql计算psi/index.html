@@ -170,7 +170,728 @@
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>RT，SQL批量计算各个模型分的<em><strong>PSI</strong></em>，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性</p>
+<hr>
+<h2 id="背景">背景</h2>
+<p>应用模型的一大前提便是建模样本尽量和实际生产样本在分布上保持一致性，保证跨期层面的准确性
+当模型分偏移到一定程度时，也该考虑迭代一版了
+<strong>偏移程度</strong>可以用 <em><strong>PSI</strong></em> 这个指标来评价，而对于这个<strong>程度</strong>业界有个经验值<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>psi<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>PSI &lt; 0.1: no significant population change</li>
+<li>PSI &lt; 0.2: moderate population change</li>
+<li>PSI &gt;= 0.2: significant population change</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h2 id="计算公式">计算公式</h2>
+<p>关于PSI的详细介绍，可参考我司模型大佬的<a href="https://zhuanlan.zhihu.com/p/79682292" target="_blank" rel="noopener noreffer">这篇文章</a></p>
+<p>具体计算公式如下</p>
+<p>$$PSI=\sum_{i=1}^{n}((Actual_i\% - Expected_i\%)\times \ln(\frac{Actual_i\%}{Expected_i\%}))$$</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>公式说明<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>n 为分箱的个数</li>
+<li>$Actual_i\%$ 表示第i个箱子的实际占比</li>
+<li>$Expected_i\%$ 表示第i个箱子的预期占比，（称其为比较的基准）</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h2 id="计算样例">计算样例</h2>
+<p>以某一个模型分为例，计算跨期的psi</p>
+<table>
+<thead>
+<tr>
+<th>bucket</th>
+<th>excepted_num</th>
+<th>except_rate</th>
+<th>actual_num</th>
+<th>actual_rate</th>
+<th>psi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>26780</td>
+<td>0.1010</td>
+<td>31779</td>
+<td>0.1359</td>
+<td>0.01036</td>
+</tr>
+<tr>
+<td>2</td>
+<td>26355</td>
+<td>0.0994</td>
+<td>27439</td>
+<td>0.1173</td>
+<td>0.00298</td>
+</tr>
+<tr>
+<td>3</td>
+<td>26532</td>
+<td>0.1000</td>
+<td>26008</td>
+<td>0.1112</td>
+<td>0.00118</td>
+</tr>
+<tr>
+<td>4</td>
+<td>27416</td>
+<td>0.1034</td>
+<td>25816</td>
+<td>0.1104</td>
+<td>0.00046</td>
+</tr>
+<tr>
+<td>5</td>
+<td>26495</td>
+<td>0.0999</td>
+<td>24113</td>
+<td>0.1031</td>
+<td>0.00010</td>
+</tr>
+<tr>
+<td>6</td>
+<td>26588</td>
+<td>0.1002</td>
+<td>23146</td>
+<td>0.0990</td>
+<td>0.00002</td>
+</tr>
+<tr>
+<td>7</td>
+<td>25957</td>
+<td>0.0979</td>
+<td>21176</td>
+<td>0.0905</td>
+<td>0.00057</td>
+</tr>
+<tr>
+<td>8</td>
+<td>27530</td>
+<td>0.1038</td>
+<td>21442</td>
+<td>0.0917</td>
+<td>0.00150</td>
+</tr>
+<tr>
+<td>9</td>
+<td>25898</td>
+<td>0.0976</td>
+<td>18310</td>
+<td>0.0783</td>
+<td>0.00428</td>
+</tr>
+<tr>
+<td>10</td>
+<td>25710</td>
+<td>0.0969</td>
+<td>14682</td>
+<td>0.0628</td>
+<td>0.01484</td>
+</tr>
+</tbody>
+</table>
+<p>以上例子最终得到 $PSI=\sum_{i=1}^{10}(psi)=0.0362$</p>
+<h2 id="sql实现">SQL实现</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg, https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg 1.5x, https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg"
+        title="psi" /></p>
+<p>我们希望得到的是从存有各个模型分的表（命名为 <code>score</code>）得到上图👆，<code>score</code>表样例如下</p>
+<table>
+<thead>
+<tr>
+<th>no</th>
+<th>week</th>
+<th>scoreA</th>
+<th>scoreB</th>
+<th>scoreC</th>
+<th>scoreD</th>
+<th>scoreE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td>9</td>
+<td>617</td>
+<td>481</td>
+<td>773</td>
+<td>671.68</td>
+<td>561</td>
+</tr>
+<tr>
+<td>a2</td>
+<td>2</td>
+<td>585</td>
+<td>585</td>
+<td>522</td>
+<td>600.56</td>
+<td>588</td>
+</tr>
+<tr>
+<td>a3</td>
+<td>16</td>
+<td>617</td>
+<td>548</td>
+<td>677</td>
+<td>635.68</td>
+<td>563</td>
+</tr>
+<tr>
+<td>a4</td>
+<td>7</td>
+<td>647</td>
+<td>564</td>
+<td>765</td>
+<td>655.63</td>
+<td>586</td>
+</tr>
+<tr>
+<td>a5</td>
+<td>12</td>
+<td>596</td>
+<td>478</td>
+<td>656</td>
+<td>635.3</td>
+<td>586</td>
+</tr>
+<tr>
+<td>a6</td>
+<td>7</td>
+<td>636</td>
+<td>618</td>
+<td>595</td>
+<td>630</td>
+<td>572</td>
+</tr>
+<tr>
+<td>a7</td>
+<td>22</td>
+<td>714</td>
+<td>572</td>
+<td>842</td>
+<td>644.28</td>
+<td>563</td>
+</tr>
+<tr>
+<td>a8</td>
+<td>23</td>
+<td>638</td>
+<td>495</td>
+<td>720</td>
+<td>628.79</td>
+<td>563</td>
+</tr>
+<tr>
+<td>a9</td>
+<td>3</td>
+<td>636</td>
+<td>618</td>
+<td>595</td>
+<td>426</td>
+<td>526</td>
+</tr>
+<tr>
+<td>a10</td>
+<td>3</td>
+<td>557</td>
+<td>562</td>
+<td>526</td>
+<td>589</td>
+<td>535</td>
+</tr>
+</tbody>
+</table>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>备注<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>一行表示该用户对应的各种模型分数，scoreA&hellip;scoreE</p>
+<p>其中， <code>week</code> 表示第几周，这里以2021年第一周（<code>[2021-01-04,2021-01-10]</code>）的数据作为基准，即 <code>excepted</code></p>
+</div>
+        </div>
+    </div>
+<p>这里会涉及之前一些文章的知识点</p>
+<ul>
+<li><a href="https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/" rel="">窗口函数-聚合</a></li>
+<li><a href="https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/" rel="">窗口函数-排序</a></li>
+<li><a href="https://unclehuzi.github.io/2021/04/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/" rel="">窗口函数的“窗口”</a></li>
+<li><a href="https://unclehuzi.github.io/2021/06/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">行转列、列转行</a></li>
+</ul>
+<div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw"></i>思路<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">整体思路还是跟着 PSI 的计算公式走，按照某种方式（等频 / 等距）将基准的数据分成 n 箱子，基于基准数据的断点（Breakpoint Value）统计实际占比（$Actual$）</div>
+        </div>
+    </div>
+<div class="mermaid" id="id-1"></div>
+<p>为了方便计算，先进行 <a href="https://unclehuzi.github.io/2021/06/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">列转行</a></p>
+<h3 id="1-列转行hahahugoshortcode-s10-hbhb"><a href="https://unclehuzi.github.io/2021/06/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/" rel="">1. 列转行</a></h3>
+<p>将<code>score</code>表进行列转行，变为<code>key-value</code> 键值对的形式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_value_weekly</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_value_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="k">no</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score_value</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="k">no</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_value</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">score</span><span class="w">
+</span><span class="w">    </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">explode</span><span class="p">(</span><span class="k">map</span><span class="p">(</span><span class="s1">&#39;scoreA&#39;</span><span class="p">,</span><span class="n">scoreA</span><span class="p">,</span><span class="s1">&#39;scoreB&#39;</span><span class="p">,</span><span class="n">scoreB</span><span class="p">,</span><span class="s1">&#39;scoreC&#39;</span><span class="p">,</span><span class="n">scoreC</span><span class="p">,</span><span class="s1">&#39;scoreD&#39;</span><span class="p">,</span><span class="n">scoreD</span><span class="p">,</span><span class="s1">&#39;scoreE&#39;</span><span class="p">,</span><span class="n">scoreE</span><span class="p">))</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="n">score_value</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w">   </span><span class="n">score_value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span><span class="w">        </span><span class="k">and</span><span class="w"> </span><span class="n">score_value</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;NULL&#39;</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-基于基准数据统计各箱nums">2. 基于基准数据统计各箱nums</h3>
+<p>这里就要分成两种情况：</p>
+<ol>
+<li>等频分箱</li>
+<li>等距分箱</li>
+</ol>
+<p>具体使用哪种分箱方式还是要结合模型分的实际应用情况</p>
+<p><strong>但是</strong>，当模型分呈现较为严重的偏态分布时，等频分箱会出现好几个箱子重合的情况（如下图所示）。这种情况算出来的PSI会小于真实值，此时可以采用等距分箱</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png, https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png"
+        title="偏态分布" /></p>
+<h4 id="等频分箱">等频分箱</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="k">no</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nums</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r1&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r2&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r3&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r4&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r5&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r6&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r7&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r8&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r9&#39;</span><span class="w">
+</span><span class="w">                  </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score_array</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;r10&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score_group</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">score_value_weekly</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="w">    </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">        </span><span class="p">(</span><span class="c1">-- 2. 等频分箱
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">percentile_approx</span><span class="p">(</span><span class="n">score_value</span><span class="p">,</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">99999</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score_array</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">score_value_weekly</span><span class="w">
+</span><span class="w">        </span><span class="k">where</span><span class="w">   </span><span class="n">week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">	</span><span class="c1">-- 以第一周为基准
+</span><span class="c1"></span><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span><span class="w">    </span><span class="k">on</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="等距分箱">等距分箱</h4>
+<p>等距分箱相比等频分箱而言稍微复杂点，我的思路是先算出基准数据各个模型分区间的上下限，再统计各箱nums</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 10个箱子
+</span><span class="c1">-- -- 统计各箱nums
+</span><span class="c1"></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_group_nums_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">n</span><span class="w">                                                                                                 </span><span class="k">as</span><span class="w"> </span><span class="n">score_group</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="k">no</span><span class="p">)</span><span class="w">                                                                                         </span><span class="k">as</span><span class="w"> </span><span class="n">nums</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">r</span><span class="p">.</span><span class="n">n</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">range_down</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">range_up</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Y&#39;</span><span class="w">
+</span><span class="w">                    </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">range_up</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Y&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"> </span><span class="k">end</span><span class="w">                                   </span><span class="k">as</span><span class="w"> </span><span class="n">is_range</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="w">    </span><span class="n">score_value_weekly</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="w">    </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">        </span><span class="p">(</span><span class="c1">-- 基准月各分数间隔
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">n</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">min_score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">max_score</span><span class="w">
+</span><span class="w">                </span><span class="p">,(</span><span class="w"> </span><span class="n">min_score</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="p">)</span><span class="w">                                                               </span><span class="k">as</span><span class="w"> </span><span class="n">range_down</span><span class="w">
+</span><span class="w">                </span><span class="p">,(</span><span class="w"> </span><span class="n">min_score</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="p">)</span><span class="w">                                                                   </span><span class="k">as</span><span class="w"> </span><span class="n">range_up</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">            </span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span><span class="w">                    </span><span class="c1">-- 10 箱
+</span><span class="c1"></span><span class="w">                    </span><span class="p">,</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">min_score</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">                        </span><span class="k">else</span><span class="w"> </span><span class="n">ceil</span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">score_value</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">min_score</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">max_score</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">min_score</span><span class="p">))</span><span class="w"> </span><span class="k">end</span><span class="w">        </span><span class="k">as</span><span class="w"> </span><span class="n">n</span><span class="w">
+</span><span class="w">                    </span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">min_score</span><span class="w">
+</span><span class="w">                    </span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">max_score</span><span class="w">
+</span><span class="w">                    </span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">step</span><span class="w">
+</span><span class="w">            </span><span class="k">from</span><span class="p">(</span><span class="w">
+</span><span class="w">                </span><span class="k">select</span><span class="w">  </span><span class="o">*</span><span class="w">
+</span><span class="w">                </span><span class="k">from</span><span class="w">    </span><span class="n">score_value_weekly</span><span class="w">
+</span><span class="w">                </span><span class="k">where</span><span class="w">   </span><span class="n">week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="w">            </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">                </span><span class="p">(</span><span class="w">
+</span><span class="w">                </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                        </span><span class="p">,</span><span class="k">min</span><span class="p">(</span><span class="n">score_value</span><span class="p">)</span><span class="w">                                                                   </span><span class="k">as</span><span class="w"> </span><span class="n">min_score</span><span class="w">
+</span><span class="w">                        </span><span class="p">,</span><span class="k">max</span><span class="p">(</span><span class="n">score_value</span><span class="p">)</span><span class="w">                                                                   </span><span class="k">as</span><span class="w"> </span><span class="n">max_score</span><span class="w">
+</span><span class="w">                        </span><span class="c1">-- 10 个箱子
+</span><span class="c1"></span><span class="w">                        </span><span class="p">,(</span><span class="w"> </span><span class="p">(</span><span class="k">max</span><span class="p">(</span><span class="n">score_value</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">score_value</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">)</span><span class="w">                                     </span><span class="k">as</span><span class="w"> </span><span class="n">step</span><span class="w">
+</span><span class="w">                </span><span class="k">from</span><span class="w">    </span><span class="n">score_value_weekly</span><span class="w">
+</span><span class="w">                </span><span class="k">where</span><span class="w">   </span><span class="n">week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">                </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">                </span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span><span class="w">            </span><span class="k">on</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">)</span><span class="w">
+</span><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">r</span><span class="w">
+</span><span class="w">    </span><span class="k">on</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="k">where</span><span class="w">   </span><span class="n">is_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Y&#39;</span><span class="w">
+</span><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-计算psi">3. 计算PSI</h3>
+<p>回顾下公式</p>
+<p>$$PSI=\sum_{i=1}^{n}((Actual_i\% - Expected_i\%)\times \ln(\frac{Actual_i\%}{Expected_i\%}))$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">score_stability_result_weekly</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">score_stability_result_weekly</span><span class="w"> </span><span class="k">as</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">  </span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="w">
+</span><span class="w">        </span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">psi</span><span class="w">
+</span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="c1">-- 各箱nums
+</span><span class="c1"></span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r1&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r1</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r2&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r2</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r3&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r3</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r4&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r4</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r5&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r5</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r6&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r6</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r7&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r7</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r8&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r8</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r9&#34;</span><span class="p">]</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">r9</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">score_group_value</span><span class="p">[</span><span class="s2">&#34;r10&#34;</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">r10</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="p">(</span><span class="c1">-- 行转列
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">str_to_map</span><span class="p">(</span><span class="n">concat_ws</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">collect_set</span><span class="p">(</span><span class="n">concat_ws</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">score_group</span><span class="p">,</span><span class="w"> </span><span class="n">nums</span><span class="p">))))</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">score_group_value</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">score_group_nums_weekly</span><span class="w">
+</span><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">    </span><span class="p">(</span><span class="c1">-- psi
+</span><span class="c1"></span><span class="w">    </span><span class="k">select</span><span class="w">  </span><span class="n">f</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="n">f</span><span class="p">.</span><span class="n">week</span><span class="w">
+</span><span class="w">            </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">act_rate</span><span class="o">-</span><span class="n">b</span><span class="p">.</span><span class="n">exp_rate</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">act_rate</span><span class="o">/</span><span class="n">b</span><span class="p">.</span><span class="n">exp_rate</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">psi</span><span class="w">
+</span><span class="w">    </span><span class="k">from</span><span class="p">(</span><span class="c1">-- Actual
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">                </span><span class="p">,(</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="n">week</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">act_rate</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">score_group_nums_weekly</span><span class="w">
+</span><span class="w">        </span><span class="k">where</span><span class="w">   </span><span class="n">week</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="w">
+</span><span class="w">    </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w">
+</span><span class="w">        </span><span class="p">(</span><span class="c1">-- Excepted
+</span><span class="c1"></span><span class="w">        </span><span class="k">select</span><span class="w">  </span><span class="n">score</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">week</span><span class="w">
+</span><span class="w">                </span><span class="p">,</span><span class="n">score_group</span><span class="w">
+</span><span class="w">                </span><span class="p">,(</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">score</span><span class="p">,</span><span class="n">week</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">exp_rate</span><span class="w">
+</span><span class="w">        </span><span class="k">from</span><span class="w">    </span><span class="n">score_group_nums_weekly</span><span class="w">
+</span><span class="w">        </span><span class="k">where</span><span class="w">   </span><span class="n">week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span><span class="w">    </span><span class="k">on</span><span class="w">  </span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">        </span><span class="k">and</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">score_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">score_group</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="k">where</span><span class="w">   </span><span class="n">f</span><span class="p">.</span><span class="n">score_group</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w">
+</span><span class="w">            </span><span class="k">and</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">score_group</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="s1">&#39;NULL&#39;</span><span class="p">)</span><span class="w">
+</span><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span><span class="w"></span><span class="k">on</span><span class="w">  </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">score</span><span class="w">
+</span><span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">week</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">week</span><span class="p">)</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="可视化">可视化</h2>
+<p>最后，可以用Excel或BI软件完成对应的可视化</p>
+<div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw"></i>可视化<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">本文选择的是面积图</div>
+        </div>
+    </div>
+<p>Python代码示例<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 👇</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+ 
+<span class="c1"># Make data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>  <span class="s1">&#39;group_A&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;group_B&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="s1">&#39;group_C&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+ 
+<span class="c1"># We need to transform the data from raw data to percentage (fraction)</span>
+<span class="n">data_perc</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+ 
+<span class="c1"># Make the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stackplot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_A&#34;</span><span class="p">],</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_B&#34;</span><span class="p">],</span>  <span class="n">data_perc</span><span class="p">[</span><span class="s2">&#34;group_C&#34;</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">margins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;100 </span><span class="si">% s</span><span class="s1">tacked area chart&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png" title="Percentage Stacked Area Chart" data-thumbnail="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png" data-sub-html="<h2>area chart</h2><p>Percentage Stacked Area Chart</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png"
+            data-srcset="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png, https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png 2x"
+            data-sizes="auto"
+            alt="https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png" />
+    </a><figcaption class="image-caption">area chart</figcaption>
+    </figure></p>
+<h2 id="总结">总结</h2>
+<p>本文主要是提供了通过SQL计算多个模型分PSI的方案，并采用了等频、等距分箱两种分箱方法，增加了适用性</p>
+<h2 id="reference">Reference</h2>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html">https://mwburke.github.io/data%20science/2018/04/29/population-stability-index.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.python-graph-gallery.com/255-percentage-stacked-area-chart">https://www.python-graph-gallery.com/255-percentage-stacked-area-chart</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/model/">Model</a>

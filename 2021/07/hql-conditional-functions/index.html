@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-07-31T20:20:17+08:00" />
-<meta property="article:modified_time" content="2021-12-17T11:43:33+08:00" />
+<meta property="article:modified_time" content="2021-12-17T11:49:30+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -39,7 +39,7 @@
                             "width":  1380 ,
                             "height":  1152 
                         }],"genre": "posts","keywords": "SQL","wordcount":  142 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/hql-conditional-functions\/","datePublished": "2021-07-31T20:20:17+08:00","dateModified": "2021-12-17T11:43:33+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/hql-conditional-functions\/","datePublished": "2021-07-31T20:20:17+08:00","dateModified": "2021-12-17T11:49:30+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -159,13 +159,193 @@
     <li><a href="#coalescevalue1value2">coalesce(value1,value2,&hellip;)</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content">
+                </div><div class="content" id="content"><p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>
+<p>汇总 <u>Hive SQL</u> 常用的条件函数，👇</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png, https://gitee.com/unclehu/pic/raw/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/hive条件函数.png"
+        title="hive 条件函数" /></p>
+<h2 id="ifcondition-value-true-value-falseornull">if(condition, value True, value FalseOrNull)</h2>
+<blockquote>
+<p>This is the one of best Hive Conditional Function</p>
+</blockquote>
+<p>类似Excel中的 <code>if</code> 函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">if</span><span class="p">(</span><span class="k">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="s1">&#39;在线&#39;</span><span class="p">,</span><span class="s1">&#39;离线&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="case-when-then-end">case when then end</h2>
+<p><code>case when</code> 较为常见，可注意执行<strong>顺序</strong>问题：从上至下依次执行，直到满足条件则跳出</p>
+<p>常见写法有两种，主要取决于是否单变量作判断</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
+</span><span class="w">                       </span><span class="k">when</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期二&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">week</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span><span class="w">                                             
+</span><span class="w"></span><span class="c1">-- OR --
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
+</span><span class="w">             </span><span class="k">when</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期二&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">week</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="isnulla">isnull(a)</h2>
+<p>判断是否为<code>null</code>（数据库特有的一种数据类型），留意字符型 <code>'null'</code>,  <code>'NULL'</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">isnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">false
+</span><span class="cm">*/</span><span class="w">
+</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="isnotnulla">isnotnull(a)</h2>
+<p>非null</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">isnotnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">true
+</span><span class="cm">*/</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="nullifab">nullif(a,b)</h2>
+<p>如果 <code>a=b</code> 则返回<code>null</code>，否则返回<code>a</code></p>
+<p>等同于 <code>case when a = b then null else a end</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">NULL
+</span><span class="cm">*/</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">4
+</span><span class="cm">*/</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="nvlarg1arg2">nvl(arg1,arg2)</h2>
+<p>可以理解为用<code>arg2</code>的值替换 <code>arg1</code> 中值为 <code>null</code> 的部分</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">999
+</span><span class="cm">*/</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">null
+</span><span class="cm">*/</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="coalescevalue1value2">coalesce(value1,value2,&hellip;)</h2>
+<p>返回第一个非<code>null</code>的值</p>
+<p>往往只想得到众多列中非 <code>null</code> 的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">coalesce</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="cm">/*return
+</span><span class="cm">7
+</span><span class="cm">*/</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition warning open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>null<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">涉及<code>null</code>的问题要留意数据库中的数据类型。譬如，某列数据格式为<code>string</code>，<code>'null'</code> 并不等同于 <code>null</code></div>
+        </div>
+    </div>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
                 
             </div><div class="post-footer" id="post-footer">
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/251d1ec18826cc4714c81149eeb56d7496645288" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;251d1ec:&nbsp;Update single.html">
-                            <i class="fas fa-hashtag fa-fw"></i>251d1ec</a></span>
+                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/b7ab81ed9f9983fa8d3466b7e3b9e40fc8d29c1b" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;b7ab81e:&nbsp;Update single.html">
+                            <i class="fas fa-hashtag fa-fw"></i>b7ab81e</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/07/hql-conditional-functions/index.md" target="_blank">Read Markdown</a>
                         </span></div>
