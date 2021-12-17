@@ -14,7 +14,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2021/12/da-pandas-qcut/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-16T10:28:01+08:00" />
-<meta property="article:modified_time" content="2021-12-17T11:49:30+08:00" />
+<meta property="article:modified_time" content="2021-12-17T14:40:19+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -39,7 +39,7 @@
                             "width":  720 ,
                             "height":  414 
                         }],"genre": "posts","keywords": "Python, pandas","wordcount":  265 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/12\/da-pandas-qcut\/","datePublished": "2021-12-16T10:28:01+08:00","dateModified": "2021-12-17T11:49:30+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2021\/12\/da-pandas-qcut\/","datePublished": "2021-12-16T10:28:01+08:00","dateModified": "2021-12-17T14:40:19+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -363,7 +363,7 @@
 </div>
 </div><p>之后通过<code>value_counts</code>计数发现有个区间频数为0，且为17个区间</p>
 <p><img
-        class="lazyload"
+        class="lazyautosizes lazyloaded"
         src="/svg/loading.min.svg"
         data-src="https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png"
         data-srcset="https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png, https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png 1.5x, https://s2.loli.net/2021/12/16/ndiIZ4wYfvEpbAP.png 2x"
@@ -372,7 +372,7 @@
         title="image-20211216144937371" /></p>
 <p>此时，再通过 <code>unique</code> 去重，就只有16个区间，上图中的 <code>(22.0,22.2]</code> 那个区间就没了</p>
 <p><img
-        class="lazyload"
+        class="lazyautosizes lazyloaded"
         src="/svg/loading.min.svg"
         data-src="https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png"
         data-srcset="https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png, https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png 1.5x, https://s2.loli.net/2021/12/16/4Ortz5xodCLZqQ1.png 2x"
@@ -381,7 +381,7 @@
         title="unique" /></p>
 <p>根本原因还是数据分布的问题，因为本来是要分20个bin，存在较多边界值重复的情况</p>
 <p><img
-        class="lazyload"
+        class="lazyautosizes lazyloaded"
         src="/svg/loading.min.svg"
         data-src="https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png"
         data-srcset="https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png, https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png 1.5x, https://s2.loli.net/2021/12/16/Er1q8z4DZKNjOiM.png 2x"
@@ -410,8 +410,8 @@
     <div class="post-info"><div class="post-info-tag"><span><a href="/tags/python/">Python</a>
                 </span><span><a href="/tags/pandas/">pandas</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/b7ab81ed9f9983fa8d3466b7e3b9e40fc8d29c1b" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;b7ab81e:&nbsp;Update single.html">
-                            <i class="fas fa-hashtag fa-fw"></i>b7ab81e</a></span>
+                <span>Updated on 2021-12-17&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/0dc8a6da3c1065dc5644f9801008dbf0beb3321b" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;0dc8a6d:&nbsp;test lazyautosizes lazyloaded">
+                            <i class="fas fa-hashtag fa-fw"></i>0dc8a6d</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2021/12/da-pandas-qcut/index.md" target="_blank">Read Markdown</a>
                         </span></div>
