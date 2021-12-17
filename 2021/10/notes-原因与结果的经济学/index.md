@@ -17,7 +17,6 @@
 
 本文是《原因与结果的经济学》的读书笔记，全书主要分为两大部分：1是提出因果推理并强调“反事实”是其必经之路；2是例举一些构建“反事实”的方式方法
 
-{{< image src="https://raw.githubusercontent.com/unclehuzi/pic/master/images/fm.jpg" >}}
 
 ![fm](https://raw.githubusercontent.com/unclehuzi/pic/master/images/fm.jpg)
 
