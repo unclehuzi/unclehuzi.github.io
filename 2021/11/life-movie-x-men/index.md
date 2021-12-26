@@ -16,7 +16,7 @@ gantt
     section X-Men First Class
     Erik成长  : 1944,1962
     Erik复仇  : milestone,1962,1962
-
+    
     section X-Men Origins Wolverine
     经历各种战争 : 1900,1975
     金刚狼复仇: milestone,1981,1981
@@ -24,17 +24,21 @@ gantt
 
     section X-Men Apocalypse
     干掉伪神 : milestone,1983,1983
-
+    
     section X-Men
     与Erik对抗 : 2000,2001
-
+    
     section X-Men2
     与Stryker对抗 : milestone,2002,2002
-
+    
     section The Wolverine
     二战    : 1939,1945
     初见自愈 : milestone,1945,1945
     觊觎永生 : milestone,2004,2004
+    
+    section Days of Future Past
+        变种人被屠杀    : milestone,2023
+        改写历史       : milestone,1973
 {{< /mermaid >}}
 
 
@@ -98,10 +102,6 @@ Erik也各种展开复仇。
 {{< bilibili id=BV1mv4y1f7CF >}}
 
 
-
-## X-Men: Days of Future Past ｜ 逆转未来（2014）
-
-
 ## X-Men: Apocalypse | 天启（2016）
 
 ![X-Men: Apocalypse（2016）](Apocalypse.jpeg)
@@ -126,7 +126,7 @@ Scott 的课堂上，老师讲授着，变种人大规模出现在公众视野�
 
 这里最牛逼的当属 Jean（琴），最后干掉那个伪神（En Sabah Nur）时并没有太多笔墨，感觉完全就是两个世界的人，直接降 n 维打击，了结了所谓的Boss。可谓是 Jean 才是大大大Boss啊。
 
-这里有两个点🉑️ 先 「Mark」 
+这里有两个点🉑️ 先 「Mark」
 
 1. Jean 第一次与 金刚狼相遇，并帮他找到了名字 Logan。名字嘛，和“我是谁” 这种哲学性十足的问题简直不是个数量级的
 2. X-Professor 的头发没了。挺难的：“第一站”之后难以直立行走，现在又头秃了，不是以前随意撩妹的帅教授了
@@ -179,7 +179,17 @@ Stryker想干掉变种人，而 万磁王（Erik） 想干掉人类 😂
 
 P.S. 片尾有彩蛋：看样子似乎 Professor-X 和 万磁王（Erik）统一战线了，“一致对外”
 
+## X-Men: Days of Future Past ｜ 逆转未来（2014）
 
+RT，逆转未来呐么，回到过去改写历史，玩起了穿越，回到了1973年
+
+![Raven](https://gitee.com/unclehu/pic/raw/master/img/image-20211226153304422.png)
+
+剧中时间点是2023年，（本文写作时间点是2021年12月25日），改写历史的任务交给了拥有自愈能力的金刚狼
+
+![time](https://gitee.com/unclehu/pic/raw/master/img/image-20211226153709304.png)
+
+片尾也出现了琴、Scott～回到了最初的美好
 
 
 
@@ -190,8 +200,9 @@ P.S. 片尾有彩蛋：看样子似乎 Professor-X 和 万磁王（Erik）统一
 
 
 
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script>
+</head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
