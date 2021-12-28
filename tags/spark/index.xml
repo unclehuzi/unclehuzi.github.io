@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Spark - Tag - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/tags/spark/</link>
+        <description>Spark - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/spark/" rel="self" type="application/rss+xml" /><item>
+    <title>Hive和Spark的区别</title>
+    <link>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</link>
+    <pubDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</guid>
+    <description><![CDATA[<p>当下处理大规模数据集比较流行的两大产品：Hive和Spark。本文从历史等维度对两者进行比较</p>]]></description>
+</item>
+</channel>
+</rss>
