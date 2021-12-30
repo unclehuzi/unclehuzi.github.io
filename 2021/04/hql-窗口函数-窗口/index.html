@@ -208,7 +208,7 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">&lt;</span><span class="n">window_frame</span><span class="o">&gt;</span><span class="w">  </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="k">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">between</span><span class="w"> 
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">&lt;</span><span class="n">window_frame</span><span class="o">&gt;</span><span class="w">  </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="k">rows</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">groups</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">between</span><span class="w">
 </span><span class="w">                   </span><span class="p">[</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">and</span><span class="w">
 </span><span class="w">                   </span><span class="p">[</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span></code></pre></td></tr></table>
@@ -269,7 +269,7 @@
 <tbody>
 <tr>
 <td>有 <code>order by</code></td>
-<td><code>range between unbounded preceding and current row</code></td>
+<td><code>rows between unbounded preceding and current row</code></td>
 </tr>
 <tr>
 <td>无 <code>order by</code></td>
@@ -346,10 +346,10 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">  </span><span class="n">over_due_days</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">over_due_days</span><span class="w"> </span><span class="n">nulls</span><span class="w"> </span><span class="k">last</span><span class="w">
-</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> 
+</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w">
 </span><span class="w">                                               </span><span class="k">and</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="p">)</span><span class="w">      </span><span class="k">as</span><span class="w"> </span><span class="n">c_sum</span><span class="w">
 </span><span class="w">        </span><span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">over_due_days</span><span class="w"> </span><span class="n">nulls</span><span class="w"> </span><span class="k">last</span><span class="w">
-</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w"> 
+</span><span class="w">                                 </span><span class="n">range</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="k">row</span><span class="w">
 </span><span class="w">                                               </span><span class="k">and</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="p">)</span><span class="w">
 </span><span class="w">            </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">samples</span><span class="p">)</span><span class="w">                                 </span><span class="k">as</span><span class="w"> </span><span class="n">c_sum_rate</span><span class="w">
 </span><span class="w"></span><span class="k">from</span><span class="p">(</span><span class="c1">-- 分逾期天数统计订单数量
@@ -365,11 +365,12 @@
 <p>本文便是窗口函数部分的“收官之作”了。</p>
 <p>主要是对“窗口”的概念展开了详细的陈述，结合初中数学中区间的概念来理解<code>&lt;window_frame&gt;</code>，并以<strong>计算累计占比</strong>为例深化理解。此外，也分享了他人整理的<a href="https://learnsql.com/blog/sql-window-functions-cheat-sheet/" title="窗口函数" target="_blank" rel="noopener noreffer">窗口函数</a></p>
 <h2 id="reference">Reference</h2>
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><div class="footnotes" role="doc-endnotes">
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script>
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">

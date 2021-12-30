@@ -40,7 +40,7 @@
 ![Frame](https://learnsql.com/blog/sql-window-functions-cheat-sheet/window-frame.png)
 
 ```sql
-<window_frame>  := [rows | range | groups ] between 
+<window_frame>  := [rows | range | groups ] between
                    [ unbounded preceding | <n> preceding | current row ] and
                    [ unbounded following | <n> following | current row ]
 ```
@@ -54,31 +54,31 @@
 
 * `rows` 对应是行的条件
 
-    如`rows between 1 preceding and unbounded following` 
-    
+    如`rows between 1 preceding and unbounded following`
+
     表示最终的范围是<u>排序后（若有），基于当前行的上 1 行和该`partition`本身的最后一行</u>
-    
+
 * `range` 对应是值的范围
 
-    如`range between 1 preceding and 2 following` 
-    
+    如`range between 1 preceding and 2 following`
+
     这里我们遵循小学数学中**区间**的性质：<u>左区间的值小于等于右区间的值</u>
-    
+
     因为涉及到值的范围，这里就要分两种情况讨论了，假设当前行对应的值为 `x`
-    
+
     - 顺序排序，即从小到大，`order by column asc`
-    
+
         `[x-1,x+2]`，<u>左区间为当前行的值减1（`x-1`）；右区间为当前行的值加2（`x+2`）</u>
-    
+
     - 逆序排序，即从大到小，`order by column desc`
-    
+
         `[x-2,x+1]`，<u>左区间为当前行的值减2（`x-2`）；右区间为当前行的值加1（`x+1`）</u>
 
 
 最后再说明下**没有** `<window_frame>` 语句时对应的Frame，此时将取决于是否有`order by`语句，即
 
 * 无 `<window_frame>` 语句、**有** `order by` 语句
-  
+
     Frame 为 `range between unbounded preceding and current row`
 
     即Frame的第一行为该`partition`的上边界，当前行（`current row`）为下边界
@@ -86,15 +86,15 @@
 * 无 `<window_frame>` 语句、**无** `order by` 语句
 
     Frame 为 `rows between unbounded preceding and unbounded following`
-    
+
     即Frame的边界就是`partition`的边界
-    
+
 
 关于，无`<window_frame>`语句的情况，总结如下
 
 \ | 无 `<window_frame>`
 ---|---
-有 `order by` | `range between unbounded preceding and current row`
+有 `order by` | `rows between unbounded preceding and current row`
 无 `order by` | `rows between unbounded preceding and unbounded following`
 
 
@@ -126,10 +126,10 @@ $$c\\_sum\\_rate=\frac{over\\_due\\_days \geq 1 的订单数}{总订单数}$$
 ```sql
 select  over_due_days
         ,sum(nums) over(order by over_due_days nulls last
-                                 range between current row 
+                                 range between current row
                                                and unbounded following)      as c_sum
         ,sum(nums) over(order by over_due_days nulls last
-                                 range between current row 
+                                 range between current row
                                                and unbounded following)
             / (select count(1) from samples)                                 as c_sum_rate
 from(-- 分逾期天数统计订单数量
@@ -154,8 +154,9 @@ from(-- 分逾期天数统计订单数量
 
 
 
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script>
+</head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
