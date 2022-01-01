@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>回顾2021，展望2022</title>
+    <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
+    <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
+    <description><![CDATA[<p>限制 <code>pday</code> 分区时，开头要写 <code>2022</code> 了</p>]]></description>
+</item>
+<item>
     <title>Hive和Spark的区别</title>
     <link>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</link>
     <pubDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
     <pubDate>Tue, 07 Sep 2021 09:48:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
     <description><![CDATA[<p>在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了</p>]]></description>
-</item>
-<item>
-    <title>如果真的什么都不用想</title>
-    <link>https://unclehuzi.github.io/2021/09/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</link>
-    <pubDate>Sun, 05 Sep 2021 16:44:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</guid>
-    <description><![CDATA[<p>不知不觉，离开学校已经有1年2个月了。。。</p>]]></description>
 </item>
 </channel>
 </rss>
