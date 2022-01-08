@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 08 Jan 2022 15:23:57 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>系统学习金融经济方面知识的书籍推荐</title>
+    <link>https://unclehuzi.github.io/2022/01/fem-resources/</link>
+    <pubDate>Sat, 08 Jan 2022 15:23:57 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/fem-resources/</guid>
+    <description><![CDATA[<p>经徐惟能教授许可，转载其知乎的回答</p>]]></description>
+</item>
+<item>
     <title>回顾2021，展望2022</title>
     <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
     <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2021/09/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</link>
     <pubDate>Mon, 13 Sep 2021 10:58:34 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</guid>
     <description><![CDATA[<p>常见的还款方式：等额本息、等额本金、等本等息</p>]]></description>
-</item>
-<item>
-    <title>记毕业后第一次与导师的晚餐</title>
-    <link>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
-    <pubDate>Tue, 07 Sep 2021 09:48:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
-    <description><![CDATA[<p>在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了</p>]]></description>
 </item>
 </channel>
 </rss>
