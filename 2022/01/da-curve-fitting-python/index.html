@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9438949773830708"
+     crossorigin="anonymous"></script>
+        <script data-ad-client="ca-pub-9438949773830708" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <meta name="google-site-verification" content="HvFNVSLsWn54ozIScWeIk-WXC8CR7sPOig2Hi9mCHRQ" />
+        <meta name="baidu-site-verification" content="code-4CkV5PFvDB" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Python曲线拟合 - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="Python曲线拟合" />
+<meta property="og:description" content="最近接触了曲线拟合（curve fitting），在此简单整理一波Python的实现方式" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-13T13:47:15+08:00" />
+<meta property="article:modified_time" content="2022-01-14T14:50:10+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://unclehuzi.github.io/"/>
+
+<meta name="twitter:title" content="Python曲线拟合"/>
+<meta name="twitter:description" content="最近接触了曲线拟合（curve fitting），在此简单整理一波Python的实现方式"/>
+<meta name="application-name" content="胡子叔叔的小站">
+<meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" /><link rel="prev" href="https://unclehuzi.github.io/2022/01/fem-resources/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Python曲线拟合",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/unclehuzi.github.io\/2022\/01\/da-curve-fitting-python\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/unclehuzi.github.io\/2022\/01\/da-curve-fitting-python\/featured-image.png",
+                            "width":  1824 ,
+                            "height":  1094 
+                        }],"genre": "posts","keywords": "曲线拟合, Python","wordcount":  390 ,
+        "url": "https:\/\/unclehuzi.github.io\/2022\/01\/da-curve-fitting-python\/","datePublished": "2022-01-13T13:47:15+08:00","dateModified": "2022-01-14T14:50:10+08:00","publisher": {
+            "@type": "Organization",
+            "name": "胡子叔叔"},"author": {
+                "@type": "Person",
+                "name": "胡子叔叔"
+            },"description": ""
+    }
+    </script></head><body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png" />胡子叔叔的小站</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a class="menu-item" href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        data-srcset="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 1.5x, https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png"
+        title="https://gitee.com/unclehu/pic/raw/master/img/favicon-32x32.png" />胡子叔叔的小站</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><div class="menu-item"><a href="/index.xml" title="RSS"><i class="fas fa-rss fa-fw" title="RSS"></i> </a>
+                <span>&nbsp;|&nbsp;</span><a href="javascript:void(0);" class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="enable">
+
+        
+
+        <div class="single-card" data-image="true"><h2 class="single-title animated flipInX">Python曲线拟合</h2><h2 class="single-subtitle">curve fitting</h2><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2022/01/da-curve-fitting-python/featured-image.png"
+        data-srcset="/2022/01/da-curve-fitting-python/featured-image.png, /2022/01/da-curve-fitting-python/featured-image.png 1.5x, /2022/01/da-curve-fitting-python/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2022/01/da-curve-fitting-python/featured-image.png"
+        title="/2022/01/da-curve-fitting-python/featured-image.png" /></div><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a></span></div>
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-13">2022-01-13</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;390 words</span>&nbsp;
+                    <span><i class="far fa-clock fa-fw"></i>&nbsp;2 minutes</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>Contents</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#自定义函数拟合">自定义函数拟合</a>
+      <ul>
+        <li><a href="#官方示例">官方示例</a></li>
+        <li><a href="#mark-log">MARK-log</a></li>
+      </ul>
+    </li>
+    <li><a href="#基函数拟合">基函数拟合</a>
+      <ul>
+        <li><a href="#mark">MARK</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><p>最近接触了曲线拟合（<a href="https://en.wikipedia.org/wiki/Curve_fitting" target="_blank" rel="noopener noreffer">curve fitting</a>），在此简单整理一波Python的实现方式</p>
+<p>依稀记得高中数学课本有提到这个，$x$​​、$y$​​​​ 二维坐标。大致是两种方式：一种是看着像啥样或基于先验知识给出常见函数的关系式，通过数据拟合得到相应的系数；第二种是直接从数据出发，采用“基函数”拟合，和泰勒展开、级数有关系，函数越复杂拟合的越完美，但<strong>泛化</strong>能力就有待考究了，即复杂度越高越容易出现<strong>过拟合</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif"
+        data-srcset="https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif, https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif 1.5x, https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif 2x"
+        data-sizes="auto"
+        alt="https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif"
+        title="https://upload.wikimedia.org/wikipedia/commons/a/a8/Regression_pic_assymetrique.gif" /></p>
+<p>「插播」这两种又让我想起了统计里的“参数估计”和“非参数估计”</p>
+<p>备注：以下分类名称仅从个人理解出发</p>
+<h2 id="自定义函数拟合">自定义函数拟合</h2>
+<p>“自定义函数拟合”即我们可以自行编写定义各种函数（如幂函数、指数函数等）关系，基于此对现有数据进行拟合。往往需要一些领域内的知识🤔</p>
+<p>具体实现可参考 <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank" rel="noopener noreffer"><code>scipy.optimize.curve_fit</code></a></p>
+<h3 id="官方示例">官方示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="c1"># 自定义函数</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="c1"># 构造数据</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">y_noise</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">xdata</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">y_noise</span>
+
+<span class="c1"># 拟合</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
+
+<span class="c1">## 设置参数取值范围</span>
+<span class="n">popt1</span><span class="p">,</span> <span class="n">pcov1</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]))</span>
+
+<span class="c1"># 可视化</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit: a=</span><span class="si">%5.3f</span><span class="s1">, b=</span><span class="si">%5.3f</span><span class="s1">, c=</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">popt</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="o">*</span><span class="n">popt1</span><span class="p">),</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit: a=</span><span class="si">%5.3f</span><span class="s1">, b=</span><span class="si">%5.3f</span><span class="s1">, c=</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">popt1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png"
+        title="result" /></p>
+<p><code>curve_fit()</code> 的参数方面：</p>
+<ul>
+<li>
+<p><code>p0</code></p>
+<p>系数初始值</p>
+</li>
+<li>
+<p><code>bounds</code></p>
+<p>各系数的取值范围</p>
+</li>
+<li>
+<p><code>method</code></p>
+<p>最优化算法，&lsquo;lm&rsquo;, &lsquo;trf&rsquo;, &lsquo;dogbox&rsquo;</p>
+</li>
+</ul>
+<h3 id="mark-log">MARK-log</h3>
+<p>此外还要 MARK 的一点是关于  $log$​ 的问题，Python中 <code>numpy</code> 和 <code>math</code> 都可以计算对数（$log$）</p>
+<p>首先 <code>math.log</code>  和 <code>numpy.log</code> 都是以自然常数 $e$​​​ 为底的<strong>自然对数</strong>，针对底数不同各自都有以2、10为底的函数，分别为<code>log2()</code>, <code>log10()</code> 。其中，<code>math.log2(x)</code>, <code>math.log10(x)</code>计算的准确性高于 <code>math.log(x,2)</code>, <code>math.log(x,10)</code></p>
+<p>但是 <code>math.log()</code> 支持自选底数，比如计算 $log_{12}{10}$​​ ：<code>math.log(10,12)</code></p>
+<p>其实结合“换底公式”， 这个就等价于  <code>math.log(10)/math.log(12)</code>
+$$
+log_ab=\frac{log_ca}{log_cb}
+$$
+<strong>但但但但是</strong>，<code>numpy.log</code> 是支持数组、列表等形式的，享受 <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html" target="_blank" rel="noopener noreffer">broadcasting</a>带来的快感；而 <code>math.log</code> 只支持单个数字的计算，若传入数组等 <code>array_like</code> 则会报错：<code>TypeError: only size-1 arrays can be converted to Python scalars</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png"
+        title="error" /></p>
+<p>若一定要用 <code>math.log</code> 也是可以的： <code>[math.log(i) for i in [1,2,3,4,5]]</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png"
+        title="image-20220113180229076" /></p>
+<h2 id="基函数拟合">基函数拟合</h2>
+<p>关于这部分，目前记录的 “基函数” 更多是多项式（polynomials）形式，<code>numpy</code>提供了 sub-package： <a href="https://numpy.org/doc/stable/reference/routines.polynomials.package.html#module-numpy.polynomial" target="_blank" rel="noopener noreffer"><code>numpy.polynomial</code></a> （NumPy 1.4 版本，2009-12-28，引入的）</p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Provides</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.html#numpy.polynomial.polynomial.Polynomial" target="_blank" rel="noopener noreffer"><code>Polynomial</code></a></td>
+<td>Power series</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.chebyshev.Chebyshev.html#numpy.polynomial.chebyshev.Chebyshev" target="_blank" rel="noopener noreffer"><code>Chebyshev</code></a></td>
+<td>Chebyshev series</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.Legendre.html#numpy.polynomial.legendre.Legendre" target="_blank" rel="noopener noreffer"><code>Legendre</code></a></td>
+<td>Legendre series</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.Laguerre.html#numpy.polynomial.laguerre.Laguerre" target="_blank" rel="noopener noreffer"><code>Laguerre</code></a></td>
+<td>Laguerre series</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.Hermite.html#numpy.polynomial.hermite.Hermite" target="_blank" rel="noopener noreffer"><code>Hermite</code></a></td>
+<td>Hermite series</td>
+</tr>
+<tr>
+<td><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite_e.HermiteE.html#numpy.polynomial.hermite_e.HermiteE" target="_blank" rel="noopener noreffer"><code>HermiteE</code></a></td>
+<td>HermiteE series</td>
+</tr>
+</tbody>
+</table>
+<p>Power series（<a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.html#numpy.polynomial.polynomial.Polynomial" target="_blank" rel="noopener noreffer"><code>Polynomial</code></a>）就是我们常见的 $y=1+2x+3x^2$​ 这种</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">polynomial</span> <span class="k">as</span> <span class="n">P</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">174</span><span class="p">,</span><span class="mi">236</span><span class="p">,</span><span class="mi">305</span><span class="p">,</span><span class="mi">334</span><span class="p">,</span><span class="mi">349</span><span class="p">,</span><span class="mi">351</span><span class="p">,</span><span class="mi">342</span><span class="p">,</span><span class="mi">323</span><span class="p">])</span>
+
+<span class="c1"># 3 表示想要拟合的最高次项是多少。</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 表达式</span>
+<span class="c1"># print(p)</span>
+<span class="c1"># 343.18750000000006 + 59.98042929292918·x¹ - 96.68750000000027·x² + 15.80744949494958·x³</span>
+
+
+<span class="n">yvals</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#拟合y值</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;original values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">yvals</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Power series&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png"
+        title="power series" /></p>
+<h3 id="mark">MARK</h3>
+<p>在官方文档会看到 <code>Polynomial</code> 这个类前面套了好几层<code>numpy.polynomial.polynomial.Polynomial</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png"
+        title="class-of-Polynomial" /></p>
+<p>实则关系是 <code>numpy.polynomial</code> 下面有个 <code>polynomial.py</code> 文件，文件里有个类是 <code>Polynomial</code>。同理，剩下五种多项式也是如此，<code>chebyshev.py</code> 有个 <code>Chebyshev</code>类</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png"
+        title="polynomial" /></p>
+<p>在实际使用的时候可以严格遵守这种关系</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">polynomial</span> <span class="k">as</span> <span class="n">P</span>
+
+<span class="c1">## 使用 Power series 拟合</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1">## 使用 Chebyshev series 拟合</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">Chebyshev</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">## 其他几种多项式类似</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;original values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Power series&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Chebyshev series&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png"
+        data-srcset="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png 1.5x, https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png"
+        title="image-20220114144615412" /></p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.log.html">https://numpy.org/doc/stable/reference/generated/numpy.log.html</a></li>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html</a></li>
+<li><a href="https://docs.python.org/3.7/library/math.html">https://docs.python.org/3.7/library/math.html</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/routines.polynomials.html">https://numpy.org/doc/stable/reference/routines.polynomials.html</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/routines.polynomials.package.html#module-numpy.polynomial">https://numpy.org/doc/stable/reference/routines.polynomials.package.html#module-numpy.polynomial</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyfit.html#numpy.polynomial.polynomial.polyfit">https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyfit.html#numpy.polynomial.polynomial.polyfit</a></li>
+<li><a href="https://numpy.org/doc/stable/reference/routines.polynomials.html">https://numpy.org/doc/stable/reference/routines.polynomials.html</a></li>
+<li><a href="https://www.jianshu.com/p/44baeed131df">https://www.jianshu.com/p/44baeed131df</a></li>
+</ol>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+                
+            </div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88/">曲线拟合</a>
+                </span><span><a href="/tags/python/">Python</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>Updated on 2022-01-14&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/c01f8b5dc4426cf0b538789b4a2bd6316383b81a" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;c01f8b5:&nbsp;curve fitting Python">
+                            <i class="fas fa-hashtag fa-fw"></i>c01f8b5</a></span>
+            </div><div class="post-info-mod"><span>
+                            <a class="link-to-markdown" href="/2022/01/da-curve-fitting-python/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+        </div><div class="post-info-share">
+            <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" data-title="Python曲线拟合" data-hashtags="曲线拟合,Python"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" data-hashtag="曲线拟合"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" data-title="Python曲线拟合"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2022/01/da-curve-fitting-python/" data-title="Python曲线拟合" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2022/01/fem-resources/" class="prev" rel="prev" title="系统学习金融经济方面知识的书籍推荐"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div>
+</div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> • <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人</span></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.84.4">Hugo</a> | Theme - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.1"><i class="fas fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.linkedin.com/in/unclehuzi/">胡子叔叔</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('/sw.min.js?version=1.0.1', { scope: '/' })
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Registered');
+        }, err => console.error('胡子叔叔的小站\u00A0Service Worker registration failed: ', err));
+
+    navigator.serviceWorker
+        .ready
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Ready');
+        });
+}
+</script>
+</footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-chevron-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment-alt fa-fw"></i>
+            </a></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/twemoji@13.1.0/dist/twemoji.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/js/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":66},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
