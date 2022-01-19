@@ -43,10 +43,10 @@ from    sale
 ## 基本语法
 
 ```sql
-lag(expression [,offset[,default_value]]) over([partition by expr1, expr2, ...] 
+lag(expression [,offset[,default_value]]) over([partition by expr1, expr2, ...]
                                                order by expr1 [asc|desc], expr2 [asc|desc], ... )
-                                               
-lead(expression [,offset[,default_value]]) over([partition by expr1, expr2, ...] 
+
+lead(expression [,offset[,default_value]]) over([partition by expr1, expr2, ...]
                                                 order by expr1 [asc|desc], expr2 [asc|desc], ... )
 ```
 
@@ -59,11 +59,11 @@ lead(expression [,offset[,default_value]]) over([partition by expr1, expr2, ...]
 * `offset` - int
 
     移动的行数（/偏移量）
-    
+
 * `default_value`
 
     定义为空的情况赋给的默认值
-    
+
 
 其中，参数 `expression` 是必须的。而 `default_value`（默认是 `NULL`） 是只有当 `offset`（默认是 `1`） 有值时才能使用
 
@@ -84,7 +84,7 @@ from(-- 下移
     from(
         -- 按天去重
         select  user_id
-                ,date_format(session_time,'yyyyMMdd') as session_date
+                ,date_format(session_time,'yyyy-MM-dd') as session_date
         from    table1
         group by 1,2
         )
@@ -108,8 +108,9 @@ having  rk = 1
 
 
 
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
+<head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script>
+</head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
