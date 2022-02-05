@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 22 Jan 2022 17:48:08 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>感悟？=&gt;原则？</title>
+    <link>https://unclehuzi.github.io/2022/01/life-thoughts/</link>
+    <pubDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-thoughts/</guid>
+    <description><![CDATA[<p>试图记录📝一些感悟，有些东西记着记着就成「原则」了吧</p>]]></description>
+</item>
+<item>
     <title>《腾讯传》</title>
     <link>https://unclehuzi.github.io/2022/01/notes-bio-of-tencent/</link>
     <pubDate>Sat, 22 Jan 2022 17:48:08 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/notes-bio-of-tencent/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2021/11/da-pyspark-beginning/</link>
     <pubDate>Wed, 10 Nov 2021 20:28:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/11/da-pyspark-beginning/</guid>
     <description><![CDATA[<p>Hi <code>PySpark</code>，初次见面，别来无恙</p>]]></description>
-</item>
-<item>
-    <title>因果推断补给站</title>
-    <link>https://unclehuzi.github.io/2021/10/causal-resources/</link>
-    <pubDate>Sat, 09 Oct 2021 14:27:05 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/10/causal-resources/</guid>
-    <description><![CDATA[<p>汇总一些【因果推断】方面的学习资料</p>]]></description>
 </item>
 </channel>
 </rss>
