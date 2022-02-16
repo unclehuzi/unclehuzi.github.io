@@ -65,7 +65,7 @@ Change in demand quantity 🆚 Shift in demand curve
 
   但也取决于定义方式
 
-  ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f2ab0988-3cb6-4226-89e7-d88da794ecee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220215T095349Z&X-Amz-Expires=86400&X-Amz-Signature=b561913f99d1b011082f0188d4640a0e782bfe5e2b2812f4f1a28e68df93c4b5&X-Amz-SignedHeaders=host&response-content-disposition=filename %3D"Untitled.png"&x-id=GetObject)
+  ![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f2ab0988-3cb6-4226-89e7-d88da794ecee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220215T095349Z&X-Amz-Expires=86400&X-Amz-Signature=b561913f99d1b011082f0188d4640a0e782bfe5e2b2812f4f1a28e68df93c4b5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 - 相关物品价格 Prices of related goods
 
@@ -159,7 +159,7 @@ Change in demand quantity 🆚 Shift in demand curve
 
 天气热 =》 冰激凌需求增加
 
-![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e795c646-5672-4e36-b4d3-5ccf0efbeead/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220215T124728Z&X-Amz-Expires=86400&X-Amz-Signature=d406bae4ffe9b49cd4bf6d30c96b4bf805a129baece92f7d2f1f6772ebf62922&X-Amz-SignedHeaders=host&response-content-disposition=filename %3D"Untitled.png"&x-id=GetObject)
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e795c646-5672-4e36-b4d3-5ccf0efbeead/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220215%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220215T124728Z&X-Amz-Expires=86400&X-Amz-Signature=d406bae4ffe9b49cd4bf6d30c96b4bf805a129baece92f7d2f1f6772ebf62922&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
 #### 改变供给
 
@@ -176,6 +176,8 @@ Change in demand quantity 🆚 Shift in demand curve
 ## Reference
 
 {{< youtube h2AXRpbgj9M >}}
+
+---
 
 {{< youtube KaxzicvlKhg >}}
 
