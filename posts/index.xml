@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Wed, 23 Feb 2022 15:18:56 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Ch6-供给、需求与政府政策</title>
+    <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
+    <pubDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
+    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Supply, Demand and Government Policies”</p>]]></description>
+</item>
+<item>
     <title>Ch5-弹性及其应用</title>
     <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</link>
     <pubDate>Wed, 23 Feb 2022 15:18:56 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
     <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
     <description><![CDATA[<p>限制 <code>pday</code> 分区时，开头要写 <code>2022</code> 了</p>]]></description>
-</item>
-<item>
-    <title>Hive和Spark的区别</title>
-    <link>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</link>
-    <pubDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</guid>
-    <description><![CDATA[<p>当下处理大规模数据集比较流行的两大产品：Hive和Spark。本文从历史等维度对两者进行比较</p>]]></description>
 </item>
 </channel>
 </rss>
