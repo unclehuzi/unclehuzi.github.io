@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Tue, 01 Mar 2022 11:55:05 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Ch7-市场效率</title>
+    <link>https://unclehuzi.github.io/2022/03/notes-principles-of-economics-ch7-efficiency_of_markets/</link>
+    <pubDate>Tue, 01 Mar 2022 11:55:05 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/03/notes-principles-of-economics-ch7-efficiency_of_markets/</guid>
+    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Efficiency of Markets”</p>]]></description>
+</item>
+<item>
     <title>Ch6-供给、需求与政府政策</title>
     <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
     <pubDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2022/01/fem-resources/</link>
     <pubDate>Sat, 08 Jan 2022 15:23:57 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/fem-resources/</guid>
     <description><![CDATA[<p>经徐惟能教授许可，转载其知乎的回答</p>]]></description>
-</item>
-<item>
-    <title>回顾2021，展望2022</title>
-    <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
-    <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
-    <description><![CDATA[<p>限制 <code>pday</code> 分区时，开头要写 <code>2022</code> 了</p>]]></description>
 </item>
 </channel>
 </rss>
