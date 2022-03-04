@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/tags/python/</link>
         <description>Python - Tag - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 13 Jan 2022 13:47:15 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Fri, 18 Feb 2022 21:54:25 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>Customer Lifetime Value</title>
+    <link>https://unclehuzi.github.io/2022/02/da-customer-lifetime-value/</link>
+    <pubDate>Fri, 18 Feb 2022 21:54:25 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/da-customer-lifetime-value/</guid>
+    <description><![CDATA[<p>客户终生价值-CLV</p>]]></description>
+</item>
+<item>
     <title>Python曲线拟合</title>
     <link>https://unclehuzi.github.io/2022/01/da-curve-fitting-python/</link>
     <pubDate>Thu, 13 Jan 2022 13:47:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/da-curve-fitting-python/</guid>
