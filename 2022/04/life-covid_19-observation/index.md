@@ -14,13 +14,13 @@
 gantt
     dateFormat YYYY-MM-DD HH
     title 2022年3月上海疫情个人流水账
-    axisFormat  %Y-%m-%d %H
+    axisFormat  %Y-%m-%d
 
     封楼  : milestone,2022-03-13 19,  1h
     第1次核酸 : milestone,2022-03-14 02, 1h
     第2次核酸 : milestone,2022-03-14 15, 1h
     封闭式管理  : 2022-03-13 19,2022-03-16 16
-
+    
     我司通知居家  : 2022-03-16 18,2022-03-18 23
     
     住处通知再核酸: milestone,2022-03-18 19,1h
