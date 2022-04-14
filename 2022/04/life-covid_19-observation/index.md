@@ -25,7 +25,7 @@ gantt
     
     住处通知再核酸: milestone,2022-03-18 19,1h
     
-    小区被封 : 2022-03-19 01,2022-04-10 17
+    小区被封 : 2022-03-19 01,2022-04-14 10
     
     第3次核酸 : milestone,2022-03-19 10 ,1h
     第4次核酸 : milestone,2022-03-20 10 ,1h
@@ -62,6 +62,16 @@ gantt
     第17次核酸，自测 : milestone, 2022-04-09 09,1h
     
     第18次核酸 : milestone, 2022-04-09 20,1h
+    
+    第19次核酸，自测 : milestone, 2022-04-11 10,1h
+    
+    发了10个抗原试剂 : milestone, 2022-04-11 20,1h
+    
+    第20次核酸，自测 : milestone, 2022-04-12 00,1h
+    
+    有阳 : milestone, 2022-04-13
+    
+    第21次核酸 : milestone, 2022-04-14 09,1h
 {{< /mermaid >}}
 
 
@@ -136,8 +146,12 @@ gantt
 
 ![image-20220408204720651](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220408204720651.png)
 
+有点意思，**小区封了一个月**，突然有阳性，居委会说是已转运。2022-04-13
+见识下，什么叫真正的 0⃣️
 
+![image-20220414104459181](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220414104459181.png)
 
+source: https://covid19.who.int/region/searo/country/kp
 
 
 
