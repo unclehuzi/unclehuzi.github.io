@@ -25,7 +25,7 @@ gantt
     
     住处通知再核酸: milestone,2022-03-18 19,1h
     
-    小区被封 : 2022-03-19 01,2022-04-14 10
+    小区被封 : 2022-03-19 01,2022-04-23 21
     
     第3次核酸 : milestone,2022-03-19 10 ,1h
     第4次核酸 : milestone,2022-03-20 10 ,1h
@@ -72,6 +72,14 @@ gantt
     有阳 : milestone, 2022-04-13
     
     第21次核酸 : milestone, 2022-04-14 09,1h
+    
+    第22次核酸 : milestone, 2022-04-18 11,1h
+    
+    第23次核酸 : milestone, 2022-04-20 11,1h
+    
+    第24次核酸 : milestone, 2022-04-21 11,1h
+    
+    第25次核酸，自测 : milestone, 2022-04-23 11,1h
 {{< /mermaid >}}
 
 
@@ -126,7 +134,15 @@ gantt
 
 ![image-20220408204341152](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220408204341152.png)
 
+**2022年4月18日**，收到公司大礼包
 
+![image-20220420124119545](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220420124119545.png)
+
+**2022年4月20日**，所住小区收到政府的物资
+
+![image-20220420124657401](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220420124657401.png)
+
+（其实感觉挺有意思的，政府、公司就知道我需要这些东西？ 哈哈，有时候只是借着这些东西传递一些相应的“意思”罢了，但不见得就是经济的，毕竟这些东西我也难以加工，最终还是扔掉。怕就怕在最后有些不明事理之人从道德层面美名其曰浪费）
 
 
 
@@ -152,6 +168,12 @@ gantt
 ![image-20220414104459181](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220414104459181.png)
 
 source: https://covid19.who.int/region/searo/country/kp
+
+网上有个 “四月之声” 的视频，单纯的记录下
+
+![](v.mp4)
+
+
 
 
 
