@@ -56,7 +56,7 @@ plt.legend()
 plt.show()
 ```
 
-![result](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113162513531.png)
+![result](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220113162513531.png)
 
 `curve_fit()` 的参数方面：
 
@@ -86,11 +86,11 @@ log_ab=\frac{log_ca}{log_cb}
 $$
 **但但但但是**，`numpy.log` 是支持数组、列表等形式的，享受 [broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html)带来的快感；而 `math.log` 只支持单个数字的计算，若传入数组等 `array_like` 则会报错：`TypeError: only size-1 arrays can be converted to Python scalars`
 
-![error](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113175124951.png)
+![error](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220113175124951.png)
 
 若一定要用 `math.log` 也是可以的： `[math.log(i) for i in [1,2,3,4,5]]`
 
-![image-20220113180229076](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220113180229076.png)
+![image-20220113180229076](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220113180229076.png)
 
 ## 基函数拟合
 
@@ -131,17 +131,17 @@ plt.legend()
 plt.show()
 ```
 
-![power series](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144138119.png)
+![power series](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220114144138119.png)
 
 ### MARK
 
 在官方文档会看到 `Polynomial` 这个类前面套了好几层`numpy.polynomial.polynomial.Polynomial`
 
-![class-of-Polynomial](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114140637878.png)
+![class-of-Polynomial](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220114140637878.png)
 
 实则关系是 `numpy.polynomial` 下面有个 `polynomial.py` 文件，文件里有个类是 `Polynomial`。同理，剩下五种多项式也是如此，`chebyshev.py` 有个 `Chebyshev`类
 
-![polynomial](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114141225177.png)
+![polynomial](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220114141225177.png)
 
 在实际使用的时候可以严格遵守这种关系
 
@@ -163,7 +163,7 @@ plt.legend()
 plt.show()
 ```
 
-![image-20220114144615412](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220114144615412.png)
+![image-20220114144615412](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220114144615412.png)
 
 ## Reference
 

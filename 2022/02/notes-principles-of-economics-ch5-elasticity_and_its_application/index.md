@@ -21,17 +21,17 @@ $$
 
 ⚠️ 同时也需要注意，**参考点不同，弹性不同**，如下图所示
 
-![demand_curve](https://gitee.com/unclehuzi/picture/raw/master/img/demand_curve.png)
+![demand_curve](https://raw.githubusercontent.com/unclehuzi/pic/master/img/demand_curve.png)
 
 而且不同点之间的弹性也不同
 
-![image-20220223153728792](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223153728792.png)
+![image-20220223153728792](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223153728792.png)
 
 ### 需求曲线
 
 结合弹性来看，对应有5类
 
-![demand_curve_with_elasticity](https://gitee.com/unclehuzi/picture/raw/master/img/demand_curve_with_elasticity.png)
+![demand_curve_with_elasticity](https://raw.githubusercontent.com/unclehuzi/pic/master/img/demand_curve_with_elasticity.png)
 
 
 | Name_cn    | name_en              | \|Elasticity\| |
@@ -65,21 +65,21 @@ $$
 $$
 TR=P\times Q=P(Q)\times Q
 $$
-![image-20220223155428843](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223155428843.png)
+![image-20220223155428843](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223155428843.png)
 
 需求曲线上的点与坐标轴围成的矩形面积即为 **TR** ，其中，中点处 TR 最大
 
 #### 无弹性需求，价格⬆️ TR⬆️
 
-![image-20220223155754562](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223155754562.png)
+![image-20220223155754562](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223155754562.png)
 
 #### 弹性需求，价格⬆️ TR⬇️
 
-![image-20220223155827968](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223155827968.png)
+![image-20220223155827968](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223155827968.png)
 
 ### 其他的需求弹性
 
-![image-20220223160100638](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223160100638.png)
+![image-20220223160100638](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223160100638.png)
 
 ## 供给弹性
 
@@ -113,13 +113,13 @@ $$
 
 ### [谷贱伤农](https://baike.baidu.com/item/%E8%B0%B7%E8%B4%B1%E4%BC%A4%E5%86%9C%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86/6055286)
 
-![image-20220223171203951](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223171203951.png)
+![image-20220223171203951](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223171203951.png)
 
 谷物产量增加，供给曲线 👉右移，价格下降，但人们对谷物的需求**无弹性**，所以Total Revenue 减少
 
 ### OPEC无法维持高油价
 
-![image-20220223171925151](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223171925151.png)
+![image-20220223171925151](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223171925151.png)
 
 备注：参考资料横坐标标注有误
 
@@ -129,7 +129,7 @@ OPEC 联合减少石油供给，早期且短期内替代品较少，无弹性需
 
 ### 打击毒品
 
-![image-20220223172851724](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220223172851724.png)
+![image-20220223172851724](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220223172851724.png)
 
 👊“扫毒” 的点在于很难甚至不可能做到把供应转为 0
 

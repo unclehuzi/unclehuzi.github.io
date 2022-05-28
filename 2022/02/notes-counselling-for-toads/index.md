@@ -43,7 +43,7 @@
 
 - 我不好，你不好
 
-![人生坐标](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220208160638754.png)
+![人生坐标](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220208160638754.png)
 
 > 这些理念只是用来理解行为的方法，尤其是理解我们自己的行为。
 

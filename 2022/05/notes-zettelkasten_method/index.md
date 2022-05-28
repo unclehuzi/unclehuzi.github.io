@@ -22,15 +22,15 @@
 
 离开学术，成为打工人的我就将这一套 i.A.R.P 理念运用在工作中，试图搭建一套工作体系，基于Notion 建立企业工作中的 i.A.R.P
 
-![image-20220501163353764](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220501163353764.png)
+![image-20220501163353764](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220501163353764.png)
 
 ### Inbox
 
 这里放的是需要做的事儿，搭建工作空间。也是在霍师傅分享的模板上修改的
 
-![image-20220501163855309](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220501163855309.png)
+![image-20220501163855309](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220501163855309.png)
 
-![image-20220501163940315](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220501163940315.png)
+![image-20220501163940315](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220501163940315.png)
 
 这里的标签类似 Project的概念，每个工作项目打上相应的标签，为日后的规整及思考提供相应的素材。经过时间的沉淀，我相信会丰富大框架下的Project 甚至工作中的Area。希望有朝一日能独当一面 
 

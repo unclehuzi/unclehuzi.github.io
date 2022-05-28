@@ -35,19 +35,19 @@
 
 如下图所示，横轴（X）是 `Quantity` 、纵轴（Y）是 `Price`，习惯性理解是X影响Y，即$Y=f(X)$
 
-![Demand Curve](https://gitee.com/unclehuzi/picture/raw/master/img/demand_curve2-1a87890730a044e79de897ddb61ccc76.PNG)
+![Demand Curve](https://raw.githubusercontent.com/unclehuzi/pic/master/img/demand_curve2-1a87890730a044e79de897ddb61ccc76.PNG)
 
 **但需求曲线描述的是，给定价格P，需求量Q几何**，即 $Q=f(P)$​。林老师给的解释是鼻祖 Alfred Marshall 搞错了
 
-![Q=f(P)](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215172954319.png)
+![Q=f(P)](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215172954319.png)
 
 P.S. 市場中不太可能每個人決定不買的價格相同，在此情況下加總，會產生許多拗折 (kinked)，最後就會變成一個有弧度的曲線。
 
-![demand curve](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215173229580.png)
+![demand curve](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215173229580.png)
 
 为啥是凸的呢？私认为，高价的时候价格稍微降低一些，买的人也不会增加多少；极端至免费，不要白不要了，需求量增加很多。
 
-![convex](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215201220923.png)
+![convex](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215201220923.png)
 
 ### 需求量的改变 v.s. 需求曲线的移动
 
@@ -55,7 +55,7 @@ Change in demand quantity 🆚 Shift in demand curve
 
 前者是沿着需求曲线移动；后者是需求曲线发生移动
 
-![image-20220215174836983](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215174836983.png)
+![image-20220215174836983](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215174836983.png)
 
 ### 影响需求曲线移动的因素
 
@@ -123,19 +123,19 @@ Change in demand quantity 🆚 Shift in demand curve
 
 当价格到达某个水平，供给量=需求量
 
-![image-20220215204055490](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215204055490.png)
+![image-20220215204055490](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215204055490.png)
 
 ### 价格 > 均衡价格： 剩余 Surplus
 
 超额供给
 
-![image-20220215204236046](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215204236046.png)
+![image-20220215204236046](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215204236046.png)
 
 ### 价格 < 均衡价格：短缺 Shortage
 
 超额需求
 
-![image-20220215204359448](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215204359448.png)
+![image-20220215204359448](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215204359448.png)
 
 「**MARK**」
 
@@ -169,7 +169,7 @@ Change in demand quantity 🆚 Shift in demand curve
 
 ### 供给九宫格
 
-![image-20220215205024042](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220215205024042.png)
+![image-20220215205024042](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220215205024042.png)
 
 
 

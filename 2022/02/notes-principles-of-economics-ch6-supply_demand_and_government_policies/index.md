@@ -25,7 +25,7 @@
     
     例： 1970s 的石油危機衝擊造成 non-binding（線段 bc）意外轉變為短缺(線段 ab)
     
-    ![价格上限](https://gitee.com/unclehuzi/picture/raw/master/img/Untitled.png)
+    ![价格上限](https://raw.githubusercontent.com/unclehuzi/pic/master/img/Untitled.png)
     
 - binding
   
@@ -49,7 +49,7 @@
   
     發生效力時會造成供過於求（线段 bc）
     
-    ![价格下限](https://gitee.com/unclehuzi/picture/raw/master/img/Untitled%201.png)
+    ![价格下限](https://raw.githubusercontent.com/unclehuzi/pic/master/img/Untitled%201.png)
     
     - 譬如，最低工资法。劳动力即为供给方。
       
@@ -71,7 +71,7 @@
 
 无论是向生产者征税还是向需求者征税都会得到相同的结果：消费者负担紅色線段，生產者負擔綠色線段，政府獲得黑色線段的稅收。看似单方面征税，实则供给双方均贡献了税收
 
-![征税](https://gitee.com/unclehuzi/picture/raw/master/img/Untitled%202.png)
+![征税](https://raw.githubusercontent.com/unclehuzi/pic/master/img/Untitled%202.png)
 
 譬如冰激凌🍦 的例子，原本市场达到了 $P_0$ 的均衡
 
@@ -98,13 +98,13 @@
   
     此时税收主要由消费者承担
     
-    ![供给更弹性](https://gitee.com/unclehuzi/picture/raw/master/img/Untitled%203.png)
+    ![供给更弹性](https://raw.githubusercontent.com/unclehuzi/pic/master/img/Untitled%203.png)
     
 - 相比供给，需求更富有弹性
   
     此时税收主要由生产者承担
     
-    ![需求更弹性](https://gitee.com/unclehuzi/picture/raw/master/img/Untitled%204.png)
+    ![需求更弹性](https://raw.githubusercontent.com/unclehuzi/pic/master/img/Untitled%204.png)
     
 
 

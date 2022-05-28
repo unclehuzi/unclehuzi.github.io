@@ -11,15 +11,15 @@
 
 企业要活下去，终究是要讲究盈利的，尽管现代营销理论中谈及的 customer-based，终点也是获利。
 
-![](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220218224236375.png)
+![](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220218224236375.png)
 
 为此企业花钱获客、投广告、促销、让利等等。但总有些用户是不买账的，没啥付费意愿，拉低了盈利。就像有人会买电商等平台的会员，但也有人不会购买这个会员。从企业盈利的角度来看，企业需要识别这些行为模式，细分客户并采取相应的行动。like
 
-![image-20220218224642471](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220218224642471.png)
+![image-20220218224642471](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220218224642471.png)
 
 本文将记录如何用 [`Lifetimes`](https://github.com/CamDavidsonPilon/lifetimes) 测算客户终生价值（**C**ustomer **L**ifetime **V**alue, ***CLV***）
 
-![lifetimes-pkg](https://gitee.com/unclehuzi/picture/raw/master/img/687474703a2f2f692e696d6775722e636f6d2f3773336a715a4d2e706e67.png)
+![lifetimes-pkg](https://raw.githubusercontent.com/unclehuzi/pic/master/img/687474703a2f2f692e696d6775722e636f6d2f3773336a715a4d2e706e67.png)
 
 一顿扒，大胆推测 `Lifetimes` 这个包的[作者](https://github.com/CamDavidsonPilon) 在 Data Science 的工作中有遇到相关的问题，一不做二不休基于相关论文、manual、R的包等等参考资料，整了个Python版本。（是我羡慕及崇拜的样子）
 
@@ -91,7 +91,7 @@ returning_customers_summary = summary_with_money_value[summary_with_money_value[
 
 > Monetary value is independent of the underlying transaction process.
 
-![image-20220304154047837](https://gitee.com/unclehuzi/picture/raw/master/img/image-20220304154047837.png)
+![image-20220304154047837](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20220304154047837.png)
 
 ### 计算
 
