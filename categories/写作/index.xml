@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/categories/%E5%86%99%E4%BD%9C/</link>
         <description>写作 - Category - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E5%86%99%E4%BD%9C/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 28 May 2022 14:35:02 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E5%86%99%E4%BD%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>将博客中的图片从Gitee迁移至Github</title>
+    <link>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</link>
+    <pubDate>Sat, 28 May 2022 14:35:02 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</guid>
+    <description><![CDATA[<p>Gitee这波仓库开源需审核的这波操作是有点秀的</p>]]></description>
+</item>
+<item>
     <title>远程管理hugo源文件以自动更新blog</title>
     <link>https://unclehuzi.github.io/2021/07/20210714-workflows/</link>
     <pubDate>Wed, 14 Jul 2021 17:50:20 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210714-workflows/</guid>
