@@ -107,7 +107,7 @@
 
 最近刚好在欧神的文章中看到这么一段话👇
 
-{{< image src="https://gitee.com/unclehu/pic/raw/master/img/image-20210905213307331.png" title="站点" >}}
+{{< image src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210905213307331.png" title="站点" >}}
 
 得想想办法怎么深度挖掘潜能🤔
 

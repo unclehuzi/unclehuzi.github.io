@@ -54,7 +54,7 @@ $$PSI=\sum_{i=1}^{n}((Actual_i\\% - Expected_i\\%)\times \ln(\frac{Actual_i\\%}{
 
 ## SQL实现
 
-![psi](https://gitee.com/unclehu/pic/raw/master/img/featured-image.jpg)
+![psi](https://raw.githubusercontent.com/unclehuzi/pic/master/img/featured-image.jpg)
 
 我们希望得到的是从存有各个模型分的表（命名为 `score`）得到上图👆，`score`表样例如下
 
@@ -139,7 +139,7 @@ where   score_value is not null
 
 **但是**，当模型分呈现较为严重的偏态分布时，等频分箱会出现好几个箱子重合的情况（如下图所示）。这种情况算出来的PSI会小于真实值，此时可以采用等距分箱
 
-![偏态分布](https://gitee.com/unclehu/pic/raw/master/img/image-20210621160828730.png)
+![偏态分布](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210621160828730.png)
 
 
 #### 等频分箱
@@ -336,7 +336,7 @@ plt.title('100 % stacked area chart')
 plt.show()
 ```
 
-![Percentage Stacked Area Chart](https://gitee.com/unclehu/pic/raw/master/img/%E4%B8%8B%E8%BD%BD.png "area chart")
+![Percentage Stacked Area Chart](https://raw.githubusercontent.com/unclehuzi/pic/master/img/%E4%B8%8B%E8%BD%BD.png "area chart")
 
 
 

@@ -42,7 +42,7 @@ c = (
 
 主要由5部分组成
 
-![image-20210607171146263](https://gitee.com/unclehu/pic/raw/master/img/image-20210607171146263.png)
+![image-20210607171146263](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210607171146263.png)
 
 * nodes
 * links
@@ -66,7 +66,7 @@ c = (
 
 样例如下所示，
 
-![node-example](https://gitee.com/unclehu/pic/raw/master/img/image-20210608150552783.png)
+![node-example](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608150552783.png)
 
 记录着节点的信息[^1][^2]，
 

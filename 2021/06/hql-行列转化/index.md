@@ -13,7 +13,7 @@ SQL, Python 中解决行转列、列转行的问题
 
 在日常工作中总会遇到类似下图中的问题 👇
 
-![行转列](https://gitee.com/unclehu/pic/raw/master/img/image-20210615175136301.png)
+![行转列](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615175136301.png)
 
 {{< admonition type=note title="备注" open=true >}}
 我把这种情况称为 **行转列**
@@ -23,7 +23,7 @@ SQL, Python 中解决行转列、列转行的问题
 
 还有这种问题 👇
 
-![列转行](https://gitee.com/unclehu/pic/raw/master/img/image-20210615175345538.png)
+![列转行](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615175345538.png)
 
 {{< admonition type=note title="备注" open=true >}}
 我把这种情况称为 **列转行**
@@ -37,7 +37,7 @@ SQL, Python 中解决行转列、列转行的问题
 
 ## 行转列 / "Wide" to "Long"
 
-![行转列](https://gitee.com/unclehu/pic/raw/master/img/image-20210615175136301.png)
+![行转列](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615175136301.png)
 
 ### SQL
 
@@ -77,7 +77,7 @@ df_wide = pd.DataFrame({'score_name': ['ScoreA']*3
 df_wide
 ```
 
-![image-20210615202957219](https://gitee.com/unclehu/pic/raw/master/img/image-20210615202957219.png)
+![image-20210615202957219](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615202957219.png)
 
 #### [pivot()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.pivot.html) 函数
 
@@ -87,13 +87,13 @@ df_wide.pivot(index=['score_name','ym']
              ,values=['nums'])
 ```
 
-![image-20210615203202914](https://gitee.com/unclehu/pic/raw/master/img/image-20210615203202914.png)
+![image-20210615203202914](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615203202914.png)
 
 
 
 ## 列转行 / "Long" to "Wide"
 
-![列转行](https://gitee.com/unclehu/pic/raw/master/img/image-20210615175345538.png)
+![列转行](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615175345538.png)
 
 ### SQL
 
@@ -126,7 +126,7 @@ df_long = pd.DataFrame({'score_name': ['ScoreA']
 df_long
 ```
 
-![image-20210615203711372](https://gitee.com/unclehu/pic/raw/master/img/image-20210615203711372.png)
+![image-20210615203711372](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615203711372.png)
 
 #### [stack()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.stack.html)函数
 
@@ -134,7 +134,7 @@ df_long
 df_long.set_index(['score_name','ym']).stack(dropna=False).reset_index().rename(columns={"level_2": "range_label",0:"nums"})
 ```
 
-![image-20210615204651755](https://gitee.com/unclehu/pic/raw/master/img/image-20210615204651755.png)
+![image-20210615204651755](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615204651755.png)
 
 ## Reference
 

@@ -9,7 +9,7 @@
 
 汇总 <u>Hive SQL</u> 常用的条件函数，👇
 
-![hive 条件函数](https://gitee.com/unclehu/pic/raw/master/img/hive条件函数.png)
+![hive 条件函数](https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive条件函数.png)
 
 
 

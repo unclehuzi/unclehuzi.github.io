@@ -24,7 +24,7 @@ PIVOT ( { aggregate_expression [ AS aggregate_expression_alias ] } [ , ... ]
 
 假设有张存有各个地区、各个产品的月销量的表（sales_table），我们需要统计各个月份所有地区产品销量的加总，形如👇
 
-![按月份分类汇总销量](https://gitee.com/unclehu/pic/raw/master/img/image-20210810172231715.png)
+![按月份分类汇总销量](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png)
 
 ```sql
 select	month

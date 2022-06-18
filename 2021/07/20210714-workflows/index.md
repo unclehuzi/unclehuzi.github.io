@@ -58,7 +58,7 @@
 
 进入`unclehuzi.github.io.source`仓库，添加`Secrets`，名称为`ACTIONS_DEPLOY_KEY`，将 `id_rsa` 文件的内容粘过去，得到内容如下所示
 
-![Secrets](https://gitee.com/unclehu/pic/raw/master/img/image-20210608140032371.png)
+![Secrets](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png)
 
 
 
@@ -76,9 +76,9 @@
 
 进入`unclehuzi.github.io` 仓库，添加`Deploy keys` ，名称不限制，将`id_rsa.pub`文件的内容粘过去。
 
-![Deploy keys](https://gitee.com/unclehu/pic/raw/master/img/image-20210608140646451.png)
+![Deploy keys](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png)
 
-![result](https://gitee.com/unclehu/pic/raw/master/img/image-20210608140754762.png)
+![result](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png)
 
 
 
@@ -86,7 +86,7 @@
 
 进入`unclehuzi.github.io.source`仓库，创建 **Actions**
 
-![Actions](https://gitee.com/unclehu/pic/raw/master/img/image-20210608140939363.png)
+![Actions](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png)
 
 代码如下 👇
 
@@ -146,7 +146,7 @@ jobs:
 
 ## 3. Finished
 
-![result](https://gitee.com/unclehu/pic/raw/master/img/image-20210608141817601.png)
+![result](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png)
 
 以后维护好`source`这个仓库就能实现
 

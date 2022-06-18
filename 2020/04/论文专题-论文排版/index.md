@@ -41,7 +41,7 @@
 
 （用过的朋友都说好）
 
-![模板](https://gitee.com/unclehu/pic/raw/master/img/image-20210615154022680.png)
+![模板](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615154022680.png)
 
 
 ## 模块拆解
@@ -54,11 +54,11 @@
 
 确定好字体、段落的格式要求后，就可以针对性的修改/设计样式
 
-![image-20210615155537100](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155537100.png)
+![image-20210615155537100](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155537100.png)
 
 为了方便后续的写作，可以设计相应的快捷键（样式->格式->快捷键）
 
-![快捷键](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155511228.png)
+![快捷键](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155511228.png)
 
 ## 参考文献格式
 
@@ -72,7 +72,7 @@
 
 每当需要标注引用时，直接点击“引用”即可
 
-![image-20210615155547774](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155547774.png)
+![image-20210615155547774](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155547774.png)
 
 通过**NoteExpress**引用至word后主要涉及两大部分：
 
@@ -88,7 +88,7 @@
 
 接着，在所选样式的基础上修改相关格式以满足自己的需求
 
-![image-20210615155556670](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155556670.png)
+![image-20210615155556670](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155556670.png)
 
 引文下的修改便是对应修改“正文部分的标注”的格式
 
@@ -96,7 +96,7 @@
 
 值得一提的是，题录中可设置排序的规则，因为有些学校要求英文文献在前面、之后再按照时间或作者排序。
 
-![image-20210615155604889](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155604889.png)
+![image-20210615155604889](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155604889.png)
 
 ## Tips
 
@@ -104,7 +104,7 @@
 
 ### 表格、图片名称
 
-![image-20210615155611996](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155611996.png)
+![image-20210615155611996](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155611996.png)
 
 选中表格（/图片），右键“插入题注”，标签选择“表”，编号选择“包含章节号”
 
@@ -112,7 +112,7 @@
 
 论文中往往会看到如图xxx所示、如表xxx所示等表述方式，并且希望能定位到相关表格或图片时，就需要采用文内交叉引用的方法
 
-![image-20210615155620930](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155620930.png)
+![image-20210615155620930](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155620930.png)
 
 ### 公式
 
@@ -120,7 +120,7 @@
 
 对应的解决方案便：在对应的段落内，右键选择“段落”，取消勾选下图中所示内容
 
-![image-20210615155631972](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155631972.png)
+![image-20210615155631972](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155631972.png)
 
 ### 代码高亮
 
@@ -128,7 +128,7 @@
 
 推荐 [planetB](http://www.planetb.ca/syntax-highlight-word)
 
-![image-20210615155642274](https://gitee.com/unclehu/pic/raw/master/img/image-20210615155642274.png)
+![image-20210615155642274](https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210615155642274.png)
 
 
 

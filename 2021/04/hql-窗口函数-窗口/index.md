@@ -16,7 +16,7 @@
 
 另外，之前在浏览网页的时候发现了[窗口函数的汇总图](https://learnsql.com/blog/sql-window-functions-cheat-sheet/)
 
-![窗口函数](https://gitee.com/unclehu/pic/raw/master/img/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0.png)
+![窗口函数](https://raw.githubusercontent.com/unclehuzi/pic/master/img/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0.png)
 
 
 而本文与图中对应的便是 ***WINDOW FAME*** 部分
