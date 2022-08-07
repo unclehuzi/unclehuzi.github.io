@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 28 May 2022 20:12:54 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>最新版jupyter notebook导出为PDF</title>
+    <link>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</link>
+    <pubDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</guid>
+    <description><![CDATA[<p>RT，关于jupyter notebook导出为PDF的那些事儿</p>]]></description>
+</item>
+<item>
     <title>Ch13-生产成本</title>
     <link>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</link>
     <pubDate>Sat, 28 May 2022 20:12:54 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
     <pubDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
     <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Supply, Demand and Government Policies”</p>]]></description>
-</item>
-<item>
-    <title>Ch5-弹性及其应用</title>
-    <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</link>
-    <pubDate>Wed, 23 Feb 2022 15:18:56 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Elasticity and its Application”</p>]]></description>
 </item>
 </channel>
 </rss>

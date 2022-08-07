@@ -12,37 +12,37 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Hive SQL-条件函数汇总 - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="Hive SQL-条件函数汇总" />
-<meta property="og:description" content="已经2021年了，SQL条件函数已不局限于case when 了，针对常见场景已新增许多 conditional functions" />
+        <title>最新版jupyter notebook导出为PDF - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="最新版jupyter notebook导出为PDF" />
+<meta property="og:description" content="RT，关于jupyter notebook导出为PDF的那些事儿" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-31T20:20:17+08:00" />
+<meta property="og:url" content="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-07T16:19:50+08:00" />
 <meta property="article:modified_time" content="2022-08-08T00:36:36+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
 
-<meta name="twitter:title" content="Hive SQL-条件函数汇总"/>
-<meta name="twitter:description" content="已经2021年了，SQL条件函数已不局限于case when 了，针对常见场景已新增许多 conditional functions"/>
+<meta name="twitter:title" content="最新版jupyter notebook导出为PDF"/>
+<meta name="twitter:description" content="RT，关于jupyter notebook导出为PDF的那些事儿"/>
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><link rel="prev" href="https://unclehuzi.github.io/2021/07/20210714-workflows/" /><link rel="next" href="https://unclehuzi.github.io/2021/08/sql-pivot/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" /><link rel="prev" href="https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Hive SQL-条件函数汇总",
+        "headline": "最新版jupyter notebook导出为PDF",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/unclehuzi.github.io\/2021\/07\/hql-conditional-functions\/"
+            "@id": "https:\/\/unclehuzi.github.io\/2022\/08\/jupyter_notebook-convert_to_pdf\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/unclehuzi.github.io\/2021\/07\/hql-conditional-functions\/featured-image.jpg",
-                            "width":  1380 ,
-                            "height":  1152 
-                        }],"genre": "posts","keywords": "SQL","wordcount":  142 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/hql-conditional-functions\/","datePublished": "2021-07-31T20:20:17+08:00","dateModified": "2022-08-08T00:36:36+08:00","publisher": {
+                            "url": "https:\/\/unclehuzi.github.io\/2022\/08\/jupyter_notebook-convert_to_pdf\/featured-image.png",
+                            "width":  1600 ,
+                            "height":  783 
+                        }],"genre": "posts","keywords": "Python, jupyter notebook, LaTex","wordcount":  176 ,
+        "url": "https:\/\/unclehuzi.github.io\/2022\/08\/jupyter_notebook-convert_to_pdf\/","datePublished": "2022-08-07T16:19:50+08:00","dateModified": "2022-08-08T00:36:36+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -133,16 +133,16 @@
 
         
 
-        <div class="single-card" data-image="true"><h2 class="single-title animated flipInX">Hive SQL-条件函数汇总</h2><div class="featured-image"><img
+        <div class="single-card" data-image="true"><h2 class="single-title animated flipInX">最新版jupyter notebook导出为PDF</h2><h2 class="single-subtitle">解决中文、表格及不需要代码等问题</h2><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/07/hql-conditional-functions/featured-image.jpg"
-        data-srcset="/2021/07/hql-conditional-functions/featured-image.jpg, /2021/07/hql-conditional-functions/featured-image.jpg 1.5x, /2021/07/hql-conditional-functions/featured-image.jpg 2x"
+        data-src="/2022/08/jupyter_notebook-convert_to_pdf/featured-image.png"
+        data-srcset="/2022/08/jupyter_notebook-convert_to_pdf/featured-image.png, /2022/08/jupyter_notebook-convert_to_pdf/featured-image.png 1.5x, /2022/08/jupyter_notebook-convert_to_pdf/featured-image.png 2x"
         data-sizes="auto"
-        alt="/2021/07/hql-conditional-functions/featured-image.jpg"
-        title="/2021/07/hql-conditional-functions/featured-image.jpg" /></div><div class="post-meta">
+        alt="/2022/08/jupyter_notebook-convert_to_pdf/featured-image.png"
+        title="/2022/08/jupyter_notebook-convert_to_pdf/featured-image.png" /></div><div class="post-meta">
                 <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a></span></div>
-                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-31">2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;142 words</span>&nbsp;
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;176 words</span>&nbsp;
                     <span><i class="far fa-clock fa-fw"></i>&nbsp;One minute</span>&nbsp;</div>
             </div>
             
@@ -153,106 +153,78 @@
                     </div>
                     <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#ifcondition-value-true-value-falseornull">if(condition, value True, value FalseOrNull)</a></li>
-    <li><a href="#case-when-then-end">case when then end</a></li>
-    <li><a href="#isnulla">isnull(a)</a></li>
-    <li><a href="#isnotnulla">isnotnull(a)</a></li>
-    <li><a href="#nullifab">nullif(a,b)</a></li>
-    <li><a href="#nvlarg1arg2">nvl(arg1,arg2)</a></li>
-    <li><a href="#coalescevalue1value2">coalesce(value1,value2,&hellip;)</a></li>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#notebook2latex">notebook2LaTex</a>
+      <ul>
+        <li><a href="#code-free">Code Free</a></li>
+        <li><a href="#dataframes2images">DataFrames2images</a></li>
+      </ul>
+    </li>
+    <li><a href="#latex2pdf">LaTex2PDF</a>
+      <ul>
+        <li><a href="#中文及目录问题">中文及目录问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>已经2021年了，SQL条件函数已不局限于<code>case when</code> 了，针对常见场景已新增许多 <em><strong>conditional functions</strong></em></p>
-<p>汇总 <u>Hive SQL</u> 常用的条件函数，👇</p>
+                </div><div class="content" id="content"><p>RT，关于jupyter notebook导出为PDF的那些事儿</p>
+<h2 id="背景">背景</h2>
+<p>自己在用<code>Python</code> 分析数据时总会依赖jupyter notebook（以下简称 notebook） 交互式的界面，然后把报告中需要的数据复制出来贴在Excel里</p>
+<p>这波操作里，就不想贴数据了，而且在notebook里写结论也能直接定位到操作过程，或者说日后能复现、方便管理。所以可以考虑使用 notebook 导出的功能。虽然目前支持多种格式（html、markdown、pdf等），但又想兼顾各设备（电脑、手机）打开的便捷性，所以导出为pdf是个不错的选择。</p>
+<p>但是，在导出为PDF的过程中遇到了以下几个问题/需求：</p>
+<ol>
+<li>
+<p>不显示中文</p>
+</li>
+<li>
+<p>Code Free</p>
+<p>对外展示的时候只需要结果即可</p>
+</li>
+<li>
+<p>添加报告的目录</p>
+</li>
+<li>
+<p>pandas.DataFrame Style格式导出后直接不显示</p>
+</li>
+<li>
+<p>&hellip;</p>
+</li>
+</ol>
+<p>以上遇到的几个问题/需求，结合notebook导出为pdf的流程来看主要对应 <strong>notebook2LaTex</strong> 和 <strong>LaTex2PDF</strong> 两个阶段的事。但<strong>使用感知依然还是一件事</strong>，即notebook导出为PDF</p>
+<p>（「Mark」目前还有个先转html再转pdf的方式 <a href="https://nbconvert.readthedocs.io/en/latest/usage.html#webpdf" target="_blank" rel="noopener noreffer"><code>to webpdf</code></a>）</p>
+<blockquote>
+<p>Choose to convert using latex or chrome web browser when converting to pdf. Output is significantly different for each.</p>
+<ul>
+<li>Use &lsquo;latex&rsquo; when you desire a formal report.</li>
+<li>Use &lsquo;browser&rsquo; to get output similar to that when printing to pdf within a chrome web browser.</li>
+</ul>
+</blockquote>
+<p>上文所列的 2、4便对应<strong>notebook2LaTex</strong>阶段，而剩下的第1、3个问题便是<strong>LaTex2PDF</strong>阶段的问题</p>
+<p>在此均使用<code> jupyter nbconver</code> 终端命令实现导出，且略过需要提前配置好的 <strong>Pandoc</strong> 和 <strong>Tex</strong></p>
+<h2 id="notebook2latex">notebook2LaTex</h2>
+<h3 id="code-free">Code Free</h3>
+<p>关于不需要input中的代码问题，终端命令是能顺利实现的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">jupyter nbconvert notebook.ipynb --to pdf --no-input
+</code></pre></td></tr></table>
+</div>
+</div><p>但这样导出的pdf会遇到表格数据串行的问题，而且<code>pandas.DataFrame</code> 加上一些渲染后再导出也无法显示，即第4个问题</p>
+<h3 id="dataframes2images">DataFrames2images</h3>
+<p>（当目前问题解决不了的时候，那就装个包：<a href="https://pypi.org/project/dataframe-image/" target="_blank" rel="noopener noreffer">dataframe-image</a>）</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png"
-        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive%e6%9d%a1%e4%bb%b6%e5%87%bd%e6%95%b0.png 2x"
+        data-src="https://warehouse-camo.ingress.cmh1.psfhosted.org/c3559fe1b7a0480586546e509dda16d1aa562784/68747470733a2f2f6769746875622e636f6d2f646578706c6f2f646174616672616d655f696d6167652f7261772f67682d70616765732f696d616765732f646174616672616d655f696d6167655f636f6d706172652e706e67"
+        data-srcset="https://warehouse-camo.ingress.cmh1.psfhosted.org/c3559fe1b7a0480586546e509dda16d1aa562784/68747470733a2f2f6769746875622e636f6d2f646578706c6f2f646174616672616d655f696d6167652f7261772f67682d70616765732f696d616765732f646174616672616d655f696d6167655f636f6d706172652e706e67, https://warehouse-camo.ingress.cmh1.psfhosted.org/c3559fe1b7a0480586546e509dda16d1aa562784/68747470733a2f2f6769746875622e636f6d2f646578706c6f2f646174616672616d655f696d6167652f7261772f67682d70616765732f696d616765732f646174616672616d655f696d6167655f636f6d706172652e706e67 1.5x, https://warehouse-camo.ingress.cmh1.psfhosted.org/c3559fe1b7a0480586546e509dda16d1aa562784/68747470733a2f2f6769746875622e636f6d2f646578706c6f2f646174616672616d655f696d6167652f7261772f67682d70616765732f696d616765732f646174616672616d655f696d6167655f636f6d706172652e706e67 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/hive条件函数.png"
-        title="hive 条件函数" /></p>
-<h2 id="ifcondition-value-true-value-falseornull">if(condition, value True, value FalseOrNull)</h2>
-<blockquote>
-<p>This is the one of best Hive Conditional Function</p>
-</blockquote>
-<p>类似Excel中的 <code>if</code> 函数</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">if</span><span class="p">(</span><span class="k">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;online&#39;</span><span class="p">,</span><span class="s1">&#39;在线&#39;</span><span class="p">,</span><span class="s1">&#39;离线&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">state</span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="case-when-then-end">case when then end</h2>
-<p><code>case when</code> 较为常见，可注意执行<strong>顺序</strong>问题：从上至下依次执行，直到满足条件则跳出</p>
-<p>常见写法有两种，主要取决于是否单变量作判断</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
-</span><span class="w">                       </span><span class="k">when</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期二&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">week</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span><span class="w">                                             
-</span><span class="w"></span><span class="c1">-- OR --
-</span><span class="c1"></span><span class="w">
-</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期一&#39;</span><span class="w">
-</span><span class="w">             </span><span class="k">when</span><span class="w"> </span><span class="n">dayofweek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;星期二&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">week</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="isnulla">isnull(a)</h2>
-<p>判断是否为<code>null</code>（数据库特有的一种数据类型），留意字符型 <code>'null'</code>,  <code>'NULL'</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">isnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">false
-</span><span class="cm">*/</span><span class="w">
-</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="isnotnulla">isnotnull(a)</h2>
-<p>非null</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">isnotnull</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">true
-</span><span class="cm">*/</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><h2 id="nullifab">nullif(a,b)</h2>
-<p>如果 <code>a=b</code> 则返回<code>null</code>，否则返回<code>a</code></p>
-<p>等同于 <code>case when a = b then null else a end</code></p>
+        alt="https://warehouse-camo.ingress.cmh1.psfhosted.org/c3559fe1b7a0480586546e509dda16d1aa562784/68747470733a2f2f6769746875622e636f6d2f646578706c6f2f646174616672616d655f696d6167652f7261772f67682d70616765732f696d616765732f646174616672616d655f696d6167655f636f6d706172652e706e67"
+        title="png" /></p>
+<p>但是这个包没有封装<code>--no-input</code>的选项，好在这个包的<code>pdfExporter</code>部分也是从<code>nbconvert</code>继承过来的，所以改下dataframe-image的源代码（<code>_convert.py</code>文件）也是能实现code-free的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -268,21 +240,22 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">NULL
-</span><span class="cm">*/</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="k">nullif</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">4
-</span><span class="cm">*/</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFExporter</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NbConvertBase&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;display_data_priority&#39;</span><span class="p">:</span> 
+                                            <span class="bp">self</span><span class="o">.</span><span class="n">DISPLAY_DATA_PRIORITY</span><span class="p">}</span>  <span class="p">})</span>
+
+<span class="c1"># 改为</span>
+<span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Config</span><span class="p">({</span><span class="s2">&#34;NbConvertBase&#34;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&#34;display_data_priority&#34;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">DISPLAY_DATA_PRIORITY</span>
+                <span class="p">}})</span>
+<span class="n">c</span><span class="o">.</span><span class="n">PDFExporter</span><span class="o">.</span><span class="n">exclude_input_prompt</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">c</span><span class="o">.</span><span class="n">PDFExporter</span><span class="o">.</span><span class="n">exclude_input</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFExporter</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="nvlarg1arg2">nvl(arg1,arg2)</h2>
-<p>可以理解为用<code>arg2</code>的值替换 <code>arg1</code> 中值为 <code>null</code> 的部分</p>
+</div><h2 id="latex2pdf">LaTex2PDF</h2>
+<h3 id="中文及目录问题">中文及目录问题</h3>
+<p>这个问题放在<strong>LaTex2PDF</strong>这个阶段就好理解了，这个是跟LaTex有关，这玩意儿一开始就是老外整出来的，要显示中文得修改<code>base.tex.j2</code>文件，加载一些宏包。（网上说要改<code>article.tplx</code>文件的都是比较老的版本了，目前<code>nbconvert</code>不那么整了）</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -296,48 +269,35 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">999
-</span><span class="cm">*/</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">select</span><span class="w">	</span><span class="n">nvl</span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span><span class="mi">999</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">null
-</span><span class="cm">*/</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="na">[slantfont, boldfont]</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
+
+<span class="c">% 其他一些问题
+</span><span class="c">% %加水印
+</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>draftwatermark, everypage<span class="nb">}</span>
+<span class="k">\SetWatermarkText</span><span class="nb">{</span>DRAFT<span class="nb">}</span>
+<span class="k">\SetWatermarkLightness</span><span class="nb">{</span>0.95<span class="nb">}</span>
+<span class="k">\SetWatermarkScale</span><span class="nb">{</span>0.4<span class="nb">}</span>
+
+<span class="c">% %中文时间 
+</span><span class="c"></span><span class="k">\usepackage</span><span class="nb">{</span>zhnumber<span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\zhtoday</span><span class="nb">}</span>
+
+<span class="c">% %目录
+</span><span class="c"></span><span class="k">\tableofcontents</span>
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="coalescevalue1value2">coalesce(value1,value2,&hellip;)</h2>
-<p>返回第一个非<code>null</code>的值</p>
-<p>往往只想得到众多列中非 <code>null</code> 的值</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="n">coalesce</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="cm">/*return
-</span><span class="cm">7
-</span><span class="cm">*/</span><span class="w">
-</span></code></pre></td></tr></table>
-</div>
-</div><div class="details admonition warning open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>null<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">涉及<code>null</code>的问题要留意数据库中的数据类型。譬如，某列数据格式为<code>string</code>，<code>'null'</code> 并不等同于 <code>null</code></div>
-        </div>
-    </div>
+</div><p>之后工作中遇到新需求、问题再继续更新～</p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://pypi.org/project/dataframe-image/">https://pypi.org/project/dataframe-image/</a></li>
+<li><a href="https://nbconvert.readthedocs.io/en/latest/index.html">https://nbconvert.readthedocs.io/en/latest/index.html</a></li>
+</ol>
 <head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
@@ -345,17 +305,18 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
                 
             </div><div class="post-footer" id="post-footer">
-    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/python/">Python</a>
+                </span><span><a href="/tags/jupyter-notebook/">jupyter notebook</a>
+                </span><span><a href="/tags/latex/">LaTex</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
                 <span>Updated on 2022-08-08&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/d8c56a8529737cbb708c20173636eb0ab6f55309" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;d8c56a8:&nbsp;notebook2pdf">
                             <i class="fas fa-hashtag fa-fw"></i>d8c56a8</a></span>
             </div><div class="post-info-mod"><span>
-                            <a class="link-to-markdown" href="/2021/07/hql-conditional-functions/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/2022/08/jupyter_notebook-convert_to_pdf/index.md" target="_blank">Read Markdown</a>
                         </span></div>
         </div><div class="post-info-share">
-            <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" data-title="Hive SQL-条件函数汇总" data-hashtags="SQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" data-hashtag="SQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" data-title="Hive SQL-条件函数汇总"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" data-title="Hive SQL-条件函数汇总" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
-        </div></div><div class="post-nav"><a href="/2021/07/20210714-workflows/" class="prev" rel="prev" title="远程管理hugo源文件以自动更新blog"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
-            <a href="/2021/08/sql-pivot/" class="next" rel="next" title="Spark SQL-Pivot">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+            <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" data-title="最新版jupyter notebook导出为PDF" data-hashtags="Python,jupyter notebook,LaTex"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" data-title="最新版jupyter notebook导出为PDF"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/" data-title="最新版jupyter notebook导出为PDF" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/" class="prev" rel="prev" title="Ch13-生产成本"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div>
 </div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript></div></article></div>
