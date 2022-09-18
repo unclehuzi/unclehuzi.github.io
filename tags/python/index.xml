@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/tags/python/</link>
         <description>Python - Tag - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>服务器部署JupyterLab以供远程访问</title>
+    <link>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</link>
+    <pubDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</guid>
+    <description><![CDATA[<p>在服务器上部署JupyterLab供远程访问并Coding</p>]]></description>
+</item>
+<item>
     <title>最新版jupyter notebook导出为PDF</title>
     <link>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</link>
     <pubDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</guid>
