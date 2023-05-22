@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 03 Dec 2022 13:30:49 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 22 May 2023 11:28:13 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>笔记-ChatGPT Prompt Engineering for Developers</title>
+    <link>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</link>
+    <pubDate>Mon, 22 May 2023 11:28:13 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</guid>
+    <description><![CDATA[<p>课程笔记- <em><strong>《ChatGPT Prompt Engineering for Developers》</strong></em></p>]]></description>
+</item>
+<item>
     <title>我被微信管制了...</title>
     <link>https://unclehuzi.github.io/2022/12/notes-black_swan/</link>
     <pubDate>Sat, 03 Dec 2022 13:30:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/12/notes-black_swan/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch8-the_costs_of_taxation/</link>
     <pubDate>Sun, 10 Apr 2022 17:26:25 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch8-the_costs_of_taxation/</guid>
     <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“The Costs of Taxation”</p>]]></description>
-</item>
-<item>
-    <title>2022年3月上海新冠疫情流水账</title>
-    <link>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</link>
-    <pubDate>Tue, 05 Apr 2022 10:24:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</guid>
-    <description><![CDATA[<p>2022年3月上海， 🦠<a href="https://en.wikipedia.org/wiki/COVID-19" target="_blank" rel="noopener noreffer">新冠</a>病毒迎来<a href="https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant" target="_blank" rel="noopener noreffer">“奥密克戎”</a>。我作为一个观察者记录客观结果/消息</p>]]></description>
 </item>
 </channel>
 </rss>
