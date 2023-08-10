@@ -78,7 +78,7 @@ There are three different frameworks under which we can define probabilities.
     
     So inherently a **subjective approach** to probability, but it can work well in a mathematically rigorous foundation, and it leads to much more intuitive results in many cases than the Frequentist approach.
     
-    **Suppose you'd be willing to take the bet** that if it rains tomorrow, you win \$4. If it doesn't rain tomorrow, you lose \$1, or whatever your local currency is. 若认为公平，换个说法理应也会参加：if it rains, you lose $4. And if no rain, you win a \$1.（插播：行为经济学告诉你，大多数人面对这俩说法的态度是不一样的，不一定就会选择后者，因为后者放大了损失。尽管数学上这俩收益的期望=0）
+    **Suppose you'd be willing to take the bet** that if it rains tomorrow, you win \\$4. If it doesn't rain tomorrow, you lose \\$1, or whatever your local currency is. 若认为公平，换个说法理应也会参加：if it rains, you lose $4. And if no rain, you win a \\$1.（插播：行为经济学告诉你，大多数人面对这俩说法的态度是不一样的，不一定就会选择后者，因为后者放大了损失。尽管数学上这俩收益的期望=0）
     
 
 ## Bayes’ theorem
@@ -97,10 +97,10 @@ $$
 
 $$
 \begin{align*}
-& P(Female)=\frac{9}{30}=\frac{3}{10} \\\
-& P(CS)=\frac{12}{30}=\frac{2}{5} \\\
-& P(Female \cap CS)=\frac{4}{30}=\frac{2}{15} \\\
-& P(Female \mid CS)=\frac{4}{12}=\frac{1}{3} \\\
+& P(Female)=\frac{9}{30}=\frac{3}{10} \newline
+& P(CS)=\frac{12}{30}=\frac{2}{5} \newline
+& P(Female \cap CS)=\frac{4}{30}=\frac{2}{15} \newline
+& P(Female \mid CS)=\frac{4}{12}=\frac{1}{3} \newline
 \end{align*}
 $$
 
@@ -108,9 +108,9 @@ $$
 
 $$
 \begin{align*}
-P(CS \mid Female) &= \frac{P(CS \cap Female)}{P(Female)} \\\ 
-& = \frac{\frac{2}{15}}{\frac{3}{10}}=\frac{4}{9} \\\
-P(Female \mid CS^{\complement}) &= \frac{P(Female \cap CS^{\complement})}{P(CS^{\complement})} \\\
+P(CS \mid Female) &= \frac{P(CS \cap Female)}{P(Female)}  \newline
+& = \frac{\frac{2}{15}}{\frac{3}{10}}=\frac{4}{9} \newline
+P(Female \mid CS^{\complement}) &= \frac{P(Female \cap CS^{\complement})}{P(CS^{\complement})} \newline
 &= \frac{\frac{5}{30}}{\frac{18}{30}}=\frac{5}{18}
 \end{align*}
 $$
@@ -134,8 +134,8 @@ $$
 $$
 \begin{align*}
 
-P(HIV \mid +) &= \frac{P(HIV \cap +)}{P(+)} \\\ 
-&=\frac{P(+ \mid HIV)\times P(HIV)}{P(+ \mid HIV)\times P(HIV)+P(+ \mid noHIV)\times P(noHIV)} \\\
+P(HIV \mid +) &= \frac{P(HIV \cap +)}{P(+)}  \newline
+&=\frac{P(+ \mid HIV)\times P(HIV)}{P(+ \mid HIV)\times P(HIV)+P(+ \mid noHIV)\times P(noHIV)} \newline
 &= 0.033
 
 \end{align*}

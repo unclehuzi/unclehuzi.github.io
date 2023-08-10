@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-08-10T19:53:16+08:00" />
-<meta property="article:modified_time" content="2023-08-10T20:46:13+08:00" />
+<meta property="article:modified_time" content="2023-08-10T20:54:15+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
@@ -37,7 +37,7 @@
             "@type": "WebPage",
             "@id": "https:\/\/unclehuzi.github.io\/2023\/08\/da-bayesian_statistics-coursera-from_concept_to_data_analysis\/"
         },"image": ["https:\/\/unclehuzi.github.io\/images\/Apple-Devices-Preview.webp"],"genre": "posts","keywords": "课程笔记, 贝叶斯, 统计学","wordcount":  659 ,
-        "url": "https:\/\/unclehuzi.github.io\/2023\/08\/da-bayesian_statistics-coursera-from_concept_to_data_analysis\/","datePublished": "2023-08-10T19:53:16+08:00","dateModified": "2023-08-10T20:46:13+08:00","publisher": {
+        "url": "https:\/\/unclehuzi.github.io\/2023\/08\/da-bayesian_statistics-coursera-from_concept_to_data_analysis\/","datePublished": "2023-08-10T19:53:16+08:00","dateModified": "2023-08-10T20:54:15+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -213,7 +213,7 @@ average the values</strong>, the result would likely be close to $3.5$.</p>
 <p>偏主观。尽管如此，大多数情况下结果也优于“频率学派”</p>
 <p>Bayesian perspective is one of <strong>personal perspective</strong>. Your probability represents your own perspective, it&rsquo;s your measure of uncertainty, and it takes into account what you know about a particular problem.</p>
 <p>So inherently a <strong>subjective approach</strong> to probability, but it can work well in a mathematically rigorous foundation, and it leads to much more intuitive results in many cases than the Frequentist approach.</p>
-<p><strong>Suppose you&rsquo;d be willing to take the bet</strong> that if it rains tomorrow, you win $4. If it doesn&rsquo;t rain tomorrow, you lose $1, or whatever your local currency is. 若认为公平，换个说法理应也会参加：if it rains, you lose $4. And if no rain, you win a $1.（插播：行为经济学告诉你，大多数人面对这俩说法的态度是不一样的，不一定就会选择后者，因为后者放大了损失。尽管数学上这俩收益的期望=0）</p>
+<p><strong>Suppose you&rsquo;d be willing to take the bet</strong> that if it rains tomorrow, you win \$4. If it doesn&rsquo;t rain tomorrow, you lose \$1, or whatever your local currency is. 若认为公平，换个说法理应也会参加：if it rains, you lose $4. And if no rain, you win a \$1.（插播：行为经济学告诉你，大多数人面对这俩说法的态度是不一样的，不一定就会选择后者，因为后者放大了损失。尽管数学上这俩收益的期望=0）</p>
 </li>
 </ul>
 <h2 id="bayes-theorem">Bayes’ theorem</h2>
@@ -226,18 +226,18 @@ $$</p>
 <p>🌰 一个例子：30个学生，9个女生；12个学计算机，学计算机中4个女生。</p>
 <p>$$
 \begin{align*}
-&amp; P(Female)=\frac{9}{30}=\frac{3}{10} \<br>
-&amp; P(CS)=\frac{12}{30}=\frac{2}{5} \<br>
-&amp; P(Female \cap CS)=\frac{4}{30}=\frac{2}{15} \<br>
-&amp; P(Female \mid CS)=\frac{4}{12}=\frac{1}{3} \<br>
+&amp; P(Female)=\frac{9}{30}=\frac{3}{10} \newline
+&amp; P(CS)=\frac{12}{30}=\frac{2}{5} \newline
+&amp; P(Female \cap CS)=\frac{4}{30}=\frac{2}{15} \newline
+&amp; P(Female \mid CS)=\frac{4}{12}=\frac{1}{3} \newline
 \end{align*}
 $$</p>
 <p>⇒</p>
 <p>$$
 \begin{align*}
-P(CS \mid Female) &amp;= \frac{P(CS \cap Female)}{P(Female)} \\
-&amp; = \frac{\frac{2}{15}}{\frac{3}{10}}=\frac{4}{9} \<br>
-P(Female \mid CS^{\complement}) &amp;= \frac{P(Female \cap CS^{\complement})}{P(CS^{\complement})} \<br>
+P(CS \mid Female) &amp;= \frac{P(CS \cap Female)}{P(Female)}  \newline
+&amp; = \frac{\frac{2}{15}}{\frac{3}{10}}=\frac{4}{9} \newline
+P(Female \mid CS^{\complement}) &amp;= \frac{P(Female \cap CS^{\complement})}{P(CS^{\complement})} \newline
 &amp;= \frac{\frac{5}{30}}{\frac{18}{30}}=\frac{5}{18}
 \end{align*}
 $$</p>
@@ -252,8 +252,8 @@ $$</p>
 <p>⇒</p>
 <p>$$
 \begin{align*}</p>
-<p>P(HIV \mid +) &amp;= \frac{P(HIV \cap +)}{P(+)} \\
-&amp;=\frac{P(+ \mid HIV)\times P(HIV)}{P(+ \mid HIV)\times P(HIV)+P(+ \mid noHIV)\times P(noHIV)} \<br>
+<p>P(HIV \mid +) &amp;= \frac{P(HIV \cap +)}{P(+)}  \newline
+&amp;=\frac{P(+ \mid HIV)\times P(HIV)}{P(+ \mid HIV)\times P(HIV)+P(+ \mid noHIV)\times P(noHIV)} \newline
 &amp;= 0.033</p>
 <p>\end{align*}
 $$</p>
@@ -273,8 +273,8 @@ $$</p>
                 </span><span><a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">贝叶斯</a>
                 </span><span><a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
-                <span>Updated on 2023-08-10&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/6cd6d1256352eed4ced5ff97c14d6104fe187f7f" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(39021174&#43;unclehuzi@users.noreply.github.com)&nbsp;6cd6d12:&nbsp;Update index.md">
-                            <i class="fas fa-hashtag fa-fw"></i>6cd6d12</a></span>
+                <span>Updated on 2023-08-10&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/3200ba7d08e01dd96b3bbc68025a1b746c238b6d" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(39021174&#43;unclehuzi@users.noreply.github.com)&nbsp;3200ba7:&nbsp;Update index.md2">
+                            <i class="fas fa-hashtag fa-fw"></i>3200ba7</a></span>
             </div><div class="post-info-mod"><span>
                             <a class="link-to-markdown" href="/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/index.md" target="_blank">Read Markdown</a>
                         </span></div>
