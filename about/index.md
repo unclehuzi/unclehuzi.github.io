@@ -98,9 +98,11 @@
 
 <i class="fas fa-map-marker-alt"></i> 上海市浦东新区羽山路1200号(近崮山路)
 
-{{< mapbox lng=121.559456 lat=31.238916 zoom=12 light-style="mapbox://styles/mapbox/streets-zh-v1" >}}
+{{< mapbox lng=121.56554380380526 lat=31.245038641842967 zoom=12 light-style="mapbox://styles/mapbox/streets-zh-v1" >}}
 
+<i class="fas fa-map-marker-alt"></i> 上海市浦东新区杨高中路2100号七位数体育培训园
 
+{{< mapbox lng=121.56350761470578 lat=31.238929189442945 zoom=12 light-style="mapbox://styles/mapbox/streets-zh-v1" >}}
 
 <i class="fas fa-map-marker-alt"></i> 上海市浦东新区峨山路91弄140号同学汇综合运动馆
 

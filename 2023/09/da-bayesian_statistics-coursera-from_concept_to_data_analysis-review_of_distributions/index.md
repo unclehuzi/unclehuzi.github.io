@@ -15,10 +15,8 @@ $X \sim B(p)$ : A random variable $X$ follows a Bernoulli distribution with prob
 
 $$
 \begin{align*}
-
-f(X=x \mid p) &= f(x \mid p) \\ 
-&= p^x(1-p)^{1-x} I_{\{x \in \{0,1\} \}}(x) \\
-
+f(X=x \mid p) &= f(x \mid p) \newline
+&= p^x(1-p)^{1-x} I_{\{x \in \{0,1\} \}}(x) \newline
 \end{align*}
 $$
 
@@ -32,7 +30,7 @@ The indicator function, also referred to as the characteristic function, is a ma
 > \begin{align*}
 >   I_A(x) =
 >   \begin{cases}
->     1 & \text{if $x \in A$ (x belongs to $A$) } \\
+>     1 & \text{if $x \in A$ (x belongs to $A$) } \newline
 >     0 & \text{if $x \notin A$ (x does not belong to $A$) }
 >   \end{cases}
 > \end{align*}
@@ -50,28 +48,24 @@ The indicator function, also referred to as the characteristic function, is a ma
 
 $$
 \begin{align*}
-
-E(X) &= \sum_{x} x \cdot P(X=x) \\ 
-&=  1 \cdot p + 0 \cdot (1-p)  \\
+E(X) &= \sum_{x} x \cdot P(X=x) \newline
+&=  1 \cdot p + 0 \cdot (1-p)  \newline
 &= p
-
 \end{align*}
 $$
 
 $$
 \begin{align*}
-
-Var(X) &= \sum_{x} (x- E(x))^2 \cdot P(X=x) \\ 
-&=  (1-p)^2 \cdot p + (0-p)^2 \cdot (1-p)  \\
+Var(X) &= \sum_{x} (x- E(x))^2 \cdot P(X=x) \newline
+&=  (1-p)^2 \cdot p + (0-p)^2 \cdot (1-p)  \newline
 &= p(1-p)
-
 \end{align*}
 $$
 
 The generalization of the Bernoulli when we have ***N repeated trials*** is a **Binomial**. $X \sim Bin(n,p)$
 
 $$
-P(X = x \mid p) = \binom{n}{x} p^x (1 - p)^{n - x} \\
+P(X = x \mid p) = \binom{n}{x} p^x (1 - p)^{n - x} \newline
 \binom{n}{x} = \frac{n!}{x!(n-x)!}   \; \text{for $x \in \{ 0,1,...,n \} $}
 $$
 
@@ -85,7 +79,6 @@ We can define a continuous random variable based on its **probability density fu
 
 $$
 \begin{align*}
-
   f(x) &=
   \begin{cases}
     1 & x \in [0,1] \newline
@@ -146,7 +139,6 @@ $$
 & E(CX)=cE(x) \text{,$c$为常数} \newline
 & E(X+Y) = E(X) + E(Y) \newline
 & \text{if $X \perp Y$, } E(XY)=E(X)E(Y)
-
 \end{align*}
 $$
 
@@ -292,11 +284,9 @@ This is the same as asking what is $P(X > 4)$  where $X \sim Geo(1/2)$ .
 
 $$
 \begin{align*}
-
 P(X>4) &= 1-P(X=1)-P(X=2)-P(X=3)-p(X=4) \newline
 &=1-\frac{1}{2}-\frac{1}{2} (\frac{1}{2})-\frac{1}{2} (\frac{1}{2})^2-\frac{1}{2} (\frac{1}{2})^3 \newline
 &= \frac{1}{16}
-
 \end{align*}
 $$
 
@@ -424,13 +414,11 @@ $$
 
 $$
 \begin{align*}
-
 P(X\geq 3) &= 1-P(X\leq2) \newline 
 &=1- P(X=0)- P(X=1)- P(X=2) \newline
 &=1 - \frac{4^0 exp(- 4)}{0!} -\frac{4^1 exp(- 4)}{1!} - \frac{4^2 exp(- 4)}{2!} \newline
 &= 1-13e^{-4} \newline
 &=0.762
-
 \end{align*}
 $$
 
@@ -648,4 +636,55 @@ $$
 
 ![Untitled](Review%20of%20distributions%20d8d220dc54f149cc9516e97e5dab39d5/Untitled%208.png)
 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import gaussian_kde
+
+# 设置参数
+sample_size = 30  # 每次取样的样本数量
+num_samples = [100, 1000, 10000,100000]  # 不同的取样次数
+
+# 定义渐变色
+cmap = plt.colormaps['Blues']
+
+# 绘制多个子图
+fig, axs = plt.subplots(len(num_samples), sharex=True, figsize=(6, 9))
+
+for i, num_sample in enumerate(num_samples):
+    # 模拟中心极限定理
+    sample_means = []
+    for _ in range(num_sample):
+        sample = np.random.uniform(0, 1, sample_size)  # 从均匀分布中取样
+        sample_mean = np.mean(sample)  # 计算取样均值
+        sample_means.append(sample_mean)
+
+    # 绘制直方图
+    n, bins, patches = axs[i].hist(sample_means, bins=30, density=True, alpha=0.7, edgecolor='blue')
+
+    # 设置每个直方柱子的颜色
+    bin_centers = 0.5 * (bins[:-1] + bins[1:])
+    col = bin_centers - min(bin_centers)  # 归一化到 [0, 1]
+    for c, p in zip(col, patches):
+        plt.setp(p, 'facecolor', cmap(c))
+
+    # 使用核密度估计计算拟合曲线分布
+    kde = gaussian_kde(sample_means)
+    x = np.linspace(min(sample_means), max(sample_means), 100)
+    y = kde(x)
+    # 绘制拟合曲线分布
+    axs[i].plot(x, y, 'r--', linewidth=2)
+
+    axs[i].set_ylabel('Density')
+    axs[i].set_title(f'Number of Samples: {num_sample}')
+
+# 设置共用 x 轴坐标的标签和标题
+axs[-1].set_xlabel('Sample Mean')
+plt.suptitle('Histogram and Density Plot of Sample Means')
+plt.tight_layout()
+plt.show()
+```
+
+<div>
 <script src="[https://gist.github.com/unclehuzi/31feb53fe47d33b937fc70f7a71d1cf4.js](https://gist.github.com/unclehuzi/31feb53fe47d33b937fc70f7a71d1cf4.js)"></script>
+</div>
