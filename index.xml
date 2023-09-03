@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 10 Aug 2023 19:53:16 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>coursera课程-Review of distributions</title>
+    <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
+    <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
+    <description><![CDATA[coursera上贝叶斯统计专项课程]]></description>
+</item>
+<item>
     <title>coursera课程-Probability and Bayes’ Theorem</title>
     <link>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</link>
     <pubDate>Thu, 10 Aug 2023 19:53:16 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</link>
     <pubDate>Sat, 28 May 2022 14:35:02 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</guid>
     <description><![CDATA[<p>Gitee这波仓库开源需审核的这波操作是有点秀的</p>]]></description>
-</item>
-<item>
-    <title>对卡片笔记法的一些思考及应用</title>
-    <link>https://unclehuzi.github.io/2022/05/notes-zettelkasten_method/</link>
-    <pubDate>Sun, 01 May 2022 15:05:33 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/notes-zettelkasten_method/</guid>
-    <description><![CDATA[<p>真希望在校期间就能了解卡片笔记法o.o</p>]]></description>
 </item>
 </channel>
 </rss>
