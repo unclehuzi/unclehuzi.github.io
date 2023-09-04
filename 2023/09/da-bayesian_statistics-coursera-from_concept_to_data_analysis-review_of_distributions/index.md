@@ -685,6 +685,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-<div>
-<script src="[https://gist.github.com/unclehuzi/31feb53fe47d33b937fc70f7a71d1cf4.js](https://gist.github.com/unclehuzi/31feb53fe47d33b937fc70f7a71d1cf4.js)"></script>
-</div>
+<p>
+<script src="https://gist.github.com/unclehuzi/31feb53fe47d33b937fc70f7a71d1cf4.js"></script>
+</p>
+
