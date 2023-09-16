@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
         <description>数据分析 - Category - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="self" type="application/rss+xml" /><item>
+    <title>macOS通过homebrew安装anaconda</title>
+    <link>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</link>
+    <pubDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</guid>
+    <description><![CDATA[<p>RT，记录下安装流程，防止迷路</p>]]></description>
+</item>
+<item>
     <title>coursera课程-Review of distributions</title>
     <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
     <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</link>
     <pubDate>Mon, 27 Dec 2021 11:34:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-hive-vs-spark/</guid>
     <description><![CDATA[<p>当下处理大规模数据集比较流行的两大产品：Hive和Spark。本文从历史等维度对两者进行比较</p>]]></description>
-</item>
-<item>
-    <title>pandas.qcut及一个很奇怪的bug</title>
-    <link>https://unclehuzi.github.io/2021/12/da-pandas-qcut/</link>
-    <pubDate>Thu, 16 Dec 2021 10:28:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-pandas-qcut/</guid>
-    <description><![CDATA[<p>最近用 <code>pandas.qcut</code> 分箱遇到了个很奇怪的bug，先Mark一波</p>]]></description>
 </item>
 </channel>
 </rss>

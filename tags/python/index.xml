@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/tags/python/</link>
         <description>Python - Tag - 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
+    <title>macOS通过homebrew安装anaconda</title>
+    <link>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</link>
+    <pubDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</guid>
+    <description><![CDATA[<p>RT，记录下安装流程，防止迷路</p>]]></description>
+</item>
+<item>
     <title>服务器部署JupyterLab以供远程访问</title>
     <link>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</link>
     <pubDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</guid>

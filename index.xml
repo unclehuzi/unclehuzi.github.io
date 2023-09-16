@@ -4,9 +4,15 @@
         <link>https://unclehuzi.github.io/</link>
         <description>个人学习记录</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</lastBuildDate>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</lastBuildDate>
             <atom:link href="https://unclehuzi.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>macOS通过homebrew安装anaconda</title>
+    <link>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</link>
+    <pubDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</guid>
+    <description><![CDATA[<p>RT，记录下安装流程，防止迷路</p>]]></description>
+</item>
+<item>
     <title>coursera课程-Review of distributions</title>
     <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
     <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
@@ -59,12 +65,6 @@
     <link>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</link>
     <pubDate>Sat, 28 May 2022 20:12:54 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</guid>
     <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“The Costs of Production”</p>]]></description>
-</item>
-<item>
-    <title>将博客中的图片从Gitee迁移至Github</title>
-    <link>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</link>
-    <pubDate>Sat, 28 May 2022 14:35:02 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/blog-pictures_gitee2github/</guid>
-    <description><![CDATA[<p>Gitee这波仓库开源需审核的这波操作是有点秀的</p>]]></description>
 </item>
 </channel>
 </rss>

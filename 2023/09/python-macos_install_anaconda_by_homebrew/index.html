@@ -12,37 +12,37 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Spark SQL-Pivot - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="Spark SQL-Pivot" />
-<meta property="og:description" content="类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format" />
+        <title>macOS通过homebrew安装anaconda - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="macOS通过homebrew安装anaconda" />
+<meta property="og:description" content="RT，记录下安装流程，防止迷路" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://unclehuzi.github.io/2021/08/sql-pivot/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-09T11:19:04+08:00" />
+<meta property="og:url" content="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-16T19:47:40+08:00" />
 <meta property="article:modified_time" content="2023-09-16T21:08:49+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://unclehuzi.github.io/"/>
 
-<meta name="twitter:title" content="Spark SQL-Pivot"/>
-<meta name="twitter:description" content="类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format"/>
+<meta name="twitter:title" content="macOS通过homebrew安装anaconda"/>
+<meta name="twitter:description" content="RT，记录下安装流程，防止迷路"/>
 <meta name="application-name" content="胡子叔叔的小站">
 <meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2021/08/sql-pivot/" /><link rel="prev" href="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><link rel="next" href="https://unclehuzi.github.io/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" /><link rel="prev" href="https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Spark SQL-Pivot",
+        "headline": "macOS通过homebrew安装anaconda",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/"
+            "@id": "https:\/\/unclehuzi.github.io\/2023\/09\/python-macos_install_anaconda_by_homebrew\/"
         },"image": [{
                             "@type": "ImageObject",
-                            "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/featured-image.jpg",
-                            "width":  402 ,
-                            "height":  306 
-                        }],"genre": "posts","keywords": "SQL","wordcount":  50 ,
-        "url": "https:\/\/unclehuzi.github.io\/2021\/08\/sql-pivot\/","datePublished": "2021-08-09T11:19:04+08:00","dateModified": "2023-09-16T21:08:49+08:00","publisher": {
+                            "url": "https:\/\/unclehuzi.github.io\/2023\/09\/python-macos_install_anaconda_by_homebrew\/featured-image.jpg",
+                            "width":  1722 ,
+                            "height":  1046 
+                        }],"genre": "posts","keywords": "Python","wordcount":  198 ,
+        "url": "https:\/\/unclehuzi.github.io\/2023\/09\/python-macos_install_anaconda_by_homebrew\/","datePublished": "2023-09-16T19:47:40+08:00","dateModified": "2023-09-16T21:08:49+08:00","publisher": {
             "@type": "Organization",
             "name": "胡子叔叔"},"author": {
                 "@type": "Person",
@@ -132,13 +132,13 @@
         </div><article class="page single" data-toc="enable"><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/2021/08/sql-pivot/featured-image.jpg"
-        data-srcset="/2021/08/sql-pivot/featured-image.jpg, /2021/08/sql-pivot/featured-image.jpg 1.5x, /2021/08/sql-pivot/featured-image.jpg 2x"
+        data-src="/2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg"
+        data-srcset="/2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg, /2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg 1.5x, /2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg 2x"
         data-sizes="auto"
-        alt="/2021/08/sql-pivot/featured-image.jpg"
-        title="/2021/08/sql-pivot/featured-image.jpg" /></div><div class="single-card" data-image="true"><h2 class="single-title animated flipInX">Spark SQL-Pivot</h2><div class="post-meta">
+        alt="/2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg"
+        title="/2023/09/python-macos_install_anaconda_by_homebrew/featured-image.jpg" /></div><div class="single-card" data-image="true"><h2 class="single-title animated flipInX">macOS通过homebrew安装anaconda</h2><h2 class="single-subtitle">Python环境</h2><div class="post-meta">
                 <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="far fa-folder fa-fw"></i>数据分析</a></span></div>
-                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-09">2021-08-09</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;50 words</span>&nbsp;
+                <div class="post-meta-line"><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-16">2023-09-16</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;198 words</span>&nbsp;
                     <span><i class="far fa-clock fa-fw"></i>&nbsp;One minute</span>&nbsp;</div>
             </div>
             
@@ -149,45 +149,122 @@
                     </div>
                     <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#基本语法">基本语法</a></li>
-    <li><a href="#实际应用">实际应用</a></li>
-    <li><a href="#reference">Reference</a></li>
+    <li><a href="#卸载anaconda">卸载Anaconda</a></li>
+    <li><a href="#homebrew">homebrew</a>
+      <ul>
+        <li><a href="#安装homebrew">安装homebrew</a></li>
+        <li><a href="#homebrew安装anaconda">homebrew安装anaconda</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置环境">配置环境</a>
+      <ul>
+        <li><a href="#配置阿里镜像源">配置阿里镜像源</a>
+          <ul>
+            <li><a href="#conda">conda</a></li>
+            <li><a href="#pip">pip</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav></div>
-                </div><div class="content" id="content"><p>类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format</p>
-<p>在统计分析时总会遇到分类汇总的场景，类似Excel的数据透视表。SQL中按照 <code>case when</code> 或 <code>IF</code> 的写法往往会显得臃肿，较为方便的便是通过 <code>pivot</code> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>实现，但 Hive <strong>不</strong>支持😢</p>
-<div class="details admonition warning open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>运行环境<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">以下基于 <em><strong>spark-2.4.5U3</strong></em> 及以上版本</div>
-        </div>
-    </div>
-<h2 id="基本语法">基本语法</h2>
+                </div><div class="content" id="content"><p>RT，记录下安装流程，防止迷路</p>
+<p>最近电脑的Python环境总有些问题，之前刚好了解了<a href="https://brew.sh/" target="_blank" rel="noopener noreffer">homebrew</a>，就干脆把之前的Anaconda卸载了，重新用homebrew安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">PIVOT</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="err">{</span><span class="w"> </span><span class="n">aggregate_expression</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">aggregate_expression_alias</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span><span class="w">       </span><span class="k">FOR</span><span class="w"> </span><span class="n">column_list</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">expression_list</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">flowchart LR
+  subgraph homebrew
+    direction TB
+        i2[&#34;安装homebrew&#34;] -.-&gt; f2[`brew install --cask anaconda`]
+  end
+  
+  A[&#34;卸载Anaconda&#34;]
+  A --&gt; homebrew --&gt; B[&#34;配置环境&#34;]
+</code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>The <code>PIVOT</code> clause can be specified after the table name or subquery.</p>
-</blockquote>
-<h2 id="实际应用">实际应用</h2>
-<p>假设有张存有各个地区、各个产品的月销量的表（sales_table），我们需要统计各个月份所有地区产品销量的加总，形如👇</p>
+</div><h2 id="卸载anaconda">卸载Anaconda</h2>
+<p>anaconda的官方文档有详细的卸载过程：https://docs.anaconda.com/free/anaconda/install/uninstall/</p>
+<ol>
+<li>通过 <code>anaconda-clean</code> 卸载</li>
+<li>删文件夹、删文件</li>
+<li>删环境变量</li>
+</ol>
+<h2 id="homebrew">homebrew</h2>
+<h3 id="安装homebrew">安装homebrew</h3>
+<ol>
+<li>
+<p>解决网络的问题</p>
+<p>执行 “终端代理命令”，让终端也能突破限制</p>
+<p>或者 走国内镜像</p>
+</li>
+<li>
+<p>安装homebrew</p>
+</li>
+</ol>
+<h3 id="homebrew安装anaconda">homebrew安装anaconda</h3>
+<p><code>brew install --cask anaconda</code></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png"
-        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png 2x"
+        data-src="./homebrew_install_anaconda.jpg"
+        data-srcset="./homebrew_install_anaconda.jpg, ./homebrew_install_anaconda.jpg 1.5x, ./homebrew_install_anaconda.jpg 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210810172231715.png"
-        title="按月份分类汇总销量" /></p>
+        alt="./homebrew_install_anaconda.jpg"
+        title="./homebrew_install_anaconda.jpg" /></p>
+<h2 id="配置环境">配置环境</h2>
+<p>安装完后终端输入 <code>Python</code> 或 <code>conda list</code> 之类的命令是没有反应的，还需要配置下系统环境变量。Windows环境下通过UI界面安装时可直接勾选☑️</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># if you&#39;re using bash</span>
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/anaconda3/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bash_profile
+
+<span class="c1"># if you&#39;re using zsh</span>
+<span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/anaconda3/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">source</span> ~/.bash_profile
+conda init
+
+<span class="c1"># or... if you&#39;re using zsh</span>
+<span class="nb">source</span> ~/.zshrc
+conda init zsh
+
+<span class="c1"># ！！！ conda init is available in conda versions 4.6.12 and later.</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置阿里镜像源">配置阿里镜像源</h3>
+<h4 id="conda">conda</h4>
+<p>修改 <code>.condarc</code> 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -200,44 +277,71 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="w">	</span><span class="k">month</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;毛巾&#39;</span><span class="w">
-</span><span class="w">				</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="w">
-</span><span class="w"></span><span class="k">from</span><span class="w">		</span><span class="n">sales_table</span><span class="w">
-</span><span class="w"></span><span class="n">pivot</span><span class="w">
-</span><span class="w"> 		</span><span class="p">(</span><span class="w">
-</span><span class="w">     </span><span class="k">sum</span><span class="p">(</span><span class="n">sales</span><span class="p">)</span><span class="w">
-</span><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;毛巾&#39;</span><span class="p">,</span><span class="s1">&#39;肥皂&#39;</span><span class="p">)</span><span class="w">
-</span><span class="w">    </span><span class="p">)</span><span class="w">
-</span><span class="w"></span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - http://mirrors.aliyun.com/anaconda/pkgs/main
+  - http://mirrors.aliyun.com/anaconda/pkgs/r
+  - http://mirrors.aliyun.com/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: http://mirrors.aliyun.com/anaconda/cloud
+  msys2: http://mirrors.aliyun.com/anaconda/cloud
+  bioconda: http://mirrors.aliyun.com/anaconda/cloud
+  menpo: http://mirrors.aliyun.com/anaconda/cloud
+  pytorch: http://mirrors.aliyun.com/anaconda/cloud
+  simpleitk: http://mirrors.aliyun.com/anaconda/cloud
+
+</code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><h4 id="pip">pip</h4>
+<p>修改 <code>.pip/pip.conf</code> 文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
+
+[install]
+trusted-host=mirrors.aliyun.com
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="references">References</h2>
+<ol>
+<li><a href="https://docs.anaconda.com/free/anaconda/install/uninstall/" target="_blank" rel="noopener noreffer">Uninstalling Anaconda Distribution</a></li>
+<li><a href="https://juejin.cn/post/6931190862295203848" target="_blank" rel="noopener noreffer">Homebrew brew update 长时间没反应（或卡在 Updating Homebrew&hellip;） </a></li>
+<li><a href="https://frankindev.com/2018/01/27/get-anaconda-ready-with-brew/" target="_blank" rel="noopener noreffer">Get your anaconda ready after brew install | inDev. Journal</a></li>
+<li><a href="https://developer.aliyun.com/mirror/anaconda/" target="_blank" rel="noopener noreffer">阿里云Anaconda镜像</a></li>
+<li><a href="https://developer.aliyun.com/mirror/pypi?spm=a2c6h.13651102.0.0.27e11b11V4Ur7p" target="_blank" rel="noopener noreffer">阿里云pip镜像</a></li>
+</ol>
 <head> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
 </head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"><div class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html">https://spark.apache.org/docs/3.1.2/sql-ref-syntax-qry-select-pivot.html</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</div></div><div class="post-footer" id="post-footer">
-    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/sql/">SQL</a>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/python/">Python</a>
                 </span></div><div class="post-info-line"><div class="post-info-mod">
                 <span>Updated on 2023-09-16&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/19447759ea69bbccf251a23e5dda0045544acffa" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;1944775:&nbsp;homebrew_install_anaconda">
                             <i class="fas fa-hashtag fa-fw"></i>1944775</a></span>
             </div><div class="post-info-mod"><span>
-                            <a class="link-to-markdown" href="/2021/08/sql-pivot/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/2023/09/python-macos_install_anaconda_by_homebrew/index.md" target="_blank">Read Markdown</a>
                         </span></div>
         </div><div class="post-info-share">
-            <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot" data-hashtags="SQL"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-hashtag="SQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot"><i class="fab fa-weibo fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2021/08/sql-pivot/" data-title="Spark SQL-Pivot" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
-        </div></div><div class="post-nav"><a href="/2021/07/hql-conditional-functions/" class="prev" rel="prev" title="Hive SQL-条件函数汇总"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
-            <a href="/2021/08/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/" class="next" rel="next" title="Spark、Hive QL-通过正则表达式选取需要的列">Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+            <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" data-title="macOS通过homebrew安装anaconda" data-hashtags="Python"><i class="fab fa-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" data-hashtag="Python"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/"><i class="fab fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/"><i class="fab fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" data-title="macOS通过homebrew安装anaconda"><i class="fab fa-weibo fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/" data-title="macOS通过homebrew安装anaconda" data-description=""><i class="fab fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/" class="prev" rel="prev" title="coursera课程-Review of distributions"><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div>
 </div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript></div></article></div>
