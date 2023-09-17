@@ -14,17 +14,15 @@ RT，记录下安装流程，防止迷路
 最近电脑的Python环境总有些问题，之前刚好了解了[homebrew](https://brew.sh/)，就干脆把之前的Anaconda卸载了，重新用homebrew安装
 
 
-
-```mermaid
-flowchart LR
+{{< mermaid >}}
+flowchart LR;
   subgraph homebrew
     direction TB
         i2["安装homebrew"] -.-> f2[`brew install --cask anaconda`]
   end
-  
   A["卸载Anaconda"]
   A --> homebrew --> B["配置环境"]
-```
+{{< /mermaid >}}
 
 
 
