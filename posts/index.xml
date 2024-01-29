@@ -4,7 +4,13 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>幸好我离职，了？</title>
+    <link>https://unclehuzi.github.io/2024/01/life-hualihushao/</link>
+    <pubDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/01/life-hualihushao/</guid>
+    <description><![CDATA[<p>最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬</p>]]></description>
+</item>
+<item>
     <title>将google-colab的代码嵌入网站</title>
     <link>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</link>
     <pubDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</guid>
@@ -57,12 +63,6 @@
     <link>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</link>
     <pubDate>Sat, 03 Sep 2022 21:33:46 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</guid>
     <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Firms in Competitive Market”</p>]]></description>
-</item>
-<item>
-    <title>最新版jupyter notebook导出为PDF</title>
-    <link>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</link>
-    <pubDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</guid>
-    <description><![CDATA[<p>RT，关于jupyter notebook导出为PDF的那些事儿</p>]]></description>
 </item>
 </channel>
 </rss>
