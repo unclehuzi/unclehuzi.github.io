@@ -50,11 +50,11 @@ gantt
 
 ![X-Men: First Class(2011)](first-class.jpeg)
 
-{{< typeit >}}
+
 时间：1944年
 地点：奥斯维辛集中营
 人物：万磁王小时候
-{{< /typeit >}}
+
 
 万磁王（Erik）小时候在奥斯维辛集中营因愤怒等情绪展现出了控制铁制品的超能力，被纳粹Klaus Schmidt盯上了，一顿蹂躏，甚至还当着Erik面枪杀他的母亲
 
@@ -75,11 +75,11 @@ Erik也各种展开复仇。
 
 ![X-Men Origins: Wolverine (2009)](Wolverine.jpeg)
 
-{{< typeit >}}
+
 时间：1854年
 地点：加拿大
 人物：金刚狼小时候
-{{< /typeit >}}
+
 
 金刚狼（James Howlett）小时候一个不小心干掉了生父（Thomas Logan），之后和他的大兄弟（Victor Creed）狂奔，共同经历了美国内战，第一、二次世界大战，越南战争。
 
@@ -110,11 +110,11 @@ Erik也各种展开复仇。
 ![X-Men: Apocalypse（2016）](Apocalypse.jpeg)
 
 
-{{< typeit >}}
+
 时间：1983年
 地点：美国俄亥俄州（OHIO）
 人物：Scott
-{{< /typeit >}}
+
 
 Scott 的课堂上，老师讲授着，变种人大规模出现在公众视野是在1973年的巴黎和平协约上 balabala
 
