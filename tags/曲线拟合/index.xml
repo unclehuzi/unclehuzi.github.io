@@ -1,14 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>曲线拟合 - Tag - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/tags/%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88/</link>
-        <description>曲线拟合 - Tag - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 13 Jan 2022 13:47:15 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88/" rel="self" type="application/rss+xml" /><item>
-    <title>Python曲线拟合</title>
-    <link>https://unclehuzi.github.io/2022/01/da-curve-fitting-python/</link>
-    <pubDate>Thu, 13 Jan 2022 13:47:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/da-curve-fitting-python/</guid>
-    <description><![CDATA[<p>最近接触了曲线拟合（<a href="https://en.wikipedia.org/wiki/Curve_fitting" target="_blank" rel="noopener noreffer">curve fitting</a>），在此简单整理一波Python的实现方式</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>曲线拟合 on H.W.</title>
+    <link>https://unclehuzi.github.io/tags/%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88/</link>
+    <description>Recent content in 曲线拟合 on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Jan 2022 13:47:15 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/tags/%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python曲线拟合</title>
+      <link>https://unclehuzi.github.io/posts/da-curve-fitting-python/</link>
+      <pubDate>Thu, 13 Jan 2022 13:47:15 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-curve-fitting-python/</guid>
+      <description>&lt;p&gt;最近接触了曲线拟合（&lt;a href=&#34;https://en.wikipedia.org/wiki/Curve_fitting&#34;&gt;curve fitting&lt;/a&gt;），在此简单整理一波Python的实现方式&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

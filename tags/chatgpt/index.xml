@@ -1,14 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>ChatGPT - Tag - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/tags/chatgpt/</link>
-        <description>ChatGPT - Tag - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 22 May 2023 11:28:13 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/chatgpt/" rel="self" type="application/rss+xml" /><item>
-    <title>笔记-ChatGPT Prompt Engineering for Developers</title>
-    <link>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</link>
-    <pubDate>Mon, 22 May 2023 11:28:13 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</guid>
-    <description><![CDATA[<p>课程笔记- <em><strong>《ChatGPT Prompt Engineering for Developers》</strong></em></p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChatGPT on H.W.</title>
+    <link>https://unclehuzi.github.io/tags/chatgpt/</link>
+    <description>Recent content in ChatGPT on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 May 2023 11:28:13 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>笔记-ChatGPT Prompt Engineering for Developers</title>
+      <link>https://unclehuzi.github.io/posts/notes-chatgpt_prompt_engineering_for_developers/</link>
+      <pubDate>Mon, 22 May 2023 11:28:13 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-chatgpt_prompt_engineering_for_developers/</guid>
+      <description>&lt;p&gt;课程笔记- &lt;em&gt;&lt;strong&gt;《ChatGPT Prompt Engineering for Developers》&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

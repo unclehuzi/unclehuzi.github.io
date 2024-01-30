@@ -1,20 +1,26 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>Model - Tag - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/tags/model/</link>
-        <description>Model - Tag - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/model/" rel="self" type="application/rss+xml" /><item>
-    <title>SQL计算多个变量的IV</title>
-    <link>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
-    <pubDate>Thu, 08 Jul 2021 14:11:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
-    <description><![CDATA[<p>RT，SQL计算多个变量的<em><strong>IV</strong></em>（Information Value）</p>]]></description>
-</item>
-<item>
-    <title>SQL计算多个模型分的PSI</title>
-    <link>https://unclehuzi.github.io/2021/06/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
-    <pubDate>Fri, 18 Jun 2021 11:15:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/06/20210619-sql%E8%AE%A1%E7%AE%97psi/</guid>
-    <description><![CDATA[<p>RT，SQL批量计算各个模型分的<em><strong>PSI</strong></em>，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Model on H.W.</title>
+    <link>https://unclehuzi.github.io/tags/model/</link>
+    <description>Recent content in Model on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Jul 2021 14:11:40 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/tags/model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL计算多个变量的IV</title>
+      <link>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
+      <pubDate>Thu, 08 Jul 2021 14:11:40 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
+      <description>&lt;p&gt;RT，SQL计算多个变量的&lt;em&gt;&lt;strong&gt;IV&lt;/strong&gt;&lt;/em&gt;（Information Value）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SQL计算多个模型分的PSI</title>
+      <link>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
+      <pubDate>Fri, 18 Jun 2021 11:15:35 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</guid>
+      <description>&lt;p&gt;RT，SQL批量计算各个模型分的&lt;em&gt;&lt;strong&gt;PSI&lt;/strong&gt;&lt;/em&gt;，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

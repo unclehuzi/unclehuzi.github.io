@@ -1,62 +1,75 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>生活 - Category - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
-        <description>生活 - Category - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
-    <title>幸好我离职，了？</title>
-    <link>https://unclehuzi.github.io/2024/01/life-hualihushao/</link>
-    <pubDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/01/life-hualihushao/</guid>
-    <description><![CDATA[<p>最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬</p>]]></description>
-</item>
-<item>
-    <title>我被微信管制了...</title>
-    <link>https://unclehuzi.github.io/2022/12/notes-black_swan/</link>
-    <pubDate>Sat, 03 Dec 2022 13:30:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/12/notes-black_swan/</guid>
-    <description><![CDATA[<p>我被微信管制了，微信又被谁管制呢？</p>]]></description>
-</item>
-<item>
-    <title>2022年3月上海新冠疫情流水账</title>
-    <link>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</link>
-    <pubDate>Tue, 05 Apr 2022 10:24:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</guid>
-    <description><![CDATA[<p>2022年3月上海， 🦠<a href="https://en.wikipedia.org/wiki/COVID-19" target="_blank" rel="noopener noreffer">新冠</a>病毒迎来<a href="https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant" target="_blank" rel="noopener noreffer">“奥密克戎”</a>。我作为一个观察者记录客观结果/消息</p>]]></description>
-</item>
-<item>
-    <title>感悟？=&gt;原则？</title>
-    <link>https://unclehuzi.github.io/2022/01/life-thoughts/</link>
-    <pubDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-thoughts/</guid>
-    <description><![CDATA[<p>试图记录📝一些感悟，有些东西记着记着就成「原则」了吧</p>]]></description>
-</item>
-<item>
-    <title>【转载】不纠结过去的事，人生只能向前看</title>
-    <link>https://unclehuzi.github.io/2022/01/life-forward/</link>
-    <pubDate>Sat, 15 Jan 2022 13:10:48 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-forward/</guid>
-    <description><![CDATA[<p>巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。</p>]]></description>
-</item>
-<item>
-    <title>回顾2021，展望2022</title>
-    <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
-    <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
-    <description><![CDATA[<p>限制 <code>pday</code> 分区时，开头要写 <code>2022</code> 了</p>]]></description>
-</item>
-<item>
-    <title>X战警系列观影顺序</title>
-    <link>https://unclehuzi.github.io/2021/11/life-movie-x-men/</link>
-    <pubDate>Fri, 19 Nov 2021 22:01:27 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/11/life-movie-x-men/</guid>
-    <description><![CDATA[<p>最近在撸 X战警系列的电影，从故事的时间线维度出发，整理现有影片的观影顺序</p>]]></description>
-</item>
-<item>
-    <title>记毕业后第一次与导师的晚餐</title>
-    <link>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
-    <pubDate>Tue, 07 Sep 2021 09:48:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
-    <description><![CDATA[<p>在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了</p>]]></description>
-</item>
-<item>
-    <title>如果真的什么都不用想</title>
-    <link>https://unclehuzi.github.io/2021/09/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</link>
-    <pubDate>Sun, 05 Sep 2021 16:44:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/09/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</guid>
-    <description><![CDATA[<p>不知不觉，离开学校已经有1年2个月了。。。</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>生活 on H.W.</title>
+    <link>https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 生活 on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 Jan 2024 11:38:07 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>幸好我离职，了？</title>
+      <link>https://unclehuzi.github.io/posts/life-hualihushao/</link>
+      <pubDate>Mon, 29 Jan 2024 11:38:07 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-hualihushao/</guid>
+      <description>&lt;p&gt;最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我被微信管制了...</title>
+      <link>https://unclehuzi.github.io/posts/notes-black_swan/</link>
+      <pubDate>Sat, 03 Dec 2022 13:30:49 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-black_swan/</guid>
+      <description>&lt;p&gt;我被微信管制了，微信又被谁管制呢？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022年3月上海新冠疫情流水账</title>
+      <link>https://unclehuzi.github.io/posts/life-covid_19-observation/</link>
+      <pubDate>Tue, 05 Apr 2022 10:24:07 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-covid_19-observation/</guid>
+      <description>&lt;p&gt;2022年3月上海， 🦠&lt;a href=&#34;https://en.wikipedia.org/wiki/COVID-19&#34;&gt;新冠&lt;/a&gt;病毒迎来&lt;a href=&#34;https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant&#34;&gt;“奥密克戎”&lt;/a&gt;。我作为一个观察者记录客观结果/消息&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>感悟？=&gt;原则？</title>
+      <link>https://unclehuzi.github.io/posts/life-thoughts/</link>
+      <pubDate>Sat, 29 Jan 2022 10:43:35 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-thoughts/</guid>
+      <description>&lt;p&gt;试图记录📝一些感悟，有些东西记着记着就成「原则」了吧&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【转载】不纠结过去的事，人生只能向前看</title>
+      <link>https://unclehuzi.github.io/posts/life-forward/</link>
+      <pubDate>Sat, 15 Jan 2022 13:10:48 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-forward/</guid>
+      <description>&lt;p&gt;巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>回顾2021，展望2022</title>
+      <link>https://unclehuzi.github.io/posts/life-new-year-2022/</link>
+      <pubDate>Sat, 01 Jan 2022 11:55:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-new-year-2022/</guid>
+      <description>&lt;p&gt;限制 &lt;code&gt;pday&lt;/code&gt; 分区时，开头要写 &lt;code&gt;2022&lt;/code&gt; 了&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>X战警系列观影顺序</title>
+      <link>https://unclehuzi.github.io/posts/life-movie-x-men/</link>
+      <pubDate>Fri, 19 Nov 2021 22:01:27 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-movie-x-men/</guid>
+      <description>&lt;p&gt;最近在撸 X战警系列的电影，从故事的时间线维度出发，整理现有影片的观影顺序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记毕业后第一次与导师的晚餐</title>
+      <link>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
+      <pubDate>Tue, 07 Sep 2021 09:48:49 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
+      <description>&lt;p&gt;在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如果真的什么都不用想</title>
+      <link>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</link>
+      <pubDate>Sun, 05 Sep 2021 16:44:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</guid>
+      <description>&lt;p&gt;不知不觉，离开学校已经有1年2个月了。。。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

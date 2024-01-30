@@ -1,68 +1,453 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>All Posts - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/posts/</link>
-        <description>All Posts | 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>幸好我离职，了？</title>
-    <link>https://unclehuzi.github.io/2024/01/life-hualihushao/</link>
-    <pubDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/01/life-hualihushao/</guid>
-    <description><![CDATA[<p>最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬</p>]]></description>
-</item>
-<item>
-    <title>将google-colab的代码嵌入网站</title>
-    <link>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</link>
-    <pubDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</guid>
-    <description><![CDATA[<p>RT，在网站中显示notebook Python代码</p>]]></description>
-</item>
-<item>
-    <title>macOS通过homebrew安装anaconda</title>
-    <link>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</link>
-    <pubDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</guid>
-    <description><![CDATA[<p>RT，记录下安装流程，防止迷路</p>]]></description>
-</item>
-<item>
-    <title>coursera课程-Review of distributions</title>
-    <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
-    <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
-    <description><![CDATA[coursera上贝叶斯统计专项课程]]></description>
-</item>
-<item>
-    <title>coursera课程-Probability and Bayes’ Theorem</title>
-    <link>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</link>
-    <pubDate>Thu, 10 Aug 2023 19:53:16 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</guid>
-    <description><![CDATA[<p>coursera课程-简单回顾Probability and Bayes’ Theorem</p>]]></description>
-</item>
-<item>
-    <title>信贷风险特征维护框架</title>
-    <link>https://unclehuzi.github.io/2023/07/da-my_features_market/</link>
-    <pubDate>Mon, 24 Jul 2023 22:07:28 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/07/da-my_features_market/</guid>
-    <description><![CDATA[<p>结合关系型数据库的思想，基于Notion实现及维护信贷风险领域特征</p>]]></description>
-</item>
-<item>
-    <title>笔记-ChatGPT Prompt Engineering for Developers</title>
-    <link>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</link>
-    <pubDate>Mon, 22 May 2023 11:28:13 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/05/notes-chatgpt_prompt_engineering_for_developers/</guid>
-    <description><![CDATA[<p>课程笔记- <em><strong>《ChatGPT Prompt Engineering for Developers》</strong></em></p>]]></description>
-</item>
-<item>
-    <title>我被微信管制了...</title>
-    <link>https://unclehuzi.github.io/2022/12/notes-black_swan/</link>
-    <pubDate>Sat, 03 Dec 2022 13:30:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/12/notes-black_swan/</guid>
-    <description><![CDATA[<p>我被微信管制了，微信又被谁管制呢？</p>]]></description>
-</item>
-<item>
-    <title>服务器部署JupyterLab以供远程访问</title>
-    <link>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</link>
-    <pubDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</guid>
-    <description><![CDATA[<p>在服务器上部署JupyterLab供远程访问并Coding</p>]]></description>
-</item>
-<item>
-    <title>Ch14-竞争市场上的企业</title>
-    <link>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</link>
-    <pubDate>Sat, 03 Sep 2022 21:33:46 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Firms in Competitive Market”</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on H.W.</title>
+    <link>https://unclehuzi.github.io/posts/</link>
+    <description>Recent content in Posts on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 Jan 2024 11:38:07 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>幸好我离职，了？</title>
+      <link>https://unclehuzi.github.io/posts/life-hualihushao/</link>
+      <pubDate>Mon, 29 Jan 2024 11:38:07 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-hualihushao/</guid>
+      <description>&lt;p&gt;最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>将google-colab的代码嵌入网站</title>
+      <link>https://unclehuzi.github.io/posts/blog-google_colab_embedded/</link>
+      <pubDate>Sat, 30 Sep 2023 18:56:15 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/blog-google_colab_embedded/</guid>
+      <description>&lt;p&gt;RT，在网站中显示notebook Python代码&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS通过homebrew安装anaconda</title>
+      <link>https://unclehuzi.github.io/posts/python-macos_install_anaconda_by_homebrew/</link>
+      <pubDate>Sat, 16 Sep 2023 19:47:40 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/python-macos_install_anaconda_by_homebrew/</guid>
+      <description>&lt;p&gt;RT，记录下安装流程，防止迷路&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>coursera课程-Review of distributions</title>
+      <link>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
+      <pubDate>Sun, 03 Sep 2023 17:16:55 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
+      <description>coursera上贝叶斯统计专项课程</description>
+    </item>
+    <item>
+      <title>coursera课程-Probability and Bayes’ Theorem</title>
+      <link>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</link>
+      <pubDate>Thu, 10 Aug 2023 19:53:16 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</guid>
+      <description>coursera上贝叶斯统计专项课程</description>
+    </item>
+    <item>
+      <title>信贷风险特征维护框架</title>
+      <link>https://unclehuzi.github.io/posts/da-my_features_market/</link>
+      <pubDate>Mon, 24 Jul 2023 22:07:28 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-my_features_market/</guid>
+      <description>&lt;p&gt;结合关系型数据库的思想，基于Notion实现及维护信贷风险领域特征&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>笔记-ChatGPT Prompt Engineering for Developers</title>
+      <link>https://unclehuzi.github.io/posts/notes-chatgpt_prompt_engineering_for_developers/</link>
+      <pubDate>Mon, 22 May 2023 11:28:13 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-chatgpt_prompt_engineering_for_developers/</guid>
+      <description>&lt;p&gt;课程笔记- &lt;em&gt;&lt;strong&gt;《ChatGPT Prompt Engineering for Developers》&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>我被微信管制了...</title>
+      <link>https://unclehuzi.github.io/posts/notes-black_swan/</link>
+      <pubDate>Sat, 03 Dec 2022 13:30:49 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-black_swan/</guid>
+      <description>&lt;p&gt;我被微信管制了，微信又被谁管制呢？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>服务器部署JupyterLab以供远程访问</title>
+      <link>https://unclehuzi.github.io/posts/jupyter_notebook_on_server/</link>
+      <pubDate>Sun, 18 Sep 2022 21:06:04 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/jupyter_notebook_on_server/</guid>
+      <description>&lt;p&gt;在服务器上部署JupyterLab供远程访问并Coding&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch14-竞争市场上的企业</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch14-firms_in_competitive_market/</link>
+      <pubDate>Sat, 03 Sep 2022 21:33:46 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch14-firms_in_competitive_market/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Firms in Competitive Market”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>最新版jupyter notebook导出为PDF</title>
+      <link>https://unclehuzi.github.io/posts/jupyter_notebook-convert_to_pdf/</link>
+      <pubDate>Sun, 07 Aug 2022 16:19:50 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/jupyter_notebook-convert_to_pdf/</guid>
+      <description>&lt;p&gt;RT，关于jupyter notebook导出为PDF的那些事儿&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch13-生产成本</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch13-the_costs_of_production/</link>
+      <pubDate>Sat, 28 May 2022 20:12:54 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch13-the_costs_of_production/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“The Costs of Production”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>将博客中的图片从Gitee迁移至Github</title>
+      <link>https://unclehuzi.github.io/posts/blog-pictures_gitee2github/</link>
+      <pubDate>Sat, 28 May 2022 14:35:02 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/blog-pictures_gitee2github/</guid>
+      <description>&lt;p&gt;Gitee这波仓库开源需审核的这波操作是有点秀的&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>对卡片笔记法的一些思考及应用</title>
+      <link>https://unclehuzi.github.io/posts/notes-zettelkasten_method/</link>
+      <pubDate>Sun, 01 May 2022 15:05:33 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-zettelkasten_method/</guid>
+      <description>&lt;p&gt;真希望在校期间就能了解卡片笔记法o.o&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch9-国际贸易</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch9-international_trade/</link>
+      <pubDate>Sat, 30 Apr 2022 23:30:43 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch9-international_trade/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“International Trade”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch8-赋税的代价</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch8-the_costs_of_taxation/</link>
+      <pubDate>Sun, 10 Apr 2022 17:26:25 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch8-the_costs_of_taxation/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“The Costs of Taxation”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2022年3月上海新冠疫情流水账</title>
+      <link>https://unclehuzi.github.io/posts/life-covid_19-observation/</link>
+      <pubDate>Tue, 05 Apr 2022 10:24:07 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-covid_19-observation/</guid>
+      <description>&lt;p&gt;2022年3月上海， 🦠&lt;a href=&#34;https://en.wikipedia.org/wiki/COVID-19&#34;&gt;新冠&lt;/a&gt;病毒迎来&lt;a href=&#34;https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant&#34;&gt;“奥密克戎”&lt;/a&gt;。我作为一个观察者记录客观结果/消息&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>《被讨厌的勇气》</title>
+      <link>https://unclehuzi.github.io/posts/notes-the_courage_to_be_disliked/</link>
+      <pubDate>Tue, 01 Mar 2022 19:27:53 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-the_courage_to_be_disliked/</guid>
+      <description>&lt;p&gt;其实，你是为了大发雷霆而生气😠&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch7-市场效率</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch7-efficiency_of_markets/</link>
+      <pubDate>Tue, 01 Mar 2022 11:55:05 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch7-efficiency_of_markets/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Efficiency of Markets”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch6-供给、需求与政府政策</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
+      <pubDate>Sun, 27 Feb 2022 11:32:36 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Supply, Demand and Government Policies”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch5-弹性及其应用</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch5-elasticity_and_its_application/</link>
+      <pubDate>Wed, 23 Feb 2022 15:18:56 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch5-elasticity_and_its_application/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Elasticity and its Application”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Customer Lifetime Value</title>
+      <link>https://unclehuzi.github.io/posts/da-customer-lifetime-value/</link>
+      <pubDate>Fri, 18 Feb 2022 21:54:25 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-customer-lifetime-value/</guid>
+      <description>&lt;p&gt;客户终生价值-CLV&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch4-供给和需求</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch4-supply_and_demand/</link>
+      <pubDate>Tue, 15 Feb 2022 16:55:34 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch4-supply_and_demand/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Supply and Demand”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>其实可以试试心理咨询</title>
+      <link>https://unclehuzi.github.io/posts/notes-counselling-for-toads/</link>
+      <pubDate>Tue, 08 Feb 2022 15:09:40 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-counselling-for-toads/</guid>
+      <description>&lt;p&gt;对于“心理咨询”，现在我觉得是被污名化了，人们也有些误解&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>感悟？=&gt;原则？</title>
+      <link>https://unclehuzi.github.io/posts/life-thoughts/</link>
+      <pubDate>Sat, 29 Jan 2022 10:43:35 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-thoughts/</guid>
+      <description>&lt;p&gt;试图记录📝一些感悟，有些东西记着记着就成「原则」了吧&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>《腾讯传》</title>
+      <link>https://unclehuzi.github.io/posts/notes-bio-of-tencent/</link>
+      <pubDate>Sat, 22 Jan 2022 17:48:08 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-bio-of-tencent/</guid>
+      <description>&lt;p&gt;读后感？可还行？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【转载】不纠结过去的事，人生只能向前看</title>
+      <link>https://unclehuzi.github.io/posts/life-forward/</link>
+      <pubDate>Sat, 15 Jan 2022 13:10:48 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-forward/</guid>
+      <description>&lt;p&gt;巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python曲线拟合</title>
+      <link>https://unclehuzi.github.io/posts/da-curve-fitting-python/</link>
+      <pubDate>Thu, 13 Jan 2022 13:47:15 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-curve-fitting-python/</guid>
+      <description>&lt;p&gt;最近接触了曲线拟合（&lt;a href=&#34;https://en.wikipedia.org/wiki/Curve_fitting&#34;&gt;curve fitting&lt;/a&gt;），在此简单整理一波Python的实现方式&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>系统学习金融经济方面知识的书籍推荐</title>
+      <link>https://unclehuzi.github.io/posts/fem-resources/</link>
+      <pubDate>Sat, 08 Jan 2022 15:23:57 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/fem-resources/</guid>
+      <description>&lt;p&gt;经徐惟能教授许可，转载其知乎的回答&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>回顾2021，展望2022</title>
+      <link>https://unclehuzi.github.io/posts/life-new-year-2022/</link>
+      <pubDate>Sat, 01 Jan 2022 11:55:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-new-year-2022/</guid>
+      <description>&lt;p&gt;限制 &lt;code&gt;pday&lt;/code&gt; 分区时，开头要写 &lt;code&gt;2022&lt;/code&gt; 了&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hive和Spark的区别</title>
+      <link>https://unclehuzi.github.io/posts/da-hive-vs-spark/</link>
+      <pubDate>Mon, 27 Dec 2021 11:34:55 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-hive-vs-spark/</guid>
+      <description>&lt;p&gt;当下处理大规模数据集比较流行的两大产品：Hive和Spark。本文从历史等维度对两者进行比较&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>pandas.qcut及一个很奇怪的bug</title>
+      <link>https://unclehuzi.github.io/posts/da-pandas-qcut/</link>
+      <pubDate>Thu, 16 Dec 2021 10:28:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-pandas-qcut/</guid>
+      <description>&lt;p&gt;最近用 &lt;code&gt;pandas.qcut&lt;/code&gt; 分箱遇到了个很奇怪的bug，先Mark一波&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>X战警系列观影顺序</title>
+      <link>https://unclehuzi.github.io/posts/life-movie-x-men/</link>
+      <pubDate>Fri, 19 Nov 2021 22:01:27 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-movie-x-men/</guid>
+      <description>&lt;p&gt;最近在撸 X战警系列的电影，从故事的时间线维度出发，整理现有影片的观影顺序&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PySpark之应用层小白视角</title>
+      <link>https://unclehuzi.github.io/posts/da-pyspark-beginning/</link>
+      <pubDate>Wed, 10 Nov 2021 20:28:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-pyspark-beginning/</guid>
+      <description>&lt;p&gt;Hi &lt;code&gt;PySpark&lt;/code&gt;，初次见面，别来无恙&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>因果推断补给站</title>
+      <link>https://unclehuzi.github.io/posts/causal-resources/</link>
+      <pubDate>Sat, 09 Oct 2021 14:27:05 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/causal-resources/</guid>
+      <description>&lt;p&gt;汇总一些【因果推断】方面的学习资料&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>相关性能预测未来，但只有因果能决定未来</title>
+      <link>https://unclehuzi.github.io/posts/notes-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</link>
+      <pubDate>Tue, 05 Oct 2021 12:41:22 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%BB%93%E6%9E%9C%E7%9A%84%E7%BB%8F%E6%B5%8E%E5%AD%A6/</guid>
+      <description>&lt;p&gt;为什么要讲究因果？因为只有因果才能决定未来&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>索维尔：最常见的五大经济谬误</title>
+      <link>https://unclehuzi.github.io/posts/fem-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%94%E5%A4%A7%E7%BB%8F%E6%B5%8E%E8%B0%AC%E8%AF%AF/</link>
+      <pubDate>Thu, 30 Sep 2021 15:01:56 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/fem-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%94%E5%A4%A7%E7%BB%8F%E6%B5%8E%E8%B0%AC%E8%AF%AF/</guid>
+      <description>&lt;p&gt;一些观念被人们相信，是因为它们本身就是可被明证的事实；而另一些观念被人们相信，只是因为人们被这些观念反复的“洗脑”了而已。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>还款方式：等额本息-等额本金-等本等息</title>
+      <link>https://unclehuzi.github.io/posts/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Mon, 13 Sep 2021 10:58:34 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/fem-%E8%BF%98%E6%AC%BE%E6%96%B9%E5%BC%8F/</guid>
+      <description>&lt;p&gt;常见的还款方式：等额本息、等额本金、等本等息&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记毕业后第一次与导师的晚餐</title>
+      <link>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
+      <pubDate>Tue, 07 Sep 2021 09:48:49 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
+      <description>&lt;p&gt;在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如果真的什么都不用想</title>
+      <link>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</link>
+      <pubDate>Sun, 05 Sep 2021 16:44:01 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</guid>
+      <description>&lt;p&gt;不知不觉，离开学校已经有1年2个月了。。。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>可视化决策树结果</title>
+      <link>https://unclehuzi.github.io/posts/ml-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%86%B3%E7%AD%96%E6%A0%91/</link>
+      <pubDate>Thu, 19 Aug 2021 15:13:52 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/ml-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%86%B3%E7%AD%96%E6%A0%91/</guid>
+      <description>&lt;p&gt;RT，可视化决策树结果，直观感受决策流程&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spark、Hive QL-通过正则表达式选取需要的列</title>
+      <link>https://unclehuzi.github.io/posts/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</link>
+      <pubDate>Mon, 16 Aug 2021 14:22:39 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/sql-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%80%89%E6%8B%A9%E5%88%97%E5%90%8D/</guid>
+      <description>&lt;p&gt;【Mark】通过正则表达式选择相应的列&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spark SQL-Pivot</title>
+      <link>https://unclehuzi.github.io/posts/sql-pivot/</link>
+      <pubDate>Mon, 09 Aug 2021 11:19:04 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/sql-pivot/</guid>
+      <description>&lt;p&gt;类似Excel的数据透视表，分类聚合。也可以协助实现行转列，Pivoting “Wide” to “Long” Format&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hive SQL-条件函数汇总</title>
+      <link>https://unclehuzi.github.io/posts/hql-conditional-functions/</link>
+      <pubDate>Sat, 31 Jul 2021 20:20:17 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-conditional-functions/</guid>
+      <description>&lt;p&gt;已经2021年了，SQL条件函数已不局限于&lt;code&gt;case when&lt;/code&gt; 了，针对常见场景已新增许多 &lt;em&gt;&lt;strong&gt;conditional functions&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>远程管理hugo源文件以自动更新blog</title>
+      <link>https://unclehuzi.github.io/posts/20210714-workflows/</link>
+      <pubDate>Wed, 14 Jul 2021 17:50:20 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210714-workflows/</guid>
+      <description>&lt;p&gt;将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SQL计算多个变量的IV</title>
+      <link>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</link>
+      <pubDate>Thu, 08 Jul 2021 14:11:40 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210708-sql%E8%AE%A1%E7%AE%97iv/</guid>
+      <description>&lt;p&gt;RT，SQL计算多个变量的&lt;em&gt;&lt;strong&gt;IV&lt;/strong&gt;&lt;/em&gt;（Information Value）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SQL计算多个模型分的PSI</title>
+      <link>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</link>
+      <pubDate>Fri, 18 Jun 2021 11:15:35 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210619-sql%E8%AE%A1%E7%AE%97psi/</guid>
+      <description>&lt;p&gt;RT，SQL批量计算各个模型分的&lt;em&gt;&lt;strong&gt;PSI&lt;/strong&gt;&lt;/em&gt;，更方便的搭建模型分稳定性的监控，满足模型应用的充分条件 — 样本分布一致性&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>行转列、列转行</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</link>
+      <pubDate>Tue, 15 Jun 2021 17:10:31 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E8%A1%8C%E5%88%97%E8%BD%AC%E5%8C%96/</guid>
+      <description>&lt;p&gt;SQL, Python 中解决行转列、列转行的问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>pyecharts-关系图</title>
+      <link>https://unclehuzi.github.io/posts/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</link>
+      <pubDate>Mon, 07 Jun 2021 16:48:11 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210607-%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%85%B3%E7%B3%BB%E5%9B%BE/</guid>
+      <description>&lt;p&gt;以官方例子：&lt;a href=&#34;https://gallery.pyecharts.org/#/Graph/graph_weibo&#34;&gt;微博转发关系图&lt;/a&gt;为例，说明所需要的数据格式&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GitHub&#43;Hugo快速搭建个人博客</title>
+      <link>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 28 May 2021 11:34:55 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;p&gt;详述Hugo+Github搭建个人博客&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spark, Hive QL-日期函数汇总</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Thu, 20 May 2021 11:34:55 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;p&gt;分场景汇总日期函数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>窗口函数-Positional Functions</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</link>
+      <pubDate>Mon, 10 May 2021 10:58:09 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-positionalfunctions/</guid>
+      <description>&lt;p&gt;以 “计算当前和上一次事件的时间间隔” 引入 positional function&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>窗口函数的“窗口”</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</link>
+      <pubDate>Fri, 30 Apr 2021 11:53:32 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E7%AA%97%E5%8F%A3/</guid>
+      <description>&lt;p&gt;详述“窗口”的概念，结合初中数学中区间的概念来理解&lt;code&gt;&amp;lt;window_frame&amp;gt;&lt;/code&gt;，并以计算累计占比为例深化理解。此外，也分享了他人整理的窗口函数汇总表&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>窗口函数-聚合</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</link>
+      <pubDate>Mon, 19 Apr 2021 10:57:36 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88/</guid>
+      <description>&lt;p&gt;“抛” &lt;strong&gt;计算组内占比&lt;/strong&gt; “引” 聚合窗口函数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>窗口函数-排序</title>
+      <link>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Fri, 09 Apr 2021 10:57:28 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/hql-%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0-%E6%8E%92%E5%BA%8F/</guid>
+      <description>&lt;p&gt;整理排序场景常用函数，&lt;code&gt;row_number() over()&lt;/code&gt;, &lt;code&gt;rank() over()&lt;/code&gt;, &lt;code&gt;dense_rank() over()&lt;/code&gt;, &lt;code&gt;ntile(n) over()&lt;/code&gt;，并以连续登录问题为例深化理解&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】-调节效应分析</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</link>
+      <pubDate>Thu, 25 Mar 2021 18:36:30 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;调节效应分析（ &lt;strong&gt;Moderation Analysis&lt;/strong&gt; ），回答 &lt;strong&gt;WHEN&lt;/strong&gt; 的问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>客群划分思路大集合</title>
+      <link>https://unclehuzi.github.io/posts/da-segmentation/</link>
+      <pubDate>Wed, 02 Sep 2020 14:36:49 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-segmentation/</guid>
+      <description>&lt;p&gt;过去的一段时间里一直在琢磨&lt;strong&gt;客群划分&lt;/strong&gt;的问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】零膨胀计数模型</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Wed, 06 May 2020 14:50:46 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E9%9B%B6%E8%86%A8%E8%83%80%E8%AE%A1%E6%95%B0%E6%A8%A1%E5%9E%8B/</guid>
+      <description>&lt;p&gt;基于&lt;code&gt;R&lt;/code&gt;，总结零膨胀计数模型的应用流程&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】文本情感分析</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 29 Apr 2020 14:27:10 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;这篇是文本情感分析的应用篇&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】毕业论文模板</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</link>
+      <pubDate>Tue, 21 Apr 2020 15:26:20 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88/</guid>
+      <description>&lt;p&gt;毕业论文模板，&lt;strong&gt;样式先行&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】苏宁易购评论爬虫</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%8B%8F%E5%AE%81%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 05 Apr 2020 11:44:44 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E8%8B%8F%E5%AE%81%E8%AF%84%E8%AE%BA%E6%95%B0%E6%8D%AE/</guid>
+      <description>&lt;p&gt;关于爬虫的文章，之前写过两篇：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】Bootstrapping</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-bootstrapping/</link>
+      <pubDate>Mon, 30 Mar 2020 15:42:34 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-bootstrapping/</guid>
+      <description>&lt;p&gt;Bootstrapping基本思想&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>【论文专题】中介效应分析</title>
+      <link>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 24 Mar 2020 19:14:51 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/%E8%AE%BA%E6%96%87%E4%B8%93%E9%A2%98-%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;在营销、管理领域，发现 $X$ 会影响 $Y$ 后，还会进一步的琢磨是如何影响，回答一个关于 &lt;em&gt;&lt;strong&gt;HOW&lt;/strong&gt;&lt;/em&gt; 的问题。&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

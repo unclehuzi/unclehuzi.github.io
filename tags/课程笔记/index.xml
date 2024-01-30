@@ -1,68 +1,82 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>课程笔记 - Tag - 胡子叔叔的小站</title>
-        <link>https://unclehuzi.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
-        <description>课程笔记 - Tag - 胡子叔叔的小站</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
-    <title>coursera课程-Review of distributions</title>
-    <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
-    <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
-    <description><![CDATA[coursera上贝叶斯统计专项课程]]></description>
-</item>
-<item>
-    <title>coursera课程-Probability and Bayes’ Theorem</title>
-    <link>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</link>
-    <pubDate>Thu, 10 Aug 2023 19:53:16 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</guid>
-    <description><![CDATA[<p>coursera课程-简单回顾Probability and Bayes’ Theorem</p>]]></description>
-</item>
-<item>
-    <title>Ch14-竞争市场上的企业</title>
-    <link>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</link>
-    <pubDate>Sat, 03 Sep 2022 21:33:46 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/notes-principles-of-economics-ch14-firms_in_competitive_market/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Firms in Competitive Market”</p>]]></description>
-</item>
-<item>
-    <title>Ch13-生产成本</title>
-    <link>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</link>
-    <pubDate>Sat, 28 May 2022 20:12:54 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/05/notes-principles-of-economics-ch13-the_costs_of_production/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“The Costs of Production”</p>]]></description>
-</item>
-<item>
-    <title>Ch9-国际贸易</title>
-    <link>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch9-international_trade/</link>
-    <pubDate>Sat, 30 Apr 2022 23:30:43 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch9-international_trade/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“International Trade”</p>]]></description>
-</item>
-<item>
-    <title>Ch8-赋税的代价</title>
-    <link>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch8-the_costs_of_taxation/</link>
-    <pubDate>Sun, 10 Apr 2022 17:26:25 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/notes-principles-of-economics-ch8-the_costs_of_taxation/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“The Costs of Taxation”</p>]]></description>
-</item>
-<item>
-    <title>Ch7-市场效率</title>
-    <link>https://unclehuzi.github.io/2022/03/notes-principles-of-economics-ch7-efficiency_of_markets/</link>
-    <pubDate>Tue, 01 Mar 2022 11:55:05 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/03/notes-principles-of-economics-ch7-efficiency_of_markets/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Efficiency of Markets”</p>]]></description>
-</item>
-<item>
-    <title>Ch6-供给、需求与政府政策</title>
-    <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
-    <pubDate>Sun, 27 Feb 2022 11:32:36 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Supply, Demand and Government Policies”</p>]]></description>
-</item>
-<item>
-    <title>Ch5-弹性及其应用</title>
-    <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</link>
-    <pubDate>Wed, 23 Feb 2022 15:18:56 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch5-elasticity_and_its_application/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Elasticity and its Application”</p>]]></description>
-</item>
-<item>
-    <title>Ch4-供给和需求</title>
-    <link>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch4-supply_and_demand/</link>
-    <pubDate>Tue, 15 Feb 2022 16:55:34 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/02/notes-principles-of-economics-ch4-supply_and_demand/</guid>
-    <description><![CDATA[<p><a href="http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116" target="_blank" rel="noopener noreffer">台大经济学原理</a> 课程笔记之“Supply and Demand”</p>]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>课程笔记 on H.W.</title>
+    <link>https://unclehuzi.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 课程笔记 on H.W.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Sep 2023 17:16:55 +0800</lastBuildDate>
+    <atom:link href="https://unclehuzi.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>coursera课程-Review of distributions</title>
+      <link>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
+      <pubDate>Sun, 03 Sep 2023 17:16:55 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
+      <description>coursera上贝叶斯统计专项课程</description>
+    </item>
+    <item>
+      <title>coursera课程-Probability and Bayes’ Theorem</title>
+      <link>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</link>
+      <pubDate>Thu, 10 Aug 2023 19:53:16 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/da-bayesian_statistics-coursera-from_concept_to_data_analysis/</guid>
+      <description>coursera上贝叶斯统计专项课程</description>
+    </item>
+    <item>
+      <title>Ch14-竞争市场上的企业</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch14-firms_in_competitive_market/</link>
+      <pubDate>Sat, 03 Sep 2022 21:33:46 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch14-firms_in_competitive_market/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Firms in Competitive Market”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch13-生产成本</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch13-the_costs_of_production/</link>
+      <pubDate>Sat, 28 May 2022 20:12:54 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch13-the_costs_of_production/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“The Costs of Production”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch9-国际贸易</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch9-international_trade/</link>
+      <pubDate>Sat, 30 Apr 2022 23:30:43 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch9-international_trade/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“International Trade”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch8-赋税的代价</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch8-the_costs_of_taxation/</link>
+      <pubDate>Sun, 10 Apr 2022 17:26:25 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch8-the_costs_of_taxation/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“The Costs of Taxation”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch7-市场效率</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch7-efficiency_of_markets/</link>
+      <pubDate>Tue, 01 Mar 2022 11:55:05 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch7-efficiency_of_markets/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Efficiency of Markets”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch6-供给、需求与政府政策</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</link>
+      <pubDate>Sun, 27 Feb 2022 11:32:36 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch6-supply_demand_and_government_policies/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Supply, Demand and Government Policies”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch5-弹性及其应用</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch5-elasticity_and_its_application/</link>
+      <pubDate>Wed, 23 Feb 2022 15:18:56 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch5-elasticity_and_its_application/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Elasticity and its Application”&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ch4-供给和需求</title>
+      <link>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch4-supply_and_demand/</link>
+      <pubDate>Tue, 15 Feb 2022 16:55:34 +0800</pubDate>
+      <guid>https://unclehuzi.github.io/posts/notes-principles-of-economics-ch4-supply_and_demand/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://ocw.aca.ntu.edu.tw/ntu-ocw/ocw/cou/102S116&#34;&gt;台大经济学原理&lt;/a&gt; 课程笔记之“Supply and Demand”&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>
