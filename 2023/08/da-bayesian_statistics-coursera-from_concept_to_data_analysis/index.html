@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>coursera课程-Probability and Bayes’ Theorem - 胡子叔叔的小站</title><meta name="description" content="coursera上贝叶斯统计专项课程"><meta property="og:title" content="coursera课程-Probability and Bayes’ Theorem" />
+<meta property="og:description" content="coursera上贝叶斯统计专项课程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-10T19:53:16+08:00" />
+<meta property="article:modified_time" content="2024-07-01T10:38:49+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://unclehuzi.github.io/"/>
+
+<meta name="twitter:title" content="coursera课程-Probability and Bayes’ Theorem"/>
+<meta name="twitter:description" content="coursera上贝叶斯统计专项课程"/>
+<meta name="application-name" content="胡子叔叔的小站">
+<meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" /><link rel="prev" href="https://unclehuzi.github.io/2023/07/da-my_features_market/" /><link rel="next" href="https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "coursera课程-Probability and Bayes’ Theorem",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/unclehuzi.github.io\/2023\/08\/da-bayesian_statistics-coursera-from_concept_to_data_analysis\/"
+        },"image": ["https:\/\/unclehuzi.github.io\/images\/Apple-Devices-Preview.webp"],"genre": "posts","keywords": "课程笔记, 贝叶斯, 统计学","wordcount":  659 ,
+        "url": "https:\/\/unclehuzi.github.io\/2023\/08\/da-bayesian_statistics-coursera-from_concept_to_data_analysis\/","datePublished": "2023-08-10T19:53:16+08:00","dateModified": "2024-07-01T10:38:49+08:00","publisher": {
+            "@type": "Organization",
+            "name": "胡子叔叔"},"author": {
+                "@type": "Person",
+                "name": "胡子叔叔"
+            },"description": "coursera上贝叶斯统计专项课程"
+    }
+    </script></head><body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        data-srcset="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 1.5x, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        title="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png" />胡子叔叔的小站</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fa-solid fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fa-solid fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a class="menu-item" href="/index.xml" title="RSS"><i class="fa-solid fa-rss fa-fw" title="RSS"></i> </a><a href="#" onclick="return false;" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fa-solid fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        data-srcset="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 1.5x, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        title="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png" />胡子叔叔的小站</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fa-solid fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fa-solid fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><div class="menu-item"><a href="/index.xml" title="RSS"><i class="fa-solid fa-rss fa-fw" title="RSS"></i> </a>
+                <span>&nbsp;|&nbsp;</span><a href="#" onclick="return false;" class="theme-switch" title="Switch Theme">
+                    <i class="fa-solid fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="enable"><div class="single-card" ><h2 class="single-title animated flipInX">coursera课程-Probability and Bayes’ Theorem</h2><h2 class="single-subtitle">Bayesian Statistics: From Concept to Data Analysis</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fa-solid fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><i class="fa-regular fa-folder fa-fw"></i>数据分析</a>&nbsp;<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><i class="fa-regular fa-folder fa-fw"></i>读书笔记</a></span></div>
+                <div class="post-meta-line"><span><i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-10">2023-08-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;659 words</span>&nbsp;
+                    <span><i class="fa-regular fa-clock fa-fw"></i>&nbsp;4 minutes</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>Contents</span>
+                        <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#module-overview">Module overview</a></li>
+    <li><a href="#probability">Probability</a>
+      <ul>
+        <li><a href="#background-for-lesson-1">Background for Lesson 1</a></li>
+        <li><a href="#classical-frequentist-and-bayesian-probability"><strong>Classical, frequentist and bayesian probability</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#bayes-theorem">Bayes’ theorem</a>
+      <ul>
+        <li><a href="#conditional-probability"><strong>Conditional probability</strong></a></li>
+        <li><a href="#bayes-theorem-1"><strong>Bayes&rsquo; theorem</strong></a></li>
+        <li><a href="#supplementary-material-for-lesson-2"><strong>Supplementary material for Lesson 2</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><p>coursera课程-简单回顾Probability and Bayes’ Theorem</p>
+<h2 id="module-overview">Module overview</h2>
+<p><a href="https://d3c33hcgiwev3.cloudfront.net/CE-7SC5rEeayHwq9iLdlAw.processed/full/720p/index.mp4?Expires=1690502400&amp;Signature=Bk1Qel4SY~MS5TN3fDOtD0JtZfs0T1itCrm4OGXHCKcfowhAZKg8TRGt8CZjZLSSfUn69bJU473N8NDhJt4THk5xg06KnOP~8AJio6GuKXR-SiqUJgxQM24xxmMLwWF80tJDrnqSyqlaHSRJRG6WOKRQWLHXFOwzbUNmeSAqPSM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank" rel="noopener noreffer">https://d3c33hcgiwev3.cloudfront.net/CE-7SC5rEeayHwq9iLdlAw.processed/full/720p/index.mp4?Expires=1690502400&amp;Signature=Bk1Qel4SY~MS5TN3fDOtD0JtZfs0T1itCrm4OGXHCKcfowhAZKg8TRGt8CZjZLSSfUn69bJU473N8NDhJt4THk5xg06KnOP~8AJio6GuKXR-SiqUJgxQM24xxmMLwWF80tJDrnqSyqlaHSRJRG6WOKRQWLHXFOwzbUNmeSAqPSM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A</a></p>
+<p>There are two main philosophies of probability and statistics, <em><strong>Bayesian</strong></em> and <em><strong>Frequentist</strong></em>.</p>
+<p><a href="https://www.notion.so/Probability-7f69aa1d4d9a4ea09d829ab6a57070ab?pvs=21" target="_blank" rel="noopener noreffer">Probability</a> 模块儿会快速回顾些 frequent distant inference</p>
+<p>视频内容方面比较少，更多是在exercises，labeled as quizzes</p>
+<h2 id="probability">Probability</h2>
+<h3 id="background-for-lesson-1">Background for Lesson 1</h3>
+<p><a href="https://d3c33hcgiwev3.cloudfront.net/_2ffa04a4be97e282ca9e65d96897a77c_L1_background.pdf?Expires=1690502400&amp;Signature=Hn2xEnhq7C9UuERyL6S~XR0GNxNuupCf9ryTJHFVF92tpesy502YndG2csd5ae0kVQEXDveKgs-fUBb9VJss6gJrc8hdZTYlDNEX4~047I3mqHYbw40UqMNsDPWSmR~rcb7ZhgAU9qfVsPbzmIAxNkmJO6Umik86H4oo5zawwvI_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank" rel="noopener noreffer">https://d3c33hcgiwev3.cloudfront.net/<em>2ffa04a4be97e282ca9e65d96897a77c_L1_background.pdf?Expires=1690502400&amp;Signature=Hn2xEnhq7C9UuERyL6S~XR0GNxNuupCf9ryTJHFVF92tpesy502YndG2csd5ae0kVQEXDveKgs-fUBb9VJss6gJrc8hdZTYlDNEX4~047I3mqHYbw40UqMNsDPWSmR~rcb7ZhgAU9qfVsPbzmIAxNkmJO6Umik86H4oo5zawwvI</em>&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A</a></p>
+<p><strong>Rules of Probability</strong></p>
+<ol>
+<li>Probabilities must be between zero and one, i.e., 0 ≤ P(A) ≤ 1 for any event A.</li>
+<li>Probabilities add to one, i.e., if we add up the probabilities of all possible events, those
+probabilities must add to one.</li>
+<li>The complement of an event, $A^ \complement$, means that the event does not happen. Since probabilities
+must add to one, $P(A^\complement)=1-P(A)$   （之前见的是 $\overline{A}$）</li>
+<li>$P(A \cup B)=P(A)+P(B)-P(A \cap B)$. where $\cup$ represents union (“or”) and $\cap$ represents intersection (“and”)</li>
+</ol>
+<p><strong>Odds</strong></p>
+<p>The odds for event A, denoted $\mathcal{O}(A)$ is defined as $\mathcal{O}(A)=\frac{P(A)}{P(A^ \complement)}=\frac{P(A)}{1-P(A)}$</p>
+<p><strong>Expectation</strong></p>
+<p>The expected value of a random variable $X$ is a weighted average of values $X$ can take, with
+weights given by the probabilities of those values.</p>
+<p>$$
+E(X)=\sum_{i=1}^{n} x_i \cdot P(X=x_i)
+$$</p>
+<p>For example, the expected value of a fair six-sided die would be</p>
+<p>$$
+E(X)=\sum_{i=1}^{n} x_i \cdot P(X=x_i)=\sum_{i=1}^{n} i \cdot \frac{1}{6}=3.5
+$$</p>
+<p>Note that the die cannot achieve this value, but if you were to <strong>roll the die many times and
+average the values</strong>, the result would likely be close to $3.5$.</p>
+<h3 id="classical-frequentist-and-bayesian-probability"><strong>Classical, frequentist and bayesian probability</strong></h3>
+<p>There are three different frameworks under which we can define probabilities.</p>
+<ul>
+<li>
+<p>Classical framework</p>
+<p>outcomes that are equally likely have <strong>equal</strong> probabilities.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="Probability%20and%20Bayes%E2%80%99%20Theorem%209c5c1098e5f84d6b8f23b5d45c2023ec/Untitled.png"
+        data-srcset="/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/Probability%20and%20Bayes%E2%80%99%20Theorem%209c5c1098e5f84d6b8f23b5d45c2023ec/Untitled.png, Probability%20and%20Bayes%E2%80%99%20Theorem%209c5c1098e5f84d6b8f23b5d45c2023ec/Untitled.png 1.5x, /2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/Probability%20and%20Bayes%E2%80%99%20Theorem%209c5c1098e5f84d6b8f23b5d45c2023ec/Untitled.png 2x"
+        data-sizes="auto"
+        alt="/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/Probability%20and%20Bayes%E2%80%99%20Theorem%209c5c1098e5f84d6b8f23b5d45c2023ec/Untitled.png"
+        title="Untitled" /></p>
+</li>
+<li>
+<p>Frequentist framework</p>
+<p>Frequentist definition, requires us to have a hypothetical infinite sequence of events, and then we look at the relevant <strong>frequency</strong>, in that hypothetical infinite sequence.</p>
+</li>
+<li>
+<p>Bayesian framework</p>
+<p>偏主观。尽管如此，大多数情况下结果也优于“频率学派”</p>
+<p>Bayesian perspective is one of <strong>personal perspective</strong>. Your probability represents your own perspective, it&rsquo;s your measure of uncertainty, and it takes into account what you know about a particular problem.</p>
+<p>So inherently a <strong>subjective approach</strong> to probability, but it can work well in a mathematically rigorous foundation, and it leads to much more intuitive results in many cases than the Frequentist approach.</p>
+<p><strong>Suppose you&rsquo;d be willing to take the bet</strong> that if it rains tomorrow, you win \$4. If it doesn&rsquo;t rain tomorrow, you lose \$1, or whatever your local currency is. 若认为公平，换个说法理应也会参加：if it rains, you lose $4. And if no rain, you win a \$1.（插播：行为经济学告诉你，大多数人面对这俩说法的态度是不一样的，不一定就会选择后者，因为后者放大了损失。尽管数学上这俩收益的期望=0）</p>
+</li>
+</ul>
+<h2 id="bayes-theorem">Bayes’ theorem</h2>
+<p><strong>Bayes&rsquo; theorem</strong> is the theoretical underpinning of most of what we do within the Bayesian statistical framework.</p>
+<h3 id="conditional-probability"><strong>Conditional probability</strong></h3>
+<p>Conditional probability is when we&rsquo;re trying to consider two events that are related to each other.</p>
+<p>$$
+P(A \mid B)=\frac{P(A \cap B)}{P(B)}
+$$</p>
+<p>🌰 一个例子：30个学生，9个女生；12个学计算机，学计算机中4个女生。</p>
+<p>$$
+\begin{align*}
+&amp; P(Female)=\frac{9}{30}=\frac{3}{10} \newline
+&amp; P(CS)=\frac{12}{30}=\frac{2}{5} \newline
+&amp; P(Female \cap CS)=\frac{4}{30}=\frac{2}{15} \newline
+&amp; P(Female \mid CS)=\frac{4}{12}=\frac{1}{3} \newline
+\end{align*}
+$$</p>
+<p>⇒</p>
+<p>$$
+\begin{align*}
+P(CS \mid Female) &amp;= \frac{P(CS \cap Female)}{P(Female)}  \newline
+&amp; = \frac{\frac{2}{15}}{\frac{3}{10}}=\frac{4}{9} \newline
+P(Female \mid CS^{\complement}) &amp;= \frac{P(Female \cap CS^{\complement})}{P(CS^{\complement})} \newline
+&amp;= \frac{\frac{5}{30}}{\frac{18}{30}}=\frac{5}{18}
+\end{align*}
+$$</p>
+<p>There&rsquo;s a concept of <strong>independence</strong>, which is when one event doesn&rsquo;t depend on the other. When two events are independent, we have that the probability of A given B is equal to just the probability of A, it doesn&rsquo;t matter whether, or not B occurred. When this is true, we also get that the probability of A and B happening is just the probability of A times the probability of B.</p>
+<p>事件A、B独立，⇒ $P(A \mid B)=P(A)$； $P(A\cap B)=P(A) \times P(B)$</p>
+<h3 id="bayes-theorem-1"><strong>Bayes&rsquo; theorem</strong></h3>
+<p>$$
+P(A \mid B)=\frac{P(A \cap B)}{P(B)}=\frac{P(B \mid A)\times P(A)}{P(B \mid A)\times P(A)+P(B \mid A^{\complement})\times P(A^{\complement})}
+$$</p>
+<p>🌰 一个例子：test for HIV antibodies known as the ELISA test</p>
+<p>已知，$P(+ \mid HIV)=0.977,P(- \mid no HIV)=0.926,P(HIV)=0.0026$</p>
+<p>⇒</p>
+<p>$$
+\begin{align*}</p>
+<p>P(HIV \mid +) &amp;= \frac{P(HIV \cap +)}{P(+)}  \newline
+&amp;=\frac{P(+ \mid HIV)\times P(HIV)}{P(+ \mid HIV)\times P(HIV)+P(+ \mid noHIV)\times P(noHIV)} \newline
+&amp;= 0.033</p>
+<p>\end{align*}
+$$</p>
+<blockquote>
+<p>Bayes&rsquo; Theorem is an important part of our approach to Bayesian statistics. We can use it to <strong>update our information</strong>. We start with prior beliefs, we&rsquo;ll collect data, we&rsquo;ll then condition on the data to lead to our posterior beliefs. Bayes&rsquo; Theorem is the coherent way to do this updating.</p>
+</blockquote>
+<h3 id="supplementary-material-for-lesson-2"><strong>Supplementary material for Lesson 2</strong></h3>
+<p><a href="https://d3c33hcgiwev3.cloudfront.net/J9_9-JhwEeiAaxI_EQt0HA_2844d980987011e8a5a229e907589355_L2_supp-v2.pdf?Expires=1690761600&amp;Signature=Etha8OmIFpPupX~gFpyvTVPM8PvzfuS5x6roInaqU4-15-Qgeq7nXFw3ifQuDCbCeHmB6YeX4-mDx0oiG8k1ZGmPAG0ZwghFpWuhy0NvVbTQRAGAbft0LoMurbdJL5HnRIstl3tRFWN8IPFq-zhZJj8cHXy7ONQv868oxALqtwM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A" target="_blank" rel="noopener noreffer">https://d3c33hcgiwev3.cloudfront.net/J9_9-JhwEeiAaxI_EQt0HA_2844d980987011e8a5a229e907589355_L2_supp-v2.pdf?Expires=1690761600&amp;Signature=Etha8OmIFpPupX~gFpyvTVPM8PvzfuS5x6roInaqU4-15-Qgeq7nXFw3ifQuDCbCeHmB6YeX4-mDx0oiG8k1ZGmPAG0ZwghFpWuhy0NvVbTQRAGAbft0LoMurbdJL5HnRIstl3tRFWN8IPFq-zhZJj8cHXy7ONQv868oxALqtwM_&amp;Key-Pair-Id=APKAJLTNE6QMUY6HBC5A</a></p>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a>
+                </span><span><a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">贝叶斯</a>
+                </span><span><a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>Updated on 2024-07-01&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/085af50bf77b0f38ae5fdf8d2c4533c4ad9c670e" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;085af50:&nbsp;recall feelIt">
+                            <i class="fa-solid fa-hashtag fa-fw"></i>085af50</a></span>
+            </div><div class="post-info-mod"><span>
+                            <a class="link-to-markdown" href="/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+        </div><div class="post-info-share">
+            <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" data-title="coursera课程-Probability and Bayes’ Theorem" data-hashtags="课程笔记,贝叶斯,统计学"><i class="fa-brands fa-square-x-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" data-hashtag="课程笔记"><i class="fa-brands fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/"><i class="fa-brands fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/"><i class="fa-brands fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" data-title="coursera课程-Probability and Bayes’ Theorem"><i class="fa-brands fa-weibo fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2023/08/da-bayesian_statistics-coursera-from_concept_to_data_analysis/" data-title="coursera课程-Probability and Bayes’ Theorem" data-description="coursera上贝叶斯统计专项课程"><i class="fa-brands fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2023/07/da-my_features_market/" class="prev" rel="prev" title="信贷风险特征维护框架"><i class="fa-solid fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/" class="next" rel="next" title="coursera课程-Review of distributions">Next Post<i class="fa-solid fa-angle-right fa-fw"></i></a></div></div>
+</div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> • <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人</span></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.4">Hugo</a> | Theme - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.2"><i class="fa-solid fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.linkedin.com/in/unclehuzi/">胡子叔叔</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('/sw.min.js?version=1.0.1', { scope: '/' })
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Registered');
+        }, err => console.error('胡子叔叔的小站\u00A0Service Worker registration failed: ', err));
+
+    navigator.serviceWorker
+        .ready
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Ready');
+        });
+}
+</script>
+</footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fa-solid fa-chevron-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fa-solid fa-comment-alt fa-fw"></i>
+            </a></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/twemoji@13.1.0/dist/twemoji.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/js/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":66},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body></html>

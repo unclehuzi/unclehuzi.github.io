@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>远程管理hugo源文件以自动更新blog - 胡子叔叔的小站</title><meta name="description" content="个人学习记录"><meta property="og:title" content="远程管理hugo源文件以自动更新blog" />
+<meta property="og:description" content="将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://unclehuzi.github.io/2021/07/20210714-workflows/" /><meta property="og:image" content="https://unclehuzi.github.io/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-14T17:50:20+08:00" />
+<meta property="article:modified_time" content="2024-07-01T10:38:49+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://unclehuzi.github.io/"/>
+
+<meta name="twitter:title" content="远程管理hugo源文件以自动更新blog"/>
+<meta name="twitter:description" content="将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～"/>
+<meta name="application-name" content="胡子叔叔的小站">
+<meta name="apple-mobile-web-app-title" content="胡子叔叔的小站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://unclehuzi.github.io/2021/07/20210714-workflows/" /><link rel="prev" href="https://unclehuzi.github.io/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/" /><link rel="next" href="https://unclehuzi.github.io/2021/07/hql-conditional-functions/" /><link rel="stylesheet" href="/css/page.min.css"><link rel="stylesheet" href="/css/home.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "远程管理hugo源文件以自动更新blog",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/unclehuzi.github.io\/2021\/07\/20210714-workflows\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/unclehuzi.github.io\/2021\/07\/20210714-workflows\/featured-image.jpg",
+                            "width":  1000 ,
+                            "height":  420 
+                        }],"genre": "posts","keywords": "blog","wordcount":  252 ,
+        "url": "https:\/\/unclehuzi.github.io\/2021\/07\/20210714-workflows\/","datePublished": "2021-07-14T17:50:20+08:00","dateModified": "2024-07-01T10:38:49+08:00","publisher": {
+            "@type": "Organization",
+            "name": "胡子叔叔"},"author": {
+                "@type": "Person",
+                "name": "胡子叔叔"
+            },"description": ""
+    }
+    </script></head><body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        data-srcset="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 1.5x, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        title="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png" />胡子叔叔的小站</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fa-solid fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fa-solid fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a class="menu-item" href="/index.xml" title="RSS"><i class="fa-solid fa-rss fa-fw" title="RSS"></i> </a><a href="#" onclick="return false;" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fa-solid fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="胡子叔叔的小站"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        data-srcset="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 1.5x, https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png 2x"
+        data-sizes="auto"
+        alt="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png"
+        title="https://s2.loli.net/2022/05/28/gVFfRHDzYneST3J.png" />胡子叔叔的小站</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fa-solid fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fa-solid fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/unclehuzi/unclehuzi.github.io" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><div class="menu-item"><a href="/index.xml" title="RSS"><i class="fa-solid fa-rss fa-fw" title="RSS"></i> </a>
+                <span>&nbsp;|&nbsp;</span><a href="#" onclick="return false;" class="theme-switch" title="Switch Theme">
+                    <i class="fa-solid fa-adjust fa-fw"></i>
+                </a>
+            </div></div>
+    </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single" data-toc="enable"><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2021/07/20210714-workflows/featured-image.jpg"
+        data-srcset="/2021/07/20210714-workflows/featured-image.jpg, /2021/07/20210714-workflows/featured-image.jpg 1.5x, /2021/07/20210714-workflows/featured-image.jpg 2x"
+        data-sizes="auto"
+        alt="/2021/07/20210714-workflows/featured-image.jpg"
+        title="/2021/07/20210714-workflows/featured-image.jpg" /></div><div class="single-card" data-image="true"><h2 class="single-title animated flipInX">远程管理hugo源文件以自动更新blog</h2><h2 class="single-subtitle">基于Github-Actions-Workflows</h2><div class="post-meta">
+                <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/unclehuzi/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fa-solid fa-user-circle fa-fw"></i>胡子叔叔</a></span>&nbsp;<span class="post-category">published in <a href="/categories/%E5%86%99%E4%BD%9C/"><i class="fa-regular fa-folder fa-fw"></i>写作</a></span></div>
+                <div class="post-meta-line"><span><i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-14">2021-07-14</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;252 words</span>&nbsp;
+                    <span><i class="fa-regular fa-clock fa-fw"></i>&nbsp;2 minutes</span>&nbsp;</div>
+            </div>
+            
+            <hr><div class="details toc" id="toc-static"  data-kept="">
+                    <div class="details-summary toc-title">
+                        <span>Contents</span>
+                        <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-生成ssh-key-windows-环境">1. 生成SSH key （Windows 环境）</a></li>
+    <li><a href="#2-创建并配置仓库">2. 创建并配置仓库</a>
+      <ul>
+        <li><a href="#21-配置hugo源文件的仓库">2.1 配置hugo源文件的仓库</a></li>
+        <li><a href="#22-配置-unclehuzigithubio-仓库">2.2 配置 unclehuzi.github.io 仓库</a></li>
+        <li><a href="#23-配置工作流workflows">2.3 配置工作流（Workflows）</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-finished">3. Finished</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+                </div><div class="content" id="content"><p>将博客源文件托管在某个地方，换台电脑继续编辑。再加上触发机制更好，即一上传⏫就同步更新博客～</p>
+<p>在之前<a href="https://unclehuzi.github.io/2021/05/20210528-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="">快速搭建个人博客</a>的文章中有提到</p>
+<blockquote>
+<p>将 <code>public</code> 文件夹下的文件推送至GitHub仓库</p>
+</blockquote>
+<p>每次这么操作还是有点繁琐的，所以就想如果更新完hugo源文件，博客自动更新就好了。此外，换台电脑💻，依然正常操作就更更更好了～</p>
+<p>终于，是找到了GitHub的 <em><strong>Actions</strong></em> 中 <em><strong>Workflows</strong></em> 功能</p>
+<p>将Hugo源文件维护在GitHub上，只要源文件的仓库更新，自动更新存有 <code>public</code> 文件的仓库，那么博客也就随之更新了。</p>
+<p>在此记录下实现过程 👇</p>
+<h2 id="1-生成ssh-key-windows-环境">1. 生成SSH key （Windows 环境）</h2>
+<p>参考<a href="https://www.jianshu.com/p/95262f5eba7a" target="_blank" rel="noopener noreffer">这个</a></p>
+<ol>
+<li>通过git bash cd 至 <code>.ssh</code> 文件夹</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> ~/.ssh/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果提示 <code>No such file or directory</code>，可以手动的创建一个 <code>.ssh</code>文件夹，<em><strong>BY</strong></em>  <code>mkdir ~/.ssh</code></p>
+<ol start="2">
+<li>配置全局 name 和 email</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;你的用户名&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;你的公司或个人邮箱&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>生成 key</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -t rsa -C &#34;你的公司或个人邮箱&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>连续按 <strong>3</strong> 次回车</p>
+<p>最后得到俩文件： <code>id_rsa</code> 和 <code>id_rsa.pub</code></p>
+<h2 id="2-创建并配置仓库">2. 创建并配置仓库</h2>
+<p>参考<a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog" target="_blank" rel="noopener noreffer">这个</a></p>
+<h3 id="21-配置hugo源文件的仓库">2.1 配置hugo源文件的仓库</h3>
+<p><strong>仓库名称不限</strong>，在此以 <code>unclehuzi.github.io.source</code> 为例</p>
+<p>进入<code>unclehuzi.github.io.source</code>仓库，添加<code>Secrets</code>，名称为<code>ACTIONS_DEPLOY_KEY</code>，将 <code>id_rsa</code> 文件的内容粘过去，得到内容如下所示</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140032371.png"
+        title="Secrets" /></p>
+<p><strong>上传 hugo源文件</strong></p>
+<blockquote>
+<p>把 <code>themes</code> 主题文件夹中的 <code>.git</code> 文件删除</p>
+</blockquote>
+<p>不然<code>Github</code> 会检测到是别的仓库，上传后文件夹是灰色的</p>
+<h3 id="22-配置-unclehuzigithubio-仓库">2.2 配置 unclehuzi.github.io 仓库</h3>
+<p>仓库名称有讲究，得是这个 <code>github_user_name.github.io</code></p>
+<p>进入<code>unclehuzi.github.io</code> 仓库，添加<code>Deploy keys</code> ，名称不限制，将<code>id_rsa.pub</code>文件的内容粘过去。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140646451.png"
+        title="Deploy keys" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140754762.png"
+        title="result" /></p>
+<h3 id="23-配置工作流workflows">2.3 配置工作流（Workflows）</h3>
+<p>进入<code>unclehuzi.github.io.source</code>仓库，创建 <strong>Actions</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608140939363.png"
+        title="Actions" /></p>
+<p>代码如下 👇</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Hugo Site to Github Pages on Master Branch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">master </span><span class="w"> </span><span class="c"># Attention 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build-deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.83.1&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 使用扩展版</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># Attention 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w"> </span><span class="c">#--minify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">deploy_key</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w"> </span><span class="c"># 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">external_repository</span><span class="p">:</span><span class="w"> </span><span class="l">unclehuzi/unclehuzi.github.io</span><span class="w"> </span><span class="c"># Pages 远程仓库 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">keep_files</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># remove existing files</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l">master </span><span class="w"> </span><span class="c"># deploying branch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># Attention 3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">commit_message</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.head_commit.message }}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>Attention 1</p>
+<p><code>source</code> 仓库的分支名称为 <code>master</code></p>
+</li>
+<li>
+<p>Attention 2</p>
+<p><code>hugo</code> 的版本</p>
+</li>
+<li>
+<p>Attention 3</p>
+<p><code>unclehuzi.github.io</code> 仓库的分支名称</p>
+</li>
+</ul>
+<h2 id="3-finished">3. Finished</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png"
+        data-srcset="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png 1.5x, https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/unclehuzi/pic/master/img/image-20210608141817601.png"
+        title="result" /></p>
+<p>以后维护好<code>source</code>这个仓库就能实现</p>
+<ol>
+<li>触发机制以自动更新blog</li>
+<li>换个电脑 💻 继续写blog</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog" target="_blank" rel="noopener noreffer">https://jinnzy.github.io/shi-yong-hugolai-da-jian-ge-ren-blog/#%E5%88%A9%E7%94%A8github-pages%E9%83%A8%E7%BD%B2blog</a></li>
+<li><a href="https://www.jianshu.com/p/95262f5eba7a" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/95262f5eba7a</a></li>
+</ol>
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"></div><div class="post-footer" id="post-footer">
+    <div class="post-info"><div class="post-info-tag"><span><a href="/tags/blog/">blog</a>
+                </span></div><div class="post-info-line"><div class="post-info-mod">
+                <span>Updated on 2024-07-01&nbsp;<a class="git-hash" href="https://github.com/unclehuzi/unclehuzi.github.io/commit/085af50bf77b0f38ae5fdf8d2c4533c4ad9c670e" target="_blank" title="committed&nbsp;by&nbsp;unclehuzi(weihu0730@gmail.com)&nbsp;085af50:&nbsp;recall feelIt">
+                            <i class="fa-solid fa-hashtag fa-fw"></i>085af50</a></span>
+            </div><div class="post-info-mod"><span>
+                            <a class="link-to-markdown" href="/2021/07/20210714-workflows/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+        </div><div class="post-info-share">
+            <span><a href="#" onclick="return false;" title="Share on Twitter" data-sharer="twitter" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/" data-title="远程管理hugo源文件以自动更新blog" data-hashtags="blog"><i class="fa-brands fa-square-x-twitter fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Facebook" data-sharer="facebook" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/" data-hashtag="blog"><i class="fa-brands fa-facebook-square fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Linkedin" data-sharer="linkedin" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/"><i class="fa-brands fa-linkedin fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Reddit" data-sharer="reddit" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/"><i class="fa-brands fa-reddit fa-fw"></i></a><a href="#" onclick="return false;" title="Share on 微博" data-sharer="weibo" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/" data-title="远程管理hugo源文件以自动更新blog"><i class="fa-brands fa-weibo fa-fw"></i></a><a href="#" onclick="return false;" title="Share on Trello" data-sharer="trello" data-url="https://unclehuzi.github.io/2021/07/20210714-workflows/" data-title="远程管理hugo源文件以自动更新blog" data-description=""><i class="fa-brands fa-trello fa-fw"></i></a></span>
+        </div></div><div class="post-nav"><a href="/2021/07/20210708-sql%E8%AE%A1%E7%AE%97iv/" class="prev" rel="prev" title="SQL计算多个变量的IV"><i class="fa-solid fa-angle-left fa-fw"></i>Previous Post</a>
+            <a href="/2021/07/hql-conditional-functions/" class="next" rel="next" title="Hive SQL-条件函数汇总">Next Post<i class="fa-solid fa-angle-right fa-fw"></i></a></div></div>
+</div><div id="comments" class="single-card"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main>
+            <footer class="footer"><div class="footer-container"><div class="footer-line"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> • <span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人</span></div><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.112.4">Hugo</a> | Theme - <a href="https://github.com/khusika/FeelIt" target="_blank" rel="noopener noreffer" title="FeelIt 1.0.2"><i class="fa-solid fa-hand-holding-heart fa-fw"></i> FeelIt</a>
+        </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://www.linkedin.com/in/unclehuzi/">胡子叔叔</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+</div>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('/sw.min.js?version=1.0.1', { scope: '/' })
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Registered');
+        }, err => console.error('胡子叔叔的小站\u00A0Service Worker registration failed: ', err));
+
+    navigator.serviceWorker
+        .ready
+        .then(() => {
+            console.info('胡子叔叔的小站\u00A0Service Worker Ready');
+        });
+}
+</script>
+</footer>
+        </div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fa-solid fa-chevron-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fa-solid fa-comment-alt fa-fw"></i>
+            </a></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.css"><script src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.0/dist/autocomplete.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/twemoji@13.1.0/dist/twemoji.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.1-beta.0/dist/js/lightgallery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.3.0/dist/lg-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.1/sharer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/mhchem.min.js"></script><script>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":66},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"unclehuzi/unclehuzi.github.io"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"},"twemoji":true};</script><script src="/js/theme.min.js"></script></body></html>

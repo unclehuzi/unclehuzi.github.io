@@ -1,33 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>jupyter notebook on H.W.</title>
-    <link>https://unclehuzi.github.io/tags/jupyter-notebook/</link>
-    <description>Recent content in jupyter notebook on H.W.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 30 Sep 2023 18:56:15 +0800</lastBuildDate>
-    <atom:link href="https://unclehuzi.github.io/tags/jupyter-notebook/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>将google-colab的代码嵌入网站</title>
-      <link>https://unclehuzi.github.io/posts/blog-google_colab_embedded/</link>
-      <pubDate>Sat, 30 Sep 2023 18:56:15 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/blog-google_colab_embedded/</guid>
-      <description>&lt;p&gt;RT，在网站中显示notebook Python代码&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>服务器部署JupyterLab以供远程访问</title>
-      <link>https://unclehuzi.github.io/posts/jupyter_notebook_on_server/</link>
-      <pubDate>Sun, 18 Sep 2022 21:06:04 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/jupyter_notebook_on_server/</guid>
-      <description>&lt;p&gt;在服务器上部署JupyterLab供远程访问并Coding&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>最新版jupyter notebook导出为PDF</title>
-      <link>https://unclehuzi.github.io/posts/jupyter_notebook-convert_to_pdf/</link>
-      <pubDate>Sun, 07 Aug 2022 16:19:50 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/jupyter_notebook-convert_to_pdf/</guid>
-      <description>&lt;p&gt;RT，关于jupyter notebook导出为PDF的那些事儿&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>jupyter notebook - Tag - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/tags/jupyter-notebook/</link>
+        <description>jupyter notebook - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/jupyter-notebook/" rel="self" type="application/rss+xml" /><item>
+    <title>将google-colab的代码嵌入网站</title>
+    <link>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</link>
+    <pubDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</guid>
+    <description><![CDATA[<p>RT，在网站中显示notebook Python代码</p>]]></description>
+</item>
+<item>
+    <title>服务器部署JupyterLab以供远程访问</title>
+    <link>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</link>
+    <pubDate>Sun, 18 Sep 2022 21:06:04 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/09/jupyter_notebook_on_server/</guid>
+    <description><![CDATA[<p>在服务器上部署JupyterLab供远程访问并Coding</p>]]></description>
+</item>
+<item>
+    <title>最新版jupyter notebook导出为PDF</title>
+    <link>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</link>
+    <pubDate>Sun, 07 Aug 2022 16:19:50 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/08/jupyter_notebook-convert_to_pdf/</guid>
+    <description><![CDATA[<p>RT，关于jupyter notebook导出为PDF的那些事儿</p>]]></description>
+</item>
+</channel>
 </rss>

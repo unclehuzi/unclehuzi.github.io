@@ -1,19 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pandas on H.W.</title>
-    <link>https://unclehuzi.github.io/tags/pandas/</link>
-    <description>Recent content in pandas on H.W.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 16 Dec 2021 10:28:01 +0800</lastBuildDate>
-    <atom:link href="https://unclehuzi.github.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>pandas.qcut及一个很奇怪的bug</title>
-      <link>https://unclehuzi.github.io/posts/da-pandas-qcut/</link>
-      <pubDate>Thu, 16 Dec 2021 10:28:01 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/da-pandas-qcut/</guid>
-      <description>&lt;p&gt;最近用 &lt;code&gt;pandas.qcut&lt;/code&gt; 分箱遇到了个很奇怪的bug，先Mark一波&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>pandas - Tag - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/tags/pandas/</link>
+        <description>pandas - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Thu, 16 Dec 2021 10:28:01 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/pandas/" rel="self" type="application/rss+xml" /><item>
+    <title>pandas.qcut及一个很奇怪的bug</title>
+    <link>https://unclehuzi.github.io/2021/12/da-pandas-qcut/</link>
+    <pubDate>Thu, 16 Dec 2021 10:28:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2021/12/da-pandas-qcut/</guid>
+    <description><![CDATA[<p>最近用 <code>pandas.qcut</code> 分箱遇到了个很奇怪的bug，先Mark一波</p>]]></description>
+</item>
+</channel>
 </rss>

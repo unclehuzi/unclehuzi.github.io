@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>生活 on H.W.</title>
-    <link>https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
-    <description>Recent content in 生活 on H.W.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 17 Jun 2024 18:07:29 +0800</lastBuildDate>
-    <atom:link href="https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>上海驾考报名费用记录</title>
-      <link>https://unclehuzi.github.io/posts/life-driving_license_pre/</link>
-      <pubDate>Mon, 17 Jun 2024 18:07:29 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-driving_license_pre/</guid>
-      <description>&lt;p&gt;总算是持证了&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>科目三_道路行驶</title>
-      <link>https://unclehuzi.github.io/posts/life-driving_license_third/%E7%A7%91%E7%9B%AE%E4%B8%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
-      <pubDate>Wed, 12 Jun 2024 20:46:11 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-driving_license_third/%E7%A7%91%E7%9B%AE%E4%B8%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
-      <description>上海浦东邮佳考点
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>生活 - Category - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
+        <description>生活 - Category - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 17 Jun 2024 18:07:29 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/categories/%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>上海驾考报名费用记录</title>
+    <link>https://unclehuzi.github.io/2024/06/life-driving_license_pre/</link>
+    <pubDate>Mon, 17 Jun 2024 18:07:29 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/06/life-driving_license_pre/</guid>
+    <description><![CDATA[<p>总算是持证了&hellip;</p>]]></description>
+</item>
+<item>
+    <title>科目三_道路行驶</title>
+    <link>https://unclehuzi.github.io/2024/06/%E7%A7%91%E7%9B%AE%E4%B8%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link>
+    <pubDate>Wed, 12 Jun 2024 20:46:11 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/06/%E7%A7%91%E7%9B%AE%E4%B8%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid>
+    <description><![CDATA[上海浦东邮佳考点
 个人考试情况 考了两次😂，这篇文档是在第一次没过的情况下整理的，算是自己捋一捋注意事项，分为通用性的 和 实际考点路线的
-第一次是 2024年05月27日 失误点 路口忘记减速踩刹车 直线行驶不稳 我自己没感受到，复盘原因应该是躺着的坐姿比较慵懒、影响前方事项 第二次是 2024年06月13日 体验很不好，车管所系统出了BUG，信息录不上，等了3个半小时吧&amp;hellip;&amp;hellip; 失误点 没想到夜间灯光项目刚开始就挂了😂 人行横道得打下双闪 好在第二把过了😂
+第一次是 2024年05月27日 失误点 路口忘记减速踩刹车 直线行驶不稳 我自己没感受到，复盘原因应该是躺着的坐姿比较慵懒、影响前方事项 第二次是 2024年06月13日 体验很不好，车管所系统出了BUG，信息录不上，等了3个半小时吧&hellip;&hellip; 失误点 没想到夜间灯光项目刚开始就挂了😂 人行横道得打下双闪 好在第二把过了😂
 实话，有点紧张的 好在整理了这篇文档，还意外发现0527的请假类型选的是事假😂 紧急联系了下公司人事给改了过来，感谢～
 ‍
-通用性注意事项： 全程背部挺直，要有精气神，不要躺着开，会影响（直线行驶）视线 起步。左转向灯，踩刹车后，挂档，手刹 只要打了转向灯，就必须等跳了6下后再动方向盘 顺车掉头打的是**左转向灯**，打错了没关系，等跳了6下后再改正 看到路口、公交站、学校，就放慢速度（&amp;lt;30），快到的样子，重踩刹车 直线行驶的时候，动了一点方向盘后立马就要回正 靠边停车双保险（小镜子、后视镜；雨刮器与边线的关系） 留意每个考场，自行加速⏩ 40～60的地段 ‍
+通用性注意事项： 全程背部挺直，要有精气神，不要躺着开，会影响（直线行驶）视线 起步。左转向灯，踩刹车后，挂档，手刹 只要打了转向灯，就必须等跳了6下后再动方向盘 顺车掉头打的是**左转向灯**，打错了没关系，等跳了6下后再改正 看到路口、公交站、学校，就放慢速度（&lt;30），快到的样子，重踩刹车 直线行驶的时候，动了一点方向盘后立马就要回正 靠边停车双保险（小镜子、后视镜；雨刮器与边线的关系） 留意每个考场，自行加速⏩ 40～60的地段 ‍
 各考试路线 ‍
 2️⃣号线 路口记得踩刹车、打左转向灯⬅️ 超过6下，再动方向盘
 左转弯过来之后，速度放慢，有公交站，踩刹车、速度30以内
@@ -38,99 +32,56 @@
 “直线行驶”结束后，有个公交站，刹车
 右转后靠边停车，P档、手刹、熄火、安全带、下车
 ​​
-4️⃣号线 ​ ​
-直行 🚥 ，左转弯， 🚥 公交车站 右转弯 🚥，发动机盖没过柏油马路边线打方向 加速⏩ 40～60的速度，准备直线行驶项目 “顺车掉头” 向右变道，速度逐渐减慢，经过学校 “超车”项目，向左变道，准备左转弯 公交车站，点刹，准备右转弯 靠边停车项目 1️⃣号线 ​ ​</description>
-    </item>
-    <item>
-      <title>临考急救宝典</title>
-      <link>https://unclehuzi.github.io/posts/life-driving_license_p3/</link>
-      <pubDate>Mon, 04 Mar 2024 10:01:52 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-driving_license_p3/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>通行原则、标志标线</title>
-      <link>https://unclehuzi.github.io/posts/life-driving_license_p2/</link>
-      <pubDate>Mon, 04 Mar 2024 10:01:47 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-driving_license_p2/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>扣分、罚款、判刑汇总</title>
-      <link>https://unclehuzi.github.io/posts/life-driving_license_p1/</link>
-      <pubDate>Mon, 04 Mar 2024 10:01:42 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-driving_license_p1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>这一天天的碎碎念</title>
-      <link>https://unclehuzi.github.io/posts/life-muttering_daily/</link>
-      <pubDate>Fri, 16 Feb 2024 14:09:27 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-muttering_daily/</guid>
-      <description>&lt;p&gt;跟踪下每天的碎碎念，是不是依然在原地踏步，什么时候能换换？？？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>幸好我离职，了？</title>
-      <link>https://unclehuzi.github.io/posts/life-hualihushao/</link>
-      <pubDate>Mon, 29 Jan 2024 11:38:07 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-hualihushao/</guid>
-      <description>&lt;p&gt;最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>我被微信管制了...</title>
-      <link>https://unclehuzi.github.io/posts/notes-black_swan/</link>
-      <pubDate>Sat, 03 Dec 2022 13:30:49 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/notes-black_swan/</guid>
-      <description>&lt;p&gt;我被微信管制了，微信又被谁管制呢？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>2022年3月上海新冠疫情流水账</title>
-      <link>https://unclehuzi.github.io/posts/life-covid_19-observation/</link>
-      <pubDate>Tue, 05 Apr 2022 10:24:07 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-covid_19-observation/</guid>
-      <description>&lt;p&gt;2022年3月上海， 🦠&lt;a href=&#34;https://en.wikipedia.org/wiki/COVID-19&#34;&gt;新冠&lt;/a&gt;病毒迎来&lt;a href=&#34;https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant&#34;&gt;“奥密克戎”&lt;/a&gt;。我作为一个观察者记录客观结果/消息&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>感悟？=&gt;原则？</title>
-      <link>https://unclehuzi.github.io/posts/life-thoughts/</link>
-      <pubDate>Sat, 29 Jan 2022 10:43:35 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-thoughts/</guid>
-      <description>&lt;p&gt;试图记录📝一些感悟，有些东西记着记着就成「原则」了吧&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>【转载】不纠结过去的事，人生只能向前看</title>
-      <link>https://unclehuzi.github.io/posts/life-forward/</link>
-      <pubDate>Sat, 15 Jan 2022 13:10:48 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-forward/</guid>
-      <description>&lt;p&gt;巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>回顾2021，展望2022</title>
-      <link>https://unclehuzi.github.io/posts/life-new-year-2022/</link>
-      <pubDate>Sat, 01 Jan 2022 11:55:01 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-new-year-2022/</guid>
-      <description>&lt;p&gt;限制 &lt;code&gt;pday&lt;/code&gt; 分区时，开头要写 &lt;code&gt;2022&lt;/code&gt; 了&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>X战警系列观影顺序</title>
-      <link>https://unclehuzi.github.io/posts/life-movie-x-men/</link>
-      <pubDate>Fri, 19 Nov 2021 22:01:27 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-movie-x-men/</guid>
-      <description>&lt;p&gt;最近在撸 X战警系列的电影，从故事的时间线维度出发，整理现有影片的观影顺序&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>记毕业后第一次与导师的晚餐</title>
-      <link>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</link>
-      <pubDate>Tue, 07 Sep 2021 09:48:49 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-%E4%B8%8E%E5%AF%BC%E5%B8%88%E7%9A%84%E6%99%9A%E9%A4%90/</guid>
-      <description>&lt;p&gt;在疫情的情况下毕业了🎓，时隔一年2个月，我们终于是和导师成功约饭了&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>如果真的什么都不用想</title>
-      <link>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</link>
-      <pubDate>Sun, 05 Sep 2021 16:44:01 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/</guid>
-      <description>&lt;p&gt;不知不觉，离开学校已经有1年2个月了。。。&lt;/p&gt;</description>
-    </item>
-  </channel>
+4️⃣号线 ​​
+直行 🚥 ，左转弯， 🚥 公交车站 右转弯 🚥，发动机盖没过柏油马路边线打方向 加速⏩ 40～60的速度，准备直线行驶项目 “顺车掉头” 向右变道，速度逐渐减慢，经过学校 “超车”项目，向左变道，准备左转弯 公交车站，点刹，准备右转弯 靠边停车项目 1️⃣号线 ​​]]></description>
+</item>
+<item>
+    <title>临考急救宝典</title>
+    <link>https://unclehuzi.github.io/2024/03/life-driving_license_p3/</link>
+    <pubDate>Mon, 04 Mar 2024 10:01:52 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/03/life-driving_license_p3/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>通行原则、标志标线</title>
+    <link>https://unclehuzi.github.io/2024/03/life-driving_license_p2/</link>
+    <pubDate>Mon, 04 Mar 2024 10:01:47 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/03/life-driving_license_p2/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>扣分、罚款、判刑汇总</title>
+    <link>https://unclehuzi.github.io/2024/03/life-driving_license_p1/</link>
+    <pubDate>Mon, 04 Mar 2024 10:01:42 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/03/life-driving_license_p1/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>这一天天的碎碎念</title>
+    <link>https://unclehuzi.github.io/2024/02/life-muttering_daily/</link>
+    <pubDate>Fri, 16 Feb 2024 14:09:27 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/02/life-muttering_daily/</guid>
+    <description><![CDATA[<p>跟踪下每天的碎碎念，是不是依然在原地踏步，什么时候能换换？？？</p>]]></description>
+</item>
+<item>
+    <title>幸好我离职，了？</title>
+    <link>https://unclehuzi.github.io/2024/01/life-hualihushao/</link>
+    <pubDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/01/life-hualihushao/</guid>
+    <description><![CDATA[<p>最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬</p>]]></description>
+</item>
+<item>
+    <title>我被微信管制了...</title>
+    <link>https://unclehuzi.github.io/2022/12/notes-black_swan/</link>
+    <pubDate>Sat, 03 Dec 2022 13:30:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/12/notes-black_swan/</guid>
+    <description><![CDATA[<p>我被微信管制了，微信又被谁管制呢？</p>]]></description>
+</item>
+<item>
+    <title>2022年3月上海新冠疫情流水账</title>
+    <link>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</link>
+    <pubDate>Tue, 05 Apr 2022 10:24:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/04/life-covid_19-observation/</guid>
+    <description><![CDATA[<p>2022年3月上海， 🦠<a href="https://en.wikipedia.org/wiki/COVID-19" target="_blank" rel="noopener noreffer">新冠</a>病毒迎来<a href="https://en.wikipedia.org/wiki/SARS-CoV-2_Omicron_variant" target="_blank" rel="noopener noreffer">“奥密克戎”</a>。我作为一个观察者记录客观结果/消息</p>]]></description>
+</item>
+<item>
+    <title>感悟？=&gt;原则？</title>
+    <link>https://unclehuzi.github.io/2022/01/life-thoughts/</link>
+    <pubDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-thoughts/</guid>
+    <description><![CDATA[<p>试图记录📝一些感悟，有些东西记着记着就成「原则」了吧</p>]]></description>
+</item>
+</channel>
 </rss>

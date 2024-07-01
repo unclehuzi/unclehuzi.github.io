@@ -1,26 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>总结与展望 on H.W.</title>
-    <link>https://unclehuzi.github.io/tags/%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/</link>
-    <description>Recent content in 总结与展望 on H.W.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 29 Jan 2024 11:38:07 +0800</lastBuildDate>
-    <atom:link href="https://unclehuzi.github.io/tags/%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>幸好我离职，了？</title>
-      <link>https://unclehuzi.github.io/posts/life-hualihushao/</link>
-      <pubDate>Mon, 29 Jan 2024 11:38:07 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-hualihushao/</guid>
-      <description>&lt;p&gt;最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>回顾2021，展望2022</title>
-      <link>https://unclehuzi.github.io/posts/life-new-year-2022/</link>
-      <pubDate>Sat, 01 Jan 2022 11:55:01 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-new-year-2022/</guid>
-      <description>&lt;p&gt;限制 &lt;code&gt;pday&lt;/code&gt; 分区时，开头要写 &lt;code&gt;2022&lt;/code&gt; 了&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>总结与展望 - Tag - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/tags/%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/</link>
+        <description>总结与展望 - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E6%80%BB%E7%BB%93%E4%B8%8E%E5%B1%95%E6%9C%9B/" rel="self" type="application/rss+xml" /><item>
+    <title>幸好我离职，了？</title>
+    <link>https://unclehuzi.github.io/2024/01/life-hualihushao/</link>
+    <pubDate>Mon, 29 Jan 2024 11:38:07 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/01/life-hualihushao/</guid>
+    <description><![CDATA[<p>最近得知前司曾经的团队因为年终绩效考核的事儿搞得花里胡哨，局面一度陷入尴尬</p>]]></description>
+</item>
+<item>
+    <title>回顾2021，展望2022</title>
+    <link>https://unclehuzi.github.io/2022/01/life-new-year-2022/</link>
+    <pubDate>Sat, 01 Jan 2022 11:55:01 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-new-year-2022/</guid>
+    <description><![CDATA[<p>限制 <code>pday</code> 分区时，开头要写 <code>2022</code> 了</p>]]></description>
+</item>
+</channel>
 </rss>

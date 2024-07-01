@@ -1,26 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>鸡汤 on H.W.</title>
-    <link>https://unclehuzi.github.io/tags/%E9%B8%A1%E6%B1%A4/</link>
-    <description>Recent content in 鸡汤 on H.W.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 29 Jan 2022 10:43:35 +0800</lastBuildDate>
-    <atom:link href="https://unclehuzi.github.io/tags/%E9%B8%A1%E6%B1%A4/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>感悟？=&gt;原则？</title>
-      <link>https://unclehuzi.github.io/posts/life-thoughts/</link>
-      <pubDate>Sat, 29 Jan 2022 10:43:35 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-thoughts/</guid>
-      <description>&lt;p&gt;试图记录📝一些感悟，有些东西记着记着就成「原则」了吧&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>【转载】不纠结过去的事，人生只能向前看</title>
-      <link>https://unclehuzi.github.io/posts/life-forward/</link>
-      <pubDate>Sat, 15 Jan 2022 13:10:48 +0800</pubDate>
-      <guid>https://unclehuzi.github.io/posts/life-forward/</guid>
-      <description>&lt;p&gt;巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。&lt;/p&gt;</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>鸡汤 - Tag - 胡子叔叔的小站</title>
+        <link>https://unclehuzi.github.io/tags/%E9%B8%A1%E6%B1%A4/</link>
+        <description>鸡汤 - Tag - 胡子叔叔的小站</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/tags/%E9%B8%A1%E6%B1%A4/" rel="self" type="application/rss+xml" /><item>
+    <title>感悟？=&gt;原则？</title>
+    <link>https://unclehuzi.github.io/2022/01/life-thoughts/</link>
+    <pubDate>Sat, 29 Jan 2022 10:43:35 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-thoughts/</guid>
+    <description><![CDATA[<p>试图记录📝一些感悟，有些东西记着记着就成「原则」了吧</p>]]></description>
+</item>
+<item>
+    <title>【转载】不纠结过去的事，人生只能向前看</title>
+    <link>https://unclehuzi.github.io/2022/01/life-forward/</link>
+    <pubDate>Sat, 15 Jan 2022 13:10:48 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2022/01/life-forward/</guid>
+    <description><![CDATA[<p>巴菲特：不纠结过去的事，纠结也没用。人生只能向前看。</p>]]></description>
+</item>
+</channel>
 </rss>
