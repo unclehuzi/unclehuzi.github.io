@@ -4,7 +4,19 @@
         <link>https://unclehuzi.github.io/posts/</link>
         <description>All Posts | 胡子叔叔的小站</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>weihu0730@gmail.com (胡子叔叔)</managingEditor>
-            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Mon, 17 Jun 2024 18:07:29 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>weihu0730@gmail.com (胡子叔叔)</webMaster><lastBuildDate>Fri, 05 Jul 2024 09:17:49 &#43;0800</lastBuildDate><atom:link href="https://unclehuzi.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>沪牌数据记录</title>
+    <link>https://unclehuzi.github.io/2024/07/life-hupai/</link>
+    <pubDate>Fri, 05 Jul 2024 09:17:49 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/07/life-hupai/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>我希望选购羽毛球相关的看这一篇就够了</title>
+    <link>https://unclehuzi.github.io/2024/07/life-badminton_equipments/</link>
+    <pubDate>Mon, 01 Jul 2024 11:13:37 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/07/life-badminton_equipments/</guid>
+    <description><![CDATA[<p>目前更多是记录自己了解到的信息</p>]]></description>
+</item>
+<item>
     <title>上海驾考报名费用记录</title>
     <link>https://unclehuzi.github.io/2024/06/life-driving_license_pre/</link>
     <pubDate>Mon, 17 Jun 2024 18:07:29 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2024/06/life-driving_license_pre/</guid>
@@ -70,18 +82,6 @@
     <link>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</link>
     <pubDate>Sat, 30 Sep 2023 18:56:15 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/blog-google_colab_embedded/</guid>
     <description><![CDATA[<p>RT，在网站中显示notebook Python代码</p>]]></description>
-</item>
-<item>
-    <title>macOS通过homebrew安装anaconda</title>
-    <link>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</link>
-    <pubDate>Sat, 16 Sep 2023 19:47:40 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/python-macos_install_anaconda_by_homebrew/</guid>
-    <description><![CDATA[<p>RT，记录下安装流程，防止迷路</p>]]></description>
-</item>
-<item>
-    <title>coursera课程-Review of distributions</title>
-    <link>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</link>
-    <pubDate>Sun, 03 Sep 2023 17:16:55 &#43;0800</pubDate><author>weihu0730@gmail.com (胡子叔叔)</author><guid>https://unclehuzi.github.io/2023/09/da-bayesian_statistics-coursera-from_concept_to_data_analysis-review_of_distributions/</guid>
-    <description><![CDATA[coursera上贝叶斯统计专项课程]]></description>
 </item>
 </channel>
 </rss>
